@@ -1,0 +1,90 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.algodatta</groupId>
+  <artifactId>tesco-sdet-automation</artifactId>
+  <version>1.0.0</version>
+  <packaging>pom</packaging>
+
+  <modules>
+    <module>framework-core</module>
+    <module>framework-ui</module>
+    <module>framework-api</module>
+    <module>mocks</module>
+    <module>tests</module>
+  </modules>
+
+  <properties>
+    <maven.compiler.source>17</maven.compiler.source>
+    <maven.compiler.target>17</maven.compiler.target>
+
+    <testng.version>7.10.2</testng.version>
+    <selenium.version>4.22.0</selenium.version>
+    <webdrivermanager.version>5.8.0</webdrivermanager.version>
+
+    <restassured.version>5.5.0</restassured.version>
+    <jackson.version>2.17.2</jackson.version>
+
+    <extentreports.version>5.1.2</extentreports.version>
+    <slf4j.version>2.0.13</slf4j.version>
+    <logback.version>1.5.6</logback.version>
+
+    <allure.version>2.27.0</allure.version>
+    <allure.maven.version>2.12.0</allure.maven.version>
+
+    <commons-io.version>2.16.1</commons-io.version>
+    <wiremock.version>2.35.1</wiremock.version>
+    <postgres.version>42.7.3</postgres.version>
+    <hikari.version>5.1.0</hikari.version>
+
+    <env>qa</env>
+    <runMode>local</runMode>
+    <browser>chrome</browser>
+    <headless>false</headless>
+    <threads>4</threads>
+    <suiteXml>testng/smoke.xml</suiteXml>
+    <groups></groups>
+    <retry>0</retry>
+    <gridUrl>http://localhost:4444/wd/hub</gridUrl>
+
+    <allure.results.directory>${project.build.directory}/allure-results</allure.results.directory>
+  </properties>
+
+  <dependencyManagement>
+    <dependencies>
+      <dependency><groupId>org.testng</groupId><artifactId>testng</artifactId><version>${testng.version}</version></dependency>
+      <dependency><groupId>org.seleniumhq.selenium</groupId><artifactId>selenium-java</artifactId><version>${selenium.version}</version></dependency>
+      <dependency><groupId>io.github.bonigarcia</groupId><artifactId>webdrivermanager</artifactId><version>${webdrivermanager.version}</version></dependency>
+      <dependency><groupId>io.rest-assured</groupId><artifactId>rest-assured</artifactId><version>${restassured.version}</version></dependency>
+      <dependency><groupId>io.rest-assured</groupId><artifactId>json-schema-validator</artifactId><version>${restassured.version}</version></dependency>
+      <dependency><groupId>com.fasterxml.jackson.core</groupId><artifactId>jackson-databind</artifactId><version>${jackson.version}</version></dependency>
+      <dependency><groupId>com.aventstack</groupId><artifactId>extentreports</artifactId><version>${extentreports.version}</version></dependency>
+      <dependency><groupId>io.qameta.allure</groupId><artifactId>allure-testng</artifactId><version>${allure.version}</version></dependency>
+      <dependency><groupId>org.slf4j</groupId><artifactId>slf4j-api</artifactId><version>${slf4j.version}</version></dependency>
+      <dependency><groupId>ch.qos.logback</groupId><artifactId>logback-classic</artifactId><version>${logback.version}</version></dependency>
+      <dependency><groupId>commons-io</groupId><artifactId>commons-io</artifactId><version>${commons-io.version}</version></dependency>
+      <dependency><groupId>com.github.tomakehurst</groupId><artifactId>wiremock-jre8</artifactId><version>${wiremock.version}</version></dependency>
+      <dependency><groupId>org.postgresql</groupId><artifactId>postgresql</artifactId><version>${postgres.version}</version></dependency>
+      <dependency><groupId>com.zaxxer</groupId><artifactId>HikariCP</artifactId><version>${hikari.version}</version></dependency>
+    </dependencies>
+  </dependencyManagement>
+
+  <build>
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <groupId>io.qameta.allure</groupId>
+          <artifactId>allure-maven</artifactId>
+          <version>${allure.maven.version}</version>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+  </build>
+
+  <profiles>
+    <profile><id>dev</id><properties><env>dev</env></properties></profile>
+    <profile><id>qa</id><properties><env>qa</env></properties></profile>
+    <profile><id>stage</id><properties><env>stage</env></properties></profile>
+  </profiles>
+</project>

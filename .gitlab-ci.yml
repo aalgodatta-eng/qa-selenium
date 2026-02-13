@@ -1,0 +1,22 @@
+stages: [test, report]
+
+test:
+  stage: test
+  image: maven:3.9.8-eclipse-temurin-17
+  script:
+    - mvn clean test -pl tests -Denv=qa -DrunMode=local -Dbrowser=chrome -DsuiteXml=testng/smoke.xml
+  artifacts:
+    when: always
+    paths:
+      - tests/target/
+
+allure_report:
+  stage: report
+  image: maven:3.9.8-eclipse-temurin-17
+  script:
+    - mvn -pl tests allure:report || true
+    - cp -f tests/src/test/resources/allure-categories.json tests/target/site/allure-maven-plugin/categories.json || true
+  artifacts:
+    when: always
+    paths:
+      - tests/target/site/allure-maven-plugin/

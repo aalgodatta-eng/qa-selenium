@@ -1,0 +1,12 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>com.algodatta</groupId>
+    <artifactId>tesco-sdet-automation</artifactId>
+    <version>1.0.0</version>
+  </parent>
+  <artifactId>mocks</artifactId>
+  <dependencies>
+    <dependency><groupId>com.github.tomakehurst</groupId><artifactId>wiremock-jre8</artifactId></dependency>
+  </dependencies>
+</project>

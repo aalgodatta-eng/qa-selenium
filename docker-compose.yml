@@ -1,0 +1,46 @@
+version: "3.8"
+services:
+  selenium-hub:
+    image: selenium/hub:4.22.0
+    ports: ["4444:4444"]
+    environment:
+      - SE_ENABLE_TRACING=false
+  chrome:
+    image: selenium/node-chrome:4.22.0
+    depends_on: [selenium-hub]
+    shm_size: "2gb"
+    environment:
+      - SE_EVENT_BUS_HOST=selenium-hub
+      - SE_EVENT_BUS_PUBLISH_PORT=4442
+      - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
+      - SE_NODE_MAX_SESSIONS=4
+      - SE_NODE_OVERRIDE_MAX_SESSIONS=true
+      - SE_ENABLE_VNC=true
+    ports: ["7901:7900"]
+    volumes: ["/dev/shm:/dev/shm"]
+  firefox:
+    image: selenium/node-firefox:4.22.0
+    depends_on: [selenium-hub]
+    shm_size: "2gb"
+    environment:
+      - SE_EVENT_BUS_HOST=selenium-hub
+      - SE_EVENT_BUS_PUBLISH_PORT=4442
+      - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
+      - SE_NODE_MAX_SESSIONS=4
+      - SE_NODE_OVERRIDE_MAX_SESSIONS=true
+      - SE_ENABLE_VNC=true
+    ports: ["7902:7900"]
+    volumes: ["/dev/shm:/dev/shm"]
+  edge:
+    image: selenium/node-edge:4.22.0
+    depends_on: [selenium-hub]
+    shm_size: "2gb"
+    environment:
+      - SE_EVENT_BUS_HOST=selenium-hub
+      - SE_EVENT_BUS_PUBLISH_PORT=4442
+      - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
+      - SE_NODE_MAX_SESSIONS=4
+      - SE_NODE_OVERRIDE_MAX_SESSIONS=true
+      - SE_ENABLE_VNC=true
+    ports: ["7903:7900"]
+    volumes: ["/dev/shm:/dev/shm"]
