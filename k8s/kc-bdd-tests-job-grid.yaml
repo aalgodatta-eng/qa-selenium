@@ -1,0 +1,26 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: kc-bdd-tests-grid
+spec:
+  backoffLimit: 0
+  template:
+    spec:
+      restartPolicy: Never
+      containers:
+        - name: bdd-tests
+          image: kc-bdd-tests:latest
+          imagePullPolicy: IfNotPresent
+          env:
+            - name: ENV
+              value: "qa"
+            - name: RUNMODE
+              value: "grid"
+            - name: GRIDURL
+              value: "http://selenium-hub:4444/wd/hub"
+            - name: BROWSER
+              value: "chrome"
+            - name: HEADLESS
+              value: "true"
+            - name: TAGS
+              value: "@ui"

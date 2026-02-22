@@ -1,0 +1,74 @@
+Create a Local Cluster
+
+Since you're on Windows + WSL + Docker Desktop, the cleanest setup is:
+
+✅ Use kind (Kubernetes in Docker)
+
+It works perfectly with Docker + Jenkins.
+
+🔧 Step 1 — Install kind (inside WSL)
+
+Open WSL terminal and run:
+
+curl -Lo ./kind https://kind.sigs.k8s.io/dl/latest/kind-linux-amd64
+chmod +x ./kind
+sudo mv ./kind /usr/local/bin/kind
+
+Verify:
+
+kind version
+🔧 Step 2 — Create Cluster
+kind create cluster --name qe-cluster
+
+Wait 1–2 minutes.
+
+Then test:
+
+kubectl get nodes
+
+You should see:
+
+qe-cluster-control-plane   Ready
+🔧 Step 3 — Copy kubeconfig to Windows
+
+Now your kubeconfig exists in WSL:
+
+/home/kotc/.kube/config
+
+Copy it:
+
+mkdir -p /mnt/c/Users/malth/.kube
+cp ~/.kube/config /mnt/c/Users/malth/.kube/config
+🔧 Step 4 — Restart Jenkins
+docker compose -f docker-compose-jenkins.yml restart jenkins
+🔧 Step 5 — Verify Inside Jenkins
+docker exec -it jenkins bash -lc "kubectl config get-contexts"
+docker exec -it jenkins bash -lc "kubectl get nodes"
+
+Now it should work ✅
+
+🏆 Why kind Is Perfect for Your QE Framework
+
+Runs on Docker
+
+Works with Jenkins Docker
+
+Supports Helm
+
+Supports parallel test jobs
+
+Perfect for CI/CD
+
+Lightweight
+
+No cloud dependency
+
+📌 After This Works
+
+We will test:
+
+RUN_TARGET=k8s
+
+Then:
+
+RUN_TARGET=both

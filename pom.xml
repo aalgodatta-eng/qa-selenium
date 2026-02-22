@@ -3,7 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>com.algodatta</groupId>
-  <artifactId>tesco-sdet-automation</artifactId>
+  <artifactId>kc-sdet-automation</artifactId>
   <version>1.0.0</version>
   <packaging>pom</packaging>
 
@@ -16,8 +16,12 @@
   </modules>
 
   <properties>
-    <maven.compiler.source>17</maven.compiler.source>
-    <maven.compiler.target>17</maven.compiler.target>
+        <maven.build.timestamp.format>yyyyMMdd-HHmmss</maven.build.timestamp.format>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
 
     <testng.version>7.10.2</testng.version>
     <selenium.version>4.22.0</selenium.version>
@@ -49,6 +53,14 @@
     <gridUrl>http://localhost:4444/wd/hub</gridUrl>
 
     <allure.results.directory>${project.build.directory}/allure-results</allure.results.directory>
+      <cucumber.version>7.18.0</cucumber.version>
+
+      <extent.cucumber7.adapter.version>1.14.0</extent.cucumber7.adapter.version>
+
+      <reportportal.cucumber7.agent.version>5.4.5</reportportal.cucumber7.agent.version>
+
+      <reportportal.logback.version>5.4.0</reportportal.logback.version>
+
   </properties>
 
   <dependencyManagement>
@@ -59,6 +71,8 @@
       <dependency><groupId>io.rest-assured</groupId><artifactId>rest-assured</artifactId><version>${restassured.version}</version></dependency>
       <dependency><groupId>io.rest-assured</groupId><artifactId>json-schema-validator</artifactId><version>${restassured.version}</version></dependency>
       <dependency><groupId>com.fasterxml.jackson.core</groupId><artifactId>jackson-databind</artifactId><version>${jackson.version}</version></dependency>
+      <dependency><groupId>com.fasterxml.jackson.core</groupId><artifactId>jackson-core</artifactId><version>${jackson.version}</version></dependency>
+      <dependency><groupId>com.fasterxml.jackson.core</groupId><artifactId>jackson-annotations</artifactId><version>${jackson.version}</version></dependency>
       <dependency><groupId>com.aventstack</groupId><artifactId>extentreports</artifactId><version>${extentreports.version}</version></dependency>
       <dependency><groupId>io.qameta.allure</groupId><artifactId>allure-testng</artifactId><version>${allure.version}</version></dependency>
       <dependency><groupId>org.slf4j</groupId><artifactId>slf4j-api</artifactId><version>${slf4j.version}</version></dependency>
@@ -67,24 +81,101 @@
       <dependency><groupId>com.github.tomakehurst</groupId><artifactId>wiremock-jre8</artifactId><version>${wiremock.version}</version></dependency>
       <dependency><groupId>org.postgresql</groupId><artifactId>postgresql</artifactId><version>${postgres.version}</version></dependency>
       <dependency><groupId>com.zaxxer</groupId><artifactId>HikariCP</artifactId><version>${hikari.version}</version></dependency>
-    </dependencies>
+
+      <!-- Cucumber BDD -->
+      <dependency><groupId>io.cucumber</groupId><artifactId>cucumber-java</artifactId><version>${cucumber.version}</version></dependency>
+      <dependency><groupId>io.cucumber</groupId><artifactId>cucumber-testng</artifactId><version>${cucumber.version}</version></dependency>
+      <dependency><groupId>io.cucumber</groupId><artifactId>cucumber-picocontainer</artifactId><version>${cucumber.version}</version></dependency>
+      <dependency><groupId>io.cucumber</groupId><artifactId>cucumber-plugin</artifactId><version>${cucumber.version}</version></dependency>
+
+      <!-- Extent adapter for Cucumber 7 -->
+      <dependency><groupId>tech.grasshopper</groupId><artifactId>extentreports-cucumber7-adapter</artifactId><version>${extent.cucumber7.adapter.version}</version></dependency>
+
+      <!-- ReportPortal -->
+      <dependency><groupId>com.epam.reportportal</groupId><artifactId>agent-java-cucumber7</artifactId><version>${reportportal.cucumber7.agent.version}</version></dependency>
+      <dependency><groupId>com.epam.reportportal</groupId><artifactId>logger-java-logback</artifactId><version>${reportportal.logback.version}</version></dependency>
+
+</dependencies>
   </dependencyManagement>
 
   <build>
+    <!--
+      IMPORTANT (fixes your error):
+      Do NOT use javac "- -release" here.
+      Some Windows/Jenkins setups inject JAVA_TOOL_OPTIONS with "- -add-exports jdk.httpserver/...".
+      javac rejects such options when - -release is used, causing:
+        "exporting a package from system module jdk.httpserver is not allowed with - -release"
+      Using source/target avoids the release flag and keeps builds stable.
+    -->
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.13.0</version>
+        <configuration>
+          <source>${maven.compiler.source}</source>
+          <target>${maven.compiler.target}</target>
+          <encoding>${project.build.sourceEncoding}</encoding>
+        </configuration>
+      </plugin>
+
+      <!-- Explicit version prevents warnings like: 'build.plugins.plugin.version' ... is missing -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>3.2.5</version>
+      </plugin>
+
+      <plugin>
+        <groupId>io.qameta.allure</groupId>
+        <artifactId>allure-maven</artifactId>
+        <version>${allure.maven.version}</version>
+      </plugin>
+    </plugins>
+
     <pluginManagement>
       <plugins>
         <plugin>
-          <groupId>io.qameta.allure</groupId>
-          <artifactId>allure-maven</artifactId>
-          <version>${allure.maven.version}</version>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-compiler-plugin</artifactId>
+          <version>3.13.0</version>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-surefire-plugin</artifactId>
+          <version>3.2.5</version>
         </plugin>
       </plugins>
     </pluginManagement>
   </build>
 
   <profiles>
-    <profile><id>dev</id><properties><env>dev</env></properties></profile>
-    <profile><id>qa</id><properties><env>qa</env></properties></profile>
-    <profile><id>stage</id><properties><env>stage</env></properties></profile>
+    <profile><id>dev</id><properties><env>dev</env>    <cucumber.version>7.18.0</cucumber.version>
+
+      <extent.cucumber7.adapter.version>1.14.0</extent.cucumber7.adapter.version>
+
+      <reportportal.cucumber7.agent.version>5.4.5</reportportal.cucumber7.agent.version>
+
+      <reportportal.logback.version>5.4.0</reportportal.logback.version>
+
+  </properties></profile>
+    <profile><id>qa</id><properties><env>qa</env>    <cucumber.version>7.18.0</cucumber.version>
+
+      <extent.cucumber7.adapter.version>1.14.0</extent.cucumber7.adapter.version>
+
+      <reportportal.cucumber7.agent.version>5.4.5</reportportal.cucumber7.agent.version>
+
+      <reportportal.logback.version>5.4.0</reportportal.logback.version>
+
+  </properties></profile>
+    <profile><id>stage</id><properties><env>stage</env>    <cucumber.version>7.18.0</cucumber.version>
+
+      <extent.cucumber7.adapter.version>1.14.0</extent.cucumber7.adapter.version>
+
+      <reportportal.cucumber7.agent.version>5.4.5</reportportal.cucumber7.agent.version>
+
+      <reportportal.logback.version>5.4.0</reportportal.logback.version>
+
+  </properties></profile>
   </profiles>
 </project>

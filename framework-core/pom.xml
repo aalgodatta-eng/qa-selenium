@@ -2,12 +2,12 @@
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>com.algodatta</groupId>
-    <artifactId>tesco-sdet-automation</artifactId>
+    <artifactId>kc-sdet-automation</artifactId>
     <version>1.0.0</version>
   </parent>
   <artifactId>framework-core</artifactId>
   <dependencies>
-    <dependency><groupId>org.testng</groupId><artifactId>testng</artifactId><scope>provided</scope></dependency>
+    <dependency><groupId>org.testng</groupId><artifactId>testng</artifactId></dependency>
     <dependency><groupId>org.seleniumhq.selenium</groupId><artifactId>selenium-java</artifactId></dependency>
     <dependency><groupId>io.github.bonigarcia</groupId><artifactId>webdrivermanager</artifactId></dependency>
     <dependency><groupId>com.aventstack</groupId><artifactId>extentreports</artifactId></dependency>

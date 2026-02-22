@@ -1,0 +1,25 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: kc-bdd-tests
+spec:
+  backoffLimit: 0
+  template:
+    spec:
+      restartPolicy: Never
+      containers:
+        - name: bdd-tests
+          image: {{ .Values.job.image }}
+          imagePullPolicy: {{ .Values.job.imagePullPolicy }}
+          command: ["/bin/sh","-lc"]
+          args:
+            - >
+              mvn -q clean test -pl tests
+              -Denv={{ .Values.job.env }}
+              -DrunMode={{ .Values.job.runMode }}
+              -DgridUrl={{ .Values.job.gridUrl }}
+              -Dbrowser={{ .Values.job.browser }}
+              -Dheadless={{ .Values.job.headless }}
+              -Dthreads={{ .Values.job.threads }}
+              -Dcucumber.filter.tags="{{ .Values.job.tags }}"
+              -Drp.enable={{ .Values.job.enableReportPortal }};

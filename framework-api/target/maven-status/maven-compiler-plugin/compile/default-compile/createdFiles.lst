@@ -1,0 +1,4 @@
+com\algodatta\api\specs\SpecFactory.class
+com\algodatta\api\validators\ResponseValidator.class
+com\algodatta\api\validators\SchemaValidator.class
+com\algodatta\api\filters\RetryFilter.class

@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: selenium-node-firefox
+spec:
+  replicas: {{ .Values.grid.firefox.replicas }}
+  selector:
+    matchLabels:
+      app: selenium-node-firefox
+  template:
+    metadata:
+      labels:
+        app: selenium-node-firefox
+    spec:
+      containers:
+        - name: node
+          image: {{ .Values.grid.firefox.image }}
+          env:
+            - name: SE_EVENT_BUS_HOST
+              value: selenium-hub
+            - name: SE_EVENT_BUS_PUBLISH_PORT
+              value: "4442"
+            - name: SE_EVENT_BUS_SUBSCRIBE_PORT
+              value: "4443"
+            - name: SE_NODE_MAX_SESSIONS
+              value: "4"
+            - name: SE_NODE_OVERRIDE_MAX_SESSIONS
+              value: "true"

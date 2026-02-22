@@ -2,11 +2,25 @@
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>com.algodatta</groupId>
-    <artifactId>tesco-sdet-automation</artifactId>
+    <artifactId>kc-sdet-automation</artifactId>
     <version>1.0.0</version>
   </parent>
   <artifactId>mocks</artifactId>
   <dependencies>
     <dependency><groupId>com.github.tomakehurst</groupId><artifactId>wiremock-jre8</artifactId></dependency>
   </dependencies>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>3.2.5</version>
+        <configuration>
+          <skipTests>true</skipTests>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+
 </project>

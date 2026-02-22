@@ -1,0 +1,13 @@
+ui\pages\DummyLoginPage.class
+com\algodatta\hooks\VideoHooks.class
+com\algodatta\hooks\Hooks.class
+com\algodatta\runners\uiRunner.class
+ui\steps\ui\UiSteps.class
+ui\base\BaseTest.class
+ui\steps\api\ApiSteps.class
+ui\pages\HomePage.class
+com\algodatta\hooks\MockServerHooks.class
+com\algodatta\hooks\StaticSiteHooks.class
+com\algodatta\runners\ApiRunner.class
+com\algodatta\runners\ParallelRunnerBase.class
+com\algodatta\tests\ui\LoginTest.class

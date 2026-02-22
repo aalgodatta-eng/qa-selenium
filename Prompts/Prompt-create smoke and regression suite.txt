@@ -1,0 +1,26 @@
+create smoke and regression suite for https://httpbin.org/ with maximum test coverage(should include negative and positive scenarios)
+1.Debug and fix all the errors once tests are created
+2.Regression Suite must cover all the below items
+2.1.HTTP Methods: Testing different HTTP verbs 
+
+2.2.Auth: Auth methods 
+
+2.3.Status codes: Generates responses with given status code 
+
+2.4.Request inspection: Inspect the request data 
+
+2.5.Response inspection: Inspect the response data like caching and headers 
+
+2.6.Response formats: Returns responses in different data formats 
+
+2.7.Dynamic data: Generates random and dynamic data 
+
+2.8.Cookies: Creates, reads and deletes Cookies 
+
+
+2.9.Images: Returns different image formats 
+
+2.10.Redirects: Returns different redirect responses 
+
+2.11.Anything: Returns anything that is passed to request 
+

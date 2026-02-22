@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dummy UI App - KC SDET</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 30px; }
+    .card { max-width: 420px; padding: 16px; border: 1px solid #ccc; border-radius: 10px; }
+    label { display: block; margin-top: 10px; }
+    input { width: 100%; padding: 10px; margin-top: 4px; }
+    button { margin-top: 14px; padding: 10px 12px; width: 100%; cursor: pointer; }
+    #msg { margin-top: 14px; font-weight: 600; }
+  </style>
+</head>
+<body>
+  <h2>Dummy UI App (for Selenium demo)</h2>
+  <div class="card">
+    <label for="username">Username</label>
+    <input id="username" placeholder="e.g. kc" />
+    <label for="password">Password</label>
+    <input id="password" type="password" placeholder="e.g. sdet123" />
+    <button id="loginBtn">Login</button>
+    <div id="msg"></div>
+  </div>
+
+  <script>
+    const VALID_USER = "kc";
+    const VALID_PASS = "sdet123";
+    document.getElementById("loginBtn").addEventListener("click", () => {
+      const u = document.getElementById("username").value.trim();
+      const p = document.getElementById("password").value.trim();
+      const msg = document.getElementById("msg");
+      if (u === VALID_USER && p === VALID_PASS) {
+        msg.textContent = "Login successful";
+        msg.setAttribute("data-status", "success");
+      } else {
+        msg.textContent = "Invalid credentials";
+        msg.setAttribute("data-status", "error");
+      }
+    });
+  </script>
+</body>
+</html>

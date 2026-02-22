@@ -1,73 +1,62 @@
 pipeline {
   agent any
-  options { timestamps(); ansiColor('xterm') }
 
-  parameters {
-    choice(name: 'ENV', choices: ['dev', 'qa', 'stage'], description: 'Environment config')
-    choice(name: 'RUNMODE', choices: ['local', 'grid'], description: 'Execution mode')
-    choice(name: 'BROWSER', choices: ['chrome', 'firefox', 'edge'], description: 'Browser')
-    string(name: 'GRIDURL', defaultValue: 'http://localhost:4444/wd/hub', description: 'Grid URL')
-    string(name: 'SUITEXML', defaultValue: 'testng/smoke.xml', description: 'TestNG suite XML')
-    string(name: 'THREADS', defaultValue: '4', description: 'Parallel threads')
-    choice(name: 'HEADLESS', choices: ['false', 'true'], description: 'Headless mode')
-    string(name: 'RETRY', defaultValue: '0', description: 'Retry count')
+  options {
+    timestamps()
+    ansiColor('xterm')
+    disableConcurrentBuilds()
   }
 
-  environment { MVN = 'mvn -q' }
+  parameters {
+    choice(name: 'ENV', choices: ['qa'], description: 'Test environment')
+    string(name: 'TAGS', defaultValue: '@smoke', description: 'Cucumber tags to run')
+    string(name: 'THREADS', defaultValue: '2', description: 'Parallel threads')
+    booleanParam(name: 'RP_ENABLE', defaultValue: true, description: 'Enable ReportPortal reporting')
+    string(name: 'RP_ENDPOINT', defaultValue: '', description: 'ReportPortal endpoint (optional, if not in reportportal.properties)')
+    password(name: 'RP_UUID', defaultValue: '', description: 'ReportPortal API token (optional, if not in reportportal.properties)')
+    string(name: 'RP_PROJECT', defaultValue: '', description: 'ReportPortal project name (optional, if not in reportportal.properties)')
+  }
+
+  environment {
+    MAVEN_OPTS = "-Xmx1024m"
+  }
 
   stages {
-    stage('Checkout') { steps { checkout scm } }
-
-    stage('Start Selenium Grid') {
-      when { expression { params.RUNMODE == 'grid' } }
+    stage('Checkout') {
       steps {
-        sh '''
-          docker compose up -d
-          echo "Waiting for Grid..."
-          for i in {1..30}; do
-            curl -sf http://localhost:4444/status >/dev/null && break || true
-            sleep 2
-          done
-          curl -s http://localhost:4444/status | head -c 500 || true
-        '''
+        checkout scm
       }
     }
 
     stage('Build & Test') {
       steps {
-        sh '''
-          ${MVN} clean test -pl tests             -Denv=${ENV}             -DrunMode=${RUNMODE}             -Dbrowser=${BROWSER}             -Dheadless=${HEADLESS}             -DgridUrl=${GRIDURL}             -DsuiteXml=${SUITEXML}             -Dthreads=${THREADS}             -Dretry=${RETRY}
-        '''
-      }
-    }
-
-    stage('Allure Report') {
-      steps {
-        sh '''
-          mvn -q -pl tests allure:report || true
-          cp -f tests/src/test/resources/allure-categories.json tests/target/site/allure-maven-plugin/categories.json || true
-        '''
-      }
-    }
-
-    stage('Archive Artifacts') {
-      steps {
-        archiveArtifacts artifacts: '''
-          **/tests/target/extent-report/**,
-          **/tests/target/screenshots/**,
-          **/tests/target/allure-results/**,
-          **/tests/target/site/allure-maven-plugin/**,
-          **/tests/target/surefire-reports/**
-        ''', fingerprint: true
+        bat """
+          mvn -U clean test ^
+            -Denv=%ENV% ^
+            -Dcucumber.filter.tags=%TAGS% ^
+            -Dthreads=%THREADS% ^
+            -Drp.enable=%RP_ENABLE% ^
+            -Drp.endpoint=%RP_ENDPOINT% ^
+            -Drp.uuid=%RP_UUID% ^
+            -Drp.project=%RP_PROJECT%
+        """
       }
     }
   }
 
   post {
     always {
-      script {
-        if (params.RUNMODE == 'grid') { sh 'docker compose down || true' }
-      }
+      archiveArtifacts artifacts: 'tests/target/**/*.html, tests/target/**/*.json, tests/target/**/*.log, tests/target/surefire-reports/**, tests/target/extent-report/**', allowEmptyArchive: true
+      junit 'tests/target/surefire-reports/*.xml'
+
+      publishHTML(target: [
+        allowMissing: true,
+        alwaysLinkToLastBuild: true,
+        keepAll: true,
+        reportDir: 'tests/target/extent-report',
+        reportFiles: 'ExtentSpark.html',
+        reportName: 'Extent Report'
+      ])
     }
   }
 }

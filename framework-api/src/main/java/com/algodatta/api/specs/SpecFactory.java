@@ -11,6 +11,8 @@ public final class SpecFactory {
     return new RequestSpecBuilder()
         .setBaseUri(ConfigManager.get("apiBaseUrl"))
         .setContentType(ContentType.JSON)
+        .addHeader("Accept", "application/json")
+        .addHeader("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120 Safari/537.36")
         .build();
   }
 }

@@ -1,0 +1,3805 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title></title>
+<link rel="apple-touch-icon" href="https://cdn.jsdelivr.net/gh/extent-framework/extent-github-cdn@b00a2d0486596e73dd7326beacf352c639623a0e/commons/img/logo.png">
+<link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/extent-framework/extent-github-cdn@b00a2d0486596e73dd7326beacf352c639623a0e/commons/img/logo.png">
+<link href="https://cdn.jsdelivr.net/gh/extent-framework/extent-github-cdn@ce8b10435bcbae260c334c0d0c6b61d2c19b6168/spark/css/spark-style.css" rel="stylesheet" />
+<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/gh/extent-framework/extent-github-cdn@7cc78ce/spark/js/jsontree.js"></script>
+<style type="text/css"></style></head><body class="spa bdd-report standard">
+  <div class="app">
+    <div class="layout">
+<div class="header navbar">
+<div class="vheader">
+<div class="nav-logo">
+<a href="#">
+<div class="logo" style="background-image: url('https://cdn.jsdelivr.net/gh/extent-framework/extent-github-cdn@b00a2d0486596e73dd7326beacf352c639623a0e/commons/img/logo.png')"></div>
+</a>
+</div>
+<ul class="nav-left">
+<li class="search-box">
+<a class="search-toggle" href="#">
+<i class="search-icon fa fa-search"></i>
+<i class="search-icon-close fa fa-close"></i>
+</a>
+</li>
+<li class="search-input"><input id="search-tests" class="form-control" type="text" placeholder="Search..."></li>
+</ul>
+<ul class="nav-right">
+<li class="m-r-10">
+<a href="#"><span class="badge badge-primary"></span></a>
+</li>
+<li class="m-r-10">
+<a href="#"><span class="badge badge-primary">Feb 22, 2026 01:30:14 PM</span></a>
+</li>
+</ul>
+</div>
+</div><div class="side-nav">
+<div class="side-nav-inner">
+<ul class="side-nav-menu">
+<li class="nav-item dropdown" onclick="toggleView('test-view')">
+<a id="nav-test" class="dropdown-toggle" href="#">
+<span class="ico"><i class="fa fa-list"></i></span>
+</a>
+</li>
+<li class="nav-item dropdown" onclick="toggleView('exception-view')">
+<a id="nav-exception" class="dropdown-toggle" href="#">
+<span class="ico"><i class="fa fa-bug"></i></span>
+</a>
+</li>
+<li class="nav-item dropdown" onclick="toggleView('category-view')">
+<a id="nav-category" class="dropdown-toggle" href="#">
+<span class="ico"><i class="fa fa-tag"></i></span>
+</a>
+</li>
+<li class="nav-item dropdown" onclick="toggleView('dashboard-view')">
+<a id="nav-dashboard" class="dropdown-toggle" href="#">
+<span class="ico"><i class="fa fa-bar-chart"></i></span>
+</a>
+</li>
+</ul>
+</div>
+</div>      <div class="vcontainer">
+        <div class="main-content">
+<div class="test-wrapper row view test-view">
+  <div class="test-list">
+    <div class="test-list-tools">
+<ul class="tools pull-left">
+<li><a href="#"><span class="font-size-14">Tests</span></a></li>
+</ul>
+<ul class="tools text-right">
+<li class="dropdown">
+<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-exclamation-circle"></i></a>
+<ul id="status-toggle" class="dropdown-menu dropdown-md p-v-0">
+<a class="dropdown-item" status="fail" href="#"><span>Fail</span><span class="status danger"></span></a>
+<div class="dropdown-divider"></div>
+<a status="clear" class="dropdown-item" href="#"><span>Clear</span><span class="pull-right"><i class="fa fa-close"></i></span></a>
+</ul>
+</li>
+<li class="dropdown">
+<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-tag"></i></a>
+<ul id="tag-toggle" class="dropdown-menu dropdown-md p-v-0">
+<a class="dropdown-item" href="#">@api_regression</a><a class="dropdown-item" href="#">@api_smoke</a>
+</ul>
+</li>
+</ul>
+</div>    <div class="test-list-wrapper scrollable">
+      <ul class="test-list-item">
+        <li class="test-item"  status="fail" test-id="1"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">httpbin Regression API suite (positive and negative coverage)</p>
+            <p class="text-sm">
+              <span>1:30:18 PM</span> / <span>00:00:34:956</span>
+              <span class="badge fail-bg log float-right">Fail</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-fail">httpbin Regression API suite (positive and negative coverage)</h5>
+<span class='badge badge-success'>02.22.2026 1:30:18 PM</span>
+<span class='badge badge-danger'>02.22.2026 1:30:53 PM</span>
+<span class='badge badge-default'>00:00:34:956</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=1</span>
+<span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
+<span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
+<span title='Expand all nodes' class='badge badge-default pointer float-right et'><i class="fa fa-expand"></i></span>
+</div>
+<div class="m-t-10 m-l-5"></div>
+</div>
+</div>
+<div class="accordion mt-4">
+  <div class="card">
+    <div class="card-header" role="tab">
+      <div class="card-title">
+        <div class="node" id="2"><span class="badge log fail-bg mr-2">Fail</span>HTTP methods should return success and echo method</div>
+      </div>
+    </div>
+        <div class="scenario_outline ">
+            <div class="card-body l1">
+              <div class="card-header">
+                <div class="card-title outline-child">
+                  <div class="node" id="3"><span class="badge log fail-bg mr-2">Fail</span>HTTP methods should return success and echo method</div>
+                </div>
+              </div>
+              <div class="card-body mt-3 ">
+                  <div class="step pass-bg">
+                    <span>Given I set API base url</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>And I reset API client</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>When I send "POST" request to "/post"</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>Then the response status should be 200</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>And the response content type should contain "application/json"</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step fail-bg">
+                    <span>And the JSON path "method" should be "POST"</span>
+      <div>
+        <textarea disabled class="code-block">java.lang.AssertionError: Unexpected JSONPath value for: method expected [POST] but found [null]
+	at org.testng.Assert.fail(Assert.java:111)
+	at org.testng.Assert.failNotEquals(Assert.java:1578)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:150)
+	at org.testng.Assert.assertEquals(Assert.java:132)
+	at com.algodatta.api.validators.ResponseValidator.jsonPathEquals(ResponseValidator.java:54)
+	at ui.steps.api.ApiSteps.jsonPathEqualsString(ApiSteps.java:147)
+	at ?.the JSON path "method" should be "POST"(file:///E:/QA_KC/KC-sdet-automation/tests/src/test/resources/features/api/httpbin_regression.feature:13)
+</textarea>
+      
+      </div>
+                  </div>
+              </div>
+            </div>
+            <div class="card-body l1">
+              <div class="card-header">
+                <div class="card-title outline-child">
+                  <div class="node" id="4"><span class="badge log fail-bg mr-2">Fail</span>HTTP methods should return success and echo method</div>
+                </div>
+              </div>
+              <div class="card-body mt-3 ">
+                  <div class="step pass-bg">
+                    <span>Given I set API base url</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>And I reset API client</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>When I send "PUT" request to "/put"</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>Then the response status should be 200</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>And the response content type should contain "application/json"</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step fail-bg">
+                    <span>And the JSON path "method" should be "PUT"</span>
+      <div>
+        <textarea disabled class="code-block">java.lang.AssertionError: Unexpected JSONPath value for: method expected [PUT] but found [null]
+	at org.testng.Assert.fail(Assert.java:111)
+	at org.testng.Assert.failNotEquals(Assert.java:1578)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:150)
+	at org.testng.Assert.assertEquals(Assert.java:132)
+	at com.algodatta.api.validators.ResponseValidator.jsonPathEquals(ResponseValidator.java:54)
+	at ui.steps.api.ApiSteps.jsonPathEqualsString(ApiSteps.java:147)
+	at ?.the JSON path "method" should be "PUT"(file:///E:/QA_KC/KC-sdet-automation/tests/src/test/resources/features/api/httpbin_regression.feature:13)
+</textarea>
+      
+      </div>
+                  </div>
+              </div>
+            </div>
+            <div class="card-body l1">
+              <div class="card-header">
+                <div class="card-title outline-child">
+                  <div class="node" id="7"><span class="badge log fail-bg mr-2">Fail</span>HTTP methods should return success and echo method</div>
+                </div>
+              </div>
+              <div class="card-body mt-3 ">
+                  <div class="step pass-bg">
+                    <span>Given I set API base url</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>And I reset API client</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>When I send "PATCH" request to "/patch"</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>Then the response status should be 200</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>And the response content type should contain "application/json"</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step fail-bg">
+                    <span>And the JSON path "method" should be "PATCH"</span>
+      <div>
+        <textarea disabled class="code-block">java.lang.AssertionError: Unexpected JSONPath value for: method expected [PATCH] but found [null]
+	at org.testng.Assert.fail(Assert.java:111)
+	at org.testng.Assert.failNotEquals(Assert.java:1578)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:150)
+	at org.testng.Assert.assertEquals(Assert.java:132)
+	at com.algodatta.api.validators.ResponseValidator.jsonPathEquals(ResponseValidator.java:54)
+	at ui.steps.api.ApiSteps.jsonPathEqualsString(ApiSteps.java:147)
+	at ?.the JSON path "method" should be "PATCH"(file:///E:/QA_KC/KC-sdet-automation/tests/src/test/resources/features/api/httpbin_regression.feature:13)
+</textarea>
+      
+      </div>
+                  </div>
+              </div>
+            </div>
+            <div class="card-body l1">
+              <div class="card-header">
+                <div class="card-title outline-child">
+                  <div class="node" id="9"><span class="badge log fail-bg mr-2">Fail</span>HTTP methods should return success and echo method</div>
+                </div>
+              </div>
+              <div class="card-body mt-3 ">
+                  <div class="step pass-bg">
+                    <span>Given I set API base url</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>And I reset API client</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>When I send "GET" request to "/get"</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>Then the response status should be 200</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>And the response content type should contain "application/json"</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step fail-bg">
+                    <span>And the JSON path "method" should be "GET"</span>
+      <div>
+        <textarea disabled class="code-block">java.lang.AssertionError: Unexpected JSONPath value for: method expected [GET] but found [null]
+	at org.testng.Assert.fail(Assert.java:111)
+	at org.testng.Assert.failNotEquals(Assert.java:1578)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:150)
+	at org.testng.Assert.assertEquals(Assert.java:132)
+	at com.algodatta.api.validators.ResponseValidator.jsonPathEquals(ResponseValidator.java:54)
+	at ui.steps.api.ApiSteps.jsonPathEqualsString(ApiSteps.java:147)
+	at ?.the JSON path "method" should be "GET"(file:///E:/QA_KC/KC-sdet-automation/tests/src/test/resources/features/api/httpbin_regression.feature:13)
+</textarea>
+      
+      </div>
+                  </div>
+              </div>
+            </div>
+            <div class="card-body l1">
+              <div class="card-header">
+                <div class="card-title outline-child">
+                  <div class="node" id="36"><span class="badge log fail-bg mr-2">Fail</span>HTTP methods should return success and echo method</div>
+                </div>
+              </div>
+              <div class="card-body mt-3 ">
+                  <div class="step pass-bg">
+                    <span>Given I set API base url</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>And I reset API client</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>When I send "DELETE" request to "/delete"</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>Then the response status should be 200</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>And the response content type should contain "application/json"</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step fail-bg">
+                    <span>And the JSON path "method" should be "DELETE"</span>
+      <div>
+        <textarea disabled class="code-block">java.lang.AssertionError: Unexpected JSONPath value for: method expected [DELETE] but found [null]
+	at org.testng.Assert.fail(Assert.java:111)
+	at org.testng.Assert.failNotEquals(Assert.java:1578)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:150)
+	at org.testng.Assert.assertEquals(Assert.java:132)
+	at com.algodatta.api.validators.ResponseValidator.jsonPathEquals(ResponseValidator.java:54)
+	at ui.steps.api.ApiSteps.jsonPathEqualsString(ApiSteps.java:147)
+	at ?.the JSON path "method" should be "DELETE"(file:///E:/QA_KC/KC-sdet-automation/tests/src/test/resources/features/api/httpbin_regression.feature:13)
+</textarea>
+      
+      </div>
+                  </div>
+              </div>
+            </div>
+        </div>
+  </div>
+  <div class="card">
+    <div class="card-header" role="tab">
+      <div class="card-title">
+        <div class="node" id="31"><span class="badge log pass-bg mr-2">Pass</span>OPTIONS should return allowed methods</div>
+      </div>
+    </div>
+        <div class="collapse">
+          <div class="card-body">
+              <div class="step pass-bg" title="ui.steps.api.ApiSteps.setBaseUrl()">
+                <span>Given I set API base url</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="ui.steps.api.ApiSteps.resetClient()">
+                <span>And I reset API client</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="ui.steps.api.ApiSteps.send(java.lang.String,java.lang.String)">
+                <span>When I send "OPTIONS" request to "/get"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="ui.steps.api.ApiSteps.status(java.lang.Integer)">
+                <span>Then the response status should be 200</span>
+      <div>
+      </div>
+              </div>
+          </div>
+        </div>
+  </div>
+  <div class="card">
+    <div class="card-header" role="tab">
+      <div class="card-title">
+        <div class="node" id="33"><span class="badge log pass-bg mr-2">Pass</span>Bearer auth positive</div>
+      </div>
+    </div>
+        <div class="collapse">
+          <div class="card-body">
+              <div class="step pass-bg" title="ui.steps.api.ApiSteps.setBaseUrl()">
+                <span>Given I set API base url</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="ui.steps.api.ApiSteps.resetClient()">
+                <span>And I reset API client</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="ui.steps.api.ApiSteps.bearer(java.lang.String)">
+                <span>Given I use bearer token "test-token"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="ui.steps.api.ApiSteps.send(java.lang.String,java.lang.String)">
+                <span>When I send "GET" request to "/bearer"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="ui.steps.api.ApiSteps.status(java.lang.Integer)">
+                <span>Then the response status should be 200</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="ui.steps.api.ApiSteps.contentTypeContains(java.lang.String)">
+                <span>And the response content type should contain "application/json"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="ui.steps.api.ApiSteps.jsonPathNotNull(java.lang.String)">
+                <span>And the JSON path "authenticated" should not be null</span>
+      <div>
+      </div>
+              </div>
+          </div>
+        </div>
+  </div>
+  <div class="card">
+    <div class="card-header" role="tab">
+      <div class="card-title">
+        <div class="node" id="42"><span class="badge log pass-bg mr-2">Pass</span>HEAD should return headers only</div>
+      </div>
+    </div>
+        <div class="collapse">
+          <div class="card-body">
+              <div class="step pass-bg" title="ui.steps.api.ApiSteps.setBaseUrl()">
+                <span>Given I set API base url</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="ui.steps.api.ApiSteps.resetClient()">
+                <span>And I reset API client</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="ui.steps.api.ApiSteps.send(java.lang.String,java.lang.String)">
+                <span>When I send "HEAD" request to "/get"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="ui.steps.api.ApiSteps.status(java.lang.Integer)">
+                <span>Then the response status should be 200</span>
+      <div>
+      </div>
+              </div>
+          </div>
+        </div>
+  </div>
+  <div class="card">
+    <div class="card-header" role="tab">
+      <div class="card-title">
+        <div class="node" id="52"><span class="badge log pass-bg mr-2">Pass</span>Bearer auth negative (missing token)</div>
+      </div>
+    </div>
+        <div class="collapse">
+          <div class="card-body">
+              <div class="step pass-bg" title="ui.steps.api.ApiSteps.setBaseUrl()">
+                <span>Given I set API base url</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="ui.steps.api.ApiSteps.resetClient()">
+                <span>And I reset API client</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="ui.steps.api.ApiSteps.resetClient()">
+                <span>Given I reset API client</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="ui.steps.api.ApiSteps.send(java.lang.String,java.lang.String)">
+                <span>When I send "GET" request to "/bearer"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="ui.steps.api.ApiSteps.status(java.lang.Integer)">
+                <span>Then the response status should be 401</span>
+      <div>
+      </div>
+              </div>
+          </div>
+        </div>
+  </div>
+  <div class="card">
+    <div class="card-header" role="tab">
+      <div class="card-title">
+        <div class="node" id="57"><span class="badge log pass-bg mr-2">Pass</span>Digest auth positive</div>
+      </div>
+    </div>
+        <div class="collapse">
+          <div class="card-body">
+              <div class="step pass-bg" title="ui.steps.api.ApiSteps.setBaseUrl()">
+                <span>Given I set API base url</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="ui.steps.api.ApiSteps.resetClient()">
+                <span>And I reset API client</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="ui.steps.api.ApiSteps.digestAuth(java.lang.String,java.lang.String)">
+                <span>Given I use digest auth "user" and "passwd"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="ui.steps.api.ApiSteps.send(java.lang.String,java.lang.String)">
+                <span>When I send "GET" request to "/digest-auth/auth/user/passwd"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="ui.steps.api.ApiSteps.status(java.lang.Integer)">
+                <span>Then the response status should be 200</span>
+      <div>
+      </div>
+              </div>
+          </div>
+        </div>
+  </div>
+  <div class="card">
+    <div class="card-header" role="tab">
+      <div class="card-title">
+        <div class="node" id="66"><span class="badge log pass-bg mr-2">Pass</span>Digest auth negative</div>
+      </div>
+    </div>
+        <div class="collapse">
+          <div class="card-body">
+              <div class="step pass-bg" title="ui.steps.api.ApiSteps.setBaseUrl()">
+                <span>Given I set API base url</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="ui.steps.api.ApiSteps.resetClient()">
+                <span>And I reset API client</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="ui.steps.api.ApiSteps.digestAuth(java.lang.String,java.lang.String)">
+                <span>Given I use digest auth "user" and "wrong"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="ui.steps.api.ApiSteps.send(java.lang.String,java.lang.String)">
+                <span>When I send "GET" request to "/digest-auth/auth/user/passwd"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="ui.steps.api.ApiSteps.status(java.lang.Integer)">
+                <span>Then the response status should be 401</span>
+      <div>
+      </div>
+              </div>
+          </div>
+        </div>
+  </div>
+  <div class="card">
+    <div class="card-header" role="tab">
+      <div class="card-title">
+        <div class="node" id="71"><span class="badge log fail-bg mr-2">Fail</span>status endpoint should generate the given status code</div>
+      </div>
+    </div>
+        <div class="scenario_outline ">
+            <div class="card-body l1">
+              <div class="card-header">
+                <div class="card-title outline-child">
+                  <div class="node" id="72"><span class="badge log pass-bg mr-2">Pass</span>status endpoint should generate the given status code</div>
+                </div>
+              </div>
+              <div class="card-body mt-3 collapse">
+                  <div class="step pass-bg">
+                    <span>Given I set API base url</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>And I reset API client</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>When I send "GET" request to "/status/200"</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>Then the response status should be 200</span>
+      <div>
+      </div>
+                  </div>
+              </div>
+            </div>
+            <div class="card-body l1">
+              <div class="card-header">
+                <div class="card-title outline-child">
+                  <div class="node" id="77"><span class="badge log pass-bg mr-2">Pass</span>status endpoint should generate the given status code</div>
+                </div>
+              </div>
+              <div class="card-body mt-3 collapse">
+                  <div class="step pass-bg">
+                    <span>Given I set API base url</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>And I reset API client</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>When I send "GET" request to "/status/201"</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>Then the response status should be 201</span>
+      <div>
+      </div>
+                  </div>
+              </div>
+            </div>
+            <div class="card-body l1">
+              <div class="card-header">
+                <div class="card-title outline-child">
+                  <div class="node" id="82"><span class="badge log pass-bg mr-2">Pass</span>status endpoint should generate the given status code</div>
+                </div>
+              </div>
+              <div class="card-body mt-3 collapse">
+                  <div class="step pass-bg">
+                    <span>Given I set API base url</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>And I reset API client</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>When I send "GET" request to "/status/204"</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>Then the response status should be 204</span>
+      <div>
+      </div>
+                  </div>
+              </div>
+            </div>
+            <div class="card-body l1">
+              <div class="card-header">
+                <div class="card-title outline-child">
+                  <div class="node" id="87"><span class="badge log fail-bg mr-2">Fail</span>status endpoint should generate the given status code</div>
+                </div>
+              </div>
+              <div class="card-body mt-3 ">
+                  <div class="step pass-bg">
+                    <span>Given I set API base url</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>And I reset API client</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>When I send "GET" request to "/status/301"</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step fail-bg">
+                    <span>Then the response status should be 301</span>
+      <div>
+        <textarea disabled class="code-block">java.lang.AssertionError: Unexpected status code expected [301] but found [200]
+	at org.testng.Assert.fail(Assert.java:111)
+	at org.testng.Assert.failNotEquals(Assert.java:1578)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:150)
+	at org.testng.Assert.assertEquals(Assert.java:132)
+	at org.testng.Assert.assertEquals(Assert.java:1419)
+	at org.testng.Assert.assertEquals(Assert.java:1383)
+	at com.algodatta.api.validators.ResponseValidator.status(ResponseValidator.java:12)
+	at ui.steps.api.ApiSteps.status(ApiSteps.java:117)
+	at ?.the response status should be 301(file:///E:/QA_KC/KC-sdet-automation/tests/src/test/resources/features/api/httpbin_regression.feature:56)
+</textarea>
+      
+      </div>
+                  </div>
+              </div>
+            </div>
+            <div class="card-body l1">
+              <div class="card-header">
+                <div class="card-title outline-child">
+                  <div class="node" id="92"><span class="badge log pass-bg mr-2">Pass</span>status endpoint should generate the given status code</div>
+                </div>
+              </div>
+              <div class="card-body mt-3 collapse">
+                  <div class="step pass-bg">
+                    <span>Given I set API base url</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>And I reset API client</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>When I send "GET" request to "/status/400"</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>Then the response status should be 400</span>
+      <div>
+      </div>
+                  </div>
+              </div>
+            </div>
+            <div class="card-body l1">
+              <div class="card-header">
+                <div class="card-title outline-child">
+                  <div class="node" id="97"><span class="badge log pass-bg mr-2">Pass</span>status endpoint should generate the given status code</div>
+                </div>
+              </div>
+              <div class="card-body mt-3 collapse">
+                  <div class="step pass-bg">
+                    <span>Given I set API base url</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>And I reset API client</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>When I send "GET" request to "/status/401"</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>Then the response status should be 401</span>
+      <div>
+      </div>
+                  </div>
+              </div>
+            </div>
+            <div class="card-body l1">
+              <div class="card-header">
+                <div class="card-title outline-child">
+                  <div class="node" id="102"><span class="badge log pass-bg mr-2">Pass</span>status endpoint should generate the given status code</div>
+                </div>
+              </div>
+              <div class="card-body mt-3 collapse">
+                  <div class="step pass-bg">
+                    <span>Given I set API base url</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>And I reset API client</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>When I send "GET" request to "/status/403"</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>Then the response status should be 403</span>
+      <div>
+      </div>
+                  </div>
+              </div>
+            </div>
+            <div class="card-body l1">
+              <div class="card-header">
+                <div class="card-title outline-child">
+                  <div class="node" id="107"><span class="badge log pass-bg mr-2">Pass</span>status endpoint should generate the given status code</div>
+                </div>
+              </div>
+              <div class="card-body mt-3 collapse">
+                  <div class="step pass-bg">
+                    <span>Given I set API base url</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>And I reset API client</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>When I send "GET" request to "/status/404"</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>Then the response status should be 404</span>
+      <div>
+      </div>
+                  </div>
+              </div>
+            </div>
+            <div class="card-body l1">
+              <div class="card-header">
+                <div class="card-title outline-child">
+                  <div class="node" id="112"><span class="badge log pass-bg mr-2">Pass</span>status endpoint should generate the given status code</div>
+                </div>
+              </div>
+              <div class="card-body mt-3 collapse">
+                  <div class="step pass-bg">
+                    <span>Given I set API base url</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>And I reset API client</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>When I send "GET" request to "/status/500"</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>Then the response status should be 500</span>
+      <div>
+      </div>
+                  </div>
+              </div>
+            </div>
+        </div>
+  </div>
+  <div class="card">
+    <div class="card-header" role="tab">
+      <div class="card-title">
+        <div class="node" id="117"><span class="badge log pass-bg mr-2">Pass</span>Inspect query params, headers and client IP via /anything</div>
+      </div>
+    </div>
+        <div class="collapse">
+          <div class="card-body">
+              <div class="step pass-bg" title="ui.steps.api.ApiSteps.setBaseUrl()">
+                <span>Given I set API base url</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="ui.steps.api.ApiSteps.resetClient()">
+                <span>And I reset API client</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="ui.steps.api.ApiSteps.setQueryParam(java.lang.String,java.lang.String)">
+                <span>Given I set query param "q" to "abc"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="ui.steps.api.ApiSteps.setHeader(java.lang.String,java.lang.String)">
+                <span>And I set header "X-Test" to "kc"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="ui.steps.api.ApiSteps.send(java.lang.String,java.lang.String)">
+                <span>When I send "GET" request to "/anything/inspect"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="ui.steps.api.ApiSteps.status(java.lang.Integer)">
+                <span>Then the response status should be 200</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="ui.steps.api.ApiSteps.jsonPathEqualsString(java.lang.String,java.lang.String)">
+                <span>And the JSON path "args.q" should be "abc"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="ui.steps.api.ApiSteps.jsonPathEqualsString(java.lang.String,java.lang.String)">
+                <span>And the JSON path "headers.X-Test" should be "kc"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="ui.steps.api.ApiSteps.jsonPathEqualsString(java.lang.String,java.lang.String)">
+                <span>And the JSON path "method" should be "GET"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="ui.steps.api.ApiSteps.jsonPathContains(java.lang.String,java.lang.String)">
+                <span>And the JSON path "url" should contain "inspect"</span>
+      <div>
+      </div>
+              </div>
+          </div>
+        </div>
+  </div>
+  <div class="card">
+    <div class="card-header" role="tab">
+      <div class="card-title">
+        <div class="node" id="124"><span class="badge log pass-bg mr-2">Pass</span>Inspect JSON body via /anything</div>
+      </div>
+    </div>
+        <div class="collapse">
+          <div class="card-body">
+              <div class="step pass-bg" title="ui.steps.api.ApiSteps.setBaseUrl()">
+                <span>Given I set API base url</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="ui.steps.api.ApiSteps.resetClient()">
+                <span>And I reset API client</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="ui.steps.api.ApiSteps.setJsonBody(java.lang.String)">
+                <span>Given I set JSON body</span>
+      <div><div class='row'>
+ <div class='col-md-12'>
+  <textarea readonly class='code-block'>{"id":123,"active":true}</textarea>
+ </div>
+</div>
+
+      </div>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="ui.steps.api.ApiSteps.send(java.lang.String,java.lang.String)">
+                <span>When I send "POST" request to "/anything/body"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="ui.steps.api.ApiSteps.status(java.lang.Integer)">
+                <span>Then the response status should be 200</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="ui.steps.api.ApiSteps.jsonPathEqualsInt(java.lang.String,java.lang.Integer)">
+                <span>And the JSON path "json.id" should be 123</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="ui.steps.api.ApiSteps.jsonPathNotNull(java.lang.String)">
+                <span>And the JSON path "json.active" should not be null</span>
+      <div>
+      </div>
+              </div>
+          </div>
+        </div>
+  </div>
+  <div class="card">
+    <div class="card-header" role="tab">
+      <div class="card-title">
+        <div class="node" id="130"><span class="badge log pass-bg mr-2">Pass</span>Validate caching headers via /cache/0 (no caching)</div>
+      </div>
+    </div>
+        <div class="collapse">
+          <div class="card-body">
+              <div class="step pass-bg" title="ui.steps.api.ApiSteps.setBaseUrl()">
+                <span>Given I set API base url</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="ui.steps.api.ApiSteps.resetClient()">
+                <span>And I reset API client</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="ui.steps.api.ApiSteps.send(java.lang.String,java.lang.String)">
+                <span>When I send "GET" request to "/cache/0"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="ui.steps.api.ApiSteps.status(java.lang.Integer)">
+                <span>Then the response status should be 200</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="ui.steps.api.ApiSteps.headerContains(java.lang.String,java.lang.String)">
+                <span>And the response header "Cache-Control" should contain "max-age=0"</span>
+      <div>
+      </div>
+              </div>
+          </div>
+        </div>
+  </div>
+  <div class="card">
+    <div class="card-header" role="tab">
+      <div class="card-title">
+        <div class="node" id="135"><span class="badge log pass-bg mr-2">Pass</span>Validate ETag response</div>
+      </div>
+    </div>
+        <div class="collapse">
+          <div class="card-body">
+              <div class="step pass-bg" title="ui.steps.api.ApiSteps.setBaseUrl()">
+                <span>Given I set API base url</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="ui.steps.api.ApiSteps.resetClient()">
+                <span>And I reset API client</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="ui.steps.api.ApiSteps.send(java.lang.String,java.lang.String)">
+                <span>When I send "GET" request to "/etag/abc123"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="ui.steps.api.ApiSteps.status(java.lang.Integer)">
+                <span>Then the response status should be 200</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="ui.steps.api.ApiSteps.headerContains(java.lang.String,java.lang.String)">
+                <span>And the response header "ETag" should contain "abc123"</span>
+      <div>
+      </div>
+              </div>
+          </div>
+        </div>
+  </div>
+  <div class="card">
+    <div class="card-header" role="tab">
+      <div class="card-title">
+        <div class="node" id="147"><span class="badge log pass-bg mr-2">Pass</span>Validate custom response headers</div>
+      </div>
+    </div>
+        <div class="collapse">
+          <div class="card-body">
+              <div class="step pass-bg" title="ui.steps.api.ApiSteps.setBaseUrl()">
+                <span>Given I set API base url</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="ui.steps.api.ApiSteps.resetClient()">
+                <span>And I reset API client</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="ui.steps.api.ApiSteps.send(java.lang.String,java.lang.String)">
+                <span>When I send "GET" request to "/response-headers?X-Env=qa&Cache-Control=no-store"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="ui.steps.api.ApiSteps.status(java.lang.Integer)">
+                <span>Then the response status should be 200</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="ui.steps.api.ApiSteps.headerEquals(java.lang.String,java.lang.String)">
+                <span>And the response header "X-Env" should be "qa"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="ui.steps.api.ApiSteps.headerContains(java.lang.String,java.lang.String)">
+                <span>And the response header "Cache-Control" should contain "no-store"</span>
+      <div>
+      </div>
+              </div>
+          </div>
+        </div>
+  </div>
+  <div class="card">
+    <div class="card-header" role="tab">
+      <div class="card-title">
+        <div class="node" id="153"><span class="badge log pass-bg mr-2">Pass</span>Different response formats should return expected content types</div>
+      </div>
+    </div>
+        <div class="scenario_outline collapse">
+            <div class="card-body l1">
+              <div class="card-header">
+                <div class="card-title outline-child">
+                  <div class="node" id="154"><span class="badge log pass-bg mr-2">Pass</span>Different response formats should return expected content types</div>
+                </div>
+              </div>
+              <div class="card-body mt-3 collapse">
+                  <div class="step pass-bg">
+                    <span>Given I set API base url</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>And I reset API client</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>When I send "GET" request to "/json"</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>Then the response status should be 200</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>And the response content type should contain "application/json"</span>
+      <div>
+      </div>
+                  </div>
+              </div>
+            </div>
+            <div class="card-body l1">
+              <div class="card-header">
+                <div class="card-title outline-child">
+                  <div class="node" id="158"><span class="badge log pass-bg mr-2">Pass</span>Different response formats should return expected content types</div>
+                </div>
+              </div>
+              <div class="card-body mt-3 collapse">
+                  <div class="step pass-bg">
+                    <span>Given I set API base url</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>And I reset API client</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>When I send "GET" request to "/xml"</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>Then the response status should be 200</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>And the response content type should contain "application/xml"</span>
+      <div>
+      </div>
+                  </div>
+              </div>
+            </div>
+            <div class="card-body l1">
+              <div class="card-header">
+                <div class="card-title outline-child">
+                  <div class="node" id="164"><span class="badge log pass-bg mr-2">Pass</span>Different response formats should return expected content types</div>
+                </div>
+              </div>
+              <div class="card-body mt-3 collapse">
+                  <div class="step pass-bg">
+                    <span>Given I set API base url</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>And I reset API client</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>When I send "GET" request to "/html"</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>Then the response status should be 200</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>And the response content type should contain "text/html"</span>
+      <div>
+      </div>
+                  </div>
+              </div>
+            </div>
+            <div class="card-body l1">
+              <div class="card-header">
+                <div class="card-title outline-child">
+                  <div class="node" id="170"><span class="badge log pass-bg mr-2">Pass</span>Different response formats should return expected content types</div>
+                </div>
+              </div>
+              <div class="card-body mt-3 collapse">
+                  <div class="step pass-bg">
+                    <span>Given I set API base url</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>And I reset API client</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>When I send "GET" request to "/robots.txt"</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>Then the response status should be 200</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>And the response content type should contain "text/plain"</span>
+      <div>
+      </div>
+                  </div>
+              </div>
+            </div>
+            <div class="card-body l1">
+              <div class="card-header">
+                <div class="card-title outline-child">
+                  <div class="node" id="179"><span class="badge log pass-bg mr-2">Pass</span>Different response formats should return expected content types</div>
+                </div>
+              </div>
+              <div class="card-body mt-3 collapse">
+                  <div class="step pass-bg">
+                    <span>Given I set API base url</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>And I reset API client</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>When I send "GET" request to "/encoding/utf8"</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>Then the response status should be 200</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>And the response content type should contain "text/html"</span>
+      <div>
+      </div>
+                  </div>
+              </div>
+            </div>
+        </div>
+  </div>
+  <div class="card">
+    <div class="card-header" role="tab">
+      <div class="card-title">
+        <div class="node" id="183"><span class="badge log pass-bg mr-2">Pass</span>Gzip response should be JSON</div>
+      </div>
+    </div>
+        <div class="collapse">
+          <div class="card-body">
+              <div class="step pass-bg" title="ui.steps.api.ApiSteps.setBaseUrl()">
+                <span>Given I set API base url</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="ui.steps.api.ApiSteps.resetClient()">
+                <span>And I reset API client</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="ui.steps.api.ApiSteps.send(java.lang.String,java.lang.String)">
+                <span>When I send "GET" request to "/gzip"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="ui.steps.api.ApiSteps.status(java.lang.Integer)">
+                <span>Then the response status should be 200</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="ui.steps.api.ApiSteps.contentTypeContains(java.lang.String)">
+                <span>And the response content type should contain "application/json"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="ui.steps.api.ApiSteps.jsonPathNotNull(java.lang.String)">
+                <span>And the JSON path "gzipped" should not be null</span>
+      <div>
+      </div>
+              </div>
+          </div>
+        </div>
+  </div>
+  <div class="card">
+    <div class="card-header" role="tab">
+      <div class="card-title">
+        <div class="node" id="189"><span class="badge log pass-bg mr-2">Pass</span>UUID endpoint should return a UUID</div>
+      </div>
+    </div>
+        <div class="collapse">
+          <div class="card-body">
+              <div class="step pass-bg" title="ui.steps.api.ApiSteps.setBaseUrl()">
+                <span>Given I set API base url</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="ui.steps.api.ApiSteps.resetClient()">
+                <span>And I reset API client</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="ui.steps.api.ApiSteps.send(java.lang.String,java.lang.String)">
+                <span>When I send "GET" request to "/uuid"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="ui.steps.api.ApiSteps.status(java.lang.Integer)">
+                <span>Then the response status should be 200</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="ui.steps.api.ApiSteps.contentTypeContains(java.lang.String)">
+                <span>And the response content type should contain "application/json"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="ui.steps.api.ApiSteps.jsonPathNotNull(java.lang.String)">
+                <span>And the JSON path "uuid" should not be null</span>
+      <div>
+      </div>
+              </div>
+          </div>
+        </div>
+  </div>
+  <div class="card">
+    <div class="card-header" role="tab">
+      <div class="card-title">
+        <div class="node" id="195"><span class="badge log pass-bg mr-2">Pass</span>Delay endpoint should respond within a reasonable time</div>
+      </div>
+    </div>
+        <div class="collapse">
+          <div class="card-body">
+              <div class="step pass-bg" title="ui.steps.api.ApiSteps.setBaseUrl()">
+                <span>Given I set API base url</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="ui.steps.api.ApiSteps.resetClient()">
+                <span>And I reset API client</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="ui.steps.api.ApiSteps.send(java.lang.String,java.lang.String)">
+                <span>When I send "GET" request to "/delay/1"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="ui.steps.api.ApiSteps.status(java.lang.Integer)">
+                <span>Then the response status should be 200</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="ui.steps.api.ApiSteps.responseTimeLessThan(java.lang.Integer)">
+                <span>And the response time should be less than 5000 ms</span>
+      <div>
+      </div>
+              </div>
+          </div>
+        </div>
+  </div>
+  <div class="card">
+    <div class="card-header" role="tab">
+      <div class="card-title">
+        <div class="node" id="204"><span class="badge log pass-bg mr-2">Pass</span>Random bytes should return binary</div>
+      </div>
+    </div>
+        <div class="collapse">
+          <div class="card-body">
+              <div class="step pass-bg" title="ui.steps.api.ApiSteps.setBaseUrl()">
+                <span>Given I set API base url</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="ui.steps.api.ApiSteps.resetClient()">
+                <span>And I reset API client</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="ui.steps.api.ApiSteps.setHeader(java.lang.String,java.lang.String)">
+                <span>Given I set header "Accept" to "application/octet-stream"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="ui.steps.api.ApiSteps.send(java.lang.String,java.lang.String)">
+                <span>When I send "GET" request to "/bytes/32"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="ui.steps.api.ApiSteps.status(java.lang.Integer)">
+                <span>Then the response status should be 200</span>
+      <div>
+      </div>
+              </div>
+          </div>
+        </div>
+  </div>
+  <div class="card">
+    <div class="card-header" role="tab">
+      <div class="card-title">
+        <div class="node" id="207"><span class="badge log fail-bg mr-2">Fail</span>Create, read and delete cookies</div>
+      </div>
+    </div>
+        <div class="">
+          <div class="card-body">
+              <div class="step pass-bg" title="ui.steps.api.ApiSteps.setBaseUrl()">
+                <span>Given I set API base url</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="ui.steps.api.ApiSteps.resetClient()">
+                <span>And I reset API client</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="ui.steps.api.ApiSteps.noFollowRedirects()">
+                <span>Given I do not follow redirects</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="ui.steps.api.ApiSteps.send(java.lang.String,java.lang.String)">
+                <span>When I send "GET" request to "/cookies/set?kc=1"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="ui.steps.api.ApiSteps.status(java.lang.Integer)">
+                <span>Then the response status should be 302</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="ui.steps.api.ApiSteps.followRedirects()">
+                <span>Given I follow redirects</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="ui.steps.api.ApiSteps.send(java.lang.String,java.lang.String)">
+                <span>When I send "GET" request to "/cookies"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="ui.steps.api.ApiSteps.status(java.lang.Integer)">
+                <span>Then the response status should be 200</span>
+      <div>
+      </div>
+              </div>
+              <div class="step fail-bg" title="ui.steps.api.ApiSteps.jsonPathEqualsString(java.lang.String,java.lang.String)">
+                <span>And the JSON path "cookies.kc" should be "1"</span>
+      <div>
+        <textarea disabled class="code-block">java.lang.AssertionError: Unexpected JSONPath value for: cookies.kc expected [1] but found [null]
+	at org.testng.Assert.fail(Assert.java:111)
+	at org.testng.Assert.failNotEquals(Assert.java:1578)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:150)
+	at org.testng.Assert.assertEquals(Assert.java:132)
+	at com.algodatta.api.validators.ResponseValidator.jsonPathEquals(ResponseValidator.java:54)
+	at ui.steps.api.ApiSteps.jsonPathEqualsString(ApiSteps.java:147)
+	at ?.the JSON path "cookies.kc" should be "1"(file:///E:/QA_KC/KC-sdet-automation/tests/src/test/resources/features/api/httpbin_regression.feature:152)
+</textarea>
+      
+      </div>
+              </div>
+              <div class="step skip-bg" title="ui.steps.api.ApiSteps.noFollowRedirects()">
+                <span>Given I do not follow redirects</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="ui.steps.api.ApiSteps.send(java.lang.String,java.lang.String)">
+                <span>When I send "GET" request to "/cookies/delete?kc"</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="ui.steps.api.ApiSteps.status(java.lang.Integer)">
+                <span>Then the response status should be 302</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="ui.steps.api.ApiSteps.followRedirects()">
+                <span>Given I follow redirects</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="ui.steps.api.ApiSteps.send(java.lang.String,java.lang.String)">
+                <span>When I send "GET" request to "/cookies"</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="ui.steps.api.ApiSteps.status(java.lang.Integer)">
+                <span>Then the response status should be 200</span>
+      <div>Step skipped
+      </div>
+              </div>
+          </div>
+        </div>
+  </div>
+  <div class="card">
+    <div class="card-header" role="tab">
+      <div class="card-title">
+        <div class="node" id="217"><span class="badge log pass-bg mr-2">Pass</span>Image endpoints should return correct image content types</div>
+      </div>
+    </div>
+        <div class="scenario_outline collapse">
+            <div class="card-body l1">
+              <div class="card-header">
+                <div class="card-title outline-child">
+                  <div class="node" id="218"><span class="badge log pass-bg mr-2">Pass</span>Image endpoints should return correct image content types</div>
+                </div>
+              </div>
+              <div class="card-body mt-3 collapse">
+                  <div class="step pass-bg">
+                    <span>Given I set API base url</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>And I reset API client</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>Given I set header "Accept" to "*/*"</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>When I send "GET" request to "/image/png"</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>Then the response status should be 200</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>And the response content type should contain "image"</span>
+      <div>
+      </div>
+                  </div>
+              </div>
+            </div>
+            <div class="card-body l1">
+              <div class="card-header">
+                <div class="card-title outline-child">
+                  <div class="node" id="228"><span class="badge log pass-bg mr-2">Pass</span>Image endpoints should return correct image content types</div>
+                </div>
+              </div>
+              <div class="card-body mt-3 collapse">
+                  <div class="step pass-bg">
+                    <span>Given I set API base url</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>And I reset API client</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>Given I set header "Accept" to "*/*"</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>When I send "GET" request to "/image/jpeg"</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>Then the response status should be 200</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>And the response content type should contain "image"</span>
+      <div>
+      </div>
+                  </div>
+              </div>
+            </div>
+            <div class="card-body l1">
+              <div class="card-header">
+                <div class="card-title outline-child">
+                  <div class="node" id="234"><span class="badge log pass-bg mr-2">Pass</span>Image endpoints should return correct image content types</div>
+                </div>
+              </div>
+              <div class="card-body mt-3 collapse">
+                  <div class="step pass-bg">
+                    <span>Given I set API base url</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>And I reset API client</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>Given I set header "Accept" to "*/*"</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>When I send "GET" request to "/image/webp"</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>Then the response status should be 200</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>And the response content type should contain "image"</span>
+      <div>
+      </div>
+                  </div>
+              </div>
+            </div>
+            <div class="card-body l1">
+              <div class="card-header">
+                <div class="card-title outline-child">
+                  <div class="node" id="241"><span class="badge log pass-bg mr-2">Pass</span>Image endpoints should return correct image content types</div>
+                </div>
+              </div>
+              <div class="card-body mt-3 collapse">
+                  <div class="step pass-bg">
+                    <span>Given I set API base url</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>And I reset API client</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>Given I set header "Accept" to "*/*"</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>When I send "GET" request to "/image/svg"</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>Then the response status should be 200</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>And the response content type should contain "image"</span>
+      <div>
+      </div>
+                  </div>
+              </div>
+            </div>
+        </div>
+  </div>
+  <div class="card">
+    <div class="card-header" role="tab">
+      <div class="card-title">
+        <div class="node" id="254"><span class="badge log pass-bg mr-2">Pass</span>Redirect endpoint should return a redirect when not following</div>
+      </div>
+    </div>
+        <div class="collapse">
+          <div class="card-body">
+              <div class="step pass-bg" title="ui.steps.api.ApiSteps.setBaseUrl()">
+                <span>Given I set API base url</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="ui.steps.api.ApiSteps.resetClient()">
+                <span>And I reset API client</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="ui.steps.api.ApiSteps.noFollowRedirects()">
+                <span>Given I do not follow redirects</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="ui.steps.api.ApiSteps.send(java.lang.String,java.lang.String)">
+                <span>When I send "GET" request to "/redirect/2"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="ui.steps.api.ApiSteps.status(java.lang.Integer)">
+                <span>Then the response status should be 302</span>
+      <div>
+      </div>
+              </div>
+          </div>
+        </div>
+  </div>
+  <div class="card">
+    <div class="card-header" role="tab">
+      <div class="card-title">
+        <div class="node" id="261"><span class="badge log pass-bg mr-2">Pass</span>Redirect endpoint should reach final destination when following</div>
+      </div>
+    </div>
+        <div class="collapse">
+          <div class="card-body">
+              <div class="step pass-bg" title="ui.steps.api.ApiSteps.setBaseUrl()">
+                <span>Given I set API base url</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="ui.steps.api.ApiSteps.resetClient()">
+                <span>And I reset API client</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="ui.steps.api.ApiSteps.followRedirects()">
+                <span>Given I follow redirects</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="ui.steps.api.ApiSteps.send(java.lang.String,java.lang.String)">
+                <span>When I send "GET" request to "/redirect/2"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="ui.steps.api.ApiSteps.status(java.lang.Integer)">
+                <span>Then the response status should be 200</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="ui.steps.api.ApiSteps.contentTypeContains(java.lang.String)">
+                <span>And the response content type should contain "application/json"</span>
+      <div>
+      </div>
+              </div>
+          </div>
+        </div>
+  </div>
+  <div class="card">
+    <div class="card-header" role="tab">
+      <div class="card-title">
+        <div class="node" id="268"><span class="badge log pass-bg mr-2">Pass</span>Redirect to a custom URL</div>
+      </div>
+    </div>
+        <div class="collapse">
+          <div class="card-body">
+              <div class="step pass-bg" title="ui.steps.api.ApiSteps.setBaseUrl()">
+                <span>Given I set API base url</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="ui.steps.api.ApiSteps.resetClient()">
+                <span>And I reset API client</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="ui.steps.api.ApiSteps.noFollowRedirects()">
+                <span>Given I do not follow redirects</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="ui.steps.api.ApiSteps.send(java.lang.String,java.lang.String)">
+                <span>When I send "GET" request to "/redirect-to?url=https://httpbin.org/get&status_code=307"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="ui.steps.api.ApiSteps.status(java.lang.Integer)">
+                <span>Then the response status should be 307</span>
+      <div>
+      </div>
+              </div>
+          </div>
+        </div>
+  </div>
+  <div class="card">
+    <div class="card-header" role="tab">
+      <div class="card-title">
+        <div class="node" id="275"><span class="badge log pass-bg mr-2">Pass</span>/anything should echo arbitrary path, headers and payload</div>
+      </div>
+    </div>
+        <div class="collapse">
+          <div class="card-body">
+              <div class="step pass-bg" title="ui.steps.api.ApiSteps.setBaseUrl()">
+                <span>Given I set API base url</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="ui.steps.api.ApiSteps.resetClient()">
+                <span>And I reset API client</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="ui.steps.api.ApiSteps.setHeader(java.lang.String,java.lang.String)">
+                <span>Given I set header "X-Custom" to "hello"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="ui.steps.api.ApiSteps.setQueryParam(java.lang.String,java.lang.String)">
+                <span>And I set query param "n" to "99"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="ui.steps.api.ApiSteps.setJsonBody(java.lang.String)">
+                <span>And I set JSON body</span>
+      <div><div class='row'>
+ <div class='col-md-12'>
+  <textarea readonly class='code-block'>{"msg":"ping"}</textarea>
+ </div>
+</div>
+
+      </div>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="ui.steps.api.ApiSteps.send(java.lang.String,java.lang.String)">
+                <span>When I send "POST" request to "/anything/alpha/beta"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="ui.steps.api.ApiSteps.status(java.lang.Integer)">
+                <span>Then the response status should be 200</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="ui.steps.api.ApiSteps.contentTypeContains(java.lang.String)">
+                <span>And the response content type should contain "application/json"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="ui.steps.api.ApiSteps.jsonPathEqualsString(java.lang.String,java.lang.String)">
+                <span>And the JSON path "headers.X-Custom" should be "hello"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="ui.steps.api.ApiSteps.jsonPathEqualsString(java.lang.String,java.lang.String)">
+                <span>And the JSON path "args.n" should be "99"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="ui.steps.api.ApiSteps.jsonPathEqualsString(java.lang.String,java.lang.String)">
+                <span>And the JSON path "json.msg" should be "ping"</span>
+      <div>
+      </div>
+              </div>
+          </div>
+        </div>
+  </div>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="fail" test-id="283"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">httpbin Smoke API suite</p>
+            <p class="text-sm">
+              <span>1:30:52 PM</span> / <span>00:00:03:999</span>
+              <span class="badge fail-bg log float-right">Fail</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-fail">httpbin Smoke API suite</h5>
+<span class='badge badge-success'>02.22.2026 1:30:52 PM</span>
+<span class='badge badge-danger'>02.22.2026 1:30:56 PM</span>
+<span class='badge badge-default'>00:00:03:999</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=283</span>
+<span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
+<span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
+<span title='Expand all nodes' class='badge badge-default pointer float-right et'><i class="fa fa-expand"></i></span>
+</div>
+<div class="m-t-10 m-l-5"></div>
+</div>
+</div>
+<div class="accordion mt-4">
+  <div class="card">
+    <div class="card-header" role="tab">
+      <div class="card-title">
+        <div class="node" id="284"><span class="badge log fail-bg mr-2">Fail</span>Basic GET should echo request data</div>
+      </div>
+    </div>
+        <div class="">
+          <div class="card-body">
+              <div class="step pass-bg" title="ui.steps.api.ApiSteps.setBaseUrl()">
+                <span>Given I set API base url</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="ui.steps.api.ApiSteps.resetClient()">
+                <span>And I reset API client</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="ui.steps.api.ApiSteps.send(java.lang.String,java.lang.String)">
+                <span>When I send "GET" request to "/get?hello=world"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="ui.steps.api.ApiSteps.status(java.lang.Integer)">
+                <span>Then the response status should be 200</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="ui.steps.api.ApiSteps.contentTypeContains(java.lang.String)">
+                <span>And the response content type should contain "application/json"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="ui.steps.api.ApiSteps.jsonPathEqualsString(java.lang.String,java.lang.String)">
+                <span>And the JSON path "args.hello" should be "world"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step fail-bg" title="ui.steps.api.ApiSteps.jsonPathEqualsString(java.lang.String,java.lang.String)">
+                <span>And the JSON path "method" should be "GET"</span>
+      <div>
+        <textarea disabled class="code-block">java.lang.AssertionError: Unexpected JSONPath value for: method expected [GET] but found [null]
+	at org.testng.Assert.fail(Assert.java:111)
+	at org.testng.Assert.failNotEquals(Assert.java:1578)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:150)
+	at org.testng.Assert.assertEquals(Assert.java:132)
+	at com.algodatta.api.validators.ResponseValidator.jsonPathEquals(ResponseValidator.java:54)
+	at ui.steps.api.ApiSteps.jsonPathEqualsString(ApiSteps.java:147)
+	at ?.the JSON path "method" should be "GET"(file:///E:/QA_KC/KC-sdet-automation/tests/src/test/resources/features/api/httpbin_smoke.feature:13)
+</textarea>
+      
+      </div>
+              </div>
+          </div>
+        </div>
+  </div>
+  <div class="card">
+    <div class="card-header" role="tab">
+      <div class="card-title">
+        <div class="node" id="293"><span class="badge log pass-bg mr-2">Pass</span>Basic POST should echo JSON payload</div>
+      </div>
+    </div>
+        <div class="collapse">
+          <div class="card-body">
+              <div class="step pass-bg" title="ui.steps.api.ApiSteps.setBaseUrl()">
+                <span>Given I set API base url</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="ui.steps.api.ApiSteps.resetClient()">
+                <span>And I reset API client</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="ui.steps.api.ApiSteps.setHeader(java.lang.String,java.lang.String)">
+                <span>Given I set header "Accept" to "application/json"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="ui.steps.api.ApiSteps.setJsonBody(java.lang.String)">
+                <span>And I set JSON body</span>
+      <div><div class='row'>
+ <div class='col-md-12'>
+  <textarea readonly class='code-block'>{"name":"kc","type":"smoke"}</textarea>
+ </div>
+</div>
+
+      </div>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="ui.steps.api.ApiSteps.send(java.lang.String,java.lang.String)">
+                <span>When I send "POST" request to "/post"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="ui.steps.api.ApiSteps.status(java.lang.Integer)">
+                <span>Then the response status should be 200</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="ui.steps.api.ApiSteps.contentTypeContains(java.lang.String)">
+                <span>And the response content type should contain "application/json"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="ui.steps.api.ApiSteps.jsonPathEqualsString(java.lang.String,java.lang.String)">
+                <span>And the JSON path "json.name" should be "kc"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="ui.steps.api.ApiSteps.jsonPathEqualsString(java.lang.String,java.lang.String)">
+                <span>And the JSON path "json.type" should be "smoke"</span>
+      <div>
+      </div>
+              </div>
+          </div>
+        </div>
+  </div>
+  <div class="card">
+    <div class="card-header" role="tab">
+      <div class="card-title">
+        <div class="node" id="300"><span class="badge log pass-bg mr-2">Pass</span>Basic Auth positive</div>
+      </div>
+    </div>
+        <div class="collapse">
+          <div class="card-body">
+              <div class="step pass-bg" title="ui.steps.api.ApiSteps.setBaseUrl()">
+                <span>Given I set API base url</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="ui.steps.api.ApiSteps.resetClient()">
+                <span>And I reset API client</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="ui.steps.api.ApiSteps.basicAuth(java.lang.String,java.lang.String)">
+                <span>Given I use basic auth "user" and "passwd"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="ui.steps.api.ApiSteps.send(java.lang.String,java.lang.String)">
+                <span>When I send "GET" request to "/basic-auth/user/passwd"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="ui.steps.api.ApiSteps.status(java.lang.Integer)">
+                <span>Then the response status should be 200</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="ui.steps.api.ApiSteps.jsonPathNotNull(java.lang.String)">
+                <span>And the JSON path "authenticated" should not be null</span>
+      <div>
+      </div>
+              </div>
+          </div>
+        </div>
+  </div>
+  <div class="card">
+    <div class="card-header" role="tab">
+      <div class="card-title">
+        <div class="node" id="311"><span class="badge log pass-bg mr-2">Pass</span>Basic Auth negative</div>
+      </div>
+    </div>
+        <div class="collapse">
+          <div class="card-body">
+              <div class="step pass-bg" title="ui.steps.api.ApiSteps.setBaseUrl()">
+                <span>Given I set API base url</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="ui.steps.api.ApiSteps.resetClient()">
+                <span>And I reset API client</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="ui.steps.api.ApiSteps.basicAuth(java.lang.String,java.lang.String)">
+                <span>Given I use basic auth "user" and "wrong"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="ui.steps.api.ApiSteps.send(java.lang.String,java.lang.String)">
+                <span>When I send "GET" request to "/basic-auth/user/passwd"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="ui.steps.api.ApiSteps.status(java.lang.Integer)">
+                <span>Then the response status should be 401</span>
+      <div>
+      </div>
+              </div>
+          </div>
+        </div>
+  </div>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="fail" test-id="320"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">JSONPlaceholder API smoke coverage</p>
+            <p class="text-sm">
+              <span>1:30:54 PM</span> / <span>00:00:04:617</span>
+              <span class="badge fail-bg log float-right">Fail</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-fail">JSONPlaceholder API smoke coverage</h5>
+<span class='badge badge-success'>02.22.2026 1:30:54 PM</span>
+<span class='badge badge-danger'>02.22.2026 1:30:59 PM</span>
+<span class='badge badge-default'>00:00:04:617</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=320</span>
+<span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
+<span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
+<span title='Expand all nodes' class='badge badge-default pointer float-right et'><i class="fa fa-expand"></i></span>
+</div>
+<div class="m-t-10 m-l-5"></div>
+</div>
+</div>
+<div class="accordion mt-4">
+  <div class="card">
+    <div class="card-header" role="tab">
+      <div class="card-title">
+        <div class="node" id="321"><span class="badge log fail-bg mr-2">Fail</span>List posts for a user</div>
+      </div>
+    </div>
+        <div class="">
+          <div class="card-body">
+              <div class="step pass-bg" title="ui.steps.api.ApiSteps.setBaseUrl()">
+                <span>Given I set API base url</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="ui.steps.api.ApiSteps.get(java.lang.String)">
+                <span>When I GET "/posts?userId=1"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step fail-bg" title="ui.steps.api.ApiSteps.status(java.lang.Integer)">
+                <span>Then the response status should be 200</span>
+      <div>
+        <textarea disabled class="code-block">java.lang.AssertionError: Unexpected status code expected [200] but found [404]
+	at org.testng.Assert.fail(Assert.java:111)
+	at org.testng.Assert.failNotEquals(Assert.java:1578)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:150)
+	at org.testng.Assert.assertEquals(Assert.java:132)
+	at org.testng.Assert.assertEquals(Assert.java:1419)
+	at org.testng.Assert.assertEquals(Assert.java:1383)
+	at com.algodatta.api.validators.ResponseValidator.status(ResponseValidator.java:12)
+	at ui.steps.api.ApiSteps.status(ApiSteps.java:117)
+	at ?.the response status should be 200(file:///E:/QA_KC/KC-sdet-automation/tests/src/test/resources/features/api/jsonplaceholder_smoke.feature:17)
+</textarea>
+      
+      </div>
+              </div>
+              <div class="step skip-bg" >
+                <span>And the response array at "$" size should be greater than 0</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" >
+                <span>And each item in response array has json path "userId" equals 1</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="ui.steps.api.ApiSteps.schema(java.lang.String)">
+                <span>And the response should match json schema "schemas/jsonplaceholder_posts_array_schema.json"</span>
+      <div>Step skipped
+      </div>
+              </div>
+          </div>
+        </div>
+  </div>
+  <div class="card">
+    <div class="card-header" role="tab">
+      <div class="card-title">
+        <div class="node" id="323"><span class="badge log fail-bg mr-2">Fail</span>Get a single post</div>
+      </div>
+    </div>
+        <div class="">
+          <div class="card-body">
+              <div class="step pass-bg" title="ui.steps.api.ApiSteps.setBaseUrl()">
+                <span>Given I set API base url</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="ui.steps.api.ApiSteps.get(java.lang.String)">
+                <span>When I GET "/posts/1"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step fail-bg" title="ui.steps.api.ApiSteps.status(java.lang.Integer)">
+                <span>Then the response status should be 200</span>
+      <div>
+        <textarea disabled class="code-block">java.lang.AssertionError: Unexpected status code expected [200] but found [404]
+	at org.testng.Assert.fail(Assert.java:111)
+	at org.testng.Assert.failNotEquals(Assert.java:1578)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:150)
+	at org.testng.Assert.assertEquals(Assert.java:132)
+	at org.testng.Assert.assertEquals(Assert.java:1419)
+	at org.testng.Assert.assertEquals(Assert.java:1383)
+	at com.algodatta.api.validators.ResponseValidator.status(ResponseValidator.java:12)
+	at ui.steps.api.ApiSteps.status(ApiSteps.java:117)
+	at ?.the response status should be 200(file:///E:/QA_KC/KC-sdet-automation/tests/src/test/resources/features/api/jsonplaceholder_smoke.feature:9)
+</textarea>
+      
+      </div>
+              </div>
+              <div class="step skip-bg" >
+                <span>And json path "id" should be 1</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" >
+                <span>And json path "userId" should be 1</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" >
+                <span>And json path "title" should not be null</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="ui.steps.api.ApiSteps.schema(java.lang.String)">
+                <span>And the response should match json schema "schemas/jsonplaceholder_post_schema.json"</span>
+      <div>Step skipped
+      </div>
+              </div>
+          </div>
+        </div>
+  </div>
+  <div class="card">
+    <div class="card-header" role="tab">
+      <div class="card-title">
+        <div class="node" id="328"><span class="badge log fail-bg mr-2">Fail</span>Get a user</div>
+      </div>
+    </div>
+        <div class="">
+          <div class="card-body">
+              <div class="step pass-bg" title="ui.steps.api.ApiSteps.setBaseUrl()">
+                <span>Given I set API base url</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="ui.steps.api.ApiSteps.get(java.lang.String)">
+                <span>When I GET "/users/1"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step fail-bg" title="ui.steps.api.ApiSteps.status(java.lang.Integer)">
+                <span>Then the response status should be 200</span>
+      <div>
+        <textarea disabled class="code-block">java.lang.AssertionError: Unexpected status code expected [200] but found [404]
+	at org.testng.Assert.fail(Assert.java:111)
+	at org.testng.Assert.failNotEquals(Assert.java:1578)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:150)
+	at org.testng.Assert.assertEquals(Assert.java:132)
+	at org.testng.Assert.assertEquals(Assert.java:1419)
+	at org.testng.Assert.assertEquals(Assert.java:1383)
+	at com.algodatta.api.validators.ResponseValidator.status(ResponseValidator.java:12)
+	at ui.steps.api.ApiSteps.status(ApiSteps.java:117)
+	at ?.the response status should be 200(file:///E:/QA_KC/KC-sdet-automation/tests/src/test/resources/features/api/jsonplaceholder_smoke.feature:24)
+</textarea>
+      
+      </div>
+              </div>
+              <div class="step skip-bg" >
+                <span>And json path "id" should be 1</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" >
+                <span>And json path "email" should contain "@"</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="ui.steps.api.ApiSteps.schema(java.lang.String)">
+                <span>And the response should match json schema "schemas/jsonplaceholder_user_schema.json"</span>
+      <div>Step skipped
+      </div>
+              </div>
+          </div>
+        </div>
+  </div>
+  <div class="card">
+    <div class="card-header" role="tab">
+      <div class="card-title">
+        <div class="node" id="337"><span class="badge log fail-bg mr-2">Fail</span>List comments for a post</div>
+      </div>
+    </div>
+        <div class="">
+          <div class="card-body">
+              <div class="step pass-bg" title="ui.steps.api.ApiSteps.setBaseUrl()">
+                <span>Given I set API base url</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="ui.steps.api.ApiSteps.get(java.lang.String)">
+                <span>When I GET "/comments?postId=1"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step fail-bg" title="ui.steps.api.ApiSteps.status(java.lang.Integer)">
+                <span>Then the response status should be 200</span>
+      <div>
+        <textarea disabled class="code-block">java.lang.AssertionError: Unexpected status code expected [200] but found [400]
+	at org.testng.Assert.fail(Assert.java:111)
+	at org.testng.Assert.failNotEquals(Assert.java:1578)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:150)
+	at org.testng.Assert.assertEquals(Assert.java:132)
+	at org.testng.Assert.assertEquals(Assert.java:1419)
+	at org.testng.Assert.assertEquals(Assert.java:1383)
+	at com.algodatta.api.validators.ResponseValidator.status(ResponseValidator.java:12)
+	at ui.steps.api.ApiSteps.status(ApiSteps.java:117)
+	at ?.the response status should be 200(file:///E:/QA_KC/KC-sdet-automation/tests/src/test/resources/features/api/jsonplaceholder_smoke.feature:31)
+</textarea>
+      
+      </div>
+              </div>
+              <div class="step skip-bg" >
+                <span>And the response array at "$" size should be greater than 0</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" >
+                <span>And each item in response array has json path "postId" equals 1</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="ui.steps.api.ApiSteps.schema(java.lang.String)">
+                <span>And the response should match json schema "schemas/jsonplaceholder_comments_array_schema.json"</span>
+      <div>Step skipped
+      </div>
+              </div>
+          </div>
+        </div>
+  </div>
+  <div class="card">
+    <div class="card-header" role="tab">
+      <div class="card-title">
+        <div class="node" id="340"><span class="badge log fail-bg mr-2">Fail</span>Get a todo</div>
+      </div>
+    </div>
+        <div class="">
+          <div class="card-body">
+              <div class="step pass-bg" title="ui.steps.api.ApiSteps.setBaseUrl()">
+                <span>Given I set API base url</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="ui.steps.api.ApiSteps.get(java.lang.String)">
+                <span>When I GET "/todos/1"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step fail-bg" title="ui.steps.api.ApiSteps.status(java.lang.Integer)">
+                <span>Then the response status should be 200</span>
+      <div>
+        <textarea disabled class="code-block">java.lang.AssertionError: Unexpected status code expected [200] but found [400]
+	at org.testng.Assert.fail(Assert.java:111)
+	at org.testng.Assert.failNotEquals(Assert.java:1578)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:150)
+	at org.testng.Assert.assertEquals(Assert.java:132)
+	at org.testng.Assert.assertEquals(Assert.java:1419)
+	at org.testng.Assert.assertEquals(Assert.java:1383)
+	at com.algodatta.api.validators.ResponseValidator.status(ResponseValidator.java:12)
+	at ui.steps.api.ApiSteps.status(ApiSteps.java:117)
+	at ?.the response status should be 200(file:///E:/QA_KC/KC-sdet-automation/tests/src/test/resources/features/api/jsonplaceholder_smoke.feature:38)
+</textarea>
+      
+      </div>
+              </div>
+              <div class="step skip-bg" >
+                <span>And json path "id" should be 1</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" >
+                <span>And json path "userId" should be 1</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="ui.steps.api.ApiSteps.schema(java.lang.String)">
+                <span>And the response should match json schema "schemas/jsonplaceholder_todo_schema.json"</span>
+      <div>Step skipped
+      </div>
+              </div>
+          </div>
+        </div>
+  </div>
+  <div class="card">
+    <div class="card-header" role="tab">
+      <div class="card-title">
+        <div class="node" id="348"><span class="badge log fail-bg mr-2">Fail</span>Get an album</div>
+      </div>
+    </div>
+        <div class="">
+          <div class="card-body">
+              <div class="step pass-bg" title="ui.steps.api.ApiSteps.setBaseUrl()">
+                <span>Given I set API base url</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="ui.steps.api.ApiSteps.get(java.lang.String)">
+                <span>When I GET "/albums/1"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step fail-bg" title="ui.steps.api.ApiSteps.status(java.lang.Integer)">
+                <span>Then the response status should be 200</span>
+      <div>
+        <textarea disabled class="code-block">java.lang.AssertionError: Unexpected status code expected [200] but found [400]
+	at org.testng.Assert.fail(Assert.java:111)
+	at org.testng.Assert.failNotEquals(Assert.java:1578)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:150)
+	at org.testng.Assert.assertEquals(Assert.java:132)
+	at org.testng.Assert.assertEquals(Assert.java:1419)
+	at org.testng.Assert.assertEquals(Assert.java:1383)
+	at com.algodatta.api.validators.ResponseValidator.status(ResponseValidator.java:12)
+	at ui.steps.api.ApiSteps.status(ApiSteps.java:117)
+	at ?.the response status should be 200(file:///E:/QA_KC/KC-sdet-automation/tests/src/test/resources/features/api/jsonplaceholder_smoke.feature:45)
+</textarea>
+      
+      </div>
+              </div>
+              <div class="step skip-bg" >
+                <span>And json path "id" should be 1</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" >
+                <span>And json path "userId" should be 1</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" >
+                <span>And json path "title" should not be null</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="ui.steps.api.ApiSteps.schema(java.lang.String)">
+                <span>And the response should match json schema "schemas/jsonplaceholder_album_schema.json"</span>
+      <div>Step skipped
+      </div>
+              </div>
+          </div>
+        </div>
+  </div>
+  <div class="card">
+    <div class="card-header" role="tab">
+      <div class="card-title">
+        <div class="node" id="355"><span class="badge log fail-bg mr-2">Fail</span>List photos in an album</div>
+      </div>
+    </div>
+        <div class="">
+          <div class="card-body">
+              <div class="step pass-bg" title="ui.steps.api.ApiSteps.setBaseUrl()">
+                <span>Given I set API base url</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="ui.steps.api.ApiSteps.get(java.lang.String)">
+                <span>When I GET "/photos?albumId=1"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step fail-bg" title="ui.steps.api.ApiSteps.status(java.lang.Integer)">
+                <span>Then the response status should be 200</span>
+      <div>
+        <textarea disabled class="code-block">java.lang.AssertionError: Unexpected status code expected [200] but found [400]
+	at org.testng.Assert.fail(Assert.java:111)
+	at org.testng.Assert.failNotEquals(Assert.java:1578)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:150)
+	at org.testng.Assert.assertEquals(Assert.java:132)
+	at org.testng.Assert.assertEquals(Assert.java:1419)
+	at org.testng.Assert.assertEquals(Assert.java:1383)
+	at com.algodatta.api.validators.ResponseValidator.status(ResponseValidator.java:12)
+	at ui.steps.api.ApiSteps.status(ApiSteps.java:117)
+	at ?.the response status should be 200(file:///E:/QA_KC/KC-sdet-automation/tests/src/test/resources/features/api/jsonplaceholder_smoke.feature:53)
+</textarea>
+      
+      </div>
+              </div>
+              <div class="step skip-bg" >
+                <span>And the response array at "$" size should be greater than 0</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" >
+                <span>And each item in response array has json path "albumId" equals 1</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="ui.steps.api.ApiSteps.schema(java.lang.String)">
+                <span>And the response should match json schema "schemas/jsonplaceholder_photos_array_schema.json"</span>
+      <div>Step skipped
+      </div>
+              </div>
+          </div>
+        </div>
+  </div>
+  <div class="card">
+    <div class="card-header" role="tab">
+      <div class="card-title">
+        <div class="node" id="362"><span class="badge log fail-bg mr-2">Fail</span>Create a post</div>
+      </div>
+    </div>
+        <div class="">
+          <div class="card-body">
+              <div class="step pass-bg" title="ui.steps.api.ApiSteps.setBaseUrl()">
+                <span>Given I set API base url</span>
+      <div>
+      </div>
+              </div>
+              <div class="step fail-bg" >
+                <span>When I POST "/posts" with json body:</span>
+      <div><div class='row'>
+ <div class='col-md-12'>
+  <textarea readonly class='code-block'>{
+  "title": "kc smoke",
+  "body": "hello from automation",
+  "userId": 1
+}</textarea>
+ </div>
+</div>
+
+      </div>
+      <div>Step undefined
+      </div>
+              </div>
+              <div class="step skip-bg" title="ui.steps.api.ApiSteps.status(java.lang.Integer)">
+                <span>Then the response status should be 201</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" >
+                <span>And json path "id" should not be null</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" >
+                <span>And json path "userId" should be 1</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="ui.steps.api.ApiSteps.schema(java.lang.String)">
+                <span>And the response should match json schema "schemas/jsonplaceholder_post_create_response_schema.json"</span>
+      <div>Step skipped
+      </div>
+              </div>
+          </div>
+        </div>
+  </div>
+  <div class="card">
+    <div class="card-header" role="tab">
+      <div class="card-title">
+        <div class="node" id="378"><span class="badge log fail-bg mr-2">Fail</span>Update a post with PUT</div>
+      </div>
+    </div>
+        <div class="">
+          <div class="card-body">
+              <div class="step pass-bg" title="ui.steps.api.ApiSteps.setBaseUrl()">
+                <span>Given I set API base url</span>
+      <div>
+      </div>
+              </div>
+              <div class="step fail-bg" >
+                <span>When I PUT "/posts/1" with json body:</span>
+      <div><div class='row'>
+ <div class='col-md-12'>
+  <textarea readonly class='code-block'>{
+  "id": 1,
+  "title": "updated title",
+  "body": "updated body",
+  "userId": 1
+}</textarea>
+ </div>
+</div>
+
+      </div>
+      <div>Step undefined
+      </div>
+              </div>
+              <div class="step skip-bg" title="ui.steps.api.ApiSteps.status(java.lang.Integer)">
+                <span>Then the response status should be 200</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" >
+                <span>And json path "id" should be 1</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" >
+                <span>And json path "title" should be "updated title"</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="ui.steps.api.ApiSteps.schema(java.lang.String)">
+                <span>And the response should match json schema "schemas/jsonplaceholder_post_schema.json"</span>
+      <div>Step skipped
+      </div>
+              </div>
+          </div>
+        </div>
+  </div>
+  <div class="card">
+    <div class="card-header" role="tab">
+      <div class="card-title">
+        <div class="node" id="385"><span class="badge log fail-bg mr-2">Fail</span>Partial update a post with PATCH</div>
+      </div>
+    </div>
+        <div class="">
+          <div class="card-body">
+              <div class="step pass-bg" title="ui.steps.api.ApiSteps.setBaseUrl()">
+                <span>Given I set API base url</span>
+      <div>
+      </div>
+              </div>
+              <div class="step fail-bg" >
+                <span>When I PATCH "/posts/1" with json body:</span>
+      <div><div class='row'>
+ <div class='col-md-12'>
+  <textarea readonly class='code-block'>{
+  "title": "patched title"
+}</textarea>
+ </div>
+</div>
+
+      </div>
+      <div>Step undefined
+      </div>
+              </div>
+              <div class="step skip-bg" title="ui.steps.api.ApiSteps.status(java.lang.Integer)">
+                <span>Then the response status should be 200</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" >
+                <span>And json path "title" should be "patched title"</span>
+      <div>Step skipped
+      </div>
+              </div>
+          </div>
+        </div>
+  </div>
+  <div class="card">
+    <div class="card-header" role="tab">
+      <div class="card-title">
+        <div class="node" id="390"><span class="badge log fail-bg mr-2">Fail</span>Delete a post</div>
+      </div>
+    </div>
+        <div class="">
+          <div class="card-body">
+              <div class="step pass-bg" title="ui.steps.api.ApiSteps.setBaseUrl()">
+                <span>Given I set API base url</span>
+      <div>
+      </div>
+              </div>
+              <div class="step fail-bg" >
+                <span>When I DELETE "/posts/1"</span>
+      <div>Step undefined
+      </div>
+              </div>
+              <div class="step skip-bg" title="ui.steps.api.ApiSteps.status(java.lang.Integer)">
+                <span>Then the response status should be 200</span>
+      <div>Step skipped
+      </div>
+              </div>
+          </div>
+        </div>
+  </div>
+</div>
+          </div>
+        </li>
+        <li class="test-item"  status="fail" test-id="392"
+          author=""
+          tag=""
+          device="">
+          <div class="test-detail">
+            <p class="name">ReqRes API validation</p>
+            <p class="text-sm">
+              <span>1:30:57 PM</span> / <span>00:00:00:014</span>
+              <span class="badge fail-bg log float-right">Fail</span>
+            </p>
+          </div>
+          <div class="test-contents d-none">
+<div class="detail-head">
+<div class="p-v-10">
+<div class="info">
+<h5 class="test-status text-fail">ReqRes API validation</h5>
+<span class='badge badge-success'>02.22.2026 1:30:57 PM</span>
+<span class='badge badge-danger'>02.22.2026 1:30:57 PM</span>
+<span class='badge badge-default'>00:00:00:014</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=392</span>
+<span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
+<span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
+<span title='Expand all nodes' class='badge badge-default pointer float-right et'><i class="fa fa-expand"></i></span>
+</div>
+<div class="m-t-10 m-l-5"></div>
+</div>
+</div>
+<div class="accordion mt-4">
+  <div class="card">
+    <div class="card-header" role="tab">
+      <div class="card-title">
+        <div class="node" id="393"><span class="badge log fail-bg mr-2">Fail</span>Login then fetch user details</div>
+      </div>
+    </div>
+        <div class="">
+          <div class="card-body">
+              <div class="step pass-bg" title="ui.steps.api.ApiSteps.setBaseUrl()">
+                <span>Given I set API base url</span>
+      <div>
+      </div>
+              </div>
+              <div class="step fail-bg" >
+                <span>When I login with email "eve.holt@reqres.in" and password "cityslicka"</span>
+      <div>Step undefined
+      </div>
+              </div>
+              <div class="step skip-bg" title="ui.steps.api.ApiSteps.status(java.lang.Integer)">
+                <span>Then the response status should be 200</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="ui.steps.api.ApiSteps.get(java.lang.String)">
+                <span>When I GET "/api/users/2"</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="ui.steps.api.ApiSteps.status(java.lang.Integer)">
+                <span>Then the response status should be 200</span>
+      <div>Step skipped
+      </div>
+              </div>
+              <div class="step skip-bg" title="ui.steps.api.ApiSteps.schema(java.lang.String)">
+                <span>And the response should match json schema "schemas/reqres_user_schema.json"</span>
+      <div>Step skipped
+      </div>
+              </div>
+          </div>
+        </div>
+  </div>
+</div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+<div class="test-content scrollable">
+<div class="test-content-tools">
+<ul><li><a class="back-to-test" href="#"><i class="fa fa-arrow-left"></i></a></li></ul>
+</div>
+<div class="test-content-detail"><div class="detail-body"></div></div>
+</div></div>
+<div class="test-wrapper row view exception-view attributes-view">
+<div class="test-list">
+<div class="test-list-tools">
+<ul class="tools pull-left"><li><a href=""><span class="font-size-14">Exception</span></a></li></ul>
+<ul class="tools text-right"><li><a href="#"><span class="badge badge-primary">1</span></a></li></ul>
+</div>
+<div class="test-list-wrapper scrollable">
+<ul class="test-list-item">
+<li class="test-item">
+<div class="test-detail">
+<span class="meta">
+<span class='badge log badge-danger'>15</span>
+</span>
+<p class="name">java.lang.AssertionError</p>
+<p class="duration text-sm">15 tests</p>
+</div>
+<div class="test-contents d-none">
+<div class="info">
+<h4>java.lang.AssertionError</h4>
+<span status="fail" class='badge log badge-danger'>15 failed</span>
+</div>
+<table class='table table-sm mt-4'>
+<thead>
+<tr>
+<th class="status-col">Status</th>
+<th class="timestamp-col">Timestamp</th>
+<th>TestName</th>
+</tr>
+</thead>
+<tbody>
+<tr class="tag-test-status" status="fail">
+<td><span class="badge log fail-bg">Fail</span></td>
+<td>13:30:29 PM</td>
+<td>
+<a href="#" class="linked" test-id='1' id='30'>And the JSON path "method" should be "POST"</a>
+<div class="">
+<span class="badge badge-default">httpbin Regression API suite (positive and negative coverage).HTTP methods should return success and echo method.And the JSON path "method" should be "POST"</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="fail">
+<td><span class="badge log fail-bg">Fail</span></td>
+<td>13:30:29 PM</td>
+<td>
+<a href="#" class="linked" test-id='1' id='24'>And the JSON path "method" should be "PATCH"</a>
+<div class="">
+<span class="badge badge-default">httpbin Regression API suite (positive and negative coverage).HTTP methods should return success and echo method.And the JSON path "method" should be "PATCH"</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="fail">
+<td><span class="badge log fail-bg">Fail</span></td>
+<td>13:30:29 PM</td>
+<td>
+<a href="#" class="linked" test-id='1' id='28'>And the JSON path "method" should be "GET"</a>
+<div class="">
+<span class="badge badge-default">httpbin Regression API suite (positive and negative coverage).HTTP methods should return success and echo method.And the JSON path "method" should be "GET"</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="fail">
+<td><span class="badge log fail-bg">Fail</span></td>
+<td>13:30:29 PM</td>
+<td>
+<a href="#" class="linked" test-id='1' id='27'>And the JSON path "method" should be "PUT"</a>
+<div class="">
+<span class="badge badge-default">httpbin Regression API suite (positive and negative coverage).HTTP methods should return success and echo method.And the JSON path "method" should be "PUT"</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="fail">
+<td><span class="badge log fail-bg">Fail</span></td>
+<td>13:30:35 PM</td>
+<td>
+<a href="#" class="linked" test-id='1' id='50'>And the JSON path "method" should be "DELETE"</a>
+<div class="">
+<span class="badge badge-default">httpbin Regression API suite (positive and negative coverage).HTTP methods should return success and echo method.And the JSON path "method" should be "DELETE"</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="fail">
+<td><span class="badge log fail-bg">Fail</span></td>
+<td>13:30:40 PM</td>
+<td>
+<a href="#" class="linked" test-id='1' id='111'>Then the response status should be 301</a>
+<div class="">
+<span class="badge badge-default">httpbin Regression API suite (positive and negative coverage).status endpoint should generate the given status code.Then the response status should be 301</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="fail">
+<td><span class="badge log fail-bg">Fail</span></td>
+<td>13:30:50 PM</td>
+<td>
+<a href="#" class="linked" test-id='1' id='247'>And the JSON path "cookies.kc" should be "1"</a>
+<div class="">
+<span class="badge badge-default">httpbin Regression API suite (positive and negative coverage).Create, read and delete cookies.And the JSON path "cookies.kc" should be "1"</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="fail">
+<td><span class="badge log fail-bg">Fail</span></td>
+<td>13:30:53 PM</td>
+<td>
+<a href="#" class="linked" test-id='283' id='310'>And the JSON path "method" should be "GET"</a>
+<div class="">
+<span class="badge badge-default">httpbin Smoke API suite.Basic GET should echo request data.And the JSON path "method" should be "GET"</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="fail">
+<td><span class="badge log fail-bg">Fail</span></td>
+<td>13:30:56 PM</td>
+<td>
+<a href="#" class="linked" test-id='320' id='333'>Then the response status should be 200</a>
+<div class="">
+<span class="badge badge-default">JSONPlaceholder API smoke coverage.List posts for a user.Then the response status should be 200</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="fail">
+<td><span class="badge log fail-bg">Fail</span></td>
+<td>13:30:56 PM</td>
+<td>
+<a href="#" class="linked" test-id='320' id='343'>Then the response status should be 200</a>
+<div class="">
+<span class="badge badge-default">JSONPlaceholder API smoke coverage.Get a single post.Then the response status should be 200</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="fail">
+<td><span class="badge log fail-bg">Fail</span></td>
+<td>13:30:57 PM</td>
+<td>
+<a href="#" class="linked" test-id='320' id='351'>Then the response status should be 200</a>
+<div class="">
+<span class="badge badge-default">JSONPlaceholder API smoke coverage.Get a user.Then the response status should be 200</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="fail">
+<td><span class="badge log fail-bg">Fail</span></td>
+<td>13:30:57 PM</td>
+<td>
+<a href="#" class="linked" test-id='320' id='358'>Then the response status should be 200</a>
+<div class="">
+<span class="badge badge-default">JSONPlaceholder API smoke coverage.Get a todo.Then the response status should be 200</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="fail">
+<td><span class="badge log fail-bg">Fail</span></td>
+<td>13:30:57 PM</td>
+<td>
+<a href="#" class="linked" test-id='320' id='369'>Then the response status should be 200</a>
+<div class="">
+<span class="badge badge-default">JSONPlaceholder API smoke coverage.Get an album.Then the response status should be 200</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="fail">
+<td><span class="badge log fail-bg">Fail</span></td>
+<td>13:30:57 PM</td>
+<td>
+<a href="#" class="linked" test-id='320' id='374'>Then the response status should be 200</a>
+<div class="">
+<span class="badge badge-default">JSONPlaceholder API smoke coverage.List comments for a post.Then the response status should be 200</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="fail">
+<td><span class="badge log fail-bg">Fail</span></td>
+<td>13:30:59 PM</td>
+<td>
+<a href="#" class="linked" test-id='320' id='402'>Then the response status should be 200</a>
+<div class="">
+<span class="badge badge-default">JSONPlaceholder API smoke coverage.List photos in an album.Then the response status should be 200</span>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="test-content scrollable">
+<div class="test-content-detail">
+<div class="detail-body"></div>
+</div>
+</div>
+</div><div class="test-wrapper row view category-view attributes-view">
+<div class="test-list">
+<div class="test-list-tools">
+<ul class="tools pull-left"><li><a href=""><span class="font-size-14">Category</span></a></li></ul>
+<ul class="tools text-right"><li><a href="#"><span class="badge badge-primary">2</span></a></li></ul>
+</div>
+<div class="test-list-wrapper scrollable">
+<ul class="test-list-item">
+<li class="test-item">
+<div class="test-detail">
+<span class="meta">
+<span class='badge log pass-bg'>36</span>
+<span class='badge log badge-danger'>7</span>
+</span>
+<p class="name">@api_regression</p>
+<p class="duration text-sm">43 tests</p>
+</div>
+<div class="test-contents d-none">
+<div class="info">
+<h4>@api_regression</h4>
+<span status="pass" class='badge log pass-bg'>36 passed</span>
+<span status="fail" class='badge log badge-danger'>7 failed</span>
+</div>
+<table class='table table-sm mt-4'>
+<thead>
+<tr>
+<th class="status-col">Status</th>
+<th class="timestamp-col">Timestamp</th>
+<th>TestName</th>
+</tr>
+</thead>
+<tbody>
+<tr class="tag-test-status" status="fail">
+<td><span class="badge log fail-bg">Fail</span></td>
+<td>13:30:18 PM</td>
+<td>
+<a href="#" class="linked" test-id='1' id='3'>HTTP methods should return success and echo method</a>
+<div class="">
+<span class="badge badge-default">httpbin Regression API suite (positive and negative coverage).HTTP methods should return success and echo method</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="fail">
+<td><span class="badge log fail-bg">Fail</span></td>
+<td>13:30:18 PM</td>
+<td>
+<a href="#" class="linked" test-id='1' id='4'>HTTP methods should return success and echo method</a>
+<div class="">
+<span class="badge badge-default">httpbin Regression API suite (positive and negative coverage).HTTP methods should return success and echo method</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="fail">
+<td><span class="badge log fail-bg">Fail</span></td>
+<td>13:30:18 PM</td>
+<td>
+<a href="#" class="linked" test-id='1' id='7'>HTTP methods should return success and echo method</a>
+<div class="">
+<span class="badge badge-default">httpbin Regression API suite (positive and negative coverage).HTTP methods should return success and echo method</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="fail">
+<td><span class="badge log fail-bg">Fail</span></td>
+<td>13:30:18 PM</td>
+<td>
+<a href="#" class="linked" test-id='1' id='9'>HTTP methods should return success and echo method</a>
+<div class="">
+<span class="badge badge-default">httpbin Regression API suite (positive and negative coverage).HTTP methods should return success and echo method</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>13:30:33 PM</td>
+<td>
+<a href="#" class="linked" test-id='1' id='31'>OPTIONS should return allowed methods</a>
+<div class="">
+<span class="badge badge-default">httpbin Regression API suite (positive and negative coverage).OPTIONS should return allowed methods</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>13:30:33 PM</td>
+<td>
+<a href="#" class="linked" test-id='1' id='33'>Bearer auth positive</a>
+<div class="">
+<span class="badge badge-default">httpbin Regression API suite (positive and negative coverage).Bearer auth positive</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="fail">
+<td><span class="badge log fail-bg">Fail</span></td>
+<td>13:30:33 PM</td>
+<td>
+<a href="#" class="linked" test-id='1' id='36'>HTTP methods should return success and echo method</a>
+<div class="">
+<span class="badge badge-default">httpbin Regression API suite (positive and negative coverage).HTTP methods should return success and echo method</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>13:30:33 PM</td>
+<td>
+<a href="#" class="linked" test-id='1' id='42'>HEAD should return headers only</a>
+<div class="">
+<span class="badge badge-default">httpbin Regression API suite (positive and negative coverage).HEAD should return headers only</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>13:30:35 PM</td>
+<td>
+<a href="#" class="linked" test-id='1' id='52'>Bearer auth negative (missing token)</a>
+<div class="">
+<span class="badge badge-default">httpbin Regression API suite (positive and negative coverage).Bearer auth negative (missing token)</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>13:30:35 PM</td>
+<td>
+<a href="#" class="linked" test-id='1' id='57'>Digest auth positive</a>
+<div class="">
+<span class="badge badge-default">httpbin Regression API suite (positive and negative coverage).Digest auth positive</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>13:30:35 PM</td>
+<td>
+<a href="#" class="linked" test-id='1' id='66'>Digest auth negative</a>
+<div class="">
+<span class="badge badge-default">httpbin Regression API suite (positive and negative coverage).Digest auth negative</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>13:30:35 PM</td>
+<td>
+<a href="#" class="linked" test-id='1' id='72'>status endpoint should generate the given status code</a>
+<div class="">
+<span class="badge badge-default">httpbin Regression API suite (positive and negative coverage).status endpoint should generate the given status code</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>13:30:37 PM</td>
+<td>
+<a href="#" class="linked" test-id='1' id='77'>status endpoint should generate the given status code</a>
+<div class="">
+<span class="badge badge-default">httpbin Regression API suite (positive and negative coverage).status endpoint should generate the given status code</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>13:30:37 PM</td>
+<td>
+<a href="#" class="linked" test-id='1' id='82'>status endpoint should generate the given status code</a>
+<div class="">
+<span class="badge badge-default">httpbin Regression API suite (positive and negative coverage).status endpoint should generate the given status code</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="fail">
+<td><span class="badge log fail-bg">Fail</span></td>
+<td>13:30:37 PM</td>
+<td>
+<a href="#" class="linked" test-id='1' id='87'>status endpoint should generate the given status code</a>
+<div class="">
+<span class="badge badge-default">httpbin Regression API suite (positive and negative coverage).status endpoint should generate the given status code</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>13:30:38 PM</td>
+<td>
+<a href="#" class="linked" test-id='1' id='92'>status endpoint should generate the given status code</a>
+<div class="">
+<span class="badge badge-default">httpbin Regression API suite (positive and negative coverage).status endpoint should generate the given status code</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>13:30:38 PM</td>
+<td>
+<a href="#" class="linked" test-id='1' id='97'>status endpoint should generate the given status code</a>
+<div class="">
+<span class="badge badge-default">httpbin Regression API suite (positive and negative coverage).status endpoint should generate the given status code</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>13:30:39 PM</td>
+<td>
+<a href="#" class="linked" test-id='1' id='102'>status endpoint should generate the given status code</a>
+<div class="">
+<span class="badge badge-default">httpbin Regression API suite (positive and negative coverage).status endpoint should generate the given status code</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>13:30:39 PM</td>
+<td>
+<a href="#" class="linked" test-id='1' id='107'>status endpoint should generate the given status code</a>
+<div class="">
+<span class="badge badge-default">httpbin Regression API suite (positive and negative coverage).status endpoint should generate the given status code</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>13:30:40 PM</td>
+<td>
+<a href="#" class="linked" test-id='1' id='112'>status endpoint should generate the given status code</a>
+<div class="">
+<span class="badge badge-default">httpbin Regression API suite (positive and negative coverage).status endpoint should generate the given status code</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>13:30:40 PM</td>
+<td>
+<a href="#" class="linked" test-id='1' id='117'>Inspect query params, headers and client IP via /anything</a>
+<div class="">
+<span class="badge badge-default">httpbin Regression API suite (positive and negative coverage).Inspect query params, headers and client IP via /anything</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>13:30:40 PM</td>
+<td>
+<a href="#" class="linked" test-id='1' id='124'>Inspect JSON body via /anything</a>
+<div class="">
+<span class="badge badge-default">httpbin Regression API suite (positive and negative coverage).Inspect JSON body via /anything</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>13:30:41 PM</td>
+<td>
+<a href="#" class="linked" test-id='1' id='130'>Validate caching headers via /cache/0 (no caching)</a>
+<div class="">
+<span class="badge badge-default">httpbin Regression API suite (positive and negative coverage).Validate caching headers via /cache/0 (no caching)</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>13:30:41 PM</td>
+<td>
+<a href="#" class="linked" test-id='1' id='135'>Validate ETag response</a>
+<div class="">
+<span class="badge badge-default">httpbin Regression API suite (positive and negative coverage).Validate ETag response</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>13:30:43 PM</td>
+<td>
+<a href="#" class="linked" test-id='1' id='147'>Validate custom response headers</a>
+<div class="">
+<span class="badge badge-default">httpbin Regression API suite (positive and negative coverage).Validate custom response headers</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>13:30:43 PM</td>
+<td>
+<a href="#" class="linked" test-id='1' id='154'>Different response formats should return expected content types</a>
+<div class="">
+<span class="badge badge-default">httpbin Regression API suite (positive and negative coverage).Different response formats should return expected content types</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>13:30:43 PM</td>
+<td>
+<a href="#" class="linked" test-id='1' id='158'>Different response formats should return expected content types</a>
+<div class="">
+<span class="badge badge-default">httpbin Regression API suite (positive and negative coverage).Different response formats should return expected content types</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>13:30:43 PM</td>
+<td>
+<a href="#" class="linked" test-id='1' id='164'>Different response formats should return expected content types</a>
+<div class="">
+<span class="badge badge-default">httpbin Regression API suite (positive and negative coverage).Different response formats should return expected content types</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>13:30:44 PM</td>
+<td>
+<a href="#" class="linked" test-id='1' id='170'>Different response formats should return expected content types</a>
+<div class="">
+<span class="badge badge-default">httpbin Regression API suite (positive and negative coverage).Different response formats should return expected content types</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>13:30:44 PM</td>
+<td>
+<a href="#" class="linked" test-id='1' id='179'>Different response formats should return expected content types</a>
+<div class="">
+<span class="badge badge-default">httpbin Regression API suite (positive and negative coverage).Different response formats should return expected content types</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>13:30:44 PM</td>
+<td>
+<a href="#" class="linked" test-id='1' id='183'>Gzip response should be JSON</a>
+<div class="">
+<span class="badge badge-default">httpbin Regression API suite (positive and negative coverage).Gzip response should be JSON</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>13:30:45 PM</td>
+<td>
+<a href="#" class="linked" test-id='1' id='189'>UUID endpoint should return a UUID</a>
+<div class="">
+<span class="badge badge-default">httpbin Regression API suite (positive and negative coverage).UUID endpoint should return a UUID</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>13:30:46 PM</td>
+<td>
+<a href="#" class="linked" test-id='1' id='195'>Delay endpoint should respond within a reasonable time</a>
+<div class="">
+<span class="badge badge-default">httpbin Regression API suite (positive and negative coverage).Delay endpoint should respond within a reasonable time</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>13:30:46 PM</td>
+<td>
+<a href="#" class="linked" test-id='1' id='204'>Random bytes should return binary</a>
+<div class="">
+<span class="badge badge-default">httpbin Regression API suite (positive and negative coverage).Random bytes should return binary</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="fail">
+<td><span class="badge log fail-bg">Fail</span></td>
+<td>13:30:46 PM</td>
+<td>
+<a href="#" class="linked" test-id='1' id='207'>Create, read and delete cookies</a>
+<div class="">
+<span class="badge badge-default">httpbin Regression API suite (positive and negative coverage).Create, read and delete cookies</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>13:30:47 PM</td>
+<td>
+<a href="#" class="linked" test-id='1' id='218'>Image endpoints should return correct image content types</a>
+<div class="">
+<span class="badge badge-default">httpbin Regression API suite (positive and negative coverage).Image endpoints should return correct image content types</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>13:30:48 PM</td>
+<td>
+<a href="#" class="linked" test-id='1' id='228'>Image endpoints should return correct image content types</a>
+<div class="">
+<span class="badge badge-default">httpbin Regression API suite (positive and negative coverage).Image endpoints should return correct image content types</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>13:30:48 PM</td>
+<td>
+<a href="#" class="linked" test-id='1' id='234'>Image endpoints should return correct image content types</a>
+<div class="">
+<span class="badge badge-default">httpbin Regression API suite (positive and negative coverage).Image endpoints should return correct image content types</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>13:30:49 PM</td>
+<td>
+<a href="#" class="linked" test-id='1' id='241'>Image endpoints should return correct image content types</a>
+<div class="">
+<span class="badge badge-default">httpbin Regression API suite (positive and negative coverage).Image endpoints should return correct image content types</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>13:30:50 PM</td>
+<td>
+<a href="#" class="linked" test-id='1' id='254'>Redirect endpoint should return a redirect when not following</a>
+<div class="">
+<span class="badge badge-default">httpbin Regression API suite (positive and negative coverage).Redirect endpoint should return a redirect when not following</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>13:30:50 PM</td>
+<td>
+<a href="#" class="linked" test-id='1' id='261'>Redirect endpoint should reach final destination when following</a>
+<div class="">
+<span class="badge badge-default">httpbin Regression API suite (positive and negative coverage).Redirect endpoint should reach final destination when following</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>13:30:50 PM</td>
+<td>
+<a href="#" class="linked" test-id='1' id='268'>Redirect to a custom URL</a>
+<div class="">
+<span class="badge badge-default">httpbin Regression API suite (positive and negative coverage).Redirect to a custom URL</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>13:30:50 PM</td>
+<td>
+<a href="#" class="linked" test-id='1' id='275'>/anything should echo arbitrary path, headers and payload</a>
+<div class="">
+<span class="badge badge-default">httpbin Regression API suite (positive and negative coverage)./anything should echo arbitrary path, headers and payload</span>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+<li class="test-item">
+<div class="test-detail">
+<span class="meta">
+<span class='badge log pass-bg'>3</span>
+<span class='badge log badge-danger'>13</span>
+</span>
+<p class="name">@api_smoke</p>
+<p class="duration text-sm">16 tests</p>
+</div>
+<div class="test-contents d-none">
+<div class="info">
+<h4>@api_smoke</h4>
+<span status="pass" class='badge log pass-bg'>3 passed</span>
+<span status="fail" class='badge log badge-danger'>13 failed</span>
+</div>
+<table class='table table-sm mt-4'>
+<thead>
+<tr>
+<th class="status-col">Status</th>
+<th class="timestamp-col">Timestamp</th>
+<th>TestName</th>
+</tr>
+</thead>
+<tbody>
+<tr class="tag-test-status" status="fail">
+<td><span class="badge log fail-bg">Fail</span></td>
+<td>13:30:52 PM</td>
+<td>
+<a href="#" class="linked" test-id='283' id='284'>Basic GET should echo request data</a>
+<div class="">
+<span class="badge badge-default">httpbin Smoke API suite.Basic GET should echo request data</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>13:30:52 PM</td>
+<td>
+<a href="#" class="linked" test-id='283' id='293'>Basic POST should echo JSON payload</a>
+<div class="">
+<span class="badge badge-default">httpbin Smoke API suite.Basic POST should echo JSON payload</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>13:30:52 PM</td>
+<td>
+<a href="#" class="linked" test-id='283' id='300'>Basic Auth positive</a>
+<div class="">
+<span class="badge badge-default">httpbin Smoke API suite.Basic Auth positive</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>13:30:53 PM</td>
+<td>
+<a href="#" class="linked" test-id='283' id='311'>Basic Auth negative</a>
+<div class="">
+<span class="badge badge-default">httpbin Smoke API suite.Basic Auth negative</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="fail">
+<td><span class="badge log fail-bg">Fail</span></td>
+<td>13:30:54 PM</td>
+<td>
+<a href="#" class="linked" test-id='320' id='321'>List posts for a user</a>
+<div class="">
+<span class="badge badge-default">JSONPlaceholder API smoke coverage.List posts for a user</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="fail">
+<td><span class="badge log fail-bg">Fail</span></td>
+<td>13:30:54 PM</td>
+<td>
+<a href="#" class="linked" test-id='320' id='323'>Get a single post</a>
+<div class="">
+<span class="badge badge-default">JSONPlaceholder API smoke coverage.Get a single post</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="fail">
+<td><span class="badge log fail-bg">Fail</span></td>
+<td>13:30:55 PM</td>
+<td>
+<a href="#" class="linked" test-id='320' id='328'>Get a user</a>
+<div class="">
+<span class="badge badge-default">JSONPlaceholder API smoke coverage.Get a user</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="fail">
+<td><span class="badge log fail-bg">Fail</span></td>
+<td>13:30:56 PM</td>
+<td>
+<a href="#" class="linked" test-id='320' id='337'>List comments for a post</a>
+<div class="">
+<span class="badge badge-default">JSONPlaceholder API smoke coverage.List comments for a post</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="fail">
+<td><span class="badge log fail-bg">Fail</span></td>
+<td>13:30:56 PM</td>
+<td>
+<a href="#" class="linked" test-id='320' id='340'>Get a todo</a>
+<div class="">
+<span class="badge badge-default">JSONPlaceholder API smoke coverage.Get a todo</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="fail">
+<td><span class="badge log fail-bg">Fail</span></td>
+<td>13:30:56 PM</td>
+<td>
+<a href="#" class="linked" test-id='320' id='348'>Get an album</a>
+<div class="">
+<span class="badge badge-default">JSONPlaceholder API smoke coverage.Get an album</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="fail">
+<td><span class="badge log fail-bg">Fail</span></td>
+<td>13:30:57 PM</td>
+<td>
+<a href="#" class="linked" test-id='320' id='355'>List photos in an album</a>
+<div class="">
+<span class="badge badge-default">JSONPlaceholder API smoke coverage.List photos in an album</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="fail">
+<td><span class="badge log fail-bg">Fail</span></td>
+<td>13:30:57 PM</td>
+<td>
+<a href="#" class="linked" test-id='320' id='362'>Create a post</a>
+<div class="">
+<span class="badge badge-default">JSONPlaceholder API smoke coverage.Create a post</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="fail">
+<td><span class="badge log fail-bg">Fail</span></td>
+<td>13:30:57 PM</td>
+<td>
+<a href="#" class="linked" test-id='320' id='378'>Update a post with PUT</a>
+<div class="">
+<span class="badge badge-default">JSONPlaceholder API smoke coverage.Update a post with PUT</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="fail">
+<td><span class="badge log fail-bg">Fail</span></td>
+<td>13:30:57 PM</td>
+<td>
+<a href="#" class="linked" test-id='320' id='385'>Partial update a post with PATCH</a>
+<div class="">
+<span class="badge badge-default">JSONPlaceholder API smoke coverage.Partial update a post with PATCH</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="fail">
+<td><span class="badge log fail-bg">Fail</span></td>
+<td>13:30:57 PM</td>
+<td>
+<a href="#" class="linked" test-id='320' id='390'>Delete a post</a>
+<div class="">
+<span class="badge badge-default">JSONPlaceholder API smoke coverage.Delete a post</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="fail">
+<td><span class="badge log fail-bg">Fail</span></td>
+<td>13:30:57 PM</td>
+<td>
+<a href="#" class="linked" test-id='392' id='393'>Login then fetch user details</a>
+<div class="">
+<span class="badge badge-default">ReqRes API validation.Login then fetch user details</span>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="test-content scrollable">
+<div class="test-content-detail">
+<div class="detail-body"></div>
+</div>
+</div>
+</div><div class="container-fluid p-4 view dashboard-view">
+<div class="row">
+<div class="col-md-3">
+<div class="card"><div class="card-body">
+<p class="m-b-0">Started</p>
+<h3>Feb 22, 2026 01:30:14 PM</h3>
+</div></div>
+</div>
+<div class="col-md-3">
+<div class="card"><div class="card-body">
+<p class="m-b-0">Ended</p>
+<h3>Feb 22, 2026 01:31:00 PM</h3>
+</div></div>
+</div>
+<div class="col-md-3">
+<div class="card"><div class="card-body">
+<p class="m-b-0 text-pass">Features Passed</p>
+<h3>0</h3>
+</div></div>
+</div>
+<div class="col-md-3">
+<div class="card"><div class="card-body">
+<p class="m-b-0 text-fail">Features Failed</p>
+<h3>4</h3>
+</div></div>
+</div>
+</div>
+<div class="row">
+<div class="col-md-4">
+<div class="card">
+<div class="card-header">
+<h6 class="card-title">Features</h6>
+</div>
+<div class="card-body">
+<div class="">
+<canvas id='parent-analysis' width='115' height='90'></canvas>
+</div>
+</div>
+<div class="card-footer">
+<div><small data-tooltip='0%'>
+<b>0</b> features passed
+</small>
+</div>
+<div>
+<small data-tooltip='100%'><b>4</b> features failed,
+<b>0</b> skipped, <b data-tooltip='0%'>0</b> others
+</small>
+</div>
+</div>
+</div>
+</div>
+<div class="col-md-4">
+<div class="card">
+<div class="card-header">
+<h6 class="card-title">Scenarios</h6>
+</div>
+<div class="card-body">
+<div class="">
+<canvas id='child-analysis' width='115' height='90'></canvas>
+</div>
+</div>
+<div class="card-footer">
+<div><small data-tooltip='66%'><b>39</b> scenarios passed</small></div>
+<div>
+<small data-tooltip='33%'><b>20</b> scenarios failed,
+<b>0</b> skipped, <b data-tooltip='%'>0</b> others
+</small>
+</div>
+</div>
+</div>
+</div>
+<div class="col-md-4">
+<div class="card">
+<div class="card-header">
+<h6 class="card-title">Steps</h6>
+</div>
+<div class="card-body">
+<div class="">
+<canvas id='grandchild-analysis' width='115' height='90'></canvas>
+</div>
+</div>
+<div class="card-footer">
+<div><small data-tooltip='81%'><b>274</b> steps passed</small></div>
+<div>
+<small data-tooltip='5%'><b>20</b> steps failed,
+<b>44</b> skipped, <b data-tooltip='%'>0</b> others
+</small>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="row"><div class="col-md-12">
+<div class="card"><div class="card-header"><p>Timeline</p></div>
+<div class="card-body pt-0"><div>
+<canvas id="timeline" height="120"></canvas>
+</div></div>
+</div>
+</div></div>
+<script>
+var timeline = {
+"httpbin Regression API suite (positive and negative coverage)":34.956,"httpbin Smoke API suite":3.999,"JSONPlaceholder API smoke coverage":4.617,"ReqRes API validation":0.014
+};
+</script>
+<div class="row">
+<div class="col-lg-6 col-md-12 category-container">
+<div class="card">
+<div class="card-header"><p>Tags</p></div>
+<div class="card-body pb-0 pt-0"><table class="table table-sm table-bordered">
+<thead><tr class="bg-gray"><th>Name</th><th>Passed</th><th>Failed</th><th>Skipped</th><th>Others</th><th>Passed %</th></tr></thead><tbody>
+<tr>
+<td>@api_regression</td>
+<td>36</td>
+<td>7</td>
+<td>0</td>
+<td>0</td>
+<td>83.721%</td>
+</tr>
+<tr>
+<td>@api_smoke</td>
+<td>3</td>
+<td>13</td>
+<td>0</td>
+<td>0</td>
+<td>18.75%</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<div class="col-lg-6 col-md-12 sysenv-container">
+<div class="card">
+<div class="card-header"><p>System/Environment</p></div>
+<div class="card-body pb-0 pt-0"><table class="table table-sm table-bordered">
+<thead><tr class="bg-gray"><th>Name</th><th>Value</th></tr></thead>
+<tbody>
+<tr>
+<td>Project</td>
+<td>kc-sdet-automation</td>
+</tr>
+<tr>
+<td>Environment</td>
+<td>QA</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+</div>
+<script>
+var statusGroup = {
+parentCount: 5,
+passParent: 0,
+failParent: 4,
+warningParent: 0,
+skipParent: 0,
+childCount: 5,
+passChild: 39,
+failChild: 20,
+warningChild: 0,
+skipChild: 0,
+infoChild: 0,
+grandChildCount: 5,
+passGrandChild: 274,
+failGrandChild: 20,
+warningGrandChild: 0,
+skipGrandChild: 44,
+infoGrandChild: 0,
+eventsCount: 5,
+};
+</script>        </div>
+      </div>
+    </div>
+  </div>
+<script src="https://cdn.jsdelivr.net/gh/extent-framework/extent-github-cdn@c05cd28cde1617b9d0c05a831daff6cb97fd9fd5/spark/js/spark-script.js"></script>
+<script type="text/javascript"></script></body>
+</html>

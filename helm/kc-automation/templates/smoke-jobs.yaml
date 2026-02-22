@@ -1,0 +1,63 @@
+{{- $root := . -}}
+{{- range $job := .Values.jobs }}
+{{- if $job.enabled }}
+---
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: {{ $job.name }}
+spec:
+  backoffLimit: 0
+  ttlSecondsAfterFinished: 3600
+  template:
+    spec:
+      restartPolicy: Never
+      volumes:
+        - name: artifacts
+          emptyDir: {}
+      containers:
+        - name: runner
+          image: {{ $root.Values.runner.image }}
+          imagePullPolicy: {{ $root.Values.runner.imagePullPolicy }}
+          env:
+            - name: SUITE
+              value: "{{ $job.suite | default "ui" }}"
+            - name: ENV
+              value: "{{ $root.Values.runner.env }}"
+            - name: RUNMODE
+              value: "{{ $root.Values.runner.runMode }}"
+            - name: THREADS
+              value: "{{ $root.Values.runner.threads }}"
+            - name: RETRY
+              value: "{{ $root.Values.runner.retry }}"
+            - name: TAGS
+              value: "{{ $job.tags | default "@smoke" }}"
+            - name: ARTIFACTS_ROOT
+              value: "{{ $root.Values.runner.artifactsRoot }}"
+            - name: REPORT_SUFFIX
+              value: "{{ $job.reportSuffix | default $job.name }}"
+            {{- if eq ($job.suite | default "ui") "ui" }}
+            - name: BROWSER
+              value: "{{ $job.browser | default "firefox" }}"
+            - name: HEADLESS
+              value: "{{ $root.Values.runner.headless }}"
+            - name: GRIDURL
+              value: "{{ $root.Values.runner.gridUrl }}"
+            {{- end }}
+            {{- if eq ($job.suite | default "ui") "api" }}
+            - name: API_BASE_URL
+              value: "{{ $root.Values.extraSystemProperties.apiBaseUrl | default "https://jsonplaceholder.typicode.com" }}"
+            {{- end }}
+            {{- if $root.Values.extraSystemProperties.baseUrl }}
+            - name: BASE_URL
+              value: "{{ $root.Values.extraSystemProperties.baseUrl }}"
+            {{- end }}
+            - name: RP_ENABLE
+              value: "{{ $root.Values.runner.enableReportPortal }}"
+            - name: RP_LAUNCH
+              value: "kc-{{ $job.reportSuffix | default $job.name }}"
+          volumeMounts:
+            - name: artifacts
+              mountPath: /work/artifacts
+{{- end }}
+{{- end }}
