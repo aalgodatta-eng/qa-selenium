@@ -6,23 +6,23 @@ import io.cucumber.java.After;
 import io.cucumber.java.Before;
 
 public class MockServerHooks {
+
   private static WireMockServer server;
 
   @Before("@mockapi")
   public void startMock() {
     if (server != null && server.isRunning()) return;
 
-    String mockPortRaw = System.getProperty("mockPort", "8089");
-    if (mockPortRaw == null || mockPortRaw.trim().isEmpty()) {
-      mockPortRaw = "8089";
-    }
-    int port = Integer.parseInt(mockPortRaw.trim());
+    int port = Integer.parseInt(System.getProperty("mockPort", "8089").trim());
     server = new WireMockServer(
         WireMockConfiguration.wireMockConfig()
             .port(port)
             .usingFilesUnderClasspath("wiremock")
     );
     server.start();
+
+    // Override apiBaseUrl so subsequent "I set API base url" steps
+    // correctly point to the running mock server.
     System.setProperty("apiBaseUrl", "http://localhost:" + port);
   }
 
@@ -32,5 +32,10 @@ public class MockServerHooks {
       server.stop();
       server = null;
     }
+    // Clear the system property so subsequent non-mockapi scenarios
+    // that call "I set API base url" use the env config value, not the
+    // now-dead mock URL. Without this, any test after @mockapi would
+    // point at http://localhost:8089 which is no longer running.
+    System.clearProperty("apiBaseUrl");
   }
 }

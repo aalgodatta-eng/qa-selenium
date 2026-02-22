@@ -5,11 +5,21 @@ Feature: httpbin Smoke API suite
     Given I set API base url
     And I reset API client
 
-  Scenario: Basic GET should echo request data
+  # httpbin /get, /post etc do NOT include a "method" field in their response.
+  # Only the /anything endpoint echoes back the HTTP method.
+  # We validate /anything for method reflection; individual verb endpoints
+  # are validated by status code and content type only.
+
+  Scenario: Basic GET should return 200 and JSON
     When I send "GET" request to "/get?hello=world"
     Then the response status should be 200
     And the response content type should contain "application/json"
     And the JSON path "args.hello" should be "world"
+
+  Scenario: GET /anything echoes the request method
+    When I send "GET" request to "/anything"
+    Then the response status should be 200
+    And the response content type should contain "application/json"
     And the JSON path "method" should be "GET"
 
   Scenario: Basic POST should echo JSON payload

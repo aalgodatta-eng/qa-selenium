@@ -1,18 +1,41 @@
 # ─────────────────────────────────────────────────────────────────────────────
-# YAML Anchors — reusable blocks to eliminate duplication
+# KC-SDET — Unified Docker Compose Stack
+#
+# Profiles:
+#   grid  → just Selenium Hub + browser nodes
+#   tests → grid + all 4 test runner jobs
+#
+# Usage:
+#   # Start grid only (for local dev / IDE runs):
+#   docker compose -f kc-stack.yml --profile grid up -d
+#
+#   # Run all tests + generate reports:
+#   docker compose -f kc-stack.yml --profile tests up --exit-code-from ui-smoke-chrome
+#
+#   # Tear everything down:
+#   docker compose -f kc-stack.yml --profile grid down
+#   docker compose -f kc-stack.yml --profile tests down
+#
+# FIX: environment blocks use MAP syntax (key: value) instead of LIST syntax
+# (- KEY=VALUE) so that YAML <<: merge keys work correctly with Docker Compose v2.
+# The old "- *anchor" list-spreading syntax was removed in Compose v2 and
+# throws: "unexpected type []interface {}"
 # ─────────────────────────────────────────────────────────────────────────────
+
+# ── Extension fields (YAML anchors) ─────────────────────────────────────────
 
 x-selenium-node: &selenium-node
   profiles: [grid, tests]
   depends_on: [selenium-hub]
   shm_size: 2gb
+  # MAP syntax → supports <<: merge in child services
   environment: &node-env
-    - SE_EVENT_BUS_HOST=selenium-hub
-    - SE_EVENT_BUS_PUBLISH_PORT=4442
-    - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
-    - SE_NODE_MAX_SESSIONS=4
-    - SE_NODE_OVERRIDE_MAX_SESSIONS=true
-    - SE_ENABLE_VNC=true
+    SE_EVENT_BUS_HOST: selenium-hub
+    SE_EVENT_BUS_PUBLISH_PORT: "4442"
+    SE_EVENT_BUS_SUBSCRIBE_PORT: "4443"
+    SE_NODE_MAX_SESSIONS: "4"
+    SE_NODE_OVERRIDE_MAX_SESSIONS: "true"
+    SE_ENABLE_VNC: "true"
   volumes:
     - /dev/shm:/dev/shm
 
@@ -22,24 +45,23 @@ x-test-runner: &test-runner
     context: .
     dockerfile: Dockerfile.runner
   image: kc-test-runner:latest
+  # MAP syntax → supports <<: merge in child services
   environment: &runner-env
-    - ENV=qa
-    - RUNMODE=grid
-    - HEADLESS=true
-    - GRIDURL=http://selenium-hub:4444/wd/hub
-    - TAGS=@ui_smoke
-    - THREADS=2
-    - RETRY=2
+    ENV: qa
+    RUNMODE: grid
+    HEADLESS: "true"
+    GRIDURL: http://selenium-hub:4444/wd/hub
+    TAGS: "@ui and @smoke"
+    THREADS: "2"
+    RETRY: "2"
   volumes:
     - ./reports:/work/artifacts
 
-# ─────────────────────────────────────────────────────────────────────────────
-# Services
-# ─────────────────────────────────────────────────────────────────────────────
+# ── Services ─────────────────────────────────────────────────────────────────
 
 services:
 
-  # ── Selenium Grid ───────────────────────────────────────────────────────────
+  # ── Selenium Grid ────────────────────────────────────────────────────────
 
   selenium-hub:
     profiles: [grid, tests]
@@ -49,13 +71,13 @@ services:
       - "4442:4442"   # event bus publish
       - "4443:4443"   # event bus subscribe
     environment:
-      - SE_ENABLE_TRACING=false
+      SE_ENABLE_TRACING: "false"
 
   chrome:
     <<: *selenium-node
     image: selenium/node-chrome:4.22.0
     ports:
-      - "7901:7900"   # VNC viewer
+      - "7901:7900"   # noVNC viewer
 
   firefox:
     <<: *selenium-node
@@ -69,43 +91,46 @@ services:
     ports:
       - "7903:7900"
 
-  # ── Test Runner Jobs ────────────────────────────────────────────────────────
+  # ── Test Runner Jobs ──────────────────────────────────────────────────────
+  # Each service inherits the x-test-runner block via <<: *test-runner,
+  # then adds/overrides env vars using <<: *runner-env + its own keys.
+  # MAP merge (<<:) is fully supported in Docker Compose v2.
 
   ui-smoke-chrome:
     <<: *test-runner
     depends_on: [selenium-hub, chrome]
     environment:
-      - *runner-env
-      - SUITE=ui
-      - BROWSER=chrome
-      - REPORT_SUFFIX=ui-chrome
+      <<: *runner-env
+      SUITE: ui
+      BROWSER: chrome
+      REPORT_SUFFIX: ui-chrome
 
   ui-smoke-firefox:
     <<: *test-runner
     depends_on: [selenium-hub, firefox]
     environment:
-      - *runner-env
-      - SUITE=ui
-      - BROWSER=firefox
-      - REPORT_SUFFIX=ui-firefox
+      <<: *runner-env
+      SUITE: ui
+      BROWSER: firefox
+      REPORT_SUFFIX: ui-firefox
 
   ui-smoke-edge:
     <<: *test-runner
     depends_on: [selenium-hub, edge]
     environment:
-      - *runner-env
-      - SUITE=ui
-      - BROWSER=edge
-      - REPORT_SUFFIX=ui-edge
+      <<: *runner-env
+      SUITE: ui
+      BROWSER: edge
+      REPORT_SUFFIX: ui-edge
 
   api-smoke:
     <<: *test-runner
     environment:
-      - SUITE=api
-      - ENV=qa
-      - RUNMODE=local
-      - TAGS=@api_smoke
-      - API_BASE_URL=https://jsonplaceholder.typicode.com
-      - THREADS=2
-      - RETRY=3
-      - REPORT_SUFFIX=api
+      SUITE: api
+      ENV: qa
+      RUNMODE: local
+      TAGS: "@api_smoke"
+      API_BASE_URL: https://jsonplaceholder.typicode.com
+      THREADS: "2"
+      RETRY: "3"
+      REPORT_SUFFIX: api
