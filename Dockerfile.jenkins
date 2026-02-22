@@ -1,0 +1,58 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# KC-SDET — Jenkins Agent Image
+# Extends the official Jenkins LTS image with:
+#   - Docker CLI (to build/push/run containers)
+#   - Docker Compose v2
+#   - kubectl (to manage the Kind cluster)
+#   - Helm (to deploy Selenium Grid via Helm chart)
+#
+# Build:  docker build -f Dockerfile.jenkins -t kc-jenkins:latest .
+# Start:  docker compose -f docker-compose-jenkins.yml up -d
+# ─────────────────────────────────────────────────────────────────────────────
+
+FROM jenkins/jenkins:lts-jdk17
+
+USER root
+
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    curl \
+    ca-certificates \
+    gnupg \
+    lsb-release \
+    unzip \
+    git \
+    jq \
+    python3 \
+    && rm -rf /var/lib/apt/lists/*
+
+# Docker CLI (no daemon — uses host socket via volume mount)
+RUN curl -fsSL https://get.docker.com | sh
+
+# Docker Compose v2 plugin
+ARG COMPOSE_VERSION=v2.27.0
+RUN mkdir -p /usr/libexec/docker/cli-plugins \
+    && curl -fsSL \
+       https://github.com/docker/compose/releases/download/${COMPOSE_VERSION}/docker-compose-linux-x86_64 \
+       -o /usr/libexec/docker/cli-plugins/docker-compose \
+    && chmod +x /usr/libexec/docker/cli-plugins/docker-compose
+
+# kubectl
+RUN curl -fsSL https://dl.k8s.io/release/stable.txt -o /tmp/k8s_version \
+    && curl -fsSL \
+       "https://dl.k8s.io/release/$(cat /tmp/k8s_version)/bin/linux/amd64/kubectl" \
+       -o /usr/local/bin/kubectl \
+    && chmod +x /usr/local/bin/kubectl \
+    && rm /tmp/k8s_version
+
+# kind (for loading images into the local cluster)
+RUN curl -fsSL https://kind.sigs.k8s.io/dl/latest/kind-linux-amd64 \
+       -o /usr/local/bin/kind \
+    && chmod +x /usr/local/bin/kind
+
+# Helm
+RUN curl -fsSL https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bash
+
+# Allow jenkins user to access the Docker socket
+RUN usermod -aG docker jenkins
+
+USER jenkins

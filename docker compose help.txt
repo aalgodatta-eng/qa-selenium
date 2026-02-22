@@ -1,5 +1,6 @@
 
 **********************re-build*************************************************
+
 docker compose -f docker-compose-jenkins.yml down
 docker compose -f docker-compose-jenkins.yml up -d --build
 
@@ -17,6 +18,7 @@ If it shows cluster nodes → K8s integration complete.
 
 You are literally one step away from a full enterprise QE infra.
 **************************************************************************
+force down
 docker compose -f docker-compose-jenkins.yml down --remove-orphans
 docker compose -f kc-stack.yml down --remove-orphans
 docker system prune -f

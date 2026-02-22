@@ -1,22 +1,23 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-# KC-SDET Automation unified runner (UI/API)
-# - Uses the existing tests module and its Maven properties.
+# KC-SDET Automation — unified test runner (UI / API)
+# All settings are driven by environment variables so the same image works
+# for Docker Compose, Kubernetes Jobs, and local docker run.
 
-SUITE="${SUITE:-ui}"            # ui | api
-ENV_NAME="${ENV:-qa}"           # maps to tests/src/test/resources/env/*.properties
-RUNMODE="${RUNMODE:-remote}"    # local | remote (your framework uses this)
-BROWSER="${BROWSER:-firefox}"   # firefox | edge | chrome
+SUITE="${SUITE:-ui}"             # ui | api
+ENV_NAME="${ENV:-qa}"            # maps to tests/src/test/resources/env/<ENV>.properties
+RUNMODE="${RUNMODE:-grid}"       # grid | local  (DriverFactory checks for "grid")
+BROWSER="${BROWSER:-chrome}"    # chrome | firefox | edge
 HEADLESS="${HEADLESS:-true}"
 GRIDURL="${GRIDURL:-http://selenium-hub:4444/wd/hub}"
 TAGS="${TAGS:-@ui_smoke}"
 THREADS="${THREADS:-2}"
-RETRY="${RETRY:-2}"             # retry attempts for flaky API/network calls
+RETRY="${RETRY:-2}"
 GROUPS="${GROUPS:-}"
 
-# Artifacts / reports
-# Mount /work/artifacts from host (compose) or a volume (k8s) to collect results per job.
+# ── Artifact / report paths ────────────────────────────────────────────────
+# Mount /work/artifacts from host (compose) or emptyDir (k8s) to collect results.
 ARTIFACTS_ROOT="${ARTIFACTS_ROOT:-/work/artifacts}"
 REPORT_SUFFIX="${REPORT_SUFFIX:-${SUITE}-${BROWSER}}"
 ALLURE_DIR="${ALLURE_DIR:-${ARTIFACTS_ROOT}/allure-results-${REPORT_SUFFIX}}"
@@ -39,14 +40,10 @@ echo "  GRIDURL    : ${GRIDURL}"
 echo "  TAGS       : ${TAGS}"
 echo "  THREADS    : ${THREADS}"
 echo "  RETRY      : ${RETRY}"
-echo "  GROUPS     : ${GROUPS}"
 echo "  ALLURE_DIR : ${ALLURE_DIR}"
 echo "  EXTENT_HTML: ${EXTENT_HTML}"
 echo "  RP_ENABLE  : ${RP_ENABLE}"
 echo "============================="
-
-# We scope execution to the existing Cucumber runners in tests module.
-# Repo already uses: -DgridUrl, -Dbrowser, -DrunMode, -Denv, -Dthreads, -Dcucumber.filter.tags
 
 MVN_ARGS=(
   -q
@@ -62,41 +59,29 @@ MVN_ARGS=(
   "-Dextent.reporter.spark.out=${EXTENT_HTML}"
 )
 
-# Optional base url overrides
-if [[ -n "${BASE_URL:-}" ]]; then
-  MVN_ARGS+=("-DbaseUrl=${BASE_URL}")
-fi
-if [[ -n "${API_BASE_URL:-}" ]]; then
-  MVN_ARGS+=("-DapiBaseUrl=${API_BASE_URL}")
-fi
+# Optional URL overrides
+[[ -n "${BASE_URL:-}"     ]] && MVN_ARGS+=("-DbaseUrl=${BASE_URL}")
+[[ -n "${API_BASE_URL:-}" ]] && MVN_ARGS+=("-DapiBaseUrl=${API_BASE_URL}")
+[[ -n "${GROUPS}"         ]] && MVN_ARGS+=("-Dgroups=${GROUPS}")
 
-# Optional TestNG groups, if used
-if [[ -n "${GROUPS}" ]]; then
-  MVN_ARGS+=("-Dgroups=${GROUPS}")
-fi
-
-# ReportPortal wiring via system properties (optional)
+# ReportPortal (optional)
 MVN_ARGS+=("-Drp.enable=${RP_ENABLE}")
 if [[ -n "${RP_LAUNCH}" ]]; then
   MVN_ARGS+=("-Drp.launch=${RP_LAUNCH}")
 else
   MVN_ARGS+=("-Drp.launch=kc-${REPORT_SUFFIX}")
 fi
-if [[ -n "${RP_ATTRIBUTES}" ]]; then
-  MVN_ARGS+=("-Drp.attributes=${RP_ATTRIBUTES}")
-fi
+[[ -n "${RP_ATTRIBUTES}" ]] && MVN_ARGS+=("-Drp.attributes=${RP_ATTRIBUTES}")
 
 if [[ "${SUITE}" == "ui" ]]; then
   MVN_ARGS+=("-Dbrowser=${BROWSER}" "-DgridUrl=${GRIDURL}")
-  # If your framework needs platformName/browserVersion, you can pass them too.
   exec mvn "${MVN_ARGS[@]}"
 
 elif [[ "${SUITE}" == "api" ]]; then
-  # API runner doesn’t need Selenium/grid, but keeping properties harmless.
   MVN_ARGS+=("-Dbrowser=api" "-DgridUrl=")
   exec mvn "${MVN_ARGS[@]}"
 
 else
-  echo "ERROR: Unknown SUITE='${SUITE}'. Use ui|api"
+  echo "ERROR: Unknown SUITE='${SUITE}'. Use ui | api"
   exit 2
 fi

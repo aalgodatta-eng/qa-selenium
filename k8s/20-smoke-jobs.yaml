@@ -1,3 +1,63 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# KC-SDET — Parallel Smoke Jobs (Chrome + Firefox + Edge + API)
+# All 4 jobs are applied at once and run concurrently in the qa namespace.
+#
+# Build image first:
+#   docker build -f Dockerfile.runner -t administratorkc/kc-test-runner:1.0.0 .
+#   docker push administratorkc/kc-test-runner:1.0.0
+#   OR for local kind:
+#   kind load docker-image administratorkc/kc-test-runner:1.0.0 --name qe-cluster
+#
+# Deploy:
+#   kubectl apply -f k8s/20-smoke-jobs.yaml
+#   kubectl -n qa wait --for=condition=complete job/ui-smoke-chrome  --timeout=45m
+#   kubectl -n qa wait --for=condition=complete job/ui-smoke-firefox --timeout=45m
+#   kubectl -n qa wait --for=condition=complete job/ui-smoke-edge    --timeout=45m
+#   kubectl -n qa wait --for=condition=complete job/api-smoke        --timeout=45m
+# ─────────────────────────────────────────────────────────────────────────────
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: ui-smoke-chrome
+  namespace: qa
+spec:
+  backoffLimit: 0
+  ttlSecondsAfterFinished: 3600
+  template:
+    spec:
+      restartPolicy: Never
+      volumes:
+        - name: artifacts
+          emptyDir: {}
+      containers:
+        - name: runner
+          image: administratorkc/kc-test-runner:1.0.0
+          imagePullPolicy: IfNotPresent
+          env:
+            - name: SUITE
+              value: "ui"
+            - name: ENV
+              value: "qa"
+            - name: RUNMODE
+              value: "grid"
+            - name: BROWSER
+              value: "chrome"
+            - name: HEADLESS
+              value: "true"
+            - name: GRIDURL
+              value: "http://selenium-hub:4444/wd/hub"
+            - name: TAGS
+              value: "@ui_smoke"
+            - name: THREADS
+              value: "2"
+            - name: RETRY
+              value: "2"
+            - name: REPORT_SUFFIX
+              value: "ui-chrome"
+          volumeMounts:
+            - name: artifacts
+              mountPath: /work/artifacts
+---
 apiVersion: batch/v1
 kind: Job
 metadata:
@@ -14,9 +74,7 @@ spec:
           emptyDir: {}
       containers:
         - name: runner
-          # Change this image to your pushed image:
-          #   your-dockerhub-user/kc-sdet-automation:1.0.0
-          image: kc-sdet-automation:latest
+          image: administratorkc/kc-test-runner:1.0.0
           imagePullPolicy: IfNotPresent
           env:
             - name: SUITE
@@ -59,7 +117,7 @@ spec:
           emptyDir: {}
       containers:
         - name: runner
-          image: kc-sdet-automation:latest
+          image: administratorkc/kc-test-runner:1.0.0
           imagePullPolicy: IfNotPresent
           env:
             - name: SUITE
@@ -89,49 +147,6 @@ spec:
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: ui-smoke-chrome
-  namespace: qa
-spec:
-  backoffLimit: 0
-  ttlSecondsAfterFinished: 3600
-  template:
-    spec:
-      restartPolicy: Never
-      volumes:
-        - name: artifacts
-          emptyDir: {}
-      containers:
-        - name: runner
-          image: kc-sdet-automation:latest
-          imagePullPolicy: IfNotPresent
-          env:
-            - name: SUITE
-              value: "ui"
-            - name: ENV
-              value: "qa"
-            - name: RUNMODE
-              value: "grid"
-            - name: BROWSER
-              value: "chrome"
-            - name: HEADLESS
-              value: "true"
-            - name: GRIDURL
-              value: "http://selenium-hub:4444/wd/hub"
-            - name: TAGS
-              value: "@ui_smoke"
-            - name: THREADS
-              value: "2"
-            - name: RETRY
-              value: "2"
-            - name: REPORT_SUFFIX
-              value: "ui-chrome"
-          volumeMounts:
-            - name: artifacts
-              mountPath: /work/artifacts
----
-apiVersion: batch/v1
-kind: Job
-metadata:
   name: api-smoke
   namespace: qa
 spec:
@@ -145,7 +160,7 @@ spec:
           emptyDir: {}
       containers:
         - name: runner
-          image: kc-sdet-automation:latest
+          image: administratorkc/kc-test-runner:1.0.0
           imagePullPolicy: IfNotPresent
           env:
             - name: SUITE

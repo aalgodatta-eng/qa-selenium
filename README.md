@@ -172,3 +172,27 @@ helm upgrade --install KC-auto ./helm/KC-automation   --set job.tags='@ui'   --s
 ```bash
 helm uninstall KC-auto
 ```
+
+
+## Jenkins (Docker) – Selenium Grid
+
+This repo ships with a Linux-friendly `Jenkinsfile` that runs Selenium Grid and executes **ui-smoke** (Chrome/Firefox/Edge) + **api-smoke** in parallel using `kc-stack.yml`.
+
+### Jenkins job
+- Create a **Pipeline** job → *Pipeline script from SCM*
+- Repo: this repository
+- Script Path: `Jenkinsfile`
+
+### Agent requirements
+- Docker + Docker Compose v2 available on the Jenkins agent (Jenkins-in-Docker is fine, using the host docker socket)
+
+### Parameters
+- `ENV` (default `qa`)
+- `BASE_URL` (your AUT URL)
+- `API_BASE_URL` (default `https://jsonplaceholder.typicode.com`)
+- `THREADS` and `RETRY`
+
+### Reports
+Build artifacts are stored under `reports/` and Jenkins publishes:
+- Extent Spark (per-suite)
+- Allure HTML (per-suite, generated automatically via `scripts/generate_allure_reports.sh`)

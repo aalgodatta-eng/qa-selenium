@@ -5,93 +5,325 @@ pipeline {
     timestamps()
     ansiColor('xterm')
     disableConcurrentBuilds()
+    timeout(time: 90, unit: 'MINUTES')
   }
 
   parameters {
-    string(name: 'DOCKER_IMAGE', defaultValue: 'your-dockerhub-user/kc-sdet-automation', description: 'Docker image repo (without tag)')
-    string(name: 'IMAGE_TAG', defaultValue: '1.0.0', description: 'Docker image tag')
+    string(name: 'DOCKER_IMAGE', defaultValue: 'administratorkc/kc-test-runner', description: 'Runner image (registry/name or local for kind)')
+    string(name: 'IMAGE_TAG',    defaultValue: '1.0.0',                          description: 'Docker image tag')
 
-    choice(name: 'ENV', choices: ['qa'], description: 'Test environment')
-    string(name: 'TAGS', defaultValue: '@ui_smoke', description: 'Cucumber tags to run')
-    string(name: 'THREADS', defaultValue: '2', description: 'Parallel threads per job')
+    choice(name: 'ENV',    choices: ['qa', 'dev', 'stage'], description: 'Test environment')
+    choice(name: 'SUITE',  choices: ['smoke', 'regression'], description: 'Suite (controls default TAGS)')
+    string(name: 'TAGS',   defaultValue: '',                description: 'Override Cucumber tags (blank = use SUITE default)')
+    string(name: 'THREADS', defaultValue: '2',              description: 'Parallel scenarios per job pod')
 
-    booleanParam(name: 'DEPLOY_GRID', defaultValue: true, description: 'Deploy/upgrade Selenium Grid')
-    booleanParam(name: 'RUN_JOBS', defaultValue: true, description: 'Run parallel smoke jobs')
+    booleanParam(name: 'BUILD_IMAGE',  defaultValue: false, description: 'Rebuild & push runner image before tests')
+    booleanParam(name: 'DEPLOY_GRID',  defaultValue: false, description: 'Re-deploy Selenium Grid (only after cluster restart)')
+    booleanParam(name: 'RUN_UI_JOBS',  defaultValue: true,  description: 'Run Chrome + Firefox + Edge UI jobs')
+    booleanParam(name: 'RUN_API_JOB',  defaultValue: true,  description: 'Run API smoke job')
+    booleanParam(name: 'CLEANUP',      defaultValue: false, description: 'Delete K8s jobs after run')
   }
 
   environment {
-    MAVEN_OPTS = "-Xmx1024m"
+    K8S_NAMESPACE = 'qa'
+    REPORTS_DIR   = "${WORKSPACE}/reports"
+    ALLURE_IMAGE  = 'allureframework/allure2:2.27.0'
   }
 
   stages {
+
+    // ─────────────────────────────────────────────────────────────────────
     stage('Checkout') {
       steps {
         checkout scm
+        sh 'mkdir -p "${REPORTS_DIR}"'
       }
     }
 
+    // ─────────────────────────────────────────────────────────────────────
+    // Only runs when BUILD_IMAGE=true. Skip on normal re-runs to save time.
+    // ─────────────────────────────────────────────────────────────────────
     stage('Build & Push Runner Image') {
+      when { expression { return params.BUILD_IMAGE } }
       steps {
-        sh '''
-          set -e
-          docker build -t ${DOCKER_IMAGE}:${IMAGE_TAG} .
-          docker push ${DOCKER_IMAGE}:${IMAGE_TAG}
+        sh '''#!/usr/bin/env bash
+          set -euo pipefail
+          echo "[build] building from Dockerfile.runner"
+          docker build -f Dockerfile.runner \
+            -t ${DOCKER_IMAGE}:${IMAGE_TAG} .
+
+          if echo "${DOCKER_IMAGE}" | grep -q "/"; then
+            echo "[build] pushing ${DOCKER_IMAGE}:${IMAGE_TAG}"
+            docker push ${DOCKER_IMAGE}:${IMAGE_TAG}
+          else
+            echo "[build] local name — loading into kind cluster"
+            kind load docker-image ${DOCKER_IMAGE}:${IMAGE_TAG} --name qe-cluster
+          fi
         '''
       }
     }
 
+    // ─────────────────────────────────────────────────────────────────────
     stage('Deploy Namespace') {
       steps {
         sh 'kubectl apply -f k8s/00-namespace.yaml'
       }
     }
 
+    // ─────────────────────────────────────────────────────────────────────
+    // Only re-deploys Grid when DEPLOY_GRID=true (stays up between runs)
+    // ─────────────────────────────────────────────────────────────────────
     stage('Deploy Selenium Grid') {
       when { expression { return params.DEPLOY_GRID } }
       steps {
-        sh 'kubectl apply -f k8s/10-selenium-grid.yaml'
-        sh 'kubectl -n qa rollout status deploy/selenium-hub --timeout=180s'
-      }
-    }
-
-    stage('Run Parallel Smoke Jobs') {
-      when { expression { return params.RUN_JOBS } }
-      steps {
-        sh '''
-          set -e
-
-          # Patch job images + run params dynamically (no yq dependency)
-          TMP=$(mktemp)
-          cat k8s/20-smoke-jobs.yaml \
-            | sed "s|image: kc-sdet-automation:latest|image: ${DOCKER_IMAGE}:${IMAGE_TAG}|g" \
-            | sed "s|value: \"qa\"|value: \"${ENV}\"|g" \
-            > "$TMP"
-
-          # Update tags/threads in all jobs
-          sed -i "s|value: \"@smoke\"|value: \"${TAGS}\"|g" "$TMP"
-          sed -i "s|value: \"2\"|value: \"${THREADS}\"|g" "$TMP"
-
-          kubectl apply -f "$TMP"
-
-          kubectl -n qa wait --for=condition=complete job/ui-smoke-firefox --timeout=45m
-          kubectl -n qa wait --for=condition=complete job/ui-smoke-edge --timeout=45m
-          kubectl -n qa wait --for=condition=complete job/api-smoke --timeout=45m
-
-          echo "--- Logs: ui-smoke-firefox ---"
-          kubectl -n qa logs job/ui-smoke-firefox || true
-          echo "--- Logs: ui-smoke-edge ---"
-          kubectl -n qa logs job/ui-smoke-edge || true
-          echo "--- Logs: api-smoke ---"
-          kubectl -n qa logs job/api-smoke || true
+        sh '''#!/usr/bin/env bash
+          set -euo pipefail
+          kubectl apply -f k8s/10-selenium-grid.yaml
+          kubectl -n ${K8S_NAMESPACE} rollout status deploy/selenium-hub          --timeout=180s
+          kubectl -n ${K8S_NAMESPACE} rollout status deploy/selenium-node-chrome  --timeout=120s
+          kubectl -n ${K8S_NAMESPACE} rollout status deploy/selenium-node-firefox --timeout=120s
+          kubectl -n ${K8S_NAMESPACE} rollout status deploy/selenium-node-edge    --timeout=120s
+          echo "[grid] all nodes Ready"
+          kubectl -n ${K8S_NAMESPACE} get pods
         '''
       }
     }
-  }
 
+    // ─────────────────────────────────────────────────────────────────────
+    // Launch K8s Jobs in parallel. Each pod writes allure-results + extent
+    // report to /work/artifacts (emptyDir). Jenkins copies those out next.
+    // ─────────────────────────────────────────────────────────────────────
+    stage('Run Parallel Test Jobs') {
+      steps {
+        sh '''#!/usr/bin/env bash
+          set -euo pipefail
+
+          # ── Resolve Cucumber tags ─────────────────────────────────────
+          if [[ -n "${TAGS}" ]]; then
+            EFFECTIVE_TAGS="${TAGS}"
+          elif [[ "${SUITE}" == "regression" ]]; then
+            EFFECTIVE_TAGS="@ui_regression"
+          else
+            EFFECTIVE_TAGS="@ui_smoke"
+          fi
+          API_TAGS="@api_smoke"
+
+          echo "[jobs] SUITE=${SUITE}  UI_TAGS=${EFFECTIVE_TAGS}  API_TAGS=${API_TAGS}"
+          echo "[jobs] IMAGE=${DOCKER_IMAGE}:${IMAGE_TAG}  THREADS=${THREADS}"
+
+          # ── Build list of jobs to run ─────────────────────────────────
+          JOBS_TO_RUN=()
+          [[ "${RUN_UI_JOBS}" == "true" ]] && JOBS_TO_RUN+=(ui-smoke-chrome ui-smoke-firefox ui-smoke-edge)
+          [[ "${RUN_API_JOB}"  == "true" ]] && JOBS_TO_RUN+=(api-smoke)
+
+          if [[ ${#JOBS_TO_RUN[@]} -eq 0 ]]; then
+            echo "[jobs] nothing to run"
+            exit 0
+          fi
+
+          # ── Delete any previous completed/failed jobs ─────────────────
+          for j in "${JOBS_TO_RUN[@]}"; do
+            kubectl -n ${K8S_NAMESPACE} delete job "${j}" --ignore-not-found=true || true
+          done
+
+          # ── Patch manifests: image, tags, threads ─────────────────────
+          TMP=$(mktemp)
+          sed \
+            -e "s|image: administratorkc/kc-test-runner:1.0.0|image: ${DOCKER_IMAGE}:${IMAGE_TAG}|g" \
+            -e "s|value: \"@ui_smoke\"|value: \"${EFFECTIVE_TAGS}\"|g" \
+            -e "s|value: \"@api_smoke\"|value: \"${API_TAGS}\"|g" \
+            k8s/20-smoke-jobs.yaml > "${TMP}"
+
+          # ── Apply only the jobs in JOBS_TO_RUN ───────────────────────
+          for j in "${JOBS_TO_RUN[@]}"; do
+            awk "/^---$/{p=0} /name: ${j}$/{p=1} p" "${TMP}" | kubectl apply -f - 2>/dev/null || \
+            kubectl apply -f "${TMP}" 2>/dev/null || true
+          done
+
+          # ── Wait for every job to complete ────────────────────────────
+          FAILED_JOBS=()
+          for j in "${JOBS_TO_RUN[@]}"; do
+            echo "  ⏳ waiting for job/${j}..."
+            kubectl -n ${K8S_NAMESPACE} wait \
+              --for=condition=complete "job/${j}" \
+              --timeout=45m \
+              && echo "  ✅ job/${j} complete" \
+              || { echo "  ❌ job/${j} failed/timeout"; FAILED_JOBS+=("${j}"); }
+          done
+
+          # ── Print full logs for each job ──────────────────────────────
+          for j in "${JOBS_TO_RUN[@]}"; do
+            echo ""
+            echo "============================================================"
+            echo " LOGS: ${j}"
+            echo "============================================================"
+            kubectl -n ${K8S_NAMESPACE} logs "job/${j}" || true
+          done
+
+          echo ""
+          echo "============================================================"
+          echo " JOB SUMMARY"
+          echo "============================================================"
+          kubectl -n ${K8S_NAMESPACE} get jobs || true
+
+          # ── Fail stage if any job failed ──────────────────────────────
+          if [[ ${#FAILED_JOBS[@]} -gt 0 ]]; then
+            echo "❌ Failed jobs: ${FAILED_JOBS[*]}"
+            exit 1
+          fi
+        '''
+      }
+    }
+
+    // ─────────────────────────────────────────────────────────────────────
+    // kubectl cp pulls /work/artifacts from each completed pod into the
+    // Jenkins workspace. Pods persist after job completion until TTL expires.
+    // ─────────────────────────────────────────────────────────────────────
+    stage('Collect Reports') {
+      steps {
+        sh '''#!/usr/bin/env bash
+          set +e   # collect what we can — don't abort on one missing pod
+
+          JOBS_TO_COLLECT=()
+          [[ "${RUN_UI_JOBS}" == "true" ]] && JOBS_TO_COLLECT+=(ui-smoke-chrome ui-smoke-firefox ui-smoke-edge)
+          [[ "${RUN_API_JOB}"  == "true" ]] && JOBS_TO_COLLECT+=(api-smoke)
+
+          mkdir -p "${REPORTS_DIR}"
+
+          for j in "${JOBS_TO_COLLECT[@]}"; do
+            POD=$(kubectl -n ${K8S_NAMESPACE} get pods \
+              -l "job-name=${j}" \
+              --field-selector=status.phase=Succeeded \
+              -o jsonpath="{.items[0].metadata.name}" 2>/dev/null)
+
+            if [[ -z "${POD}" ]]; then
+              echo "[collect] ⚠️  no succeeded pod for ${j} — skipping"
+              continue
+            fi
+
+            echo "[collect] copying from pod ${POD}  (job: ${j})"
+            STAGE_DIR="${REPORTS_DIR}/${j}"
+            mkdir -p "${STAGE_DIR}"
+            kubectl -n ${K8S_NAMESPACE} cp \
+              "${POD}:/work/artifacts" "${STAGE_DIR}" \
+              && echo "[collect] ✅ ${j}" \
+              || echo "[collect] ⚠️  cp failed for ${j}"
+          done
+
+          # ── Flatten: lift allure-results-* and extent-report-* to REPORTS_DIR root ──
+          for j in "${JOBS_TO_COLLECT[@]}"; do
+            SRC="${REPORTS_DIR}/${j}"
+            [[ -d "${SRC}" ]] || continue
+
+            find "${SRC}" -maxdepth 3 -type d -name "allure-results-*" | while read -r dir; do
+              DEST="${REPORTS_DIR}/$(basename "${dir}")"
+              echo "[collect]   allure  → $(basename "${dir}")"
+              rm -rf "${DEST}"; cp -R "${dir}" "${DEST}"
+            done
+
+            find "${SRC}" -maxdepth 3 -type d -name "extent-report-*" | while read -r dir; do
+              DEST="${REPORTS_DIR}/$(basename "${dir}")"
+              echo "[collect]   extent  → $(basename "${dir}")"
+              rm -rf "${DEST}"; cp -R "${dir}" "${DEST}"
+            done
+          done
+
+          echo ""
+          echo "[collect] workspace reports/:"
+          ls -la "${REPORTS_DIR}/" || true
+        '''
+      }
+    }
+
+    // ─────────────────────────────────────────────────────────────────────
+    // Generate one Allure HTML report per suite using the official Docker
+    // image — no local allure CLI install required on the Jenkins agent.
+    // ─────────────────────────────────────────────────────────────────────
+    stage('Generate Allure Reports') {
+      steps {
+        sh '''#!/usr/bin/env bash
+          set -euo pipefail
+
+          docker pull "${ALLURE_IMAGE}" --quiet || true
+
+          GENERATED=0; SKIPPED=0
+
+          for suffix in ui-chrome ui-firefox ui-edge api; do
+            IN_DIR="${REPORTS_DIR}/allure-results-${suffix}"
+            OUT_DIR="${REPORTS_DIR}/allure-report-${suffix}"
+
+            if [[ ! -d "${IN_DIR}" ]]; then
+              echo "[allure] skip — no results folder for: ${suffix}"
+              (( SKIPPED++ )) || true; continue
+            fi
+
+            COUNT=$(find "${IN_DIR}" -name "*.json" 2>/dev/null | wc -l)
+            if [[ "${COUNT}" -eq 0 ]]; then
+              echo "[allure] skip — 0 result files for: ${suffix}"
+              (( SKIPPED++ )) || true; continue
+            fi
+
+            rm -rf "${OUT_DIR}"; mkdir -p "${OUT_DIR}"
+            echo "[allure] generating allure-report-${suffix}  (${COUNT} files)..."
+
+            docker run --rm \
+              -v "${IN_DIR}:/allure-results:ro" \
+              -v "${OUT_DIR}:/allure-report" \
+              "${ALLURE_IMAGE}" \
+              allure generate /allure-results -o /allure-report --clean
+
+            [[ -f "${OUT_DIR}/index.html" ]] \
+              && { echo "[allure] ✅ allure-report-${suffix}/index.html"; (( GENERATED++ )) || true; } \
+              || echo "[allure] ❌ generation failed for ${suffix}"
+          done
+
+          echo ""
+          echo "[allure] ${GENERATED} generated, ${SKIPPED} skipped"
+        '''
+      }
+    }
+
+  } // end stages
+
+  // ─────────────────────────────────────────────────────────────────────────
   post {
     always {
-      // If you mount/persist reports to a PVC later, you can archive them here.
-      sh 'kubectl -n qa get pods,jobs || true'
+      sh '''#!/usr/bin/env bash
+        set +e
+        echo "[post] K8s summary"
+        kubectl -n ${K8S_NAMESPACE} get pods,jobs 2>/dev/null || true
+        if [[ "${CLEANUP}" == "true" ]]; then
+          for j in ui-smoke-chrome ui-smoke-firefox ui-smoke-edge api-smoke; do
+            kubectl -n ${K8S_NAMESPACE} delete job "${j}" --ignore-not-found=true || true
+          done
+        fi
+      '''
+
+      // Archive all raw results (allure JSON, extent HTML, cucumber JSON)
+      archiveArtifacts artifacts: 'reports/**', allowEmptyArchive: true
+
+      // Allure HTML — one report per browser/suite in Jenkins sidebar
+      publishHTML(target: [allowMissing: true, alwaysLinkToLastBuild: true, keepAll: true,
+        reportDir: 'reports/allure-report-ui-chrome',  reportFiles: 'index.html', reportName: 'Allure — Chrome'])
+      publishHTML(target: [allowMissing: true, alwaysLinkToLastBuild: true, keepAll: true,
+        reportDir: 'reports/allure-report-ui-firefox', reportFiles: 'index.html', reportName: 'Allure — Firefox'])
+      publishHTML(target: [allowMissing: true, alwaysLinkToLastBuild: true, keepAll: true,
+        reportDir: 'reports/allure-report-ui-edge',    reportFiles: 'index.html', reportName: 'Allure — Edge'])
+      publishHTML(target: [allowMissing: true, alwaysLinkToLastBuild: true, keepAll: true,
+        reportDir: 'reports/allure-report-api',        reportFiles: 'index.html', reportName: 'Allure — API'])
+
+      // Extent HTML — one report per browser/suite in Jenkins sidebar
+      publishHTML(target: [allowMissing: true, alwaysLinkToLastBuild: true, keepAll: true,
+        reportDir: 'reports/extent-report-ui-chrome',  reportFiles: 'ExtentSpark.html', reportName: 'Extent — Chrome'])
+      publishHTML(target: [allowMissing: true, alwaysLinkToLastBuild: true, keepAll: true,
+        reportDir: 'reports/extent-report-ui-firefox', reportFiles: 'ExtentSpark.html', reportName: 'Extent — Firefox'])
+      publishHTML(target: [allowMissing: true, alwaysLinkToLastBuild: true, keepAll: true,
+        reportDir: 'reports/extent-report-ui-edge',    reportFiles: 'ExtentSpark.html', reportName: 'Extent — Edge'])
+      publishHTML(target: [allowMissing: true, alwaysLinkToLastBuild: true, keepAll: true,
+        reportDir: 'reports/extent-report-api',        reportFiles: 'ExtentSpark.html', reportName: 'Extent — API'])
     }
+
+    success { echo '✅ All jobs passed — reports published to Jenkins sidebar' }
+    failure { echo '❌ One or more jobs failed — check logs above' }
   }
 }
