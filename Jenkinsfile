@@ -168,7 +168,13 @@ YML
             }
           }
 
-          parallel runs
+          parallel(
+            "UI-Chrome": runs["UI-Chrome"],
+            "UI-Firefox": runs["UI-Firefox"]
+          )
+          if (runs["API"] != null) {
+            runs["API"].call()
+          }
         }
       }
     }
