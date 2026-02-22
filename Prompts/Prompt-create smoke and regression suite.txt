@@ -1,3 +1,6 @@
+https://github.com/aalgodatta-eng/qa-selenium.git
+IPAddress": "172.18.0.2
+
 create smoke and regression suite for https://httpbin.org/ with maximum test coverage(should include negative and positive scenarios)
 1.Debug and fix all the errors once tests are created
 2.Regression Suite must cover all the below items

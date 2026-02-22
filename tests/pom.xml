@@ -8,62 +8,64 @@
   <artifactId>tests</artifactId>
 
   <dependencies>
+
+    <!-- ── Framework modules ──────────────────────────────────────────── -->
     <dependency><groupId>com.algodatta</groupId><artifactId>framework-core</artifactId><version>1.0.0</version></dependency>
     <dependency><groupId>com.algodatta</groupId><artifactId>framework-ui</artifactId><version>1.0.0</version></dependency>
     <dependency><groupId>com.algodatta</groupId><artifactId>framework-api</artifactId><version>1.0.0</version></dependency>
-    <dependency><groupId>org.testng</groupId><artifactId>testng</artifactId><scope>test</scope></dependency>
-    <dependency><groupId>io.qameta.allure</groupId><artifactId>allure-testng</artifactId><scope>test</scope></dependency>
 
+    <!-- ── TestNG ─────────────────────────────────────────────────────── -->
+    <dependency><groupId>org.testng</groupId><artifactId>testng</artifactId><scope>test</scope></dependency>
+
+    <!-- ── Cucumber BDD ───────────────────────────────────────────────── -->
     <dependency><groupId>io.cucumber</groupId><artifactId>cucumber-java</artifactId><scope>test</scope></dependency>
     <dependency><groupId>io.cucumber</groupId><artifactId>cucumber-testng</artifactId><scope>test</scope></dependency>
     <dependency><groupId>io.cucumber</groupId><artifactId>cucumber-picocontainer</artifactId><scope>test</scope></dependency>
     <dependency><groupId>io.cucumber</groupId><artifactId>cucumber-plugin</artifactId><scope>test</scope></dependency>
 
-    <dependency><groupId>tech.grasshopper</groupId><artifactId>extentreports-cucumber7-adapter</artifactId><scope>test</scope></dependency>
+    <!-- ── Allure Reporting ───────────────────────────────────────────────
+         allure-testng        : captures TestNG suite/test lifecycle
+         allure-cucumber7-jvm : captures Cucumber Feature/Scenario/Step detail
+         Both are required for rich Allure reports with Cucumber + TestNG.
+    ─────────────────────────────────────────────────────────────────────── -->
+    <dependency>
+      <groupId>io.qameta.allure</groupId>
+      <artifactId>allure-testng</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>io.qameta.allure</groupId>
+      <artifactId>allure-cucumber7-jvm</artifactId>
+      <version>${allure.version}</version>
+      <scope>test</scope>
+    </dependency>
 
-    <dependency><groupId>com.epam.reportportal</groupId><artifactId>agent-java-cucumber7</artifactId><scope>test</scope></dependency>
-<dependency>
+    <!-- ── Extent Reports ─────────────────────────────────────────────── -->
+    <dependency>
+      <groupId>tech.grasshopper</groupId>
+      <artifactId>extentreports-cucumber7-adapter</artifactId>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
       <groupId>com.aventstack</groupId>
       <artifactId>extentreports</artifactId>
       <version>5.1.2</version>
     </dependency>
-      <dependency>
-      <groupId>com.fasterxml.jackson.core</groupId>
-      <artifactId>jackson-databind</artifactId>
-      <version>${jackson.version}</version>
-    </dependency>
-      <dependency>
-      <groupId>com.fasterxml.jackson.core</groupId>
-      <artifactId>jackson-core</artifactId>
-      <version>${jackson.version}</version>
-    </dependency>
-      <dependency>
-      <groupId>com.fasterxml.jackson.core</groupId>
-      <artifactId>jackson-annotations</artifactId>
-      <version>${jackson.version}</version>
-    </dependency>
-  
-    <dependency>
-      <groupId>com.epam.reportportal</groupId>
-      <artifactId>agent-java-testng</artifactId>
-      <version>5.2.0</version>
-    </dependency>
 
-      <dependency>
-      <groupId>org.apache.logging.log4j</groupId>
-      <artifactId>log4j-api</artifactId>
-      <version>2.23.1</version>
-    </dependency>
-      <dependency>
-      <groupId>org.apache.logging.log4j</groupId>
-      <artifactId>log4j-core</artifactId>
-      <version>2.23.1</version>
-    </dependency>
-      <dependency>
-      <groupId>org.apache.logging.log4j</groupId>
-      <artifactId>log4j-slf4j2-impl</artifactId>
-      <version>2.23.1</version>
-    </dependency>
+    <!-- ── Jackson (JSON serialisation) ──────────────────────────────── -->
+    <dependency><groupId>com.fasterxml.jackson.core</groupId><artifactId>jackson-databind</artifactId><version>${jackson.version}</version></dependency>
+    <dependency><groupId>com.fasterxml.jackson.core</groupId><artifactId>jackson-core</artifactId><version>${jackson.version}</version></dependency>
+    <dependency><groupId>com.fasterxml.jackson.core</groupId><artifactId>jackson-annotations</artifactId><version>${jackson.version}</version></dependency>
+
+    <!-- ── ReportPortal ───────────────────────────────────────────────── -->
+    <dependency><groupId>com.epam.reportportal</groupId><artifactId>agent-java-cucumber7</artifactId><scope>test</scope></dependency>
+    <dependency><groupId>com.epam.reportportal</groupId><artifactId>agent-java-testng</artifactId><version>5.2.0</version></dependency>
+
+    <!-- ── Logging ────────────────────────────────────────────────────── -->
+    <dependency><groupId>org.apache.logging.log4j</groupId><artifactId>log4j-api</artifactId><version>2.23.1</version></dependency>
+    <dependency><groupId>org.apache.logging.log4j</groupId><artifactId>log4j-core</artifactId><version>2.23.1</version></dependency>
+    <dependency><groupId>org.apache.logging.log4j</groupId><artifactId>log4j-slf4j2-impl</artifactId><version>2.23.1</version></dependency>
+
   </dependencies>
 
   <build>
@@ -71,20 +73,19 @@
       <plugin>
         <artifactId>maven-surefire-plugin</artifactId>
         <version>3.2.5</version>
-
         <configuration>
           <includes>
             <include>**/*Runner.java</include>
           </includes>
-
-<groups>${groups}</groups>
+          <groups>${groups}</groups>
           <systemPropertyVariables>
+            <!-- ReportPortal -->
             <rp.enable>${rp.enable}</rp.enable>
             <rp.launch>${rp.launch}</rp.launch>
             <rp.attributes>${rp.attributes}</rp.attributes>
-
+            <!-- Cucumber tag filter -->
             <cucumber.filter.tags>${cucumber.filter.tags}</cucumber.filter.tags>
-
+            <!-- Environment & driver -->
             <env>${env}</env>
             <runMode>${runMode}</runMode>
             <browser>${browser}</browser>
@@ -92,24 +93,27 @@
             <threads>${threads}</threads>
             <retry>${retry}</retry>
             <gridUrl>${gridUrl}</gridUrl>
+            <!-- Mock server -->
             <mock.enabled>${mock.enabled}</mock.enabled>
             <mockPort>${mockPort}</mockPort>
             <mockRoot>${mockRoot}</mockRoot>
+            <!-- Grid capabilities -->
             <browserVersion>${browserVersion}</browserVersion>
             <platformName>${platformName}</platformName>
             <enableVnc>${enableVnc}</enableVnc>
+            <!-- Allure output dir — overridden at runtime by docker/entrypoint.sh -->
             <allure.results.directory>${allure.results.directory}</allure.results.directory>
-
           </systemPropertyVariables>
           <properties>
             <property>
-              <name>dataproviderthreadcount</name>
+              <!-- Parallel scenario execution: controlled by -Dthreads -->
+              <n>dataproviderthreadcount</n>
               <value>${threads}</value>
             </property>
           </properties>
-
         </configuration>
       </plugin>
+
       <plugin>
         <groupId>io.qameta.allure</groupId>
         <artifactId>allure-maven</artifactId>

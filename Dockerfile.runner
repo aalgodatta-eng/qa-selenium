@@ -1,0 +1,56 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# KC-SDET  — Test Runner Image
+# Base: Maven 3.9 + JDK 17 (matches your pom.xml compiler settings)
+#
+# Build:   docker build -f Dockerfile.runner -t kc-test-runner:latest .
+# Run:     docker run --rm \
+#            -e SUITE=ui -e BROWSER=chrome -e GRIDURL=http://selenium-hub:4444/wd/hub \
+#            kc-test-runner:latest
+# ─────────────────────────────────────────────────────────────────────────────
+
+FROM maven:3.9.8-eclipse-temurin-17 AS deps
+
+WORKDIR /build
+
+# 1. Copy only POMs first — lets Docker cache the dependency layer.
+#    Re-download only when a pom.xml changes, not on every source edit.
+COPY pom.xml                     ./pom.xml
+COPY framework-core/pom.xml      ./framework-core/pom.xml
+COPY framework-ui/pom.xml        ./framework-ui/pom.xml
+COPY framework-api/pom.xml       ./framework-api/pom.xml
+COPY mocks/pom.xml               ./mocks/pom.xml
+COPY tests/pom.xml               ./tests/pom.xml
+
+# 2. Pre-download all dependencies (offline-friendly for subsequent runs)
+RUN mvn dependency:go-offline -B -q --no-transfer-progress || true
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Final runtime image
+# ─────────────────────────────────────────────────────────────────────────────
+FROM maven:3.9.8-eclipse-temurin-17
+
+WORKDIR /work
+
+# Carry the local Maven repo across from the deps stage (~500 MB saved on re-builds)
+COPY --from=deps /root/.m2 /root/.m2
+
+# Copy full source tree
+COPY . .
+
+# Make entrypoint executable
+RUN chmod +x docker/entrypoint.sh
+
+# Default env vars (all overridable at runtime via -e / k8s env block)
+ENV SUITE=ui \
+    ENV=qa \
+    RUNMODE=grid \
+    BROWSER=chrome \
+    HEADLESS=true \
+    GRIDURL=http://selenium-hub:4444/wd/hub \
+    TAGS=@ui_smoke \
+    THREADS=2 \
+    RETRY=2 \
+    REPORT_SUFFIX=ui-chrome \
+    ARTIFACTS_ROOT=/work/artifacts
+
+ENTRYPOINT ["docker/entrypoint.sh"]

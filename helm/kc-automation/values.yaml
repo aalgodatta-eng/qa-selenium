@@ -1,22 +1,85 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# KC-SDET Helm Chart — values.yaml
+# Override any value at deploy time:
+#   helm upgrade --install kc-automation ./helm/kc-automation \
+#     --set runner.image=administratorkc/kc-test-runner:1.0.0 \
+#     -n qa
+# ─────────────────────────────────────────────────────────────────────────────
+
 grid:
   hub:
     image: selenium/hub:4.22.0
     replicas: 1
+
   chrome:
+    enabled: true
     image: selenium/node-chrome:4.22.0
     replicas: 2
-  firefox:
-    image: selenium/node-firefox:4.22.0
-    replicas: 1
 
-job:
-  image: kc-bdd-tests:latest
+  firefox:
+    enabled: true
+    image: selenium/node-firefox:4.22.0
+    replicas: 2
+
+  edge:
+    enabled: true
+    image: selenium/node-edge:4.22.0
+    replicas: 2
+
+  node:
+    maxSessions: 2
+    overrideMaxSessions: true
+    shmSize: 1024Mi
+
+  service:
+    type: ClusterIP
+    nodePort: null
+
+runner:
+  # Built from Dockerfile.runner (Maven 3.9 + JDK 17)
+  # docker build -f Dockerfile.runner -t administratorkc/kc-test-runner:1.0.0 .
+  # docker push administratorkc/kc-test-runner:1.0.0
+  image: administratorkc/kc-test-runner:1.0.0
   imagePullPolicy: IfNotPresent
+
   env: qa
   runMode: grid
   gridUrl: http://selenium-hub:4444/wd/hub
-  browser: chrome
   headless: "true"
-  tags: "@ui"
-  threads: 4
+  threads: 2
+  retry: 2
   enableReportPortal: "false"
+  artifactsRoot: /work/artifacts
+
+# 4 parallel smoke jobs: Chrome + Firefox + Edge UI + API
+jobs:
+  - name: ui-smoke-chrome
+    enabled: true
+    suite: ui
+    tags: "@ui_smoke"
+    browser: chrome
+    reportSuffix: ui-chrome
+
+  - name: ui-smoke-firefox
+    enabled: true
+    suite: ui
+    tags: "@ui_smoke"
+    browser: firefox
+    reportSuffix: ui-firefox
+
+  - name: ui-smoke-edge
+    enabled: true
+    suite: ui
+    tags: "@ui_smoke"
+    browser: edge
+    reportSuffix: ui-edge
+
+  - name: api-smoke
+    enabled: true
+    suite: api
+    tags: "@api_smoke"
+    reportSuffix: api
+
+extraSystemProperties:
+  apiBaseUrl: https://jsonplaceholder.typicode.com
+  baseUrl: https://example.com
