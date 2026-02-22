@@ -35,27 +35,40 @@ public final class DriverFactory {
   }
 
   private static WebDriver createRemote(String browser, boolean headless, String gridUrl) {
-    if (gridUrl == null || gridUrl.isBlank()) throw new IllegalArgumentException("gridUrl is required when runMode=grid");
-    try {
-      String browserVersion = val("browserVersion", "");
-      String platformName = val("platformName", "");
-      boolean enableVnc = bool("enableVnc", true);
+  if (gridUrl == null || gridUrl.isBlank()) throw new IllegalArgumentException("gridUrl is required when runMode=grid");
+  try {
+    String browserVersion = val("browserVersion", "");
+    String platformName = val("platformName", "");
+    boolean enableVnc = bool("enableVnc", true);
+    boolean enableVideo = bool("enableVideo", false);
+    String videoName = val("videoName", ""); // optional override
 
-      MutableCapabilities caps = switch (browser.toLowerCase()) {
-        case "firefox" -> buildFirefoxOptions(headless);
-        case "edge" -> buildEdgeOptions(headless);
-        default -> buildChromeOptions(headless);
-      };
+    MutableCapabilities caps = switch (browser.toLowerCase()) {
+      case "firefox" -> buildFirefoxOptions(headless);
+      case "edge" -> buildEdgeOptions(headless);
+      default -> buildChromeOptions(headless);
+    };
 
-      if (!browserVersion.isBlank()) caps.setCapability("browserVersion", browserVersion);
-      if (!platformName.isBlank()) caps.setCapability("platformName", platformName);
-      caps.setCapability("se:vncEnabled", enableVnc);
+    if (!browserVersion.isBlank()) caps.setCapability("browserVersion", browserVersion);
+    if (!platformName.isBlank()) caps.setCapability("platformName", platformName);
 
-      return new RemoteWebDriver(new URL(gridUrl), caps);
-    } catch (Exception e) {
-      throw new RuntimeException("Failed to create RemoteWebDriver", e);
-    }
+    // Selenium Grid (v4) VNC capability (works with some node images / integrations)
+    caps.setCapability("se:vncEnabled", enableVnc);
+
+    // Selenoid options (Grid ignores unknown caps)
+    java.util.Map<String, Object> selenoid = new java.util.HashMap<>();
+    selenoid.put("enableVNC", enableVnc);
+    selenoid.put("enableVideo", enableVideo);
+    selenoid.put("screenResolution", val("screenResolution", "1920x1080x24"));
+    if (!videoName.isBlank()) selenoid.put("videoName", videoName);
+    caps.setCapability("selenoid:options", selenoid);
+
+    return new RemoteWebDriver(new URL(gridUrl), caps);
+  } catch (Exception e) {
+    throw new RuntimeException("Failed to create RemoteWebDriver", e);
   }
+}
+
 
   private static ChromeOptions buildChromeOptions(boolean headless) {
     ChromeOptions o = new ChromeOptions();

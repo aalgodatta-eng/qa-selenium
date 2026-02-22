@@ -1,0 +1,103 @@
+
+**********************re-build*************************************************
+docker compose -f docker-compose-jenkins.yml down
+docker compose -f docker-compose-jenkins.yml up -d --build
+
+Then test full integration:
+
+docker exec -it jenkins bash -lc "docker ps"
+
+If it shows host containers → Docker integration is complete.
+
+Then:
+
+docker exec -it jenkins bash -lc "kubectl get nodes"
+
+If it shows cluster nodes → K8s integration complete.
+
+You are literally one step away from a full enterprise QE infra.
+**************************************************************************
+docker compose -f docker-compose-jenkins.yml down --remove-orphans
+docker compose -f kc-stack.yml down --remove-orphans
+docker system prune -f
+
+docker compose -f kc-stack.yml --profile tests up --build \
+  ui-smoke-firefox ui-smoke-edge ui-smoke-chrome api-smoke
+
+docker compose -f docker-compose-jenkins.yml up -d --build
+
+
+restart Jenkins
+docker compose -f docker-compose-jenkins.yml down
+docker compose -f docker-compose-jenkins.yml up -d --build
+
+Jenkins forgot password
+Step 1 — Stop Jenkins
+docker compose -f docker-compose-jenkins.yml down
+Step 2 — Remove Jenkins volume
+
+Check volume name:
+
+docker volume ls
+
+You will see something like:
+
+kc-sdet-automation_jenkins_home
+
+Remove it:
+
+docker volume rm kc-sdet-automation_jenkins_home
+
+(Use exact name from your system)
+
+Step 3 — Start Jenkins again
+docker compose -f docker-compose-jenkins.yml up -d --build
+
+Now Jenkins will show:
+
+Unlock Jenkins
+
+Get initial password:
+
+docker exec -it jenkins cat /var/jenkins_home/secrets/initialAdminPassword
+winpty docker exec -it jenkins sh -lc "cat /var/jenkins_home/secrets/initialAdminPassword"
+
+Copy that password → paste in browser.
+
+✅ OPTION 2 — Just Reset Password (Without Deleting Data)
+
+If you don’t want to lose jobs:
+
+Step 1 — Enter Jenkins container
+docker exec -it jenkins bash
+Step 2 — Create new admin user via Groovy
+
+Inside container:
+
+cd /var/jenkins_home
+vi init.groovy.d/reset.groovy
+
+Paste this:
+
+import jenkins.model.*
+import hudson.security.*
+
+def instance = Jenkins.getInstance()
+
+def hudsonRealm = new HudsonPrivateSecurityRealm(false)
+hudsonRealm.createAccount("admin", "admin123")
+instance.setSecurityRealm(hudsonRealm)
+instance.save()
+
+Save and exit.
+
+Step 3 — Restart container
+
+Exit container and run:
+
+docker restart jenkins
+
+Now login with:
+
+Username: admin
+Password: admin123

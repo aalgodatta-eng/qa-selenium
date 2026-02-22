@@ -1,0 +1,22 @@
+grid:
+  hub:
+    image: selenium/hub:4.22.0
+    replicas: 1
+  chrome:
+    image: selenium/node-chrome:4.22.0
+    replicas: 2
+  firefox:
+    image: selenium/node-firefox:4.22.0
+    replicas: 1
+
+job:
+  image: kc-bdd-tests:latest
+  imagePullPolicy: IfNotPresent
+  env: qa
+  runMode: grid
+  gridUrl: http://selenium-hub:4444/wd/hub
+  browser: chrome
+  headless: "true"
+  tags: "@ui"
+  threads: 4
+  enableReportPortal: "false"

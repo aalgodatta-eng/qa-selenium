@@ -1,0 +1,97 @@
+pipeline {
+  agent any
+
+  options {
+    timestamps()
+    ansiColor('xterm')
+    disableConcurrentBuilds()
+  }
+
+  parameters {
+    string(name: 'DOCKER_IMAGE', defaultValue: 'your-dockerhub-user/kc-sdet-automation', description: 'Docker image repo (without tag)')
+    string(name: 'IMAGE_TAG', defaultValue: '1.0.0', description: 'Docker image tag')
+
+    choice(name: 'ENV', choices: ['qa'], description: 'Test environment')
+    string(name: 'TAGS', defaultValue: '@ui_smoke', description: 'Cucumber tags to run')
+    string(name: 'THREADS', defaultValue: '2', description: 'Parallel threads per job')
+
+    booleanParam(name: 'DEPLOY_GRID', defaultValue: true, description: 'Deploy/upgrade Selenium Grid')
+    booleanParam(name: 'RUN_JOBS', defaultValue: true, description: 'Run parallel smoke jobs')
+  }
+
+  environment {
+    MAVEN_OPTS = "-Xmx1024m"
+  }
+
+  stages {
+    stage('Checkout') {
+      steps {
+        checkout scm
+      }
+    }
+
+    stage('Build & Push Runner Image') {
+      steps {
+        sh '''
+          set -e
+          docker build -t ${DOCKER_IMAGE}:${IMAGE_TAG} .
+          docker push ${DOCKER_IMAGE}:${IMAGE_TAG}
+        '''
+      }
+    }
+
+    stage('Deploy Namespace') {
+      steps {
+        sh 'kubectl apply -f k8s/00-namespace.yaml'
+      }
+    }
+
+    stage('Deploy Selenium Grid') {
+      when { expression { return params.DEPLOY_GRID } }
+      steps {
+        sh 'kubectl apply -f k8s/10-selenium-grid.yaml'
+        sh 'kubectl -n qa rollout status deploy/selenium-hub --timeout=180s'
+      }
+    }
+
+    stage('Run Parallel Smoke Jobs') {
+      when { expression { return params.RUN_JOBS } }
+      steps {
+        sh '''
+          set -e
+
+          # Patch job images + run params dynamically (no yq dependency)
+          TMP=$(mktemp)
+          cat k8s/20-smoke-jobs.yaml \
+            | sed "s|image: kc-sdet-automation:latest|image: ${DOCKER_IMAGE}:${IMAGE_TAG}|g" \
+            | sed "s|value: \"qa\"|value: \"${ENV}\"|g" \
+            > "$TMP"
+
+          # Update tags/threads in all jobs
+          sed -i "s|value: \"@smoke\"|value: \"${TAGS}\"|g" "$TMP"
+          sed -i "s|value: \"2\"|value: \"${THREADS}\"|g" "$TMP"
+
+          kubectl apply -f "$TMP"
+
+          kubectl -n qa wait --for=condition=complete job/ui-smoke-firefox --timeout=45m
+          kubectl -n qa wait --for=condition=complete job/ui-smoke-edge --timeout=45m
+          kubectl -n qa wait --for=condition=complete job/api-smoke --timeout=45m
+
+          echo "--- Logs: ui-smoke-firefox ---"
+          kubectl -n qa logs job/ui-smoke-firefox || true
+          echo "--- Logs: ui-smoke-edge ---"
+          kubectl -n qa logs job/ui-smoke-edge || true
+          echo "--- Logs: api-smoke ---"
+          kubectl -n qa logs job/api-smoke || true
+        '''
+      }
+    }
+  }
+
+  post {
+    always {
+      // If you mount/persist reports to a PVC later, you can archive them here.
+      sh 'kubectl -n qa get pods,jobs || true'
+    }
+  }
+}

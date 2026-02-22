@@ -1,0 +1,146 @@
+
+services:
+  selenium-hub:
+    profiles:
+    - grid
+    - tests
+    image: selenium/hub:4.22.0
+    ports:
+    - 4444:4444
+    # event bus ports required for node registration
+    - 4442:4442
+    - 4443:4443
+    environment:
+    - SE_ENABLE_TRACING=false
+  chrome:
+    profiles:
+    - grid
+    - tests
+    image: selenium/node-chrome:4.22.0
+    depends_on:
+    - selenium-hub
+    shm_size: 2gb
+    environment:
+    - SE_EVENT_BUS_HOST=selenium-hub
+    - SE_EVENT_BUS_PUBLISH_PORT=4442
+    - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
+    - SE_NODE_MAX_SESSIONS=4
+    - SE_NODE_OVERRIDE_MAX_SESSIONS=true
+    - SE_ENABLE_VNC=true
+    ports:
+    - 7901:7900
+    volumes:
+    - /dev/shm:/dev/shm
+  firefox:
+    profiles:
+    - grid
+    - tests
+    image: selenium/node-firefox:4.22.0
+    depends_on:
+    - selenium-hub
+    shm_size: 2gb
+    environment:
+    - SE_EVENT_BUS_HOST=selenium-hub
+    - SE_EVENT_BUS_PUBLISH_PORT=4442
+    - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
+    - SE_NODE_MAX_SESSIONS=4
+    - SE_NODE_OVERRIDE_MAX_SESSIONS=true
+    - SE_ENABLE_VNC=true
+    ports:
+    - 7902:7900
+    volumes:
+    - /dev/shm:/dev/shm
+  edge:
+    profiles:
+    - grid
+    - tests
+    image: selenium/node-edge:4.22.0
+    depends_on:
+    - selenium-hub
+    shm_size: 2gb
+    environment:
+    - SE_EVENT_BUS_HOST=selenium-hub
+    - SE_EVENT_BUS_PUBLISH_PORT=4442
+    - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
+    - SE_NODE_MAX_SESSIONS=4
+    - SE_NODE_OVERRIDE_MAX_SESSIONS=true
+    - SE_ENABLE_VNC=true
+    ports:
+    - 7903:7900
+    volumes:
+    - /dev/shm:/dev/shm
+  ui-smoke-firefox:
+    profiles:
+    - tests
+    build: .
+    depends_on:
+    - selenium-hub
+    - firefox
+    environment:
+    - SUITE=ui
+    - ENV=qa
+    - RUNMODE=grid
+    - BROWSER=firefox
+    - HEADLESS=true
+    - GRIDURL=http://selenium-hub:4444/wd/hub
+    - TAGS=@ui_smoke
+    - THREADS=2
+    - RETRY=2
+    - REPORT_SUFFIX=ui-firefox
+    volumes:
+    - ./reports:/work/artifacts
+  ui-smoke-edge:
+    profiles:
+    - tests
+    build: .
+    depends_on:
+    - selenium-hub
+    - edge
+    environment:
+    - SUITE=ui
+    - ENV=qa
+    - RUNMODE=grid
+    - BROWSER=edge
+    - HEADLESS=true
+    - GRIDURL=http://selenium-hub:4444/wd/hub
+    - TAGS=@ui_smoke
+    - THREADS=2
+    - RETRY=2
+    - REPORT_SUFFIX=ui-edge
+    volumes:
+    - ./reports:/work/artifacts
+  ui-smoke-chrome:
+    profiles:
+    - tests
+    build: .
+    depends_on:
+    - selenium-hub
+    - chrome
+    environment:
+    - SUITE=ui
+    - ENV=qa
+    - RUNMODE=grid
+    - BROWSER=chrome
+    - HEADLESS=true
+    - GRIDURL=http://selenium-hub:4444/wd/hub
+    - TAGS=@ui_smoke
+    - THREADS=2
+    - RETRY=2
+    - REPORT_SUFFIX=ui-chrome
+    volumes:
+    - ./reports:/work/artifacts
+  api-smoke:
+    profiles:
+    - tests
+    build: .
+    environment:
+    - SUITE=api
+    - ENV=qa
+    - RUNMODE=local
+    - TAGS=@api_smoke
+    - API_BASE_URL=https://jsonplaceholder.typicode.com
+    - THREADS=2
+    - RETRY=3
+    - REPORT_SUFFIX=api
+    volumes:
+    - ./reports:/work/artifacts

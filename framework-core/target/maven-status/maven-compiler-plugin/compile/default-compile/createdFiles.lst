@@ -1,0 +1,4 @@
+com\algodatta\core\driver\DriverFactory.class
+com\algodatta\core\config\ConfigManager.class
+com\algodatta\core\constants\FrameworkConstants.class
+com\algodatta\core\driver\DriverManager.class

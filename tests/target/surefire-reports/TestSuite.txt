@@ -1,0 +1,350 @@
+-------------------------------------------------------------------------------
+Test set: TestSuite
+-------------------------------------------------------------------------------
+Tests run: 59, Failures: 20, Errors: 0, Skipped: 0, Time elapsed: 51.78 s <<< FAILURE! -- in TestSuite
+com.algodatta.runners.ApiRunner.runScenario["HTTP methods should return success and echo method", "httpbin Regression API suite (positive and negative coverage)"](4) -- Time elapsed: 15.72 s <<< FAILURE!
+java.lang.AssertionError: Unexpected JSONPath value for: method expected [GET] but found [null]
+	at org.testng.Assert.fail(Assert.java:111)
+	at org.testng.Assert.failNotEquals(Assert.java:1578)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:150)
+	at org.testng.Assert.assertEquals(Assert.java:132)
+	at com.algodatta.api.validators.ResponseValidator.jsonPathEquals(ResponseValidator.java:54)
+	at ui.steps.api.ApiSteps.jsonPathEqualsString(ApiSteps.java:147)
+	at ✽.the JSON path "method" should be "GET"(file:///E:/QA_KC/KC-sdet-automation/tests/src/test/resources/features/api/httpbin_regression.feature:13)
+
+com.algodatta.runners.ApiRunner.runScenario["HTTP methods should return success and echo method", "httpbin Regression API suite (positive and negative coverage)"](4) -- Time elapsed: 15.94 s <<< FAILURE!
+java.lang.AssertionError: Unexpected JSONPath value for: method expected [PUT] but found [null]
+	at org.testng.Assert.fail(Assert.java:111)
+	at org.testng.Assert.failNotEquals(Assert.java:1578)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:150)
+	at org.testng.Assert.assertEquals(Assert.java:132)
+	at com.algodatta.api.validators.ResponseValidator.jsonPathEquals(ResponseValidator.java:54)
+	at ui.steps.api.ApiSteps.jsonPathEqualsString(ApiSteps.java:147)
+	at ✽.the JSON path "method" should be "PUT"(file:///E:/QA_KC/KC-sdet-automation/tests/src/test/resources/features/api/httpbin_regression.feature:13)
+
+com.algodatta.runners.ApiRunner.runScenario["HTTP methods should return success and echo method", "httpbin Regression API suite (positive and negative coverage)"](4) -- Time elapsed: 15.94 s <<< FAILURE!
+java.lang.AssertionError: Unexpected JSONPath value for: method expected [PATCH] but found [null]
+	at org.testng.Assert.fail(Assert.java:111)
+	at org.testng.Assert.failNotEquals(Assert.java:1578)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:150)
+	at org.testng.Assert.assertEquals(Assert.java:132)
+	at com.algodatta.api.validators.ResponseValidator.jsonPathEquals(ResponseValidator.java:54)
+	at ui.steps.api.ApiSteps.jsonPathEqualsString(ApiSteps.java:147)
+	at ✽.the JSON path "method" should be "PATCH"(file:///E:/QA_KC/KC-sdet-automation/tests/src/test/resources/features/api/httpbin_regression.feature:13)
+
+com.algodatta.runners.ApiRunner.runScenario["HTTP methods should return success and echo method", "httpbin Regression API suite (positive and negative coverage)"](4) -- Time elapsed: 15.94 s <<< FAILURE!
+java.lang.AssertionError: Unexpected JSONPath value for: method expected [POST] but found [null]
+	at org.testng.Assert.fail(Assert.java:111)
+	at org.testng.Assert.failNotEquals(Assert.java:1578)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:150)
+	at org.testng.Assert.assertEquals(Assert.java:132)
+	at com.algodatta.api.validators.ResponseValidator.jsonPathEquals(ResponseValidator.java:54)
+	at ui.steps.api.ApiSteps.jsonPathEqualsString(ApiSteps.java:147)
+	at ✽.the JSON path "method" should be "POST"(file:///E:/QA_KC/KC-sdet-automation/tests/src/test/resources/features/api/httpbin_regression.feature:13)
+
+com.algodatta.runners.ApiRunner.runScenario["HTTP methods should return success and echo method", "httpbin Regression API suite (positive and negative coverage)"](6) -- Time elapsed: 0.161 s <<< FAILURE!
+java.lang.AssertionError: Unexpected JSONPath value for: method expected [DELETE] but found [null]
+	at org.testng.Assert.fail(Assert.java:111)
+	at org.testng.Assert.failNotEquals(Assert.java:1578)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:150)
+	at org.testng.Assert.assertEquals(Assert.java:132)
+	at com.algodatta.api.validators.ResponseValidator.jsonPathEquals(ResponseValidator.java:54)
+	at ui.steps.api.ApiSteps.jsonPathEqualsString(ApiSteps.java:147)
+	at ✽.the JSON path "method" should be "DELETE"(file:///E:/QA_KC/KC-sdet-automation/tests/src/test/resources/features/api/httpbin_regression.feature:13)
+
+com.algodatta.runners.ApiRunner.runScenario["status endpoint should generate the given status code", "httpbin Regression API suite (positive and negative coverage)"](16) -- Time elapsed: 0.493 s <<< FAILURE!
+java.lang.AssertionError: Unexpected status code expected [301] but found [200]
+	at org.testng.Assert.fail(Assert.java:111)
+	at org.testng.Assert.failNotEquals(Assert.java:1578)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:150)
+	at org.testng.Assert.assertEquals(Assert.java:132)
+	at org.testng.Assert.assertEquals(Assert.java:1419)
+	at org.testng.Assert.assertEquals(Assert.java:1383)
+	at com.algodatta.api.validators.ResponseValidator.status(ResponseValidator.java:12)
+	at ui.steps.api.ApiSteps.status(ApiSteps.java:117)
+	at ✽.the response status should be 301(file:///E:/QA_KC/KC-sdet-automation/tests/src/test/resources/features/api/httpbin_regression.feature:56)
+
+com.algodatta.runners.ApiRunner.runScenario["Create, read and delete cookies", "httpbin Regression API suite (positive and negative coverage)"](36) -- Time elapsed: 0.346 s <<< FAILURE!
+java.lang.AssertionError: Unexpected JSONPath value for: cookies.kc expected [1] but found [null]
+	at org.testng.Assert.fail(Assert.java:111)
+	at org.testng.Assert.failNotEquals(Assert.java:1578)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:150)
+	at org.testng.Assert.assertEquals(Assert.java:132)
+	at com.algodatta.api.validators.ResponseValidator.jsonPathEquals(ResponseValidator.java:54)
+	at ui.steps.api.ApiSteps.jsonPathEqualsString(ApiSteps.java:147)
+	at ✽.the JSON path "cookies.kc" should be "1"(file:///E:/QA_KC/KC-sdet-automation/tests/src/test/resources/features/api/httpbin_regression.feature:152)
+
+com.algodatta.runners.ApiRunner.runScenario["Basic GET should echo request data", "httpbin Smoke API suite"](44) -- Time elapsed: 0.017 s <<< FAILURE!
+java.lang.AssertionError: Unexpected JSONPath value for: method expected [GET] but found [null]
+	at org.testng.Assert.fail(Assert.java:111)
+	at org.testng.Assert.failNotEquals(Assert.java:1578)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:150)
+	at org.testng.Assert.assertEquals(Assert.java:132)
+	at com.algodatta.api.validators.ResponseValidator.jsonPathEquals(ResponseValidator.java:54)
+	at ui.steps.api.ApiSteps.jsonPathEqualsString(ApiSteps.java:147)
+	at ✽.the JSON path "method" should be "GET"(file:///E:/QA_KC/KC-sdet-automation/tests/src/test/resources/features/api/httpbin_smoke.feature:13)
+
+com.algodatta.runners.ApiRunner.runScenario["List posts for a user", "JSONPlaceholder API smoke coverage"](48) -- Time elapsed: 0.493 s <<< FAILURE!
+java.lang.AssertionError: Unexpected status code expected [200] but found [404]
+	at org.testng.Assert.fail(Assert.java:111)
+	at org.testng.Assert.failNotEquals(Assert.java:1578)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:150)
+	at org.testng.Assert.assertEquals(Assert.java:132)
+	at org.testng.Assert.assertEquals(Assert.java:1419)
+	at org.testng.Assert.assertEquals(Assert.java:1383)
+	at com.algodatta.api.validators.ResponseValidator.status(ResponseValidator.java:12)
+	at ui.steps.api.ApiSteps.status(ApiSteps.java:117)
+	at ✽.the response status should be 200(file:///E:/QA_KC/KC-sdet-automation/tests/src/test/resources/features/api/jsonplaceholder_smoke.feature:17)
+
+com.algodatta.runners.ApiRunner.runScenario["Get a single post", "JSONPlaceholder API smoke coverage"](49) -- Time elapsed: 0.010 s <<< FAILURE!
+java.lang.AssertionError: Unexpected status code expected [200] but found [404]
+	at org.testng.Assert.fail(Assert.java:111)
+	at org.testng.Assert.failNotEquals(Assert.java:1578)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:150)
+	at org.testng.Assert.assertEquals(Assert.java:132)
+	at org.testng.Assert.assertEquals(Assert.java:1419)
+	at org.testng.Assert.assertEquals(Assert.java:1383)
+	at com.algodatta.api.validators.ResponseValidator.status(ResponseValidator.java:12)
+	at ui.steps.api.ApiSteps.status(ApiSteps.java:117)
+	at ✽.the response status should be 200(file:///E:/QA_KC/KC-sdet-automation/tests/src/test/resources/features/api/jsonplaceholder_smoke.feature:9)
+
+com.algodatta.runners.ApiRunner.runScenario["Get a user", "JSONPlaceholder API smoke coverage"](50) -- Time elapsed: 0.688 s <<< FAILURE!
+java.lang.AssertionError: Unexpected status code expected [200] but found [404]
+	at org.testng.Assert.fail(Assert.java:111)
+	at org.testng.Assert.failNotEquals(Assert.java:1578)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:150)
+	at org.testng.Assert.assertEquals(Assert.java:132)
+	at org.testng.Assert.assertEquals(Assert.java:1419)
+	at org.testng.Assert.assertEquals(Assert.java:1383)
+	at com.algodatta.api.validators.ResponseValidator.status(ResponseValidator.java:12)
+	at ui.steps.api.ApiSteps.status(ApiSteps.java:117)
+	at ✽.the response status should be 200(file:///E:/QA_KC/KC-sdet-automation/tests/src/test/resources/features/api/jsonplaceholder_smoke.feature:24)
+
+com.algodatta.runners.ApiRunner.runScenario["Get a todo", "JSONPlaceholder API smoke coverage"](51) -- Time elapsed: 0.503 s <<< FAILURE!
+java.lang.AssertionError: Unexpected status code expected [200] but found [400]
+	at org.testng.Assert.fail(Assert.java:111)
+	at org.testng.Assert.failNotEquals(Assert.java:1578)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:150)
+	at org.testng.Assert.assertEquals(Assert.java:132)
+	at org.testng.Assert.assertEquals(Assert.java:1419)
+	at org.testng.Assert.assertEquals(Assert.java:1383)
+	at com.algodatta.api.validators.ResponseValidator.status(ResponseValidator.java:12)
+	at ui.steps.api.ApiSteps.status(ApiSteps.java:117)
+	at ✽.the response status should be 200(file:///E:/QA_KC/KC-sdet-automation/tests/src/test/resources/features/api/jsonplaceholder_smoke.feature:38)
+
+com.algodatta.runners.ApiRunner.runScenario["Create a post", "JSONPlaceholder API smoke coverage"](54) -- Time elapsed: 0.954 s <<< FAILURE!
+io.cucumber.testng.UndefinedStepException: 
+The step 'I POST "/posts" with json body:' and 2 other step(s) are undefined.
+You can implement these steps using the snippet(s) below:
+
+@When("I POST {string} with json body:")
+public void i_post_with_json_body(String string, String docString) {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@Then("json path {string} should not be null")
+public void json_path_should_not_be_null(String string) {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@Then("json path {string} should be {int}")
+public void json_path_should_be(String string, Integer int1) {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+
+	at io.cucumber.core.runtime.TestCaseResultObserver.assertTestCasePassed(TestCaseResultObserver.java:69)
+	at io.cucumber.testng.TestCaseResultObserver.assertTestCasePassed(TestCaseResultObserver.java:23)
+	at io.cucumber.testng.TestNGCucumberRunner.lambda$runScenario$1(TestNGCucumberRunner.java:133)
+	at io.cucumber.core.runtime.CucumberExecutionContext.lambda$runTestCase$5(CucumberExecutionContext.java:136)
+	at io.cucumber.core.runtime.RethrowingThrowableCollector.executeAndThrow(RethrowingThrowableCollector.java:23)
+	at io.cucumber.core.runtime.CucumberExecutionContext.runTestCase(CucumberExecutionContext.java:136)
+	at io.cucumber.testng.TestNGCucumberRunner.runScenario(TestNGCucumberRunner.java:129)
+	at io.cucumber.testng.AbstractTestNGCucumberTests.runScenario(AbstractTestNGCucumberTests.java:35)
+	at jdk.internal.reflect.GeneratedMethodAccessor182.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:686)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+	at org.testng.internal.invokers.TestMethodWithDataProviderMethodWorker.call(TestMethodWithDataProviderMethodWorker.java:81)
+	at org.testng.internal.thread.Async$AsyncTask.run(Async.java:34)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:842)
+
+com.algodatta.runners.ApiRunner.runScenario["List comments for a post", "JSONPlaceholder API smoke coverage"](55) -- Time elapsed: 0.010 s <<< FAILURE!
+java.lang.AssertionError: Unexpected status code expected [200] but found [400]
+	at org.testng.Assert.fail(Assert.java:111)
+	at org.testng.Assert.failNotEquals(Assert.java:1578)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:150)
+	at org.testng.Assert.assertEquals(Assert.java:132)
+	at org.testng.Assert.assertEquals(Assert.java:1419)
+	at org.testng.Assert.assertEquals(Assert.java:1383)
+	at com.algodatta.api.validators.ResponseValidator.status(ResponseValidator.java:12)
+	at ui.steps.api.ApiSteps.status(ApiSteps.java:117)
+	at ✽.the response status should be 200(file:///E:/QA_KC/KC-sdet-automation/tests/src/test/resources/features/api/jsonplaceholder_smoke.feature:31)
+
+com.algodatta.runners.ApiRunner.runScenario["Update a post with PUT", "JSONPlaceholder API smoke coverage"](56) -- Time elapsed: 0.004 s <<< FAILURE!
+io.cucumber.testng.UndefinedStepException: 
+The step 'I PUT "/posts/1" with json body:' and 2 other step(s) are undefined.
+You can implement these steps using the snippet(s) below:
+
+@When("I PUT {string} with json body:")
+public void i_put_with_json_body(String string, String docString) {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@Then("json path {string} should be {int}")
+public void json_path_should_be(String string, Integer int1) {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@Then("json path {string} should be {string}")
+public void json_path_should_be(String string, String string2) {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+
+	at io.cucumber.core.runtime.TestCaseResultObserver.assertTestCasePassed(TestCaseResultObserver.java:69)
+	at io.cucumber.testng.TestCaseResultObserver.assertTestCasePassed(TestCaseResultObserver.java:23)
+	at io.cucumber.testng.TestNGCucumberRunner.lambda$runScenario$1(TestNGCucumberRunner.java:133)
+	at io.cucumber.core.runtime.CucumberExecutionContext.lambda$runTestCase$5(CucumberExecutionContext.java:136)
+	at io.cucumber.core.runtime.RethrowingThrowableCollector.executeAndThrow(RethrowingThrowableCollector.java:23)
+	at io.cucumber.core.runtime.CucumberExecutionContext.runTestCase(CucumberExecutionContext.java:136)
+	at io.cucumber.testng.TestNGCucumberRunner.runScenario(TestNGCucumberRunner.java:129)
+	at io.cucumber.testng.AbstractTestNGCucumberTests.runScenario(AbstractTestNGCucumberTests.java:35)
+	at jdk.internal.reflect.GeneratedMethodAccessor182.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:686)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+	at org.testng.internal.invokers.TestMethodWithDataProviderMethodWorker.call(TestMethodWithDataProviderMethodWorker.java:81)
+	at org.testng.internal.thread.Async$AsyncTask.run(Async.java:34)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:842)
+
+com.algodatta.runners.ApiRunner.runScenario["Partial update a post with PATCH", "JSONPlaceholder API smoke coverage"](56) -- Time elapsed: 0 s <<< FAILURE!
+io.cucumber.testng.UndefinedStepException: 
+The step 'I PATCH "/posts/1" with json body:' and 1 other step(s) are undefined.
+You can implement these steps using the snippet(s) below:
+
+@When("I PATCH {string} with json body:")
+public void i_patch_with_json_body(String string, String docString) {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@Then("json path {string} should be {string}")
+public void json_path_should_be(String string, String string2) {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+
+	at io.cucumber.core.runtime.TestCaseResultObserver.assertTestCasePassed(TestCaseResultObserver.java:69)
+	at io.cucumber.testng.TestCaseResultObserver.assertTestCasePassed(TestCaseResultObserver.java:23)
+	at io.cucumber.testng.TestNGCucumberRunner.lambda$runScenario$1(TestNGCucumberRunner.java:133)
+	at io.cucumber.core.runtime.CucumberExecutionContext.lambda$runTestCase$5(CucumberExecutionContext.java:136)
+	at io.cucumber.core.runtime.RethrowingThrowableCollector.executeAndThrow(RethrowingThrowableCollector.java:23)
+	at io.cucumber.core.runtime.CucumberExecutionContext.runTestCase(CucumberExecutionContext.java:136)
+	at io.cucumber.testng.TestNGCucumberRunner.runScenario(TestNGCucumberRunner.java:129)
+	at io.cucumber.testng.AbstractTestNGCucumberTests.runScenario(AbstractTestNGCucumberTests.java:35)
+	at jdk.internal.reflect.GeneratedMethodAccessor182.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:686)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+	at org.testng.internal.invokers.TestMethodWithDataProviderMethodWorker.call(TestMethodWithDataProviderMethodWorker.java:81)
+	at org.testng.internal.thread.Async$AsyncTask.run(Async.java:34)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:842)
+
+com.algodatta.runners.ApiRunner.runScenario["Get an album", "JSONPlaceholder API smoke coverage"](56) -- Time elapsed: 0 s <<< FAILURE!
+java.lang.AssertionError: Unexpected status code expected [200] but found [400]
+	at org.testng.Assert.fail(Assert.java:111)
+	at org.testng.Assert.failNotEquals(Assert.java:1578)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:150)
+	at org.testng.Assert.assertEquals(Assert.java:132)
+	at org.testng.Assert.assertEquals(Assert.java:1419)
+	at org.testng.Assert.assertEquals(Assert.java:1383)
+	at com.algodatta.api.validators.ResponseValidator.status(ResponseValidator.java:12)
+	at ui.steps.api.ApiSteps.status(ApiSteps.java:117)
+	at ✽.the response status should be 200(file:///E:/QA_KC/KC-sdet-automation/tests/src/test/resources/features/api/jsonplaceholder_smoke.feature:45)
+
+com.algodatta.runners.ApiRunner.runScenario["Login then fetch user details", "ReqRes API validation"](58) -- Time elapsed: 0.007 s <<< FAILURE!
+io.cucumber.testng.UndefinedStepException: 
+The step 'I login with email "eve.holt@reqres.in" and password "cityslicka"' is undefined.
+You can implement this step using the snippet(s) below:
+
+@When("I login with email {string} and password {string}")
+public void i_login_with_email_and_password(String string, String string2) {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+
+	at io.cucumber.core.runtime.TestCaseResultObserver.assertTestCasePassed(TestCaseResultObserver.java:69)
+	at io.cucumber.testng.TestCaseResultObserver.assertTestCasePassed(TestCaseResultObserver.java:23)
+	at io.cucumber.testng.TestNGCucumberRunner.lambda$runScenario$1(TestNGCucumberRunner.java:133)
+	at io.cucumber.core.runtime.CucumberExecutionContext.lambda$runTestCase$5(CucumberExecutionContext.java:136)
+	at io.cucumber.core.runtime.RethrowingThrowableCollector.executeAndThrow(RethrowingThrowableCollector.java:23)
+	at io.cucumber.core.runtime.CucumberExecutionContext.runTestCase(CucumberExecutionContext.java:136)
+	at io.cucumber.testng.TestNGCucumberRunner.runScenario(TestNGCucumberRunner.java:129)
+	at io.cucumber.testng.AbstractTestNGCucumberTests.runScenario(AbstractTestNGCucumberTests.java:35)
+	at jdk.internal.reflect.GeneratedMethodAccessor182.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:686)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+	at org.testng.internal.invokers.TestMethodWithDataProviderMethodWorker.call(TestMethodWithDataProviderMethodWorker.java:81)
+	at org.testng.internal.thread.Async$AsyncTask.run(Async.java:34)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:842)
+
+com.algodatta.runners.ApiRunner.runScenario["Delete a post", "JSONPlaceholder API smoke coverage"](58) -- Time elapsed: 0.007 s <<< FAILURE!
+io.cucumber.testng.UndefinedStepException: 
+The step 'I DELETE "/posts/1"' is undefined.
+You can implement this step using the snippet(s) below:
+
+@When("I DELETE {string}")
+public void i_delete(String string) {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+
+	at io.cucumber.core.runtime.TestCaseResultObserver.assertTestCasePassed(TestCaseResultObserver.java:69)
+	at io.cucumber.testng.TestCaseResultObserver.assertTestCasePassed(TestCaseResultObserver.java:23)
+	at io.cucumber.testng.TestNGCucumberRunner.lambda$runScenario$1(TestNGCucumberRunner.java:133)
+	at io.cucumber.core.runtime.CucumberExecutionContext.lambda$runTestCase$5(CucumberExecutionContext.java:136)
+	at io.cucumber.core.runtime.RethrowingThrowableCollector.executeAndThrow(RethrowingThrowableCollector.java:23)
+	at io.cucumber.core.runtime.CucumberExecutionContext.runTestCase(CucumberExecutionContext.java:136)
+	at io.cucumber.testng.TestNGCucumberRunner.runScenario(TestNGCucumberRunner.java:129)
+	at io.cucumber.testng.AbstractTestNGCucumberTests.runScenario(AbstractTestNGCucumberTests.java:35)
+	at jdk.internal.reflect.GeneratedMethodAccessor182.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:686)
+	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+	at org.testng.internal.invokers.TestMethodWithDataProviderMethodWorker.call(TestMethodWithDataProviderMethodWorker.java:81)
+	at org.testng.internal.thread.Async$AsyncTask.run(Async.java:34)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:842)
+
+com.algodatta.runners.ApiRunner.runScenario["List photos in an album", "JSONPlaceholder API smoke coverage"](59) -- Time elapsed: 0.144 s <<< FAILURE!
+java.lang.AssertionError: Unexpected status code expected [200] but found [400]
+	at org.testng.Assert.fail(Assert.java:111)
+	at org.testng.Assert.failNotEquals(Assert.java:1578)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:150)
+	at org.testng.Assert.assertEquals(Assert.java:132)
+	at org.testng.Assert.assertEquals(Assert.java:1419)
+	at org.testng.Assert.assertEquals(Assert.java:1383)
+	at com.algodatta.api.validators.ResponseValidator.status(ResponseValidator.java:12)
+	at ui.steps.api.ApiSteps.status(ApiSteps.java:117)
+	at ✽.the response status should be 200(file:///E:/QA_KC/KC-sdet-automation/tests/src/test/resources/features/api/jsonplaceholder_smoke.feature:53)
+

@@ -2,7 +2,7 @@ package com.algodatta.tests.ui;
 
 import com.algodatta.core.config.ConfigManager;
 import com.algodatta.core.driver.DriverManager;
-import com.algodatta.ui.base.BaseTest;
+import ui.base.BaseTest;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 

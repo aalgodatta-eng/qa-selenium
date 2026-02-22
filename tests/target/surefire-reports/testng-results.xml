@@ -1,0 +1,1519 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="59" passed="39" failed="20" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2026-02-22T13:30:13 IST" name="Surefire suite" finished-at="2026-02-22T13:31:01 IST" duration-ms="48057">
+    <groups>
+      <group name="cucumber">
+        <method signature="AbstractTestNGCucumberTests.runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.algodatta.runners.ApiRunner@6ad59d92]" name="runScenario" class="io.cucumber.testng.AbstractTestNGCucumberTests"/>
+        <method signature="AbstractTestNGCucumberTests.runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.algodatta.runners.uiRunner@663411de]" name="runScenario" class="io.cucumber.testng.AbstractTestNGCucumberTests"/>
+      </group> <!-- cucumber -->
+    </groups>
+    <test started-at="2026-02-22T13:30:13 IST" name="Surefire test" finished-at="2026-02-22T13:31:01 IST" duration-ms="48057">
+      <class name="com.algodatta.runners.ApiRunner">
+        <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:com.algodatta.runners.ApiRunner@6ad59d92]" started-at="2026-02-22T13:30:13 IST" name="setUpClass" finished-at="2026-02-22T13:30:16 IST" duration-ms="3292" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[org.testng.TestRunner@74fab04a]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUpClass -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.algodatta.runners.ApiRunner@6ad59d92]" started-at="2026-02-22T13:30:17 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-22T13:30:33 IST" duration-ms="15490" status="FAIL">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["HTTP methods should return success and echo method"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["httpbin Regression API suite (positive and negative coverage)"]]>
+              </value>
+            </param>
+          </params>
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[Unexpected JSONPath value for: method expected [PATCH] but found [null]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: Unexpected JSONPath value for: method expected [PATCH] but found [null]
+at org.testng.Assert.fail(Assert.java:111)
+at org.testng.Assert.failNotEquals(Assert.java:1578)
+at org.testng.Assert.assertEqualsImpl(Assert.java:150)
+at org.testng.Assert.assertEquals(Assert.java:132)
+at com.algodatta.api.validators.ResponseValidator.jsonPathEquals(ResponseValidator.java:54)
+at ui.steps.api.ApiSteps.jsonPathEqualsString(ApiSteps.java:147)
+at ✽.the JSON path "method" should be "PATCH"(file:///E:/QA_KC/KC-sdet-automation/tests/src/test/resources/features/api/httpbin_regression.feature:13)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.algodatta.runners.ApiRunner@6ad59d92]" started-at="2026-02-22T13:30:17 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-22T13:30:33 IST" duration-ms="15490" status="FAIL">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["HTTP methods should return success and echo method"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["httpbin Regression API suite (positive and negative coverage)"]]>
+              </value>
+            </param>
+          </params>
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[Unexpected JSONPath value for: method expected [GET] but found [null]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: Unexpected JSONPath value for: method expected [GET] but found [null]
+at org.testng.Assert.fail(Assert.java:111)
+at org.testng.Assert.failNotEquals(Assert.java:1578)
+at org.testng.Assert.assertEqualsImpl(Assert.java:150)
+at org.testng.Assert.assertEquals(Assert.java:132)
+at com.algodatta.api.validators.ResponseValidator.jsonPathEquals(ResponseValidator.java:54)
+at ui.steps.api.ApiSteps.jsonPathEqualsString(ApiSteps.java:147)
+at ✽.the JSON path "method" should be "GET"(file:///E:/QA_KC/KC-sdet-automation/tests/src/test/resources/features/api/httpbin_regression.feature:13)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.algodatta.runners.ApiRunner@6ad59d92]" started-at="2026-02-22T13:30:17 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-22T13:30:33 IST" duration-ms="15490" status="FAIL">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["HTTP methods should return success and echo method"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["httpbin Regression API suite (positive and negative coverage)"]]>
+              </value>
+            </param>
+          </params>
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[Unexpected JSONPath value for: method expected [PUT] but found [null]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: Unexpected JSONPath value for: method expected [PUT] but found [null]
+at org.testng.Assert.fail(Assert.java:111)
+at org.testng.Assert.failNotEquals(Assert.java:1578)
+at org.testng.Assert.assertEqualsImpl(Assert.java:150)
+at org.testng.Assert.assertEquals(Assert.java:132)
+at com.algodatta.api.validators.ResponseValidator.jsonPathEquals(ResponseValidator.java:54)
+at ui.steps.api.ApiSteps.jsonPathEqualsString(ApiSteps.java:147)
+at ✽.the JSON path "method" should be "PUT"(file:///E:/QA_KC/KC-sdet-automation/tests/src/test/resources/features/api/httpbin_regression.feature:13)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.algodatta.runners.ApiRunner@6ad59d92]" started-at="2026-02-22T13:30:17 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-22T13:30:33 IST" duration-ms="15490" status="FAIL">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["HTTP methods should return success and echo method"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["httpbin Regression API suite (positive and negative coverage)"]]>
+              </value>
+            </param>
+          </params>
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[Unexpected JSONPath value for: method expected [POST] but found [null]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: Unexpected JSONPath value for: method expected [POST] but found [null]
+at org.testng.Assert.fail(Assert.java:111)
+at org.testng.Assert.failNotEquals(Assert.java:1578)
+at org.testng.Assert.assertEqualsImpl(Assert.java:150)
+at org.testng.Assert.assertEquals(Assert.java:132)
+at com.algodatta.api.validators.ResponseValidator.jsonPathEquals(ResponseValidator.java:54)
+at ui.steps.api.ApiSteps.jsonPathEqualsString(ApiSteps.java:147)
+at ✽.the JSON path "method" should be "POST"(file:///E:/QA_KC/KC-sdet-automation/tests/src/test/resources/features/api/httpbin_regression.feature:13)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.algodatta.runners.ApiRunner@6ad59d92]" started-at="2026-02-22T13:30:33 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-22T13:30:35 IST" duration-ms="1933" status="FAIL">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["HTTP methods should return success and echo method"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["httpbin Regression API suite (positive and negative coverage)"]]>
+              </value>
+            </param>
+          </params>
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[Unexpected JSONPath value for: method expected [DELETE] but found [null]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: Unexpected JSONPath value for: method expected [DELETE] but found [null]
+at org.testng.Assert.fail(Assert.java:111)
+at org.testng.Assert.failNotEquals(Assert.java:1578)
+at org.testng.Assert.assertEqualsImpl(Assert.java:150)
+at org.testng.Assert.assertEquals(Assert.java:132)
+at com.algodatta.api.validators.ResponseValidator.jsonPathEquals(ResponseValidator.java:54)
+at ui.steps.api.ApiSteps.jsonPathEqualsString(ApiSteps.java:147)
+at ✽.the JSON path "method" should be "DELETE"(file:///E:/QA_KC/KC-sdet-automation/tests/src/test/resources/features/api/httpbin_regression.feature:13)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.algodatta.runners.ApiRunner@6ad59d92]" started-at="2026-02-22T13:30:33 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-22T13:30:35 IST" duration-ms="1872" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["HEAD should return headers only"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["httpbin Regression API suite (positive and negative coverage)"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.algodatta.runners.ApiRunner@6ad59d92]" started-at="2026-02-22T13:30:33 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-22T13:30:35 IST" duration-ms="2186" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["OPTIONS should return allowed methods"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["httpbin Regression API suite (positive and negative coverage)"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.algodatta.runners.ApiRunner@6ad59d92]" started-at="2026-02-22T13:30:33 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-22T13:30:35 IST" duration-ms="2254" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Bearer auth positive"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["httpbin Regression API suite (positive and negative coverage)"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.algodatta.runners.ApiRunner@6ad59d92]" started-at="2026-02-22T13:30:35 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-22T13:30:37 IST" duration-ms="1852" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Bearer auth negative (missing token)"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["httpbin Regression API suite (positive and negative coverage)"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.algodatta.runners.ApiRunner@6ad59d92]" started-at="2026-02-22T13:30:35 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-22T13:30:37 IST" duration-ms="2086" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Digest auth positive"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["httpbin Regression API suite (positive and negative coverage)"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.algodatta.runners.ApiRunner@6ad59d92]" started-at="2026-02-22T13:30:35 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-22T13:30:37 IST" duration-ms="2358" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Digest auth negative"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["httpbin Regression API suite (positive and negative coverage)"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.algodatta.runners.ApiRunner@6ad59d92]" started-at="2026-02-22T13:30:35 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-22T13:30:37 IST" duration-ms="2169" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["status endpoint should generate the given status code"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["httpbin Regression API suite (positive and negative coverage)"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.algodatta.runners.ApiRunner@6ad59d92]" started-at="2026-02-22T13:30:37 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-22T13:30:38 IST" duration-ms="1629" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["status endpoint should generate the given status code"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["httpbin Regression API suite (positive and negative coverage)"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.algodatta.runners.ApiRunner@6ad59d92]" started-at="2026-02-22T13:30:37 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-22T13:30:39 IST" duration-ms="1628" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["status endpoint should generate the given status code"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["httpbin Regression API suite (positive and negative coverage)"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.algodatta.runners.ApiRunner@6ad59d92]" started-at="2026-02-22T13:30:37 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-22T13:30:40 IST" duration-ms="2309" status="FAIL">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["status endpoint should generate the given status code"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["httpbin Regression API suite (positive and negative coverage)"]]>
+              </value>
+            </param>
+          </params>
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[Unexpected status code expected [301] but found [200]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: Unexpected status code expected [301] but found [200]
+at org.testng.Assert.fail(Assert.java:111)
+at org.testng.Assert.failNotEquals(Assert.java:1578)
+at org.testng.Assert.assertEqualsImpl(Assert.java:150)
+at org.testng.Assert.assertEquals(Assert.java:132)
+at org.testng.Assert.assertEquals(Assert.java:1419)
+at org.testng.Assert.assertEquals(Assert.java:1383)
+at com.algodatta.api.validators.ResponseValidator.status(ResponseValidator.java:12)
+at ui.steps.api.ApiSteps.status(ApiSteps.java:117)
+at ✽.the response status should be 301(file:///E:/QA_KC/KC-sdet-automation/tests/src/test/resources/features/api/httpbin_regression.feature:56)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.algodatta.runners.ApiRunner@6ad59d92]" started-at="2026-02-22T13:30:38 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-22T13:30:39 IST" duration-ms="1745" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["status endpoint should generate the given status code"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["httpbin Regression API suite (positive and negative coverage)"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.algodatta.runners.ApiRunner@6ad59d92]" started-at="2026-02-22T13:30:38 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-22T13:30:40 IST" duration-ms="1759" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["status endpoint should generate the given status code"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["httpbin Regression API suite (positive and negative coverage)"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.algodatta.runners.ApiRunner@6ad59d92]" started-at="2026-02-22T13:30:39 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-22T13:30:40 IST" duration-ms="1681" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["status endpoint should generate the given status code"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["httpbin Regression API suite (positive and negative coverage)"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.algodatta.runners.ApiRunner@6ad59d92]" started-at="2026-02-22T13:30:39 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-22T13:30:41 IST" duration-ms="1734" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["status endpoint should generate the given status code"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["httpbin Regression API suite (positive and negative coverage)"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.algodatta.runners.ApiRunner@6ad59d92]" started-at="2026-02-22T13:30:40 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-22T13:30:41 IST" duration-ms="1728" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["status endpoint should generate the given status code"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["httpbin Regression API suite (positive and negative coverage)"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.algodatta.runners.ApiRunner@6ad59d92]" started-at="2026-02-22T13:30:40 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-22T13:30:43 IST" duration-ms="2564" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Inspect query params, headers and client IP via /anything"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["httpbin Regression API suite (positive and negative coverage)"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.algodatta.runners.ApiRunner@6ad59d92]" started-at="2026-02-22T13:30:40 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-22T13:30:43 IST" duration-ms="2270" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Inspect JSON body via /anything"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["httpbin Regression API suite (positive and negative coverage)"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.algodatta.runners.ApiRunner@6ad59d92]" started-at="2026-02-22T13:30:41 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-22T13:30:43 IST" duration-ms="1664" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Validate caching headers via /cache/0 (no caching)"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["httpbin Regression API suite (positive and negative coverage)"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.algodatta.runners.ApiRunner@6ad59d92]" started-at="2026-02-22T13:30:41 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-22T13:30:43 IST" duration-ms="1633" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Validate ETag response"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["httpbin Regression API suite (positive and negative coverage)"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.algodatta.runners.ApiRunner@6ad59d92]" started-at="2026-02-22T13:30:43 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-22T13:30:44 IST" duration-ms="1712" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Validate custom response headers"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["httpbin Regression API suite (positive and negative coverage)"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.algodatta.runners.ApiRunner@6ad59d92]" started-at="2026-02-22T13:30:43 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-22T13:30:44 IST" duration-ms="1683" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Different response formats should return expected content types"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["httpbin Regression API suite (positive and negative coverage)"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.algodatta.runners.ApiRunner@6ad59d92]" started-at="2026-02-22T13:30:43 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-22T13:30:44 IST" duration-ms="1617" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Different response formats should return expected content types"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["httpbin Regression API suite (positive and negative coverage)"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.algodatta.runners.ApiRunner@6ad59d92]" started-at="2026-02-22T13:30:43 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-22T13:30:45 IST" duration-ms="1809" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Different response formats should return expected content types"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["httpbin Regression API suite (positive and negative coverage)"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.algodatta.runners.ApiRunner@6ad59d92]" started-at="2026-02-22T13:30:44 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-22T13:30:46 IST" duration-ms="1933" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Different response formats should return expected content types"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["httpbin Regression API suite (positive and negative coverage)"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.algodatta.runners.ApiRunner@6ad59d92]" started-at="2026-02-22T13:30:44 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-22T13:30:46 IST" duration-ms="1595" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Different response formats should return expected content types"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["httpbin Regression API suite (positive and negative coverage)"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.algodatta.runners.ApiRunner@6ad59d92]" started-at="2026-02-22T13:30:44 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-22T13:30:46 IST" duration-ms="1842" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Gzip response should be JSON"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["httpbin Regression API suite (positive and negative coverage)"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.algodatta.runners.ApiRunner@6ad59d92]" started-at="2026-02-22T13:30:45 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-22T13:30:47 IST" duration-ms="1732" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["UUID endpoint should return a UUID"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["httpbin Regression API suite (positive and negative coverage)"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.algodatta.runners.ApiRunner@6ad59d92]" started-at="2026-02-22T13:30:46 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-22T13:30:49 IST" duration-ms="2746" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Delay endpoint should respond within a reasonable time"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["httpbin Regression API suite (positive and negative coverage)"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.algodatta.runners.ApiRunner@6ad59d92]" started-at="2026-02-22T13:30:46 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-22T13:30:48 IST" duration-ms="2166" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Random bytes should return binary"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["httpbin Regression API suite (positive and negative coverage)"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.algodatta.runners.ApiRunner@6ad59d92]" started-at="2026-02-22T13:30:46 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-22T13:30:50 IST" duration-ms="3380" status="FAIL">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Create, read and delete cookies"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["httpbin Regression API suite (positive and negative coverage)"]]>
+              </value>
+            </param>
+          </params>
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[Unexpected JSONPath value for: cookies.kc expected [1] but found [null]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: Unexpected JSONPath value for: cookies.kc expected [1] but found [null]
+at org.testng.Assert.fail(Assert.java:111)
+at org.testng.Assert.failNotEquals(Assert.java:1578)
+at org.testng.Assert.assertEqualsImpl(Assert.java:150)
+at org.testng.Assert.assertEquals(Assert.java:132)
+at com.algodatta.api.validators.ResponseValidator.jsonPathEquals(ResponseValidator.java:54)
+at ui.steps.api.ApiSteps.jsonPathEqualsString(ApiSteps.java:147)
+at ✽.the JSON path "cookies.kc" should be "1"(file:///E:/QA_KC/KC-sdet-automation/tests/src/test/resources/features/api/httpbin_regression.feature:152)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.algodatta.runners.ApiRunner@6ad59d92]" started-at="2026-02-22T13:30:47 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-22T13:30:48 IST" duration-ms="1741" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Image endpoints should return correct image content types"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["httpbin Regression API suite (positive and negative coverage)"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.algodatta.runners.ApiRunner@6ad59d92]" started-at="2026-02-22T13:30:48 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-22T13:30:50 IST" duration-ms="1602" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Image endpoints should return correct image content types"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["httpbin Regression API suite (positive and negative coverage)"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.algodatta.runners.ApiRunner@6ad59d92]" started-at="2026-02-22T13:30:48 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-22T13:30:50 IST" duration-ms="1786" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Image endpoints should return correct image content types"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["httpbin Regression API suite (positive and negative coverage)"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.algodatta.runners.ApiRunner@6ad59d92]" started-at="2026-02-22T13:30:49 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-22T13:30:50 IST" duration-ms="1589" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Image endpoints should return correct image content types"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["httpbin Regression API suite (positive and negative coverage)"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.algodatta.runners.ApiRunner@6ad59d92]" started-at="2026-02-22T13:30:50 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-22T13:30:52 IST" duration-ms="1874" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Redirect endpoint should return a redirect when not following"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["httpbin Regression API suite (positive and negative coverage)"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.algodatta.runners.ApiRunner@6ad59d92]" started-at="2026-02-22T13:30:50 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-22T13:30:53 IST" duration-ms="3215" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Redirect endpoint should reach final destination when following"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["httpbin Regression API suite (positive and negative coverage)"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.algodatta.runners.ApiRunner@6ad59d92]" started-at="2026-02-22T13:30:50 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-22T13:30:52 IST" duration-ms="2014" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Redirect to a custom URL"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["httpbin Regression API suite (positive and negative coverage)"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.algodatta.runners.ApiRunner@6ad59d92]" started-at="2026-02-22T13:30:50 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-22T13:30:52 IST" duration-ms="1712" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["/anything should echo arbitrary path, headers and payload"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["httpbin Regression API suite (positive and negative coverage)"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.algodatta.runners.ApiRunner@6ad59d92]" started-at="2026-02-22T13:30:52 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-22T13:30:53 IST" duration-ms="1650" status="FAIL">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Basic GET should echo request data"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["httpbin Smoke API suite"]]>
+              </value>
+            </param>
+          </params>
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[Unexpected JSONPath value for: method expected [GET] but found [null]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: Unexpected JSONPath value for: method expected [GET] but found [null]
+at org.testng.Assert.fail(Assert.java:111)
+at org.testng.Assert.failNotEquals(Assert.java:1578)
+at org.testng.Assert.assertEqualsImpl(Assert.java:150)
+at org.testng.Assert.assertEquals(Assert.java:132)
+at com.algodatta.api.validators.ResponseValidator.jsonPathEquals(ResponseValidator.java:54)
+at ui.steps.api.ApiSteps.jsonPathEqualsString(ApiSteps.java:147)
+at ✽.the JSON path "method" should be "GET"(file:///E:/QA_KC/KC-sdet-automation/tests/src/test/resources/features/api/httpbin_smoke.feature:13)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.algodatta.runners.ApiRunner@6ad59d92]" started-at="2026-02-22T13:30:52 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-22T13:30:54 IST" duration-ms="1869" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Basic POST should echo JSON payload"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["httpbin Smoke API suite"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.algodatta.runners.ApiRunner@6ad59d92]" started-at="2026-02-22T13:30:52 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-22T13:30:56 IST" duration-ms="3281" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Basic Auth positive"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["httpbin Smoke API suite"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.algodatta.runners.ApiRunner@6ad59d92]" started-at="2026-02-22T13:30:53 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-22T13:30:55 IST" duration-ms="2010" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Basic Auth negative"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["httpbin Smoke API suite"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.algodatta.runners.ApiRunner@6ad59d92]" started-at="2026-02-22T13:30:53 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-22T13:30:56 IST" duration-ms="2427" status="FAIL">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Get a single post"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["JSONPlaceholder API smoke coverage"]]>
+              </value>
+            </param>
+          </params>
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[Unexpected status code expected [200] but found [404]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: Unexpected status code expected [200] but found [404]
+at org.testng.Assert.fail(Assert.java:111)
+at org.testng.Assert.failNotEquals(Assert.java:1578)
+at org.testng.Assert.assertEqualsImpl(Assert.java:150)
+at org.testng.Assert.assertEquals(Assert.java:132)
+at org.testng.Assert.assertEquals(Assert.java:1419)
+at org.testng.Assert.assertEquals(Assert.java:1383)
+at com.algodatta.api.validators.ResponseValidator.status(ResponseValidator.java:12)
+at ui.steps.api.ApiSteps.status(ApiSteps.java:117)
+at ✽.the response status should be 200(file:///E:/QA_KC/KC-sdet-automation/tests/src/test/resources/features/api/jsonplaceholder_smoke.feature:9)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.algodatta.runners.ApiRunner@6ad59d92]" started-at="2026-02-22T13:30:54 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-22T13:30:56 IST" duration-ms="1634" status="FAIL">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["List posts for a user"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["JSONPlaceholder API smoke coverage"]]>
+              </value>
+            </param>
+          </params>
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[Unexpected status code expected [200] but found [404]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: Unexpected status code expected [200] but found [404]
+at org.testng.Assert.fail(Assert.java:111)
+at org.testng.Assert.failNotEquals(Assert.java:1578)
+at org.testng.Assert.assertEqualsImpl(Assert.java:150)
+at org.testng.Assert.assertEquals(Assert.java:132)
+at org.testng.Assert.assertEquals(Assert.java:1419)
+at org.testng.Assert.assertEquals(Assert.java:1383)
+at com.algodatta.api.validators.ResponseValidator.status(ResponseValidator.java:12)
+at ui.steps.api.ApiSteps.status(ApiSteps.java:117)
+at ✽.the response status should be 200(file:///E:/QA_KC/KC-sdet-automation/tests/src/test/resources/features/api/jsonplaceholder_smoke.feature:17)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.algodatta.runners.ApiRunner@6ad59d92]" started-at="2026-02-22T13:30:55 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-22T13:30:57 IST" duration-ms="1697" status="FAIL">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Get a user"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["JSONPlaceholder API smoke coverage"]]>
+              </value>
+            </param>
+          </params>
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[Unexpected status code expected [200] but found [404]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: Unexpected status code expected [200] but found [404]
+at org.testng.Assert.fail(Assert.java:111)
+at org.testng.Assert.failNotEquals(Assert.java:1578)
+at org.testng.Assert.assertEqualsImpl(Assert.java:150)
+at org.testng.Assert.assertEquals(Assert.java:132)
+at org.testng.Assert.assertEquals(Assert.java:1419)
+at org.testng.Assert.assertEquals(Assert.java:1383)
+at com.algodatta.api.validators.ResponseValidator.status(ResponseValidator.java:12)
+at ui.steps.api.ApiSteps.status(ApiSteps.java:117)
+at ✽.the response status should be 200(file:///E:/QA_KC/KC-sdet-automation/tests/src/test/resources/features/api/jsonplaceholder_smoke.feature:24)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.algodatta.runners.ApiRunner@6ad59d92]" started-at="2026-02-22T13:30:56 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-22T13:30:57 IST" duration-ms="1763" status="FAIL">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["List comments for a post"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["JSONPlaceholder API smoke coverage"]]>
+              </value>
+            </param>
+          </params>
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[Unexpected status code expected [200] but found [400]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: Unexpected status code expected [200] but found [400]
+at org.testng.Assert.fail(Assert.java:111)
+at org.testng.Assert.failNotEquals(Assert.java:1578)
+at org.testng.Assert.assertEqualsImpl(Assert.java:150)
+at org.testng.Assert.assertEquals(Assert.java:132)
+at org.testng.Assert.assertEquals(Assert.java:1419)
+at org.testng.Assert.assertEquals(Assert.java:1383)
+at com.algodatta.api.validators.ResponseValidator.status(ResponseValidator.java:12)
+at ui.steps.api.ApiSteps.status(ApiSteps.java:117)
+at ✽.the response status should be 200(file:///E:/QA_KC/KC-sdet-automation/tests/src/test/resources/features/api/jsonplaceholder_smoke.feature:31)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.algodatta.runners.ApiRunner@6ad59d92]" started-at="2026-02-22T13:30:56 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-22T13:30:57 IST" duration-ms="1695" status="FAIL">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Get a todo"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["JSONPlaceholder API smoke coverage"]]>
+              </value>
+            </param>
+          </params>
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[Unexpected status code expected [200] but found [400]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: Unexpected status code expected [200] but found [400]
+at org.testng.Assert.fail(Assert.java:111)
+at org.testng.Assert.failNotEquals(Assert.java:1578)
+at org.testng.Assert.assertEqualsImpl(Assert.java:150)
+at org.testng.Assert.assertEquals(Assert.java:132)
+at org.testng.Assert.assertEquals(Assert.java:1419)
+at org.testng.Assert.assertEquals(Assert.java:1383)
+at com.algodatta.api.validators.ResponseValidator.status(ResponseValidator.java:12)
+at ui.steps.api.ApiSteps.status(ApiSteps.java:117)
+at ✽.the response status should be 200(file:///E:/QA_KC/KC-sdet-automation/tests/src/test/resources/features/api/jsonplaceholder_smoke.feature:38)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.algodatta.runners.ApiRunner@6ad59d92]" started-at="2026-02-22T13:30:56 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-22T13:30:57 IST" duration-ms="1655" status="FAIL">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Get an album"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["JSONPlaceholder API smoke coverage"]]>
+              </value>
+            </param>
+          </params>
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[Unexpected status code expected [200] but found [400]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: Unexpected status code expected [200] but found [400]
+at org.testng.Assert.fail(Assert.java:111)
+at org.testng.Assert.failNotEquals(Assert.java:1578)
+at org.testng.Assert.assertEqualsImpl(Assert.java:150)
+at org.testng.Assert.assertEquals(Assert.java:132)
+at org.testng.Assert.assertEquals(Assert.java:1419)
+at org.testng.Assert.assertEquals(Assert.java:1383)
+at com.algodatta.api.validators.ResponseValidator.status(ResponseValidator.java:12)
+at ui.steps.api.ApiSteps.status(ApiSteps.java:117)
+at ✽.the response status should be 200(file:///E:/QA_KC/KC-sdet-automation/tests/src/test/resources/features/api/jsonplaceholder_smoke.feature:45)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.algodatta.runners.ApiRunner@6ad59d92]" started-at="2026-02-22T13:30:57 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-22T13:30:59 IST" duration-ms="1666" status="FAIL">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["List photos in an album"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["JSONPlaceholder API smoke coverage"]]>
+              </value>
+            </param>
+          </params>
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[Unexpected status code expected [200] but found [400]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: Unexpected status code expected [200] but found [400]
+at org.testng.Assert.fail(Assert.java:111)
+at org.testng.Assert.failNotEquals(Assert.java:1578)
+at org.testng.Assert.assertEqualsImpl(Assert.java:150)
+at org.testng.Assert.assertEquals(Assert.java:132)
+at org.testng.Assert.assertEquals(Assert.java:1419)
+at org.testng.Assert.assertEquals(Assert.java:1383)
+at com.algodatta.api.validators.ResponseValidator.status(ResponseValidator.java:12)
+at ui.steps.api.ApiSteps.status(ApiSteps.java:117)
+at ✽.the response status should be 200(file:///E:/QA_KC/KC-sdet-automation/tests/src/test/resources/features/api/jsonplaceholder_smoke.feature:53)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.algodatta.runners.ApiRunner@6ad59d92]" started-at="2026-02-22T13:30:57 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-22T13:30:57 IST" duration-ms="27" status="FAIL">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Create a post"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["JSONPlaceholder API smoke coverage"]]>
+              </value>
+            </param>
+          </params>
+          <exception class="io.cucumber.testng.UndefinedStepException">
+            <message>
+              <![CDATA[The step 'I POST "/posts" with json body:' and 2 other step(s) are undefined.
+You can implement these steps using the snippet(s) below:
+
+@When("I POST {string} with json body:")
+public void i_post_with_json_body(String string, String docString) {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@Then("json path {string} should not be null")
+public void json_path_should_not_be_null(String string) {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@Then("json path {string} should be {int}")
+public void json_path_should_be(String string, Integer int1) {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[io.cucumber.testng.UndefinedStepException: The step 'I POST "/posts" with json body:' and 2 other step(s) are undefined.
+You can implement these steps using the snippet(s) below:
+
+@When("I POST {string} with json body:")
+public void i_post_with_json_body(String string, String docString) {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@Then("json path {string} should not be null")
+public void json_path_should_not_be_null(String string) {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@Then("json path {string} should be {int}")
+public void json_path_should_be(String string, Integer int1) {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+
+at io.cucumber.core.runtime.TestCaseResultObserver.assertTestCasePassed(TestCaseResultObserver.java:69)
+at io.cucumber.testng.TestCaseResultObserver.assertTestCasePassed(TestCaseResultObserver.java:23)
+at io.cucumber.testng.TestNGCucumberRunner.lambda$runScenario$1(TestNGCucumberRunner.java:133)
+at io.cucumber.core.runtime.CucumberExecutionContext.lambda$runTestCase$5(CucumberExecutionContext.java:136)
+at io.cucumber.core.runtime.RethrowingThrowableCollector.executeAndThrow(RethrowingThrowableCollector.java:23)
+at io.cucumber.core.runtime.CucumberExecutionContext.runTestCase(CucumberExecutionContext.java:136)
+at io.cucumber.testng.TestNGCucumberRunner.runScenario(TestNGCucumberRunner.java:129)
+at io.cucumber.testng.AbstractTestNGCucumberTests.runScenario(AbstractTestNGCucumberTests.java:35)
+at jdk.internal.reflect.GeneratedMethodAccessor182.invoke(Unknown Source)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:686)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+at org.testng.internal.invokers.TestMethodWithDataProviderMethodWorker.call(TestMethodWithDataProviderMethodWorker.java:81)
+at org.testng.internal.thread.Async$AsyncTask.run(Async.java:34)
+at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+at java.base/java.lang.Thread.run(Thread.java:842)
+]]>
+            </full-stacktrace>
+          </exception> <!-- io.cucumber.testng.UndefinedStepException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.algodatta.runners.ApiRunner@6ad59d92]" started-at="2026-02-22T13:30:57 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-22T13:30:57 IST" duration-ms="15" status="FAIL">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Update a post with PUT"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["JSONPlaceholder API smoke coverage"]]>
+              </value>
+            </param>
+          </params>
+          <exception class="io.cucumber.testng.UndefinedStepException">
+            <message>
+              <![CDATA[The step 'I PUT "/posts/1" with json body:' and 2 other step(s) are undefined.
+You can implement these steps using the snippet(s) below:
+
+@When("I PUT {string} with json body:")
+public void i_put_with_json_body(String string, String docString) {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@Then("json path {string} should be {int}")
+public void json_path_should_be(String string, Integer int1) {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@Then("json path {string} should be {string}")
+public void json_path_should_be(String string, String string2) {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[io.cucumber.testng.UndefinedStepException: The step 'I PUT "/posts/1" with json body:' and 2 other step(s) are undefined.
+You can implement these steps using the snippet(s) below:
+
+@When("I PUT {string} with json body:")
+public void i_put_with_json_body(String string, String docString) {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@Then("json path {string} should be {int}")
+public void json_path_should_be(String string, Integer int1) {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@Then("json path {string} should be {string}")
+public void json_path_should_be(String string, String string2) {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+
+at io.cucumber.core.runtime.TestCaseResultObserver.assertTestCasePassed(TestCaseResultObserver.java:69)
+at io.cucumber.testng.TestCaseResultObserver.assertTestCasePassed(TestCaseResultObserver.java:23)
+at io.cucumber.testng.TestNGCucumberRunner.lambda$runScenario$1(TestNGCucumberRunner.java:133)
+at io.cucumber.core.runtime.CucumberExecutionContext.lambda$runTestCase$5(CucumberExecutionContext.java:136)
+at io.cucumber.core.runtime.RethrowingThrowableCollector.executeAndThrow(RethrowingThrowableCollector.java:23)
+at io.cucumber.core.runtime.CucumberExecutionContext.runTestCase(CucumberExecutionContext.java:136)
+at io.cucumber.testng.TestNGCucumberRunner.runScenario(TestNGCucumberRunner.java:129)
+at io.cucumber.testng.AbstractTestNGCucumberTests.runScenario(AbstractTestNGCucumberTests.java:35)
+at jdk.internal.reflect.GeneratedMethodAccessor182.invoke(Unknown Source)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:686)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+at org.testng.internal.invokers.TestMethodWithDataProviderMethodWorker.call(TestMethodWithDataProviderMethodWorker.java:81)
+at org.testng.internal.thread.Async$AsyncTask.run(Async.java:34)
+at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+at java.base/java.lang.Thread.run(Thread.java:842)
+]]>
+            </full-stacktrace>
+          </exception> <!-- io.cucumber.testng.UndefinedStepException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.algodatta.runners.ApiRunner@6ad59d92]" started-at="2026-02-22T13:30:57 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-22T13:30:57 IST" duration-ms="33" status="FAIL">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Partial update a post with PATCH"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["JSONPlaceholder API smoke coverage"]]>
+              </value>
+            </param>
+          </params>
+          <exception class="io.cucumber.testng.UndefinedStepException">
+            <message>
+              <![CDATA[The step 'I PATCH "/posts/1" with json body:' and 1 other step(s) are undefined.
+You can implement these steps using the snippet(s) below:
+
+@When("I PATCH {string} with json body:")
+public void i_patch_with_json_body(String string, String docString) {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@Then("json path {string} should be {string}")
+public void json_path_should_be(String string, String string2) {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[io.cucumber.testng.UndefinedStepException: The step 'I PATCH "/posts/1" with json body:' and 1 other step(s) are undefined.
+You can implement these steps using the snippet(s) below:
+
+@When("I PATCH {string} with json body:")
+public void i_patch_with_json_body(String string, String docString) {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+@Then("json path {string} should be {string}")
+public void json_path_should_be(String string, String string2) {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+
+at io.cucumber.core.runtime.TestCaseResultObserver.assertTestCasePassed(TestCaseResultObserver.java:69)
+at io.cucumber.testng.TestCaseResultObserver.assertTestCasePassed(TestCaseResultObserver.java:23)
+at io.cucumber.testng.TestNGCucumberRunner.lambda$runScenario$1(TestNGCucumberRunner.java:133)
+at io.cucumber.core.runtime.CucumberExecutionContext.lambda$runTestCase$5(CucumberExecutionContext.java:136)
+at io.cucumber.core.runtime.RethrowingThrowableCollector.executeAndThrow(RethrowingThrowableCollector.java:23)
+at io.cucumber.core.runtime.CucumberExecutionContext.runTestCase(CucumberExecutionContext.java:136)
+at io.cucumber.testng.TestNGCucumberRunner.runScenario(TestNGCucumberRunner.java:129)
+at io.cucumber.testng.AbstractTestNGCucumberTests.runScenario(AbstractTestNGCucumberTests.java:35)
+at jdk.internal.reflect.GeneratedMethodAccessor182.invoke(Unknown Source)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:686)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+at org.testng.internal.invokers.TestMethodWithDataProviderMethodWorker.call(TestMethodWithDataProviderMethodWorker.java:81)
+at org.testng.internal.thread.Async$AsyncTask.run(Async.java:34)
+at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+at java.base/java.lang.Thread.run(Thread.java:842)
+]]>
+            </full-stacktrace>
+          </exception> <!-- io.cucumber.testng.UndefinedStepException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.algodatta.runners.ApiRunner@6ad59d92]" started-at="2026-02-22T13:30:57 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-22T13:30:57 IST" duration-ms="35" status="FAIL">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Delete a post"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["JSONPlaceholder API smoke coverage"]]>
+              </value>
+            </param>
+          </params>
+          <exception class="io.cucumber.testng.UndefinedStepException">
+            <message>
+              <![CDATA[The step 'I DELETE "/posts/1"' is undefined.
+You can implement this step using the snippet(s) below:
+
+@When("I DELETE {string}")
+public void i_delete(String string) {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[io.cucumber.testng.UndefinedStepException: The step 'I DELETE "/posts/1"' is undefined.
+You can implement this step using the snippet(s) below:
+
+@When("I DELETE {string}")
+public void i_delete(String string) {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+
+at io.cucumber.core.runtime.TestCaseResultObserver.assertTestCasePassed(TestCaseResultObserver.java:69)
+at io.cucumber.testng.TestCaseResultObserver.assertTestCasePassed(TestCaseResultObserver.java:23)
+at io.cucumber.testng.TestNGCucumberRunner.lambda$runScenario$1(TestNGCucumberRunner.java:133)
+at io.cucumber.core.runtime.CucumberExecutionContext.lambda$runTestCase$5(CucumberExecutionContext.java:136)
+at io.cucumber.core.runtime.RethrowingThrowableCollector.executeAndThrow(RethrowingThrowableCollector.java:23)
+at io.cucumber.core.runtime.CucumberExecutionContext.runTestCase(CucumberExecutionContext.java:136)
+at io.cucumber.testng.TestNGCucumberRunner.runScenario(TestNGCucumberRunner.java:129)
+at io.cucumber.testng.AbstractTestNGCucumberTests.runScenario(AbstractTestNGCucumberTests.java:35)
+at jdk.internal.reflect.GeneratedMethodAccessor182.invoke(Unknown Source)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:686)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+at org.testng.internal.invokers.TestMethodWithDataProviderMethodWorker.call(TestMethodWithDataProviderMethodWorker.java:81)
+at org.testng.internal.thread.Async$AsyncTask.run(Async.java:34)
+at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+at java.base/java.lang.Thread.run(Thread.java:842)
+]]>
+            </full-stacktrace>
+          </exception> <!-- io.cucumber.testng.UndefinedStepException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.algodatta.runners.ApiRunner@6ad59d92]" started-at="2026-02-22T13:30:57 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-22T13:30:57 IST" duration-ms="25" status="FAIL">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Login then fetch user details"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["ReqRes API validation"]]>
+              </value>
+            </param>
+          </params>
+          <exception class="io.cucumber.testng.UndefinedStepException">
+            <message>
+              <![CDATA[The step 'I login with email "eve.holt@reqres.in" and password "cityslicka"' is undefined.
+You can implement this step using the snippet(s) below:
+
+@When("I login with email {string} and password {string}")
+public void i_login_with_email_and_password(String string, String string2) {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[io.cucumber.testng.UndefinedStepException: The step 'I login with email "eve.holt@reqres.in" and password "cityslicka"' is undefined.
+You can implement this step using the snippet(s) below:
+
+@When("I login with email {string} and password {string}")
+public void i_login_with_email_and_password(String string, String string2) {
+    // Write code here that turns the phrase above into concrete actions
+    throw new io.cucumber.java.PendingException();
+}
+
+at io.cucumber.core.runtime.TestCaseResultObserver.assertTestCasePassed(TestCaseResultObserver.java:69)
+at io.cucumber.testng.TestCaseResultObserver.assertTestCasePassed(TestCaseResultObserver.java:23)
+at io.cucumber.testng.TestNGCucumberRunner.lambda$runScenario$1(TestNGCucumberRunner.java:133)
+at io.cucumber.core.runtime.CucumberExecutionContext.lambda$runTestCase$5(CucumberExecutionContext.java:136)
+at io.cucumber.core.runtime.RethrowingThrowableCollector.executeAndThrow(RethrowingThrowableCollector.java:23)
+at io.cucumber.core.runtime.CucumberExecutionContext.runTestCase(CucumberExecutionContext.java:136)
+at io.cucumber.testng.TestNGCucumberRunner.runScenario(TestNGCucumberRunner.java:129)
+at io.cucumber.testng.AbstractTestNGCucumberTests.runScenario(AbstractTestNGCucumberTests.java:35)
+at jdk.internal.reflect.GeneratedMethodAccessor182.invoke(Unknown Source)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:141)
+at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:686)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:230)
+at org.testng.internal.invokers.TestMethodWithDataProviderMethodWorker.call(TestMethodWithDataProviderMethodWorker.java:81)
+at org.testng.internal.thread.Async$AsyncTask.run(Async.java:34)
+at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+at java.base/java.lang.Thread.run(Thread.java:842)
+]]>
+            </full-stacktrace>
+          </exception> <!-- io.cucumber.testng.UndefinedStepException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:com.algodatta.runners.ApiRunner@6ad59d92]" started-at="2026-02-22T13:30:59 IST" name="tearDownClass" finished-at="2026-02-22T13:31:00 IST" duration-ms="1758" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDownClass -->
+      </class> <!-- com.algodatta.runners.ApiRunner -->
+      <class name="com.algodatta.runners.uiRunner">
+        <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:com.algodatta.runners.uiRunner@663411de]" started-at="2026-02-22T13:31:00 IST" name="setUpClass" finished-at="2026-02-22T13:31:00 IST" duration-ms="46" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[org.testng.TestRunner@74fab04a]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUpClass -->
+        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:com.algodatta.runners.uiRunner@663411de]" started-at="2026-02-22T13:31:00 IST" name="tearDownClass" finished-at="2026-02-22T13:31:01 IST" duration-ms="507" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDownClass -->
+      </class> <!-- com.algodatta.runners.uiRunner -->
+    </test> <!-- Surefire test -->
+  </suite> <!-- Surefire suite -->
+</testng-results>

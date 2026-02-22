@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: selenium-hub
+spec:
+  replicas: {{ .Values.grid.hub.replicas }}
+  selector:
+    matchLabels:
+      app: selenium-hub
+  template:
+    metadata:
+      labels:
+        app: selenium-hub
+    spec:
+      containers:
+        - name: hub
+          image: {{ .Values.grid.hub.image }}
+          ports:
+            - containerPort: 4444
+          env:
+            - name: SE_ENABLE_TRACING
+              value: "false"

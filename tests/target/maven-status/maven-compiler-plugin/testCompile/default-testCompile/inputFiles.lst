@@ -1,0 +1,13 @@
+E:\QA_KC\KC-sdet-automation\tests\src\test\java\com\algodatta\hooks\Hooks.java
+E:\QA_KC\KC-sdet-automation\tests\src\test\java\com\algodatta\hooks\MockServerHooks.java
+E:\QA_KC\KC-sdet-automation\tests\src\test\java\com\algodatta\hooks\StaticSiteHooks.java
+E:\QA_KC\KC-sdet-automation\tests\src\test\java\com\algodatta\hooks\VideoHooks.java
+E:\QA_KC\KC-sdet-automation\tests\src\test\java\com\algodatta\runners\ApiRunner.java
+E:\QA_KC\KC-sdet-automation\tests\src\test\java\com\algodatta\runners\ParallelRunnerBase.java
+E:\QA_KC\KC-sdet-automation\tests\src\test\java\com\algodatta\runners\uiRunner.java
+E:\QA_KC\KC-sdet-automation\tests\src\test\java\com\algodatta\tests\ui\LoginTest.java
+E:\QA_KC\KC-sdet-automation\tests\src\test\java\ui\base\BaseTest.java
+E:\QA_KC\KC-sdet-automation\tests\src\test\java\ui\pages\DummyLoginPage.java
+E:\QA_KC\KC-sdet-automation\tests\src\test\java\ui\pages\HomePage.java
+E:\QA_KC\KC-sdet-automation\tests\src\test\java\ui\steps\api\ApiSteps.java
+E:\QA_KC\KC-sdet-automation\tests\src\test\java\ui\steps\ui\UiSteps.java

@@ -1,0 +1,24 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: kc-bdd-tests
+spec:
+  backoffLimit: 0
+  template:
+    spec:
+      restartPolicy: Never
+      containers:
+        - name: bdd-tests
+          image: kc-bdd-tests:latest
+          imagePullPolicy: IfNotPresent
+          env:
+            - name: ENV
+              value: "qa"
+            - name: RUNMODE
+              value: "local"
+            - name: BROWSER
+              value: "chrome"
+            - name: HEADLESS
+              value: "true"
+            - name: TAGS
+              value: "@api or @ui"

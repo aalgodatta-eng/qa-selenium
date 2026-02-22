@@ -2,7 +2,7 @@
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>com.algodatta</groupId>
-    <artifactId>tesco-sdet-automation</artifactId>
+    <artifactId>kc-sdet-automation</artifactId>
     <version>1.0.0</version>
   </parent>
   <artifactId>tests</artifactId>
@@ -13,6 +13,57 @@
     <dependency><groupId>com.algodatta</groupId><artifactId>framework-api</artifactId><version>1.0.0</version></dependency>
     <dependency><groupId>org.testng</groupId><artifactId>testng</artifactId><scope>test</scope></dependency>
     <dependency><groupId>io.qameta.allure</groupId><artifactId>allure-testng</artifactId><scope>test</scope></dependency>
+
+    <dependency><groupId>io.cucumber</groupId><artifactId>cucumber-java</artifactId><scope>test</scope></dependency>
+    <dependency><groupId>io.cucumber</groupId><artifactId>cucumber-testng</artifactId><scope>test</scope></dependency>
+    <dependency><groupId>io.cucumber</groupId><artifactId>cucumber-picocontainer</artifactId><scope>test</scope></dependency>
+    <dependency><groupId>io.cucumber</groupId><artifactId>cucumber-plugin</artifactId><scope>test</scope></dependency>
+
+    <dependency><groupId>tech.grasshopper</groupId><artifactId>extentreports-cucumber7-adapter</artifactId><scope>test</scope></dependency>
+
+    <dependency><groupId>com.epam.reportportal</groupId><artifactId>agent-java-cucumber7</artifactId><scope>test</scope></dependency>
+<dependency>
+      <groupId>com.aventstack</groupId>
+      <artifactId>extentreports</artifactId>
+      <version>5.1.2</version>
+    </dependency>
+      <dependency>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-databind</artifactId>
+      <version>${jackson.version}</version>
+    </dependency>
+      <dependency>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-core</artifactId>
+      <version>${jackson.version}</version>
+    </dependency>
+      <dependency>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-annotations</artifactId>
+      <version>${jackson.version}</version>
+    </dependency>
+  
+    <dependency>
+      <groupId>com.epam.reportportal</groupId>
+      <artifactId>agent-java-testng</artifactId>
+      <version>5.2.0</version>
+    </dependency>
+
+      <dependency>
+      <groupId>org.apache.logging.log4j</groupId>
+      <artifactId>log4j-api</artifactId>
+      <version>2.23.1</version>
+    </dependency>
+      <dependency>
+      <groupId>org.apache.logging.log4j</groupId>
+      <artifactId>log4j-core</artifactId>
+      <version>2.23.1</version>
+    </dependency>
+      <dependency>
+      <groupId>org.apache.logging.log4j</groupId>
+      <artifactId>log4j-slf4j2-impl</artifactId>
+      <version>2.23.1</version>
+    </dependency>
   </dependencies>
 
   <build>
@@ -20,12 +71,20 @@
       <plugin>
         <artifactId>maven-surefire-plugin</artifactId>
         <version>3.2.5</version>
+
         <configuration>
-          <suiteXmlFiles>
-            <suiteXmlFile>${suiteXml}</suiteXmlFile>
-          </suiteXmlFiles>
-          <groups>${groups}</groups>
+          <includes>
+            <include>**/*Runner.java</include>
+          </includes>
+
+<groups>${groups}</groups>
           <systemPropertyVariables>
+            <rp.enable>${rp.enable}</rp.enable>
+            <rp.launch>${rp.launch}</rp.launch>
+            <rp.attributes>${rp.attributes}</rp.attributes>
+
+            <cucumber.filter.tags>${cucumber.filter.tags}</cucumber.filter.tags>
+
             <env>${env}</env>
             <runMode>${runMode}</runMode>
             <browser>${browser}</browser>
@@ -40,7 +99,15 @@
             <platformName>${platformName}</platformName>
             <enableVnc>${enableVnc}</enableVnc>
             <allure.results.directory>${allure.results.directory}</allure.results.directory>
+
           </systemPropertyVariables>
+          <properties>
+            <property>
+              <name>dataproviderthreadcount</name>
+              <value>${threads}</value>
+            </property>
+          </properties>
+
         </configuration>
       </plugin>
       <plugin>

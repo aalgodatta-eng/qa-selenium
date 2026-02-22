@@ -1,0 +1,169 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: ui-smoke-firefox
+  namespace: qa
+spec:
+  backoffLimit: 0
+  ttlSecondsAfterFinished: 3600
+  template:
+    spec:
+      restartPolicy: Never
+      volumes:
+        - name: artifacts
+          emptyDir: {}
+      containers:
+        - name: runner
+          # Change this image to your pushed image:
+          #   your-dockerhub-user/kc-sdet-automation:1.0.0
+          image: kc-sdet-automation:latest
+          imagePullPolicy: IfNotPresent
+          env:
+            - name: SUITE
+              value: "ui"
+            - name: ENV
+              value: "qa"
+            - name: RUNMODE
+              value: "grid"
+            - name: BROWSER
+              value: "firefox"
+            - name: HEADLESS
+              value: "true"
+            - name: GRIDURL
+              value: "http://selenium-hub:4444/wd/hub"
+            - name: TAGS
+              value: "@ui_smoke"
+            - name: THREADS
+              value: "2"
+            - name: RETRY
+              value: "2"
+            - name: REPORT_SUFFIX
+              value: "ui-firefox"
+          volumeMounts:
+            - name: artifacts
+              mountPath: /work/artifacts
+---
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: ui-smoke-edge
+  namespace: qa
+spec:
+  backoffLimit: 0
+  ttlSecondsAfterFinished: 3600
+  template:
+    spec:
+      restartPolicy: Never
+      volumes:
+        - name: artifacts
+          emptyDir: {}
+      containers:
+        - name: runner
+          image: kc-sdet-automation:latest
+          imagePullPolicy: IfNotPresent
+          env:
+            - name: SUITE
+              value: "ui"
+            - name: ENV
+              value: "qa"
+            - name: RUNMODE
+              value: "grid"
+            - name: BROWSER
+              value: "edge"
+            - name: HEADLESS
+              value: "true"
+            - name: GRIDURL
+              value: "http://selenium-hub:4444/wd/hub"
+            - name: TAGS
+              value: "@ui_smoke"
+            - name: THREADS
+              value: "2"
+            - name: RETRY
+              value: "2"
+            - name: REPORT_SUFFIX
+              value: "ui-edge"
+          volumeMounts:
+            - name: artifacts
+              mountPath: /work/artifacts
+---
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: ui-smoke-chrome
+  namespace: qa
+spec:
+  backoffLimit: 0
+  ttlSecondsAfterFinished: 3600
+  template:
+    spec:
+      restartPolicy: Never
+      volumes:
+        - name: artifacts
+          emptyDir: {}
+      containers:
+        - name: runner
+          image: kc-sdet-automation:latest
+          imagePullPolicy: IfNotPresent
+          env:
+            - name: SUITE
+              value: "ui"
+            - name: ENV
+              value: "qa"
+            - name: RUNMODE
+              value: "grid"
+            - name: BROWSER
+              value: "chrome"
+            - name: HEADLESS
+              value: "true"
+            - name: GRIDURL
+              value: "http://selenium-hub:4444/wd/hub"
+            - name: TAGS
+              value: "@ui_smoke"
+            - name: THREADS
+              value: "2"
+            - name: RETRY
+              value: "2"
+            - name: REPORT_SUFFIX
+              value: "ui-chrome"
+          volumeMounts:
+            - name: artifacts
+              mountPath: /work/artifacts
+---
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: api-smoke
+  namespace: qa
+spec:
+  backoffLimit: 0
+  ttlSecondsAfterFinished: 3600
+  template:
+    spec:
+      restartPolicy: Never
+      volumes:
+        - name: artifacts
+          emptyDir: {}
+      containers:
+        - name: runner
+          image: kc-sdet-automation:latest
+          imagePullPolicy: IfNotPresent
+          env:
+            - name: SUITE
+              value: "api"
+            - name: ENV
+              value: "qa"
+            - name: RUNMODE
+              value: "local"
+            - name: TAGS
+              value: "@api_smoke"
+            - name: THREADS
+              value: "2"
+            - name: API_BASE_URL
+              value: "https://jsonplaceholder.typicode.com"
+            - name: RETRY
+              value: "3"
+            - name: REPORT_SUFFIX
+              value: "api"
+          volumeMounts:
+            - name: artifacts
+              mountPath: /work/artifacts

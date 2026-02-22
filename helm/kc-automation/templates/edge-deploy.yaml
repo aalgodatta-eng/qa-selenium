@@ -1,0 +1,38 @@
+{{- if .Values.grid.edge.enabled }}
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: selenium-node-edge
+spec:
+  replicas: {{ .Values.grid.edge.replicas }}
+  selector:
+    matchLabels:
+      app: selenium-node-edge
+  template:
+    metadata:
+      labels:
+        app: selenium-node-edge
+    spec:
+      volumes:
+        - name: dshm
+          emptyDir:
+            medium: Memory
+            sizeLimit: {{ .Values.grid.node.shmSize | default "1024Mi" }}
+      containers:
+        - name: node
+          image: {{ .Values.grid.edge.image }}
+          env:
+            - name: SE_EVENT_BUS_HOST
+              value: selenium-hub
+            - name: SE_EVENT_BUS_PUBLISH_PORT
+              value: "4442"
+            - name: SE_EVENT_BUS_SUBSCRIBE_PORT
+              value: "4443"
+            - name: SE_NODE_MAX_SESSIONS
+              value: "{{ .Values.grid.node.maxSessions | default 2 }}"
+            - name: SE_NODE_OVERRIDE_MAX_SESSIONS
+              value: "{{ .Values.grid.node.overrideMaxSessions | default true }}"
+          volumeMounts:
+            - name: dshm
+              mountPath: /dev/shm
+{{- end }}
