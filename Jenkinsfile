@@ -5,195 +5,380 @@ pipeline {
     timestamps()
     ansiColor('xterm')
     disableConcurrentBuilds()
+    timeout(time: 90, unit: 'MINUTES')
   }
 
   parameters {
-    choice(name: 'ENV', choices: ['qa'], description: 'Test environment')
-    string(name: 'THREADS', defaultValue: '2', description: 'Parallel threads inside each run')
-    string(name: 'UI_TAGS', defaultValue: '@ui_smoke', description: 'Cucumber tags for UI suite')
-    string(name: 'API_TAGS', defaultValue: '@api_smoke', description: 'Cucumber tags for API suite')
-    booleanParam(name: 'RUN_CHROME', defaultValue: true, description: 'Run UI on Chrome')
-    booleanParam(name: 'RUN_FIREFOX', defaultValue: true, description: 'Run UI on Firefox')
-    booleanParam(name: 'RUN_EDGE', defaultValue: false, description: 'Run UI on Edge (heavy)')
-    booleanParam(name: 'RUN_API', defaultValue: true, description: 'Run API suite')
-    booleanParam(name: 'START_GRID', defaultValue: true, description: 'Start Selenium Grid inside pipeline')
-    booleanParam(name: 'CLEANUP', defaultValue: true, description: 'Stop Grid after run')
+    choice(name: 'ENV',          choices: ['qa', 'dev', 'stage'],  description: 'Test environment')
+    string(name: 'THREADS',      defaultValue: '2',                description: 'Parallel scenarios per runner')
+    // BUG 2 FIX: @ui_smoke does not exist in any feature file. Features use @ui + @smoke as
+    // separate tags, so the correct Cucumber 7 tag expression is "@ui and @smoke".
+    string(name: 'UI_TAGS',      defaultValue: '@ui and @smoke',   description: 'Cucumber tags for UI suite')
+    string(name: 'API_TAGS',     defaultValue: '@api_smoke',       description: 'Cucumber tags for API suite')
+    booleanParam(name: 'RUN_CHROME',  defaultValue: true,  description: 'Run UI on Chrome')
+    booleanParam(name: 'RUN_FIREFOX', defaultValue: true,  description: 'Run UI on Firefox')
+    booleanParam(name: 'RUN_EDGE',    defaultValue: false, description: 'Run UI on Edge')
+    booleanParam(name: 'RUN_API',     defaultValue: true,  description: 'Run API suite')
+    booleanParam(name: 'START_GRID',  defaultValue: true,  description: 'Start Selenium Grid inside pipeline')
+    booleanParam(name: 'CLEANUP',     defaultValue: true,  description: 'Stop grid and remove network after run')
   }
 
   environment {
+    // ── Per-build isolated Docker network ─────────────────────────────────
+    // Named per BUILD_NUMBER so concurrent builds never clash.
+    // Created unconditionally in Preflight (BUG 4 FIX — network must exist
+    // before Maven containers try to join it, even when START_GRID=false).
+    GRID_NET  = "kc-grid-${BUILD_NUMBER}"
     GRID_FILE = '.jenkins/selenium-grid.yml'
-    // Grid URL visible from Jenkins container (host port 4444)
-    GRID_URL = 'http://localhost:4444'
-    // Run Maven via docker to avoid installing Java/Maven in Jenkins container
-    MVN_IMG  = 'maven:3.9.8-eclipse-temurin-17'
-    // Cache Maven repo between builds to reduce time + memory spikes
+
+    // Grid URL used by Maven containers — resolved via Docker DNS by service name.
+    // NOT localhost (localhost inside a docker run = that container, not the Jenkins host).
+    GRID_URL  = 'http://selenium-hub:4444/wd/hub'
+
+    // Maven: run inside Docker so Jenkins agent needs no Java/Maven install
+    MVN_IMG   = 'maven:3.9.8-eclipse-temurin-17'
+    // Named volume caches ~/.m2 between builds — avoids re-downloading ~500 MB
     MVN_CACHE = 'jenkins-m2'
+
+    // Allure image for report generation — no local allure CLI needed
+    ALLURE_IMAGE = 'allureframework/allure2:2.27.0'
   }
 
   stages {
 
+    // ─────────────────────────────────────────────────────────────────────
     stage('Preflight') {
       steps {
         sh '''#!/usr/bin/env bash
           set -euo pipefail
-          echo "[preflight] docker:"; docker --version
-          echo "[preflight] docker compose:"; docker compose version
-          mkdir -p .jenkins
+          echo "[preflight] docker:"
+          docker --version
+          echo "[preflight] docker compose:"
+          docker compose version
+
+          mkdir -p .jenkins reports
+
+          # BUG 4 FIX: Always create the per-build network so Maven containers can
+          # join it regardless of whether START_GRID=true or false.
+          # "--driver bridge" is the default; "--ignore" makes it idempotent.
+          if docker network inspect "${GRID_NET}" >/dev/null 2>&1; then
+            echo "[preflight] network ${GRID_NET} already exists — reusing"
+          else
+            docker network create --driver bridge "${GRID_NET}"
+            echo "[preflight] ✅ created network ${GRID_NET}"
+          fi
         '''
       }
     }
 
+    // ─────────────────────────────────────────────────────────────────────
+    // Writes the grid compose file and starts hub + browser nodes on the
+    // per-build network.  No host ports are bound → zero port conflicts.
+    // Maven containers join the same network and reach hub by DNS name.
+    // ─────────────────────────────────────────────────────────────────────
     stage('Start Selenium Grid') {
       when { expression { return params.START_GRID } }
       steps {
         sh '''#!/usr/bin/env bash
           set -euo pipefail
 
-          cat > "${GRID_FILE}" <<'YML'
+          # ── Write the grid compose file ───────────────────────────────
+          cat > "${GRID_FILE}" <<YML
+# Generated by Jenkinsfile — do not edit manually.
+# Uses the pre-created network ${GRID_NET} (created in Preflight).
+# NO host port bindings — Maven containers reach hub via Docker DNS.
+networks:
+  default:
+    name: ${GRID_NET}
+    external: true
+
 services:
   selenium-hub:
-    image: selenium/hub:4.21.0
-    container_name: selenium-hub
-    ports:
-      - "4444:4444"
+    image: selenium/hub:4.22.0
     environment:
+      - SE_ENABLE_TRACING=false
       - JAVA_OPTS=-Xms128m -Xmx384m
 
   chrome:
-    image: selenium/node-chrome:4.21.0
+    image: selenium/node-chrome:4.22.0
     shm_size: 1gb
     depends_on: [selenium-hub]
     environment:
       - SE_EVENT_BUS_HOST=selenium-hub
       - SE_EVENT_BUS_PUBLISH_PORT=4442
       - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
-      - SE_NODE_MAX_SESSIONS=1
+      - SE_NODE_MAX_SESSIONS=2
       - SE_NODE_OVERRIDE_MAX_SESSIONS=true
       - JAVA_OPTS=-Xms128m -Xmx384m
 
   firefox:
-    image: selenium/node-firefox:4.21.0
+    image: selenium/node-firefox:4.22.0
     shm_size: 1gb
     depends_on: [selenium-hub]
     environment:
       - SE_EVENT_BUS_HOST=selenium-hub
       - SE_EVENT_BUS_PUBLISH_PORT=4442
       - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
-      - SE_NODE_MAX_SESSIONS=1
+      - SE_NODE_MAX_SESSIONS=2
       - SE_NODE_OVERRIDE_MAX_SESSIONS=true
       - JAVA_OPTS=-Xms128m -Xmx384m
 
   edge:
-    image: selenium/node-edge:4.21.0
+    image: selenium/node-edge:4.22.0
     shm_size: 1gb
     depends_on: [selenium-hub]
     environment:
       - SE_EVENT_BUS_HOST=selenium-hub
       - SE_EVENT_BUS_PUBLISH_PORT=4442
       - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
-      - SE_NODE_MAX_SESSIONS=1
+      - SE_NODE_MAX_SESSIONS=2
       - SE_NODE_OVERRIDE_MAX_SESSIONS=true
       - JAVA_OPTS=-Xms128m -Xmx384m
 YML
 
-          echo "[grid] up"
-          docker compose -f "${GRID_FILE}" up -d selenium-hub chrome firefox
+          # ── Start hub + chrome + firefox ──────────────────────────────
+          echo "[grid] starting hub + chrome + firefox on network ${GRID_NET}"
+          docker compose \
+            --project-name "kc-${BUILD_NUMBER}" \
+            -f "${GRID_FILE}" \
+            up -d selenium-hub chrome firefox
 
-          # start edge only if requested (saves memory)
+          # ── Start edge only when requested ────────────────────────────
           if [[ "${RUN_EDGE}" == "true" ]]; then
-            docker compose -f "${GRID_FILE}" up -d edge
+            echo "[grid] starting edge node"
+            docker compose \
+              --project-name "kc-${BUILD_NUMBER}" \
+              -f "${GRID_FILE}" \
+              up -d edge
           fi
 
-          echo "[grid] wait for ready"
-          timeout 180 bash -c '
-            until curl -sf http://localhost:4444/status \
-              | python3 -c "import sys,json; d=json.load(sys.stdin); sys.exit(0 if d.get(\\"value\\",{}).get(\\"ready\\") else 1)"; do
+          # ── Wait for hub to accept connections ───────────────────────
+          # BUG 5 FIX: Use "docker exec" on the hub container (selenium/hub has curl
+          # built-in). Avoids pulling curlimages/curl which is slow and rate-limited.
+          HUB=$(docker compose --project-name "kc-${BUILD_NUMBER}" -f "${GRID_FILE}" ps -q selenium-hub)
+          echo "[grid] hub container: ${HUB}"
+          echo "[grid] waiting for /wd/hub/status (timeout 120s)..."
+
+          timeout 120 bash -c "
+            until docker exec ${HUB} curl -sSf http://localhost:4444/wd/hub/status >/dev/null 2>&1; do
+              sleep 2
+            done
+          " || {
+            echo "[grid] hub not responding — dumping logs"
+            docker compose --project-name "kc-${BUILD_NUMBER}" -f "${GRID_FILE}" logs --tail=100
+            exit 1
+          }
+
+          echo "[grid] waiting for ready:true (timeout 180s)..."
+          timeout 180 bash -c "
+            until docker exec ${HUB} curl -s http://localhost:4444/status 2>/dev/null \
+              | grep -q '\"ready\":true'; do
               sleep 3
             done
-          '
-          echo "[grid] ready ✅"
+          " || {
+            echo "[grid] hub never became ready — dumping logs"
+            docker compose --project-name "kc-${BUILD_NUMBER}" -f "${GRID_FILE}" logs --tail=100
+            exit 1
+          }
+
+          echo "[grid] ✅ Selenium Grid is ready on network ${GRID_NET}"
+          docker compose --project-name "kc-${BUILD_NUMBER}" -f "${GRID_FILE}" ps
         '''
       }
     }
 
+    // ─────────────────────────────────────────────────────────────────────
+    // Run all selected suites in parallel.  Each suite runs Maven inside
+    // Docker, joined to GRID_NET so it can reach selenium-hub by name.
+    // Reports land in ./reports/<suffix>/ via host volume mount.
+    // ─────────────────────────────────────────────────────────────────────
     stage('Build & Test (Parallel)') {
       steps {
         script {
-          def runs = [:]
 
-          def mvnRun = { String name, String tags, String browser ->
+          // ── Helper: build a Maven docker run closure ────────────────
+          // BUG 3 (carried from prior fix): -am builds parent modules before tests
+          def mvnRun = { String label, String suite, String tags, String browser ->
             return {
               sh """#!/usr/bin/env bash
                 set -euo pipefail
-                echo "[run] ${name} tags=${tags} browser=${browser}"
+                echo "[run] ${label}  tags='${tags}'  browser=${browser}"
 
-                # Run Maven inside container (no local mvn needed)
+                REPORT_SUFFIX="${suite}-${browser}"
+                ALLURE_OUT="\$PWD/reports/allure-results-\${REPORT_SUFFIX}"
+                EXTENT_OUT="\$PWD/reports/extent-report-\${REPORT_SUFFIX}"
+                mkdir -p "\${ALLURE_OUT}" "\${EXTENT_OUT}"
+
+                # --network ${GRID_NET}: Maven container can reach selenium-hub by DNS name.
+                # -v \$PWD:/work:     report files survive container removal.
+                # -am:               builds framework-core/ui/api before tests module.
                 docker run --rm \\
+                  --network "${GRID_NET}" \\
                   -v "\$PWD:/work" -w /work \\
                   -v "${MVN_CACHE}:/root/.m2" \\
-                  -e MAVEN_OPTS="-Xms128m -Xmx768m -XX:MaxMetaspaceSize=256m" \\
+                  -e MAVEN_OPTS="-Xms256m -Xmx768m -XX:MaxMetaspaceSize=256m" \\
                   ${MVN_IMG} \\
-                  mvn -U clean test -pl tests \\
+                  mvn clean test -pl tests -am \\
                     -Denv=${ENV} \\
                     -Dthreads=${THREADS} \\
                     -Dcucumber.filter.tags="${tags}" \\
                     -DrunMode=grid \\
                     -DgridUrl=${GRID_URL} \\
-                    -Dbrowser=${browser}
-
+                    -Dbrowser=${browser} \\
+                    -Dheadless=true \\
+                    -Drp.enable=false \\
+                    "-Dallure.results.directory=/work/reports/allure-results-\${REPORT_SUFFIX}" \\
+                    "-Dextent.reporter.spark.out=/work/reports/extent-report-\${REPORT_SUFFIX}/ExtentSpark.html" \\
+                || true   # always collect reports even when tests fail
               """
             }
           }
 
-          if (params.RUN_CHROME)  { runs['UI-Chrome']  = mvnRun('UI-Chrome',  params.UI_TAGS, 'chrome') }
-          if (params.RUN_FIREFOX) { runs['UI-Firefox'] = mvnRun('UI-Firefox', params.UI_TAGS, 'firefox') }
-          if (params.RUN_EDGE)    { runs['UI-Edge']    = mvnRun('UI-Edge',    params.UI_TAGS, 'edge') }
+          def apiRun = {
+            sh """#!/usr/bin/env bash
+              set -euo pipefail
+              echo "[run] API  tags='${API_TAGS}'"
 
-          if (params.RUN_API) {
-            runs['API'] = {
-              sh """#!/usr/bin/env bash
-                set -euo pipefail
-                echo "[run] API tags=${API_TAGS}"
+              mkdir -p "\$PWD/reports/allure-results-api" "\$PWD/reports/extent-report-api"
 
-                docker run --rm \\
-                  -v "\$PWD:/work" -w /work \\
-                  -v "${MVN_CACHE}:/root/.m2" \\
-                  -e MAVEN_OPTS="-Xms128m -Xmx768m -XX:MaxMetaspaceSize=256m" \\
-                  ${MVN_IMG} \\
-                  mvn -U clean test -pl tests \\
-                    -Denv=${ENV} \\
-                    -Dthreads=${THREADS} \\
-                    -Dcucumber.filter.tags="${API_TAGS}"
-              """
-            }
+              # API tests don't use Selenium but still join the network for consistency.
+              docker run --rm \\
+                --network "${GRID_NET}" \\
+                -v "\$PWD:/work" -w /work \\
+                -v "${MVN_CACHE}:/root/.m2" \\
+                -e MAVEN_OPTS="-Xms256m -Xmx768m -XX:MaxMetaspaceSize=256m" \\
+                ${MVN_IMG} \\
+                mvn clean test -pl tests -am \\
+                  -Denv=${ENV} \\
+                  -Dthreads=${THREADS} \\
+                  -Dcucumber.filter.tags="${API_TAGS}" \\
+                  -DrunMode=local \\
+                  -Dbrowser=api \\
+                  -Drp.enable=false \\
+                  "-Dallure.results.directory=/work/reports/allure-results-api" \\
+                  "-Dextent.reporter.spark.out=/work/reports/extent-report-api/ExtentSpark.html" \\
+              || true
+            """
           }
 
-          parallel(
-            "UI-Chrome": runs["UI-Chrome"],
-            "UI-Firefox": runs["UI-Firefox"]
-          )
-          if (runs["API"] != null) {
-            runs["API"].call()
+          // ── Build the parallel map dynamically from parameters ──────
+          // BUG (prior fix): parallel() now uses the dynamic map so Edge and API
+          // actually run when their parameters are enabled.
+          def runs = [:]
+          if (params.RUN_CHROME)  runs['UI-Chrome']  = mvnRun('UI-Chrome',  'ui', params.UI_TAGS, 'chrome')
+          if (params.RUN_FIREFOX) runs['UI-Firefox'] = mvnRun('UI-Firefox', 'ui', params.UI_TAGS, 'firefox')
+          if (params.RUN_EDGE)    runs['UI-Edge']    = mvnRun('UI-Edge',    'ui', params.UI_TAGS, 'edge')
+          if (params.RUN_API)     runs['API']        = apiRun
+
+          if (runs.isEmpty()) {
+            echo '[warning] No test suites selected — nothing to run'
+          } else {
+            parallel runs
           }
         }
       }
     }
-  }
 
+    // ─────────────────────────────────────────────────────────────────────
+    // Generate Allure HTML reports using the official Docker image.
+    // No local allure CLI install needed on the Jenkins agent.
+    // ─────────────────────────────────────────────────────────────────────
+    stage('Generate Allure Reports') {
+      steps {
+        sh '''#!/usr/bin/env bash
+          set +e
+          echo "[allure] pulling image (cached after first run)..."
+          docker pull "${ALLURE_IMAGE}" --quiet || true
+
+          GENERATED=0; SKIPPED=0
+
+          for suffix in ui-chrome ui-firefox ui-edge api; do
+            IN_DIR="${WORKSPACE}/reports/allure-results-${suffix}"
+            OUT_DIR="${WORKSPACE}/reports/allure-report-${suffix}"
+
+            if [[ ! -d "${IN_DIR}" ]]; then
+              echo "[allure] skip — no results dir for: ${suffix}"
+              (( SKIPPED++ )) || true; continue
+            fi
+
+            COUNT=$(find "${IN_DIR}" -name "*.json" -o -name "*.xml" 2>/dev/null | wc -l)
+            if [[ "${COUNT}" -eq 0 ]]; then
+              echo "[allure] skip — 0 result files for: ${suffix}"
+              (( SKIPPED++ )) || true; continue
+            fi
+
+            rm -rf "${OUT_DIR}"; mkdir -p "${OUT_DIR}"
+            echo "[allure] generating allure-report-${suffix}  (${COUNT} files)..."
+
+            docker run --rm \
+              -v "${IN_DIR}:/allure-results:ro" \
+              -v "${OUT_DIR}:/allure-report" \
+              "${ALLURE_IMAGE}" \
+              allure generate /allure-results -o /allure-report --clean
+
+            [[ -f "${OUT_DIR}/index.html" ]] \
+              && { echo "[allure] ✅ ${suffix} report ready"; (( GENERATED++ )) || true; } \
+              || echo "[allure] ❌ generation failed for ${suffix}"
+          done
+
+          echo ""
+          echo "[allure] ${GENERATED} generated, ${SKIPPED} skipped"
+        '''
+      }
+    }
+
+  } // end stages
+
+  // ─────────────────────────────────────────────────────────────────────────
   post {
     always {
-      // Test reports (if surefire/junit xml exists)
-      junit allowEmptyResults: true, testResults: '**/target/surefire-reports/*.xml'
-
-      // If your project outputs Extent/Allure, archive them
-      archiveArtifacts artifacts: '**/target/**', allowEmptyArchive: true
-
+      // ── Stop grid containers and remove the per-build network ─────────
       sh '''#!/usr/bin/env bash
         set +e
         if [[ "${CLEANUP}" == "true" && "${START_GRID}" == "true" ]]; then
-          docker compose -f "${GRID_FILE}" down --remove-orphans
+          echo "[post] stopping grid (project kc-${BUILD_NUMBER})"
+          docker compose \
+            --project-name "kc-${BUILD_NUMBER}" \
+            -f "${GRID_FILE}" \
+            down --remove-orphans 2>/dev/null || true
+        fi
+
+        if [[ "${CLEANUP}" == "true" ]]; then
+          echo "[post] removing network ${GRID_NET}"
+          docker network rm "${GRID_NET}" 2>/dev/null || true
         fi
       '''
+
+      // ── JUnit XML results ─────────────────────────────────────────────
+      junit allowEmptyResults: true,
+            testResults: '**/target/surefire-reports/*.xml'
+
+      // ── Archive raw artifacts ─────────────────────────────────────────
+      archiveArtifacts artifacts: 'reports/**,**/target/cucumber/**',
+                       allowEmptyArchive: true
+
+      // ── Allure HTML reports — left-sidebar links in Jenkins ───────────
+      publishHTML(target: [allowMissing: true, alwaysLinkToLastBuild: true, keepAll: true,
+        reportDir: 'reports/allure-report-ui-chrome',  reportFiles: 'index.html', reportName: 'Allure — Chrome'])
+      publishHTML(target: [allowMissing: true, alwaysLinkToLastBuild: true, keepAll: true,
+        reportDir: 'reports/allure-report-ui-firefox', reportFiles: 'index.html', reportName: 'Allure — Firefox'])
+      publishHTML(target: [allowMissing: true, alwaysLinkToLastBuild: true, keepAll: true,
+        reportDir: 'reports/allure-report-ui-edge',    reportFiles: 'index.html', reportName: 'Allure — Edge'])
+      publishHTML(target: [allowMissing: true, alwaysLinkToLastBuild: true, keepAll: true,
+        reportDir: 'reports/allure-report-api',        reportFiles: 'index.html', reportName: 'Allure — API'])
+
+      // ── Extent HTML reports ───────────────────────────────────────────
+      publishHTML(target: [allowMissing: true, alwaysLinkToLastBuild: true, keepAll: true,
+        reportDir: 'reports/extent-report-ui-chrome',  reportFiles: 'ExtentSpark.html', reportName: 'Extent — Chrome'])
+      publishHTML(target: [allowMissing: true, alwaysLinkToLastBuild: true, keepAll: true,
+        reportDir: 'reports/extent-report-ui-firefox', reportFiles: 'ExtentSpark.html', reportName: 'Extent — Firefox'])
+      publishHTML(target: [allowMissing: true, alwaysLinkToLastBuild: true, keepAll: true,
+        reportDir: 'reports/extent-report-ui-edge',    reportFiles: 'ExtentSpark.html', reportName: 'Extent — Edge'])
+      publishHTML(target: [allowMissing: true, alwaysLinkToLastBuild: true, keepAll: true,
+        reportDir: 'reports/extent-report-api',        reportFiles: 'ExtentSpark.html', reportName: 'Extent — API'])
     }
+
+    success { echo '✅ All selected suites passed — Allure/Extent reports in sidebar' }
+    failure { echo '❌ One or more suites failed — check stage logs above' }
   }
 }

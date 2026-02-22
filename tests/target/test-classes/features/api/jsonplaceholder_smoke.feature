@@ -1,8 +1,11 @@
 @api_smoke
 Feature: JSONPlaceholder API smoke coverage
 
+  # JSONPlaceholder lives at https://jsonplaceholder.typicode.com — a separate host
+  # from the env-default apiBaseUrl (httpbin.org). We explicitly set the base URL here
+  # so this feature is not coupled to qa.properties and works standalone.
   Background:
-    Given I set API base url
+    Given I use base url "https://jsonplaceholder.typicode.com"
 
   Scenario: Get a single post
     When I GET "/posts/1"

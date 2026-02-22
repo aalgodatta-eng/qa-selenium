@@ -6,8 +6,8 @@
       <class name="com.algodatta.runners.ApiRunner">
         <methods>
           <include name="setUpClass"/>
+          <include name="runScenario" invocation-numbers="64 50 51 52 38 24"/>
           <include name="tearDownClass"/>
-          <include name="runScenario" invocation-numbers="0 1 2 34 3 4 43 14 47 48 49 50 51 52 53 54 55 56 57 58"/>
         </methods>
       </class> <!-- com.algodatta.runners.ApiRunner -->
     </classes>

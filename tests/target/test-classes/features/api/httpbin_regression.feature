@@ -6,18 +6,33 @@ Feature: httpbin Regression API suite (positive and negative coverage)
     And I reset API client
 
   # 2.1 HTTP Methods
-  Scenario Outline: HTTP methods should return success and echo method
+  # Note: /get, /post, /put, /patch, /delete do NOT include a "method" field.
+  # Method reflection is only available via /anything. We validate verb endpoints
+  # by status code + content type; /anything validates the echoed method field.
+  Scenario Outline: HTTP verb endpoints return success and JSON
     When I send "<method>" request to "<path>"
     Then the response status should be <status>
     And the response content type should contain "application/json"
+    Examples:
+      | method | path    | status |
+      | GET    | /get    | 200    |
+      | POST   | /post   | 200    |
+      | PUT    | /put    | 200    |
+      | PATCH  | /patch  | 200    |
+      | DELETE | /delete | 200    |
+
+  Scenario Outline: /anything echoes the request method correctly
+    When I send "<method>" request to "/anything"
+    Then the response status should be 200
+    And the response content type should contain "application/json"
     And the JSON path "method" should be "<method>"
     Examples:
-      | method | path   | status |
-      | GET    | /get   | 200    |
-      | POST   | /post  | 200    |
-      | PUT    | /put   | 200    |
-      | PATCH  | /patch | 200    |
-      | DELETE | /delete| 200    |
+      | method |
+      | GET    |
+      | POST   |
+      | PUT    |
+      | PATCH  |
+      | DELETE |
 
   Scenario: HEAD should return headers only
     When I send "HEAD" request to "/get"
@@ -51,7 +66,10 @@ Feature: httpbin Regression API suite (positive and negative coverage)
     Then the response status should be 401
 
   # 2.3 Status codes
-  Scenario Outline: status endpoint should generate the given status code
+  # Note: 301 is NOT included here because REST Assured follows redirects by default
+  # (followRedirects=true after resetClient()). /status/301 would return 200 after
+  # redirect, failing the assertion. Redirect behaviour is tested below in section 2.10.
+  Scenario Outline: /status endpoint should generate the given status code
     When I send "GET" request to "/status/<code>"
     Then the response status should be <code>
     Examples:
@@ -59,7 +77,6 @@ Feature: httpbin Regression API suite (positive and negative coverage)
       | 200  |
       | 201  |
       | 204  |
-      | 301  |
       | 400  |
       | 401  |
       | 403  |
@@ -110,12 +127,12 @@ Feature: httpbin Regression API suite (positive and negative coverage)
     Then the response status should be 200
     And the response content type should contain "<contentType>"
     Examples:
-      | path            | contentType |
-      | /json           | application/json |
-      | /xml            | application/xml  |
-      | /html           | text/html        |
-      | /robots.txt     | text/plain       |
-      | /encoding/utf8  | text/html        |
+      | path           | contentType      |
+      | /json          | application/json |
+      | /xml           | application/xml  |
+      | /html          | text/html        |
+      | /robots.txt    | text/plain       |
+      | /encoding/utf8 | text/html        |
 
   Scenario: Gzip response should be JSON
     When I send "GET" request to "/gzip"
@@ -145,7 +162,7 @@ Feature: httpbin Regression API suite (positive and negative coverage)
     Given I do not follow redirects
     When I send "GET" request to "/cookies/set?kc=1"
     Then the response status should be 302
-    # cookie should be persisted through the session filter
+    # cookie persisted through the session filter; follow the redirect manually
     Given I follow redirects
     When I send "GET" request to "/cookies"
     Then the response status should be 200
@@ -175,6 +192,12 @@ Feature: httpbin Regression API suite (positive and negative coverage)
     Given I do not follow redirects
     When I send "GET" request to "/redirect/2"
     Then the response status should be 302
+
+  # 301 tested here with explicit redirect-off (see note in 2.3 above)
+  Scenario: /status/301 returns 301 when redirects are disabled
+    Given I do not follow redirects
+    When I send "GET" request to "/status/301"
+    Then the response status should be 301
 
   Scenario: Redirect endpoint should reach final destination when following
     Given I follow redirects

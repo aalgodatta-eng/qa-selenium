@@ -38,6 +38,12 @@
       <artifactId>allure-cucumber7-jvm</artifactId>
       <version>${allure.version}</version>
       <scope>test</scope>
+      <exclusions>
+        <exclusion>
+          <groupId>io.cucumber</groupId>
+          <artifactId>gherkin</artifactId>
+        </exclusion>
+      </exclusions>
     </dependency>
 
     <!-- ── Extent Reports ─────────────────────────────────────────────── -->
@@ -46,20 +52,21 @@
       <artifactId>extentreports-cucumber7-adapter</artifactId>
       <scope>test</scope>
     </dependency>
+    <!-- Version sourced from parent dependencyManagement — no hardcode here -->
     <dependency>
       <groupId>com.aventstack</groupId>
       <artifactId>extentreports</artifactId>
-      <version>5.1.2</version>
+      <scope>test</scope>
     </dependency>
 
     <!-- ── Jackson (JSON serialisation) ──────────────────────────────── -->
-    <dependency><groupId>com.fasterxml.jackson.core</groupId><artifactId>jackson-databind</artifactId><version>${jackson.version}</version></dependency>
-    <dependency><groupId>com.fasterxml.jackson.core</groupId><artifactId>jackson-core</artifactId><version>${jackson.version}</version></dependency>
-    <dependency><groupId>com.fasterxml.jackson.core</groupId><artifactId>jackson-annotations</artifactId><version>${jackson.version}</version></dependency>
+    <dependency><groupId>com.fasterxml.jackson.core</groupId><artifactId>jackson-databind</artifactId></dependency>
+    <dependency><groupId>com.fasterxml.jackson.core</groupId><artifactId>jackson-core</artifactId></dependency>
+    <dependency><groupId>com.fasterxml.jackson.core</groupId><artifactId>jackson-annotations</artifactId></dependency>
 
     <!-- ── ReportPortal ───────────────────────────────────────────────── -->
     <dependency><groupId>com.epam.reportportal</groupId><artifactId>agent-java-cucumber7</artifactId><scope>test</scope></dependency>
-    <dependency><groupId>com.epam.reportportal</groupId><artifactId>agent-java-testng</artifactId><version>5.2.0</version></dependency>
+    <dependency><groupId>com.epam.reportportal</groupId><artifactId>agent-java-testng</artifactId><version>5.2.0</version><scope>test</scope></dependency>
 
     <!-- ── Logging ────────────────────────────────────────────────────── -->
     <dependency><groupId>org.apache.logging.log4j</groupId><artifactId>log4j-api</artifactId><version>2.23.1</version></dependency>
@@ -107,7 +114,7 @@
           <properties>
             <property>
               <!-- Parallel scenario execution: controlled by -Dthreads -->
-              <n>dataproviderthreadcount</n>
+              <name>dataproviderthreadcount</name>
               <value>${threads}</value>
             </property>
           </properties>

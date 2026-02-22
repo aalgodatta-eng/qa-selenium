@@ -1,0 +1,7 @@
+How to run
+Smoke
+mvn -pl tests test -Dcucumber.filter.tags=@api_smoke
+Regression
+mvn -pl tests test -Dcucumber.filter.tags=@api_regression
+Run both
+mvn -pl tests test -Dcucumber.filter.tags="@api_smoke or @api_regression"

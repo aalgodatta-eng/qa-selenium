@@ -8,13 +8,6 @@ import io.cucumber.java.Scenario;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 
-import com.epam.reportportal.service.ReportPortal;
-import com.epam.reportportal.message.ReportPortalMessage;
-import com.epam.reportportal.utils.files.Utils;
-import com.epam.ta.reportportal.ws.model.log.SaveLogRQ;
-import com.epam.reportportal.listeners.LogLevel;
-import io.reactivex.Maybe;
-
 import java.nio.file.Files;
 import java.nio.file.Path;
 
@@ -29,28 +22,32 @@ public class Hooks {
   public void afterUi(Scenario scenario) {
     try {
       if (scenario.isFailed() && DriverManager.getDriver() != null) {
-        byte[] bytes = ((TakesScreenshot) DriverManager.getDriver()).getScreenshotAs(OutputType.BYTES);
+        byte[] bytes = ((TakesScreenshot) DriverManager.getDriver())
+            .getScreenshotAs(OutputType.BYTES);
         scenario.attach(bytes, "image/png", "Failure Screenshot");
 
         Path out = Path.of("target", "extent", "screenshots");
         Files.createDirectories(out);
         Files.write(out.resolve(safeName(scenario.getName()) + ".png"), bytes);
 
-        // Push attachment to ReportPortal (if enabled)
-            try {
-              if (Boolean.parseBoolean(System.getProperty("rp.enable", "true"))) {
-                ReportPortal.emitLog(itemUuid -> {
-                  SaveLogRQ saveLogRQ = new SaveLogRQ();
-                  saveLogRQ.setMessage("Failure Screenshot");
-                  saveLogRQ.setLevel(LogLevel.ERROR.name());
-                  saveLogRQ.setLogTime(System.currentTimeMillis());
-                  return saveLogRQ;
-                });
-              }
-            } catch (Exception ignored2) {
-            }
+        // Push screenshot to ReportPortal only when explicitly enabled.
+        // Default is false (overridden via -Drp.enable=true or reportportal.properties).
+        // Wrapped in try/catch — RP is optional infrastructure.
+        if (Boolean.parseBoolean(System.getProperty("rp.enable", "false"))) {
+          try {
+            com.epam.reportportal.service.ReportPortal.emitLog(itemUuid -> {
+              com.epam.ta.reportportal.ws.model.log.SaveLogRQ rq =
+                  new com.epam.ta.reportportal.ws.model.log.SaveLogRQ();
+              rq.setMessage("Failure Screenshot");
+              rq.setLevel(com.epam.reportportal.listeners.LogLevel.ERROR.name());
+              rq.setLogTime(System.currentTimeMillis());
+              return rq;
+            });
+          } catch (Exception ignored) { /* RP not configured — silently skip */ }
+        }
       }
     } catch (Exception ignored) {
+      // Screenshot capture is best-effort — never fail the test on this
     } finally {
       DriverManager.quit();
     }

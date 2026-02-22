@@ -1,0 +1,29 @@
+# Maven build output
+target/
+**/target/
+target/
+allure-results/
+allure-report/
+logs/
+node_modules/
+
+# Reports — generated at runtime, committed only for reference
+reports/allure-report-*/
+
+# Jenkins temp files
+.jenkins/
+
+# OS artefacts
+.DS_Store
+Thumbs.db
+
+# IntelliJ IDEA
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# Eclipse
+.classpath
+.project
+.settings/
