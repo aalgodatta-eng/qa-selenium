@@ -1,20 +1,27 @@
 <configuration>
+
   <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
     <encoder>
       <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
     </encoder>
   </appender>
 
-  <!-- Optional: ReportPortal Logback appender (requires logger-java-logback + rp.enable=true)
+  <!--
+    ReportPortal Logback appender — ships every SLF4J log line to the active
+    RP launch as a log entry.  The appender is a safe no-op when there is no
+    active RP launch (i.e. rp.enable=false or RP is not reachable), so it is
+    always declared and never guarded by a conditional.
+    Enable RP at runtime:  mvn verify -Drp.enable=true -Drp.endpoint=... -Drp.uuid=...
+  -->
   <appender name="RP" class="com.epam.reportportal.logback.appender.ReportPortalAppender">
     <encoder>
       <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
     </encoder>
   </appender>
-  -->
 
   <root level="INFO">
     <appender-ref ref="STDOUT"/>
-    <!-- <appender-ref ref="RP"/> -->
+    <appender-ref ref="RP"/>
   </root>
+
 </configuration>

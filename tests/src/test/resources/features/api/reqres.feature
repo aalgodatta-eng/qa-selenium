@@ -1,12 +1,12 @@
 @api_smoke
 Feature: ReqRes API validation
 
-  # ReqRes is a separate API at https://reqres.in — it is NOT httpbin.
-  # We explicitly set the base URL for this feature instead of using the
-  # env-default apiBaseUrl (which points to httpbin.org for the qa environment).
+  # ReqRes moved POST endpoints behind a paywall; the scenario runs against
+  # WireMock so it stays fast and reliable without external dependencies.
 
+  @mockapi
   Scenario: Login then fetch user details
-    Given I use base url "https://reqres.in"
+    Given I set API base url
     When I login with email "eve.holt@reqres.in" and password "cityslicka"
     Then the response status should be 200
     And json path "token" should not be null

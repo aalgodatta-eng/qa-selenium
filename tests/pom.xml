@@ -26,7 +26,8 @@
     <!-- ── Allure Reporting ───────────────────────────────────────────────
          allure-testng        : captures TestNG suite/test lifecycle
          allure-cucumber7-jvm : captures Cucumber Feature/Scenario/Step detail
-         Both are required for rich Allure reports with Cucumber + TestNG.
+         allure-rest-assured  : attaches HTTP request+response to each API step
+         All three are required for rich Allure reports with Cucumber + TestNG.
     ─────────────────────────────────────────────────────────────────────── -->
     <dependency>
       <groupId>io.qameta.allure</groupId>
@@ -44,6 +45,11 @@
           <artifactId>gherkin</artifactId>
         </exclusion>
       </exclusions>
+    </dependency>
+    <dependency>
+      <groupId>io.qameta.allure</groupId>
+      <artifactId>allure-rest-assured</artifactId>
+      <scope>test</scope>
     </dependency>
 
     <!-- ── Extent Reports ─────────────────────────────────────────────── -->
@@ -121,6 +127,39 @@
         </configuration>
       </plugin>
 
+      <!--
+        Copies Allure config files into target/allure-results/ before tests run
+        so they are available when `mvn allure:report` generates the HTML.
+          categories.json       — failure categorisation (not Maven-filtered)
+          environment.properties — env/browser/runMode values (Maven-filtered)
+      -->
+      <plugin>
+        <artifactId>maven-resources-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>copy-allure-categories</id>
+            <phase>process-test-resources</phase>
+            <goals><goal>copy-resources</goal></goals>
+            <configuration>
+              <outputDirectory>${allure.results.directory}</outputDirectory>
+              <overwrite>true</overwrite>
+              <resources>
+                <resource>
+                  <directory>src/test/resources/allure</directory>
+                  <filtering>false</filtering>
+                  <includes><include>categories.json</include></includes>
+                </resource>
+                <resource>
+                  <directory>src/test/resources/allure</directory>
+                  <filtering>true</filtering>
+                  <includes><include>environment.properties</include></includes>
+                </resource>
+              </resources>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+
       <plugin>
         <groupId>io.qameta.allure</groupId>
         <artifactId>allure-maven</artifactId>
@@ -128,6 +167,36 @@
           <resultsDirectory>${allure.results.directory}</resultsDirectory>
         </configuration>
       </plugin>
+
+      <!--
+        Masterthought Cucumber Reports — generates a rich HTML dashboard from
+        the Cucumber JSON files produced by both ApiRunner and UiRunner.
+        Output: target/cucumber-html-reports/overview-features.html
+        Runs automatically in the `verify` phase after Surefire completes.
+      -->
+      <plugin>
+        <groupId>net.masterthought</groupId>
+        <artifactId>maven-cucumber-reporting</artifactId>
+        <executions>
+          <execution>
+            <id>generate-cucumber-html-report</id>
+            <phase>verify</phase>
+            <goals><goal>generate</goal></goals>
+            <configuration>
+              <projectName>KC SDET Automation</projectName>
+              <outputDirectory>${project.build.directory}/cucumber-html-reports</outputDirectory>
+              <inputDirectory>${project.build.directory}/cucumber</inputDirectory>
+              <jsonFiles>
+                <param>**/*.json</param>
+              </jsonFiles>
+              <!-- Do not fail the build when there are test failures —
+                   Surefire already handles that. -->
+              <checkBuildResult>false</checkBuildResult>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+
     </plugins>
   </build>
 </project>

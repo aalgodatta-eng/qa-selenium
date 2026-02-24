@@ -20,4 +20,4 @@ import io.cucumber.testng.CucumberOptions;
   },
   monochrome = true
 )
-public class uiRunner extends ParallelRunnerBase {}
+public class UiRunner extends ParallelRunnerBase {}

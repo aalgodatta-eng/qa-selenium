@@ -39,6 +39,7 @@
     <extent.cucumber7.adapter.version>1.14.0</extent.cucumber7.adapter.version>
     <allure.version>2.27.0</allure.version>
     <allure.maven.version>2.12.0</allure.maven.version>
+    <masterthought.reporting.version>5.8.1</masterthought.reporting.version>
 
     <!-- Logging -->
     <slf4j.version>2.0.13</slf4j.version>
@@ -67,6 +68,8 @@
     <groups></groups>
     <retry>0</retry>
     <gridUrl>http://localhost:4444/wd/hub</gridUrl>
+    <mockPort>8089</mockPort>
+    <rp.enable>false</rp.enable>
     <allure.results.directory>${project.build.directory}/allure-results</allure.results.directory>
   </properties>
 
@@ -94,6 +97,7 @@
 
       <!-- Allure -->
       <dependency><groupId>io.qameta.allure</groupId><artifactId>allure-testng</artifactId><version>${allure.version}</version></dependency>
+      <dependency><groupId>io.qameta.allure</groupId><artifactId>allure-rest-assured</artifactId><version>${allure.version}</version></dependency>
 
       <!-- Logging -->
       <dependency><groupId>org.slf4j</groupId><artifactId>slf4j-api</artifactId><version>${slf4j.version}</version></dependency>
@@ -159,6 +163,11 @@
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-surefire-plugin</artifactId>
           <version>3.2.5</version>
+        </plugin>
+        <plugin>
+          <groupId>net.masterthought</groupId>
+          <artifactId>maven-cucumber-reporting</artifactId>
+          <version>${masterthought.reporting.version}</version>
         </plugin>
       </plugins>
     </pluginManagement>
