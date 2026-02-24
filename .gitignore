@@ -1,6 +1,10 @@
 # Maven build output
 target/
 **/target/
+# Timestamped output directories created by run-tests.sh
+**/target_*/
+# Allure local history
+**/.allure/
 allure-results/
 allure-report/
 logs/
@@ -37,3 +41,4 @@ Thumbs.db
 
 # Claude / worktrees (local only)
 .claude/
+nul
