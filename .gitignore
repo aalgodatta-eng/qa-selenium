@@ -1,14 +1,20 @@
 # Maven build output
 target/
 **/target/
-target/
 allure-results/
 allure-report/
 logs/
 node_modules/
+**/test-output/
 
-# Reports — generated at runtime, committed only for reference
+# Reports — generated at runtime
 reports/allure-report-*/
+**/allure-results/
+**/allure-report/
+**/extent-report/
+**/cucumber/
+reports/
+*.log
 
 # Jenkins temp files
 .jenkins/
@@ -17,14 +23,17 @@ reports/allure-report-*/
 .DS_Store
 Thumbs.db
 
-# IntelliJ IDEA
+# IDE
 .idea/
 *.iml
 *.iws
 *.ipr
+.vscode/
 
 # Eclipse
 .classpath
 .project
 .settings/
+
+# Claude / worktrees (local only)
 .claude/

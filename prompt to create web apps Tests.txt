@@ -1,0 +1,77 @@
+
+create smoke and regression suite for http://uitestingplayground.com/ with maximum test coverage(should include negative and positive scenarios) for attached project and share
+
+1.Dynamic ID
+Make sure you are not recording dynamic IDs of elements
+
+2.Class Attribute
+Check that class attribute based XPath is well formed
+
+3.Hidden Layers
+Verify that your test does not interact with elements invisible because of z-order
+
+4.Load Delay
+Ensure that a test is capable of waiting for a page to load
+
+5.AJAX Data
+Some elements may appear on a page after loading data with AJAX request
+
+6.Client Side Delay
+Some elements may appear after client-side time consuming JavaScript calculations
+
+8.Click
+Event based click on an element may not always work
+
+9.Text Input
+Entering text into an edit field may not have effect
+
+10.Scrollbars
+Scrolling an element into view may be a tricky task
+
+11.Dynamic Table
+Verify cell value in a dynamic table
+
+12.Verify Text
+Finding an element by displayed text has nuances
+
+13.Progress Bar
+Follow the progress of a lengthy process and continue upon completion
+
+14.Visibility
+Check if element is visible on screen
+
+15.Sample App
+Demo application with dynamically generated element attributes
+
+16.Mouse Over
+Placing mouse over an element may change DOM and make the element unavailable
+
+17.Non-Breaking Space
+Non-breaking space looks like a normal one on screen. It may lead to confusion when building XPath
+
+18.Overlapped Element
+Make element visible to enter text
+
+19.Shadow DOM
+Look inside Shadow DOM component
+
+20.Alerts
+Accept alerts, confirmations and prompts
+
+21.File Upload
+Upload files
+
+22.Animated Button
+Wait for animation to stop before clicking a button
+
+23.Disabled Input
+Wait for edit field to become enabled
+
+24.Auto Wait
+Wait for an element to become interactable
+
+25.Frames
+Find elements inside nested frames
+26.maintain target folder should be updated as target_<timestamp> for each execution and it should not override previous one
+27.make all reports available under **\KC-sdet-automation\tests\target_<timestamp>
+28.finalyy Debug and all the errors in the created tests

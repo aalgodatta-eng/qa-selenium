@@ -1,0 +1,3 @@
+http://uitestingplayground.com/
+
+create smoke and regression suite for https://httpbin.org/ with maximum test coverage(should include negative and positive scenarios)

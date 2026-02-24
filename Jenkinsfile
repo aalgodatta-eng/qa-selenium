@@ -11,10 +11,11 @@ pipeline {
   parameters {
     choice(name: 'ENV',          choices: ['qa', 'dev', 'stage'],  description: 'Test environment')
     string(name: 'THREADS',      defaultValue: '2',                description: 'Parallel scenarios per runner')
-    // BUG 2 FIX: @ui_smoke does not exist in any feature file. Features use @ui + @smoke as
-    // separate tags, so the correct Cucumber 7 tag expression is "@ui and @smoke".
-    string(name: 'UI_TAGS',      defaultValue: '@ui and @smoke',   description: 'Cucumber tags for UI suite')
-    string(name: 'API_TAGS',     defaultValue: '@api_smoke',       description: 'Cucumber tags for API suite')
+    // Default tags used in this repo:
+    //  - UI smoke: @ui_smoke (alias is also present as @ui and @smoke)
+    //  - API smoke/regression: @api_smoke / @api_regression
+    string(name: 'UI_TAGS',      defaultValue: '@ui_smoke',                 description: 'Cucumber tags for UI suite')
+    string(name: 'API_TAGS',     defaultValue: '@api_smoke or @api_regression', description: 'Cucumber tags for API suite')
     booleanParam(name: 'RUN_CHROME',  defaultValue: true,  description: 'Run UI on Chrome')
     booleanParam(name: 'RUN_FIREFOX', defaultValue: true,  description: 'Run UI on Firefox')
     booleanParam(name: 'RUN_EDGE',    defaultValue: false, description: 'Run UI on Edge')
@@ -40,11 +41,24 @@ pipeline {
     // Named volume caches ~/.m2 between builds — avoids re-downloading ~500 MB
     MVN_CACHE = 'jenkins-m2'
 
-    // Allure image for report generation — no local allure CLI needed
-    ALLURE_IMAGE = 'allureframework/allure2:2.27.0'
+    // Allure HTML is generated via the Allure Maven plugin (no Docker image pull required)
   }
 
   stages {
+
+    stage('Checkout') {
+      steps {
+        checkout scm
+        sh '''#!/usr/bin/env bash
+          set -euo pipefail
+          echo "[checkout] pwd=$(pwd)"
+          ls -la
+          test -f pom.xml || { echo "[checkout] ERROR: root pom.xml not found"; exit 2; }
+          test -d tests || { echo "[checkout] ERROR: tests module folder not found"; find . -maxdepth 3 -name pom.xml -print; exit 3; }
+          echo "[checkout] ✅ root pom.xml + tests/ found"
+        '''
+      }
+    }
 
     // ─────────────────────────────────────────────────────────────────────
     stage('Preflight') {
@@ -196,79 +210,59 @@ YML
       steps {
         script {
 
-          // ── Helper: build a Maven docker run closure ────────────────
-          // BUG 3 (carried from prior fix): -am builds parent modules before tests
-          def mvnRun = { String label, String suite, String tags, String browser ->
+          // Runs Maven inside Docker and returns an exit code.
+          // We DO NOT use "|| true" (it hides failures). Instead we capture the exit code,
+          // mark the build as FAILURE, and still continue so report generation/publishing runs.
+          def runMaven = { String label, String tags, String browser, String reportSuffix, boolean usesGrid ->
             return {
               sh """#!/usr/bin/env bash
                 set -euo pipefail
                 echo "[run] ${label}  tags='${tags}'  browser=${browser}"
+                mkdir -p "\$PWD/reports/allure-results-${reportSuffix}" "\$PWD/reports/extent-report-${reportSuffix}"
+              """
 
-                REPORT_SUFFIX="${suite}-${browser}"
-                ALLURE_OUT="\$PWD/reports/allure-results-\${REPORT_SUFFIX}"
-                EXTENT_OUT="\$PWD/reports/extent-report-\${REPORT_SUFFIX}"
-                mkdir -p "\${ALLURE_OUT}" "\${EXTENT_OUT}"
-
-                # --network ${GRID_NET}: Maven container can reach selenium-hub by DNS name.
-                # -v \$PWD:/work:     report files survive container removal.
-                # -am:               builds framework-core/ui/api before tests module.
+              def cmd = """#!/usr/bin/env bash
+                set -euo pipefail
                 docker run --rm \\
+                  --dns 8.8.8.8 --dns 1.1.1.1 \\
                   --network "${GRID_NET}" \\
                   -v "\$PWD:/work" -w /work \\
                   -v "${MVN_CACHE}:/root/.m2" \\
                   -e MAVEN_OPTS="-Xms256m -Xmx768m -XX:MaxMetaspaceSize=256m" \\
                   ${MVN_IMG} \\
-                  mvn clean test -pl tests -am \\
+                  mvn -f pom.xml -pl tests -am clean test \\
                     -Denv=${ENV} \\
                     -Dthreads=${THREADS} \\
                     -Dcucumber.filter.tags="${tags}" \\
-                    -DrunMode=grid \\
+                    -DrunMode=${usesGrid ? 'grid' : 'local'} \\
                     -DgridUrl=${GRID_URL} \\
                     -Dbrowser=${browser} \\
                     -Dheadless=true \\
                     -Drp.enable=false \\
-                    "-Dallure.results.directory=/work/reports/allure-results-\${REPORT_SUFFIX}" \\
-                    "-Dextent.reporter.spark.out=/work/reports/extent-report-\${REPORT_SUFFIX}/ExtentSpark.html" \\
-                || true   # always collect reports even when tests fail
+                    "-Dallure.results.directory=/work/reports/allure-results-${reportSuffix}" \\
+                    "-Dextent.reporter.spark.out=/work/reports/extent-report-${reportSuffix}/ExtentSpark.html"
               """
+
+              int code = sh(returnStatus: true, script: cmd)
+              writeFile file: "reports/status-${reportSuffix}.txt", text: "${code}\n"
+
+              if (code != 0) {
+                currentBuild.result = 'FAILURE'
+                echo "❌ ${label} failed (exit code ${code})"
+              } else {
+                echo "✅ ${label} passed"
+              }
             }
-          }
-
-          def apiRun = {
-            sh """#!/usr/bin/env bash
-              set -euo pipefail
-              echo "[run] API  tags='${API_TAGS}'"
-
-              mkdir -p "\$PWD/reports/allure-results-api" "\$PWD/reports/extent-report-api"
-
-              # API tests don't use Selenium but still join the network for consistency.
-              docker run --rm \\
-                --network "${GRID_NET}" \\
-                -v "\$PWD:/work" -w /work \\
-                -v "${MVN_CACHE}:/root/.m2" \\
-                -e MAVEN_OPTS="-Xms256m -Xmx768m -XX:MaxMetaspaceSize=256m" \\
-                ${MVN_IMG} \\
-                mvn clean test -pl tests -am \\
-                  -Denv=${ENV} \\
-                  -Dthreads=${THREADS} \\
-                  -Dcucumber.filter.tags="${API_TAGS}" \\
-                  -DrunMode=local \\
-                  -Dbrowser=api \\
-                  -Drp.enable=false \\
-                  "-Dallure.results.directory=/work/reports/allure-results-api" \\
-                  "-Dextent.reporter.spark.out=/work/reports/extent-report-api/ExtentSpark.html" \\
-              || true
-            """
           }
 
           // ── Build the parallel map dynamically from parameters ──────
           // BUG (prior fix): parallel() now uses the dynamic map so Edge and API
           // actually run when their parameters are enabled.
           def runs = [:]
-          if (params.RUN_CHROME)  runs['UI-Chrome']  = mvnRun('UI-Chrome',  'ui', params.UI_TAGS, 'chrome')
-          if (params.RUN_FIREFOX) runs['UI-Firefox'] = mvnRun('UI-Firefox', 'ui', params.UI_TAGS, 'firefox')
-          if (params.RUN_EDGE)    runs['UI-Edge']    = mvnRun('UI-Edge',    'ui', params.UI_TAGS, 'edge')
-          if (params.RUN_API)     runs['API']        = apiRun
+          if (params.RUN_CHROME)  runs['UI-Chrome']  = runMaven('UI-Chrome',  params.UI_TAGS, 'chrome',  'ui-chrome',  true)
+          if (params.RUN_FIREFOX) runs['UI-Firefox'] = runMaven('UI-Firefox', params.UI_TAGS, 'firefox', 'ui-firefox', true)
+          if (params.RUN_EDGE)    runs['UI-Edge']    = runMaven('UI-Edge',    params.UI_TAGS, 'edge',    'ui-edge',    true)
+          if (params.RUN_API)     runs['API']        = runMaven('API',        params.API_TAGS,'api',     'api',        false)
 
           if (runs.isEmpty()) {
             echo '[warning] No test suites selected — nothing to run'
@@ -286,10 +280,7 @@ YML
     stage('Generate Allure Reports') {
       steps {
         sh '''#!/usr/bin/env bash
-          set +e
-          echo "[allure] pulling image (cached after first run)..."
-          docker pull "${ALLURE_IMAGE}" --quiet || true
-
+          set -euo pipefail
           GENERATED=0; SKIPPED=0
 
           for suffix in ui-chrome ui-firefox ui-edge api; do
@@ -301,7 +292,7 @@ YML
               (( SKIPPED++ )) || true; continue
             fi
 
-            COUNT=$(find "${IN_DIR}" -name "*.json" -o -name "*.xml" 2>/dev/null | wc -l)
+            COUNT=$(find "${IN_DIR}" -type f 2>/dev/null | wc -l)
             if [[ "${COUNT}" -eq 0 ]]; then
               echo "[allure] skip — 0 result files for: ${suffix}"
               (( SKIPPED++ )) || true; continue
@@ -310,11 +301,23 @@ YML
             rm -rf "${OUT_DIR}"; mkdir -p "${OUT_DIR}"
             echo "[allure] generating allure-report-${suffix}  (${COUNT} files)..."
 
+            # Generate Allure HTML using the Maven plugin inside the Maven container.
+            # This avoids DockerHub image pulls for allure CLI.
             docker run --rm \
-              -v "${IN_DIR}:/allure-results:ro" \
-              -v "${OUT_DIR}:/allure-report" \
-              "${ALLURE_IMAGE}" \
-              allure generate /allure-results -o /allure-report --clean
+              --dns 8.8.8.8 --dns 1.1.1.1 \
+              -v "${WORKSPACE}:/work" -w /work \
+              -v "${MVN_CACHE}:/root/.m2" \
+              ${MVN_IMG} \
+              mvn -f pom.xml -pl tests -am -DskipTests \
+                -Dallure.results.directory="/work/reports/allure-results-${suffix}" \
+                -Dallure.report.directory="/work/reports/allure-report-${suffix}" \
+                allure:report
+
+            # Some plugin versions always write to tests/target/site/...; copy if needed
+            if [[ ! -f "${OUT_DIR}/index.html" && -d "${WORKSPACE}/tests/target/site/allure-maven-plugin" ]]; then
+              rm -rf "${OUT_DIR}"; mkdir -p "${OUT_DIR}"
+              cp -r "${WORKSPACE}/tests/target/site/allure-maven-plugin/." "${OUT_DIR}/" || true
+            fi
 
             [[ -f "${OUT_DIR}/index.html" ]] \
               && { echo "[allure] ✅ ${suffix} report ready"; (( GENERATED++ )) || true; } \

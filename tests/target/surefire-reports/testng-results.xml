@@ -1,28 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="65" passed="59" failed="6" skipped="0">
+<testng-results ignored="0" total="65" passed="58" failed="7" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2026-02-23T02:29:36 IST" name="Surefire suite" finished-at="2026-02-23T02:30:24 IST" duration-ms="47939">
+  <suite started-at="2026-02-23T20:46:12 IST" name="Surefire suite" finished-at="2026-02-23T20:46:59 IST" duration-ms="47772">
     <groups>
       <group name="cucumber">
         <method signature="AbstractTestNGCucumberTests.runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.algodatta.runners.ApiRunner@6ee660fb]" name="runScenario" class="io.cucumber.testng.AbstractTestNGCucumberTests"/>
         <method signature="AbstractTestNGCucumberTests.runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.algodatta.runners.uiRunner@4b41e4dd]" name="runScenario" class="io.cucumber.testng.AbstractTestNGCucumberTests"/>
       </group> <!-- cucumber -->
     </groups>
-    <test started-at="2026-02-23T02:29:36 IST" name="Surefire test" finished-at="2026-02-23T02:30:24 IST" duration-ms="47939">
+    <test started-at="2026-02-23T20:46:12 IST" name="Surefire test" finished-at="2026-02-23T20:46:59 IST" duration-ms="47772">
       <class name="com.algodatta.runners.ApiRunner">
-        <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:com.algodatta.runners.ApiRunner@6ee660fb]" started-at="2026-02-23T02:29:37 IST" name="setUpClass" finished-at="2026-02-23T02:29:40 IST" duration-ms="3565" status="PASS">
+        <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:com.algodatta.runners.ApiRunner@6ee660fb]" started-at="2026-02-23T20:46:12 IST" name="setUpClass" finished-at="2026-02-23T20:46:15 IST" duration-ms="3027" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[org.testng.TestRunner@a2341c6]]>
+                <![CDATA[org.testng.TestRunner@2d3ef181]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUpClass -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.algodatta.runners.ApiRunner@6ee660fb]" started-at="2026-02-23T02:29:40 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-23T02:29:49 IST" duration-ms="9224" status="PASS">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.algodatta.runners.ApiRunner@6ee660fb]" started-at="2026-02-23T20:46:15 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-23T20:46:22 IST" duration-ms="7578" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -38,7 +38,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.algodatta.runners.ApiRunner@6ee660fb]" started-at="2026-02-23T02:29:40 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-23T02:29:49 IST" duration-ms="9223" status="PASS">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.algodatta.runners.ApiRunner@6ee660fb]" started-at="2026-02-23T20:46:15 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-23T20:46:22 IST" duration-ms="7480" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -54,7 +54,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.algodatta.runners.ApiRunner@6ee660fb]" started-at="2026-02-23T02:29:40 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-23T02:29:49 IST" duration-ms="9194" status="PASS">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.algodatta.runners.ApiRunner@6ee660fb]" started-at="2026-02-23T20:46:15 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-23T20:46:22 IST" duration-ms="7628" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -70,7 +70,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.algodatta.runners.ApiRunner@6ee660fb]" started-at="2026-02-23T02:29:40 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-23T02:29:49 IST" duration-ms="9147" status="PASS">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.algodatta.runners.ApiRunner@6ee660fb]" started-at="2026-02-23T20:46:15 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-23T20:46:23 IST" duration-ms="8224" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -86,7 +86,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.algodatta.runners.ApiRunner@6ee660fb]" started-at="2026-02-23T02:29:49 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-23T02:29:51 IST" duration-ms="1923" status="PASS">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.algodatta.runners.ApiRunner@6ee660fb]" started-at="2026-02-23T20:46:22 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-23T20:46:26 IST" duration-ms="3527" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -102,7 +102,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.algodatta.runners.ApiRunner@6ee660fb]" started-at="2026-02-23T02:29:49 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-23T02:29:54 IST" duration-ms="4699" status="PASS">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.algodatta.runners.ApiRunner@6ee660fb]" started-at="2026-02-23T20:46:22 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-23T20:46:27 IST" duration-ms="4745" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -118,7 +118,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.algodatta.runners.ApiRunner@6ee660fb]" started-at="2026-02-23T02:29:49 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-23T02:29:54 IST" duration-ms="4765" status="PASS">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.algodatta.runners.ApiRunner@6ee660fb]" started-at="2026-02-23T20:46:22 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-23T20:46:27 IST" duration-ms="4749" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -134,7 +134,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.algodatta.runners.ApiRunner@6ee660fb]" started-at="2026-02-23T02:29:49 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-23T02:29:54 IST" duration-ms="4751" status="PASS">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.algodatta.runners.ApiRunner@6ee660fb]" started-at="2026-02-23T20:46:23 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-23T20:46:27 IST" duration-ms="4274" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -150,7 +150,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.algodatta.runners.ApiRunner@6ee660fb]" started-at="2026-02-23T02:29:51 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-23T02:29:54 IST" duration-ms="2777" status="PASS">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.algodatta.runners.ApiRunner@6ee660fb]" started-at="2026-02-23T20:46:26 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-23T20:46:28 IST" duration-ms="2176" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -166,7 +166,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.algodatta.runners.ApiRunner@6ee660fb]" started-at="2026-02-23T02:29:54 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-23T02:29:57 IST" duration-ms="2457" status="PASS">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.algodatta.runners.ApiRunner@6ee660fb]" started-at="2026-02-23T20:46:27 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-23T20:46:29 IST" duration-ms="2303" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -182,7 +182,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.algodatta.runners.ApiRunner@6ee660fb]" started-at="2026-02-23T02:29:54 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-23T02:29:57 IST" duration-ms="2432" status="PASS">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.algodatta.runners.ApiRunner@6ee660fb]" started-at="2026-02-23T20:46:27 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-23T20:46:30 IST" duration-ms="2413" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -198,7 +198,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.algodatta.runners.ApiRunner@6ee660fb]" started-at="2026-02-23T02:29:54 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-23T02:29:57 IST" duration-ms="2499" status="PASS">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.algodatta.runners.ApiRunner@6ee660fb]" started-at="2026-02-23T20:46:27 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-23T20:46:30 IST" duration-ms="3057" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -214,7 +214,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.algodatta.runners.ApiRunner@6ee660fb]" started-at="2026-02-23T02:29:54 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-23T02:29:57 IST" duration-ms="2471" status="PASS">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.algodatta.runners.ApiRunner@6ee660fb]" started-at="2026-02-23T20:46:28 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-23T20:46:31 IST" duration-ms="3000" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -230,7 +230,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.algodatta.runners.ApiRunner@6ee660fb]" started-at="2026-02-23T02:29:57 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-23T02:29:59 IST" duration-ms="2030" status="PASS">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.algodatta.runners.ApiRunner@6ee660fb]" started-at="2026-02-23T20:46:29 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-23T20:46:32 IST" duration-ms="2356" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -246,7 +246,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.algodatta.runners.ApiRunner@6ee660fb]" started-at="2026-02-23T02:29:57 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-23T02:29:59 IST" duration-ms="2495" status="PASS">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.algodatta.runners.ApiRunner@6ee660fb]" started-at="2026-02-23T20:46:30 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-23T20:46:32 IST" duration-ms="2520" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -262,7 +262,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.algodatta.runners.ApiRunner@6ee660fb]" started-at="2026-02-23T02:29:57 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-23T02:29:59 IST" duration-ms="2279" status="PASS">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.algodatta.runners.ApiRunner@6ee660fb]" started-at="2026-02-23T20:46:30 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-23T20:46:33 IST" duration-ms="3012" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -278,7 +278,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.algodatta.runners.ApiRunner@6ee660fb]" started-at="2026-02-23T02:29:57 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-23T02:29:59 IST" duration-ms="1966" status="PASS">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.algodatta.runners.ApiRunner@6ee660fb]" started-at="2026-02-23T20:46:31 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-23T20:46:33 IST" duration-ms="2448" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -294,7 +294,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.algodatta.runners.ApiRunner@6ee660fb]" started-at="2026-02-23T02:29:59 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-23T02:30:01 IST" duration-ms="2232" status="PASS">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.algodatta.runners.ApiRunner@6ee660fb]" started-at="2026-02-23T20:46:32 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-23T20:46:34 IST" duration-ms="1793" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -310,7 +310,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.algodatta.runners.ApiRunner@6ee660fb]" started-at="2026-02-23T02:29:59 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-23T02:30:01 IST" duration-ms="2293" status="PASS">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.algodatta.runners.ApiRunner@6ee660fb]" started-at="2026-02-23T20:46:32 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-23T20:46:34 IST" duration-ms="1717" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -326,7 +326,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.algodatta.runners.ApiRunner@6ee660fb]" started-at="2026-02-23T02:29:59 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-23T02:30:01 IST" duration-ms="1846" status="PASS">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.algodatta.runners.ApiRunner@6ee660fb]" started-at="2026-02-23T20:46:33 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-23T20:46:36 IST" duration-ms="2486" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -342,7 +342,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.algodatta.runners.ApiRunner@6ee660fb]" started-at="2026-02-23T02:29:59 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-23T02:30:01 IST" duration-ms="1799" status="PASS">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.algodatta.runners.ApiRunner@6ee660fb]" started-at="2026-02-23T20:46:33 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-23T20:46:36 IST" duration-ms="2395" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -358,7 +358,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.algodatta.runners.ApiRunner@6ee660fb]" started-at="2026-02-23T02:30:01 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-23T02:30:03 IST" duration-ms="1997" status="PASS">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.algodatta.runners.ApiRunner@6ee660fb]" started-at="2026-02-23T20:46:34 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-23T20:46:36 IST" duration-ms="2433" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -374,7 +374,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.algodatta.runners.ApiRunner@6ee660fb]" started-at="2026-02-23T02:30:01 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-23T02:30:04 IST" duration-ms="2733" status="PASS">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.algodatta.runners.ApiRunner@6ee660fb]" started-at="2026-02-23T20:46:34 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-23T20:46:36 IST" duration-ms="2040" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -390,7 +390,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.algodatta.runners.ApiRunner@6ee660fb]" started-at="2026-02-23T02:30:01 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-23T02:30:04 IST" duration-ms="2691" status="PASS">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.algodatta.runners.ApiRunner@6ee660fb]" started-at="2026-02-23T20:46:36 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-23T20:46:38 IST" duration-ms="2100" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -406,7 +406,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.algodatta.runners.ApiRunner@6ee660fb]" started-at="2026-02-23T02:30:01 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-23T02:30:04 IST" duration-ms="3186" status="FAIL">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.algodatta.runners.ApiRunner@6ee660fb]" started-at="2026-02-23T20:46:36 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-23T20:46:40 IST" duration-ms="4625" status="FAIL">
           <params>
             <param index="0">
               <value>
@@ -433,7 +433,7 @@ at ✽.the JSON path "url" should contain "inspect"(file:///E:/QA_KC/KC-sdet-aut
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.algodatta.runners.ApiRunner@6ee660fb]" started-at="2026-02-23T02:30:03 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-23T02:30:06 IST" duration-ms="2810" status="PASS">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.algodatta.runners.ApiRunner@6ee660fb]" started-at="2026-02-23T20:46:36 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-23T20:46:39 IST" duration-ms="3171" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -449,7 +449,7 @@ at ✽.the JSON path "url" should contain "inspect"(file:///E:/QA_KC/KC-sdet-aut
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.algodatta.runners.ApiRunner@6ee660fb]" started-at="2026-02-23T02:30:04 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-23T02:30:06 IST" duration-ms="2017" status="PASS">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.algodatta.runners.ApiRunner@6ee660fb]" started-at="2026-02-23T20:46:36 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-23T20:46:39 IST" duration-ms="2844" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -465,7 +465,7 @@ at ✽.the JSON path "url" should contain "inspect"(file:///E:/QA_KC/KC-sdet-aut
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.algodatta.runners.ApiRunner@6ee660fb]" started-at="2026-02-23T02:30:04 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-23T02:30:06 IST" duration-ms="2123" status="PASS">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.algodatta.runners.ApiRunner@6ee660fb]" started-at="2026-02-23T20:46:38 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-23T20:46:40 IST" duration-ms="1857" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -481,7 +481,7 @@ at ✽.the JSON path "url" should contain "inspect"(file:///E:/QA_KC/KC-sdet-aut
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.algodatta.runners.ApiRunner@6ee660fb]" started-at="2026-02-23T02:30:04 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-23T02:30:06 IST" duration-ms="1741" status="PASS">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.algodatta.runners.ApiRunner@6ee660fb]" started-at="2026-02-23T20:46:39 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-23T20:46:41 IST" duration-ms="1871" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -497,7 +497,7 @@ at ✽.the JSON path "url" should contain "inspect"(file:///E:/QA_KC/KC-sdet-aut
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.algodatta.runners.ApiRunner@6ee660fb]" started-at="2026-02-23T02:30:06 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-23T02:30:07 IST" duration-ms="1693" status="PASS">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.algodatta.runners.ApiRunner@6ee660fb]" started-at="2026-02-23T20:46:39 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-23T20:46:41 IST" duration-ms="2499" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -513,7 +513,7 @@ at ✽.the JSON path "url" should contain "inspect"(file:///E:/QA_KC/KC-sdet-aut
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.algodatta.runners.ApiRunner@6ee660fb]" started-at="2026-02-23T02:30:06 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-23T02:30:07 IST" duration-ms="1855" status="PASS">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.algodatta.runners.ApiRunner@6ee660fb]" started-at="2026-02-23T20:46:40 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-23T20:46:42 IST" duration-ms="1805" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -529,7 +529,7 @@ at ✽.the JSON path "url" should contain "inspect"(file:///E:/QA_KC/KC-sdet-aut
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.algodatta.runners.ApiRunner@6ee660fb]" started-at="2026-02-23T02:30:06 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-23T02:30:08 IST" duration-ms="2674" status="PASS">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.algodatta.runners.ApiRunner@6ee660fb]" started-at="2026-02-23T20:46:40 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-23T20:46:42 IST" duration-ms="1896" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -545,7 +545,7 @@ at ✽.the JSON path "url" should contain "inspect"(file:///E:/QA_KC/KC-sdet-aut
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.algodatta.runners.ApiRunner@6ee660fb]" started-at="2026-02-23T02:30:06 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-23T02:30:08 IST" duration-ms="1639" status="PASS">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.algodatta.runners.ApiRunner@6ee660fb]" started-at="2026-02-23T20:46:41 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-23T20:46:42 IST" duration-ms="1809" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -561,7 +561,7 @@ at ✽.the JSON path "url" should contain "inspect"(file:///E:/QA_KC/KC-sdet-aut
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.algodatta.runners.ApiRunner@6ee660fb]" started-at="2026-02-23T02:30:07 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-23T02:30:09 IST" duration-ms="1758" status="PASS">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.algodatta.runners.ApiRunner@6ee660fb]" started-at="2026-02-23T20:46:41 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-23T20:46:43 IST" duration-ms="1924" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -577,7 +577,7 @@ at ✽.the JSON path "url" should contain "inspect"(file:///E:/QA_KC/KC-sdet-aut
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.algodatta.runners.ApiRunner@6ee660fb]" started-at="2026-02-23T02:30:07 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-23T02:30:09 IST" duration-ms="1783" status="PASS">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.algodatta.runners.ApiRunner@6ee660fb]" started-at="2026-02-23T20:46:42 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-23T20:46:44 IST" duration-ms="2658" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -593,7 +593,7 @@ at ✽.the JSON path "url" should contain "inspect"(file:///E:/QA_KC/KC-sdet-aut
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.algodatta.runners.ApiRunner@6ee660fb]" started-at="2026-02-23T02:30:08 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-23T02:30:09 IST" duration-ms="1731" status="PASS">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.algodatta.runners.ApiRunner@6ee660fb]" started-at="2026-02-23T20:46:42 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-23T20:46:45 IST" duration-ms="2317" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -609,7 +609,7 @@ at ✽.the JSON path "url" should contain "inspect"(file:///E:/QA_KC/KC-sdet-aut
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.algodatta.runners.ApiRunner@6ee660fb]" started-at="2026-02-23T02:30:08 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-23T02:30:11 IST" duration-ms="2706" status="PASS">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.algodatta.runners.ApiRunner@6ee660fb]" started-at="2026-02-23T20:46:42 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-23T20:46:46 IST" duration-ms="3655" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -625,7 +625,7 @@ at ✽.the JSON path "url" should contain "inspect"(file:///E:/QA_KC/KC-sdet-aut
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.algodatta.runners.ApiRunner@6ee660fb]" started-at="2026-02-23T02:30:09 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-23T02:30:11 IST" duration-ms="1672" status="PASS">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.algodatta.runners.ApiRunner@6ee660fb]" started-at="2026-02-23T20:46:43 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-23T20:46:46 IST" duration-ms="2768" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -641,7 +641,7 @@ at ✽.the JSON path "url" should contain "inspect"(file:///E:/QA_KC/KC-sdet-aut
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.algodatta.runners.ApiRunner@6ee660fb]" started-at="2026-02-23T02:30:09 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-23T02:30:13 IST" duration-ms="3825" status="FAIL">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.algodatta.runners.ApiRunner@6ee660fb]" started-at="2026-02-23T20:46:44 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-23T20:46:48 IST" duration-ms="3388" status="FAIL">
           <params>
             <param index="0">
               <value>
@@ -673,7 +673,7 @@ at ✽.the JSON path "cookies.kc" should be "1"(file:///E:/QA_KC/KC-sdet-automat
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.algodatta.runners.ApiRunner@6ee660fb]" started-at="2026-02-23T02:30:09 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-23T02:30:11 IST" duration-ms="1689" status="PASS">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.algodatta.runners.ApiRunner@6ee660fb]" started-at="2026-02-23T20:46:45 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-23T20:46:46 IST" duration-ms="1837" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -689,7 +689,7 @@ at ✽.the JSON path "cookies.kc" should be "1"(file:///E:/QA_KC/KC-sdet-automat
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.algodatta.runners.ApiRunner@6ee660fb]" started-at="2026-02-23T02:30:11 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-23T02:30:12 IST" duration-ms="1746" status="PASS">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.algodatta.runners.ApiRunner@6ee660fb]" started-at="2026-02-23T20:46:46 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-23T20:46:48 IST" duration-ms="1847" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -705,7 +705,7 @@ at ✽.the JSON path "cookies.kc" should be "1"(file:///E:/QA_KC/KC-sdet-automat
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.algodatta.runners.ApiRunner@6ee660fb]" started-at="2026-02-23T02:30:11 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-23T02:30:14 IST" duration-ms="3037" status="PASS">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.algodatta.runners.ApiRunner@6ee660fb]" started-at="2026-02-23T20:46:46 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-23T20:46:48 IST" duration-ms="2018" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -721,7 +721,7 @@ at ✽.the JSON path "cookies.kc" should be "1"(file:///E:/QA_KC/KC-sdet-automat
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.algodatta.runners.ApiRunner@6ee660fb]" started-at="2026-02-23T02:30:11 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-23T02:30:13 IST" duration-ms="1702" status="PASS">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.algodatta.runners.ApiRunner@6ee660fb]" started-at="2026-02-23T20:46:46 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-23T20:46:48 IST" duration-ms="1688" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -737,7 +737,7 @@ at ✽.the JSON path "cookies.kc" should be "1"(file:///E:/QA_KC/KC-sdet-automat
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.algodatta.runners.ApiRunner@6ee660fb]" started-at="2026-02-23T02:30:12 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-23T02:30:14 IST" duration-ms="1739" status="PASS">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.algodatta.runners.ApiRunner@6ee660fb]" started-at="2026-02-23T20:46:48 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-23T20:46:50 IST" duration-ms="2066" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -753,7 +753,7 @@ at ✽.the JSON path "cookies.kc" should be "1"(file:///E:/QA_KC/KC-sdet-automat
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.algodatta.runners.ApiRunner@6ee660fb]" started-at="2026-02-23T02:30:13 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-23T02:30:14 IST" duration-ms="1729" status="PASS">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.algodatta.runners.ApiRunner@6ee660fb]" started-at="2026-02-23T20:46:48 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-23T20:46:50 IST" duration-ms="1691" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -769,7 +769,7 @@ at ✽.the JSON path "cookies.kc" should be "1"(file:///E:/QA_KC/KC-sdet-automat
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.algodatta.runners.ApiRunner@6ee660fb]" started-at="2026-02-23T02:30:13 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-23T02:30:16 IST" duration-ms="2590" status="PASS">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.algodatta.runners.ApiRunner@6ee660fb]" started-at="2026-02-23T20:46:48 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-23T20:46:51 IST" duration-ms="3086" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -785,7 +785,7 @@ at ✽.the JSON path "cookies.kc" should be "1"(file:///E:/QA_KC/KC-sdet-automat
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.algodatta.runners.ApiRunner@6ee660fb]" started-at="2026-02-23T02:30:14 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-23T02:30:16 IST" duration-ms="1785" status="PASS">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.algodatta.runners.ApiRunner@6ee660fb]" started-at="2026-02-23T20:46:48 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-23T20:46:50 IST" duration-ms="1742" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -801,7 +801,7 @@ at ✽.the JSON path "cookies.kc" should be "1"(file:///E:/QA_KC/KC-sdet-automat
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.algodatta.runners.ApiRunner@6ee660fb]" started-at="2026-02-23T02:30:14 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-23T02:30:16 IST" duration-ms="1915" status="PASS">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.algodatta.runners.ApiRunner@6ee660fb]" started-at="2026-02-23T20:46:50 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-23T20:46:52 IST" duration-ms="2126" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -817,7 +817,7 @@ at ✽.the JSON path "cookies.kc" should be "1"(file:///E:/QA_KC/KC-sdet-automat
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.algodatta.runners.ApiRunner@6ee660fb]" started-at="2026-02-23T02:30:14 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-23T02:30:16 IST" duration-ms="1839" status="PASS">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.algodatta.runners.ApiRunner@6ee660fb]" started-at="2026-02-23T20:46:50 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-23T20:46:52 IST" duration-ms="2305" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -833,7 +833,7 @@ at ✽.the JSON path "cookies.kc" should be "1"(file:///E:/QA_KC/KC-sdet-automat
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.algodatta.runners.ApiRunner@6ee660fb]" started-at="2026-02-23T02:30:16 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-23T02:30:17 IST" duration-ms="1632" status="PASS">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.algodatta.runners.ApiRunner@6ee660fb]" started-at="2026-02-23T20:46:50 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-23T20:46:52 IST" duration-ms="2345" status="FAIL">
           <params>
             <param index="0">
               <value>
@@ -846,10 +846,28 @@ at ✽.the JSON path "cookies.kc" should be "1"(file:///E:/QA_KC/KC-sdet-automat
               </value>
             </param>
           </params>
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[Unexpected status code expected [200] but found [400]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: Unexpected status code expected [200] but found [400]
+at org.testng.Assert.fail(Assert.java:111)
+at org.testng.Assert.failNotEquals(Assert.java:1578)
+at org.testng.Assert.assertEqualsImpl(Assert.java:150)
+at org.testng.Assert.assertEquals(Assert.java:132)
+at org.testng.Assert.assertEquals(Assert.java:1419)
+at org.testng.Assert.assertEquals(Assert.java:1383)
+at com.algodatta.api.validators.ResponseValidator.status(ResponseValidator.java:12)
+at ui.steps.api.ApiSteps.status(ApiSteps.java:215)
+at ✽.the response status should be 200(file:///E:/QA_KC/KC-sdet-automation/tests/src/test/resources/features/api/httpbin_smoke.feature:21)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.algodatta.runners.ApiRunner@6ee660fb]" started-at="2026-02-23T02:30:16 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-23T02:30:18 IST" duration-ms="1764" status="FAIL">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.algodatta.runners.ApiRunner@6ee660fb]" started-at="2026-02-23T20:46:51 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-23T20:46:53 IST" duration-ms="1872" status="FAIL">
           <params>
             <param index="0">
               <value>
@@ -883,7 +901,7 @@ at ✽.the response status should be 200(file:///E:/QA_KC/KC-sdet-automation/tes
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.algodatta.runners.ApiRunner@6ee660fb]" started-at="2026-02-23T02:30:16 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-23T02:30:18 IST" duration-ms="2256" status="FAIL">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.algodatta.runners.ApiRunner@6ee660fb]" started-at="2026-02-23T20:46:52 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-23T20:46:54 IST" duration-ms="2052" status="FAIL">
           <params>
             <param index="0">
               <value>
@@ -917,7 +935,7 @@ at ✽.the response status should be 200(file:///E:/QA_KC/KC-sdet-automation/tes
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.algodatta.runners.ApiRunner@6ee660fb]" started-at="2026-02-23T02:30:16 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-23T02:30:18 IST" duration-ms="2003" status="FAIL">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.algodatta.runners.ApiRunner@6ee660fb]" started-at="2026-02-23T20:46:52 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-23T20:46:54 IST" duration-ms="1822" status="FAIL">
           <params>
             <param index="0">
               <value>
@@ -951,7 +969,7 @@ at ✽.the response status should be 401(file:///E:/QA_KC/KC-sdet-automation/tes
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.algodatta.runners.ApiRunner@6ee660fb]" started-at="2026-02-23T02:30:17 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-23T02:30:19 IST" duration-ms="1895" status="PASS">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.algodatta.runners.ApiRunner@6ee660fb]" started-at="2026-02-23T20:46:52 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-23T20:46:55 IST" duration-ms="2764" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -967,7 +985,7 @@ at ✽.the response status should be 401(file:///E:/QA_KC/KC-sdet-automation/tes
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.algodatta.runners.ApiRunner@6ee660fb]" started-at="2026-02-23T02:30:18 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-23T02:30:19 IST" duration-ms="1672" status="PASS">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.algodatta.runners.ApiRunner@6ee660fb]" started-at="2026-02-23T20:46:53 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-23T20:46:55 IST" duration-ms="2041" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -983,7 +1001,7 @@ at ✽.the response status should be 401(file:///E:/QA_KC/KC-sdet-automation/tes
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.algodatta.runners.ApiRunner@6ee660fb]" started-at="2026-02-23T02:30:18 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-23T02:30:19 IST" duration-ms="875" status="PASS">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.algodatta.runners.ApiRunner@6ee660fb]" started-at="2026-02-23T20:46:54 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-23T20:46:55 IST" duration-ms="1355" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -999,7 +1017,7 @@ at ✽.the response status should be 401(file:///E:/QA_KC/KC-sdet-automation/tes
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.algodatta.runners.ApiRunner@6ee660fb]" started-at="2026-02-23T02:30:18 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-23T02:30:19 IST" duration-ms="890" status="PASS">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.algodatta.runners.ApiRunner@6ee660fb]" started-at="2026-02-23T20:46:54 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-23T20:46:55 IST" duration-ms="1190" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -1015,7 +1033,7 @@ at ✽.the response status should be 401(file:///E:/QA_KC/KC-sdet-automation/tes
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.algodatta.runners.ApiRunner@6ee660fb]" started-at="2026-02-23T02:30:19 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-23T02:30:20 IST" duration-ms="832" status="PASS">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.algodatta.runners.ApiRunner@6ee660fb]" started-at="2026-02-23T20:46:55 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-23T20:46:56 IST" duration-ms="786" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -1031,7 +1049,7 @@ at ✽.the response status should be 401(file:///E:/QA_KC/KC-sdet-automation/tes
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.algodatta.runners.ApiRunner@6ee660fb]" started-at="2026-02-23T02:30:19 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-23T02:30:20 IST" duration-ms="695" status="PASS">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.algodatta.runners.ApiRunner@6ee660fb]" started-at="2026-02-23T20:46:55 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-23T20:46:56 IST" duration-ms="1041" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -1047,7 +1065,7 @@ at ✽.the response status should be 401(file:///E:/QA_KC/KC-sdet-automation/tes
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.algodatta.runners.ApiRunner@6ee660fb]" started-at="2026-02-23T02:30:19 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-23T02:30:21 IST" duration-ms="1345" status="PASS">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.algodatta.runners.ApiRunner@6ee660fb]" started-at="2026-02-23T20:46:55 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-23T20:46:57 IST" duration-ms="1523" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -1063,7 +1081,7 @@ at ✽.the response status should be 401(file:///E:/QA_KC/KC-sdet-automation/tes
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.algodatta.runners.ApiRunner@6ee660fb]" started-at="2026-02-23T02:30:19 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-23T02:30:21 IST" duration-ms="1635" status="PASS">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.algodatta.runners.ApiRunner@6ee660fb]" started-at="2026-02-23T20:46:55 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-23T20:46:57 IST" duration-ms="1416" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -1079,7 +1097,7 @@ at ✽.the response status should be 401(file:///E:/QA_KC/KC-sdet-automation/tes
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.algodatta.runners.ApiRunner@6ee660fb]" started-at="2026-02-23T02:30:20 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-23T02:30:22 IST" duration-ms="1668" status="PASS">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.algodatta.runners.ApiRunner@6ee660fb]" started-at="2026-02-23T20:46:56 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-23T20:46:57 IST" duration-ms="1385" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -1095,7 +1113,7 @@ at ✽.the response status should be 401(file:///E:/QA_KC/KC-sdet-automation/tes
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.algodatta.runners.ApiRunner@6ee660fb]" started-at="2026-02-23T02:30:20 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-23T02:30:21 IST" duration-ms="757" status="PASS">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.algodatta.runners.ApiRunner@6ee660fb]" started-at="2026-02-23T20:46:56 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-23T20:46:57 IST" duration-ms="1343" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -1111,7 +1129,7 @@ at ✽.the response status should be 401(file:///E:/QA_KC/KC-sdet-automation/tes
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.algodatta.runners.ApiRunner@6ee660fb]" started-at="2026-02-23T02:30:21 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-23T02:30:22 IST" duration-ms="1172" status="PASS">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.algodatta.runners.ApiRunner@6ee660fb]" started-at="2026-02-23T20:46:57 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-23T20:46:57 IST" duration-ms="808" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -1127,7 +1145,7 @@ at ✽.the response status should be 401(file:///E:/QA_KC/KC-sdet-automation/tes
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.algodatta.runners.ApiRunner@6ee660fb]" started-at="2026-02-23T02:30:21 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-23T02:30:22 IST" duration-ms="767" status="FAIL">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:com.algodatta.runners.ApiRunner@6ee660fb]" started-at="2026-02-23T20:46:57 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2026-02-23T20:46:57 IST" duration-ms="403" status="FAIL">
           <params>
             <param index="0">
               <value>
@@ -1161,24 +1179,24 @@ at ✽.the response status should be 200(file:///E:/QA_KC/KC-sdet-automation/tes
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:com.algodatta.runners.ApiRunner@6ee660fb]" started-at="2026-02-23T02:30:22 IST" name="tearDownClass" finished-at="2026-02-23T02:30:23 IST" duration-ms="1757" status="PASS">
+        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:com.algodatta.runners.ApiRunner@6ee660fb]" started-at="2026-02-23T20:46:57 IST" name="tearDownClass" finished-at="2026-02-23T20:46:59 IST" duration-ms="1487" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownClass -->
       </class> <!-- com.algodatta.runners.ApiRunner -->
       <class name="com.algodatta.runners.uiRunner">
-        <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:com.algodatta.runners.uiRunner@4b41e4dd]" started-at="2026-02-23T02:30:23 IST" name="setUpClass" finished-at="2026-02-23T02:30:24 IST" duration-ms="42" status="PASS">
+        <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:com.algodatta.runners.uiRunner@4b41e4dd]" started-at="2026-02-23T20:46:59 IST" name="setUpClass" finished-at="2026-02-23T20:46:59 IST" duration-ms="36" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[org.testng.TestRunner@a2341c6]]>
+                <![CDATA[org.testng.TestRunner@2d3ef181]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUpClass -->
-        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:com.algodatta.runners.uiRunner@4b41e4dd]" started-at="2026-02-23T02:30:24 IST" name="tearDownClass" finished-at="2026-02-23T02:30:24 IST" duration-ms="444" status="PASS">
+        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:com.algodatta.runners.uiRunner@4b41e4dd]" started-at="2026-02-23T20:46:59 IST" name="tearDownClass" finished-at="2026-02-23T20:46:59 IST" duration-ms="352" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownClass -->

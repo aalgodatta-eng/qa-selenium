@@ -1,4 +1,4 @@
-@ui @smoke
+@ui @smoke @ui_smoke
 Feature: Basic UI smoke
 
   Scenario: Open base URL and verify title exists

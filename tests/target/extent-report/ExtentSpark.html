@@ -35,7 +35,7 @@
 <a href="#"><span class="badge badge-primary"></span></a>
 </li>
 <li class="m-r-10">
-<a href="#"><span class="badge badge-primary">Feb 23, 2026 02:29:37 AM</span></a>
+<a href="#"><span class="badge badge-primary">Feb 23, 2026 08:46:12 PM</span></a>
 </li>
 </ul>
 </div>
@@ -85,7 +85,7 @@
 <li class="dropdown">
 <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-tag"></i></a>
 <ul id="tag-toggle" class="dropdown-menu dropdown-md p-v-0">
-<a class="dropdown-item" href="#">@api_smoke</a><a class="dropdown-item" href="#">@api_regression</a>
+<a class="dropdown-item" href="#">@api_regression</a><a class="dropdown-item" href="#">@api_smoke</a>
 </ul>
 </li>
 </ul>
@@ -98,7 +98,7 @@
           <div class="test-detail">
             <p class="name">httpbin Regression API suite (positive and negative coverage)</p>
             <p class="text-sm">
-              <span>2:29:42 AM</span> / <span>00:00:34:051</span>
+              <span>8:46:16 PM</span> / <span>00:00:35:872</span>
               <span class="badge fail-bg log float-right">Fail</span>
             </p>
           </div>
@@ -107,9 +107,9 @@
 <div class="p-v-10">
 <div class="info">
 <h5 class="test-status text-fail">httpbin Regression API suite (positive and negative coverage)</h5>
-<span class='badge badge-success'>02.23.2026 2:29:42 AM</span>
-<span class='badge badge-danger'>02.23.2026 2:30:16 AM</span>
-<span class='badge badge-default'>00:00:34:051</span>
+<span class='badge badge-success'>02.23.2026 8:46:16 PM</span>
+<span class='badge badge-danger'>02.23.2026 8:46:52 PM</span>
+<span class='badge badge-default'>00:00:35:872</span>
 &middot; <span class='uri-anchor badge badge-default'>#test-id=1</span>
 <span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
 <span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
@@ -144,7 +144,7 @@
       </div>
                   </div>
                   <div class="step pass-bg">
-                    <span>When I send "POST" request to "/post"</span>
+                    <span>When I send "PUT" request to "/put"</span>
       <div>
       </div>
                   </div>
@@ -178,7 +178,7 @@
       </div>
                   </div>
                   <div class="step pass-bg">
-                    <span>When I send "GET" request to "/get"</span>
+                    <span>When I send "POST" request to "/post"</span>
       <div>
       </div>
                   </div>
@@ -197,41 +197,7 @@
             <div class="card-body l1">
               <div class="card-header">
                 <div class="card-title outline-child">
-                  <div class="node" id="6"><span class="badge log pass-bg mr-2">Pass</span>HTTP verb endpoints return success and JSON</div>
-                </div>
-              </div>
-              <div class="card-body mt-3 collapse">
-                  <div class="step pass-bg">
-                    <span>Given I set API base url</span>
-      <div>
-      </div>
-                  </div>
-                  <div class="step pass-bg">
-                    <span>And I reset API client</span>
-      <div>
-      </div>
-                  </div>
-                  <div class="step pass-bg">
-                    <span>When I send "PUT" request to "/put"</span>
-      <div>
-      </div>
-                  </div>
-                  <div class="step pass-bg">
-                    <span>Then the response status should be 200</span>
-      <div>
-      </div>
-                  </div>
-                  <div class="step pass-bg">
-                    <span>And the response content type should contain "application/json"</span>
-      <div>
-      </div>
-                  </div>
-              </div>
-            </div>
-            <div class="card-body l1">
-              <div class="card-header">
-                <div class="card-title outline-child">
-                  <div class="node" id="9"><span class="badge log pass-bg mr-2">Pass</span>HTTP verb endpoints return success and JSON</div>
+                  <div class="node" id="5"><span class="badge log pass-bg mr-2">Pass</span>HTTP verb endpoints return success and JSON</div>
                 </div>
               </div>
               <div class="card-body mt-3 collapse">
@@ -265,7 +231,75 @@
             <div class="card-body l1">
               <div class="card-header">
                 <div class="card-title outline-child">
-                  <div class="node" id="30"><span class="badge log pass-bg mr-2">Pass</span>/anything echoes the request method correctly</div>
+                  <div class="node" id="9"><span class="badge log pass-bg mr-2">Pass</span>HTTP verb endpoints return success and JSON</div>
+                </div>
+              </div>
+              <div class="card-body mt-3 collapse">
+                  <div class="step pass-bg">
+                    <span>Given I set API base url</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>And I reset API client</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>When I send "GET" request to "/get"</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>Then the response status should be 200</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>And the response content type should contain "application/json"</span>
+      <div>
+      </div>
+                  </div>
+              </div>
+            </div>
+            <div class="card-body l1">
+              <div class="card-header">
+                <div class="card-title outline-child">
+                  <div class="node" id="30"><span class="badge log pass-bg mr-2">Pass</span>HTTP verb endpoints return success and JSON</div>
+                </div>
+              </div>
+              <div class="card-body mt-3 collapse">
+                  <div class="step pass-bg">
+                    <span>Given I set API base url</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>And I reset API client</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>When I send "DELETE" request to "/delete"</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>Then the response status should be 200</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>And the response content type should contain "application/json"</span>
+      <div>
+      </div>
+                  </div>
+              </div>
+            </div>
+            <div class="card-body l1">
+              <div class="card-header">
+                <div class="card-title outline-child">
+                  <div class="node" id="33"><span class="badge log pass-bg mr-2">Pass</span>/anything echoes the request method correctly</div>
                 </div>
               </div>
               <div class="card-body mt-3 collapse">
@@ -304,41 +338,7 @@
             <div class="card-body l1">
               <div class="card-header">
                 <div class="card-title outline-child">
-                  <div class="node" id="32"><span class="badge log pass-bg mr-2">Pass</span>HTTP verb endpoints return success and JSON</div>
-                </div>
-              </div>
-              <div class="card-body mt-3 collapse">
-                  <div class="step pass-bg">
-                    <span>Given I set API base url</span>
-      <div>
-      </div>
-                  </div>
-                  <div class="step pass-bg">
-                    <span>And I reset API client</span>
-      <div>
-      </div>
-                  </div>
-                  <div class="step pass-bg">
-                    <span>When I send "DELETE" request to "/delete"</span>
-      <div>
-      </div>
-                  </div>
-                  <div class="step pass-bg">
-                    <span>Then the response status should be 200</span>
-      <div>
-      </div>
-                  </div>
-                  <div class="step pass-bg">
-                    <span>And the response content type should contain "application/json"</span>
-      <div>
-      </div>
-                  </div>
-              </div>
-            </div>
-            <div class="card-body l1">
-              <div class="card-header">
-                <div class="card-title outline-child">
-                  <div class="node" id="36"><span class="badge log pass-bg mr-2">Pass</span>/anything echoes the request method correctly</div>
+                  <div class="node" id="39"><span class="badge log pass-bg mr-2">Pass</span>/anything echoes the request method correctly</div>
                 </div>
               </div>
               <div class="card-body mt-3 collapse">
@@ -377,7 +377,7 @@
             <div class="card-body l1">
               <div class="card-header">
                 <div class="card-title outline-child">
-                  <div class="node" id="49"><span class="badge log pass-bg mr-2">Pass</span>/anything echoes the request method correctly</div>
+                  <div class="node" id="55"><span class="badge log pass-bg mr-2">Pass</span>/anything echoes the request method correctly</div>
                 </div>
               </div>
               <div class="card-body mt-3 collapse">
@@ -408,45 +408,6 @@
                   </div>
                   <div class="step pass-bg">
                     <span>And the JSON path "method" should be "PATCH"</span>
-      <div>
-      </div>
-                  </div>
-              </div>
-            </div>
-            <div class="card-body l1">
-              <div class="card-header">
-                <div class="card-title outline-child">
-                  <div class="node" id="64"><span class="badge log pass-bg mr-2">Pass</span>/anything echoes the request method correctly</div>
-                </div>
-              </div>
-              <div class="card-body mt-3 collapse">
-                  <div class="step pass-bg">
-                    <span>Given I set API base url</span>
-      <div>
-      </div>
-                  </div>
-                  <div class="step pass-bg">
-                    <span>And I reset API client</span>
-      <div>
-      </div>
-                  </div>
-                  <div class="step pass-bg">
-                    <span>When I send "DELETE" request to "/anything"</span>
-      <div>
-      </div>
-                  </div>
-                  <div class="step pass-bg">
-                    <span>Then the response status should be 200</span>
-      <div>
-      </div>
-                  </div>
-                  <div class="step pass-bg">
-                    <span>And the response content type should contain "application/json"</span>
-      <div>
-      </div>
-                  </div>
-                  <div class="step pass-bg">
-                    <span>And the JSON path "method" should be "DELETE"</span>
       <div>
       </div>
                   </div>
@@ -500,43 +461,51 @@
                   </div>
               </div>
             </div>
+            <div class="card-body l1">
+              <div class="card-header">
+                <div class="card-title outline-child">
+                  <div class="node" id="65"><span class="badge log pass-bg mr-2">Pass</span>/anything echoes the request method correctly</div>
+                </div>
+              </div>
+              <div class="card-body mt-3 collapse">
+                  <div class="step pass-bg">
+                    <span>Given I set API base url</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>And I reset API client</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>When I send "DELETE" request to "/anything"</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>Then the response status should be 200</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>And the response content type should contain "application/json"</span>
+      <div>
+      </div>
+                  </div>
+                  <div class="step pass-bg">
+                    <span>And the JSON path "method" should be "DELETE"</span>
+      <div>
+      </div>
+                  </div>
+              </div>
+            </div>
         </div>
   </div>
   <div class="card">
     <div class="card-header" role="tab">
       <div class="card-title">
-        <div class="node" id="62"><span class="badge log pass-bg mr-2">Pass</span>HEAD should return headers only</div>
-      </div>
-    </div>
-        <div class="collapse">
-          <div class="card-body">
-              <div class="step pass-bg" title="ui.steps.api.ApiSteps.setBaseUrl()">
-                <span>Given I set API base url</span>
-      <div>
-      </div>
-              </div>
-              <div class="step pass-bg" title="ui.steps.api.ApiSteps.resetClient()">
-                <span>And I reset API client</span>
-      <div>
-      </div>
-              </div>
-              <div class="step pass-bg" title="ui.steps.api.ApiSteps.send(java.lang.String,java.lang.String)">
-                <span>When I send "HEAD" request to "/get"</span>
-      <div>
-      </div>
-              </div>
-              <div class="step pass-bg" title="ui.steps.api.ApiSteps.status(java.lang.Integer)">
-                <span>Then the response status should be 200</span>
-      <div>
-      </div>
-              </div>
-          </div>
-        </div>
-  </div>
-  <div class="card">
-    <div class="card-header" role="tab">
-      <div class="card-title">
-        <div class="node" id="66"><span class="badge log pass-bg mr-2">Pass</span>OPTIONS should return allowed methods</div>
+        <div class="node" id="59"><span class="badge log pass-bg mr-2">Pass</span>OPTIONS should return allowed methods</div>
       </div>
     </div>
         <div class="collapse">
@@ -553,6 +522,37 @@
               </div>
               <div class="step pass-bg" title="ui.steps.api.ApiSteps.send(java.lang.String,java.lang.String)">
                 <span>When I send "OPTIONS" request to "/get"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="ui.steps.api.ApiSteps.status(java.lang.Integer)">
+                <span>Then the response status should be 200</span>
+      <div>
+      </div>
+              </div>
+          </div>
+        </div>
+  </div>
+  <div class="card">
+    <div class="card-header" role="tab">
+      <div class="card-title">
+        <div class="node" id="63"><span class="badge log pass-bg mr-2">Pass</span>HEAD should return headers only</div>
+      </div>
+    </div>
+        <div class="collapse">
+          <div class="card-body">
+              <div class="step pass-bg" title="ui.steps.api.ApiSteps.setBaseUrl()">
+                <span>Given I set API base url</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="ui.steps.api.ApiSteps.resetClient()">
+                <span>And I reset API client</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="ui.steps.api.ApiSteps.send(java.lang.String,java.lang.String)">
+                <span>When I send "HEAD" request to "/get"</span>
       <div>
       </div>
               </div>
@@ -613,43 +613,7 @@
   <div class="card">
     <div class="card-header" role="tab">
       <div class="card-title">
-        <div class="node" id="87"><span class="badge log pass-bg mr-2">Pass</span>Digest auth positive</div>
-      </div>
-    </div>
-        <div class="collapse">
-          <div class="card-body">
-              <div class="step pass-bg" title="ui.steps.api.ApiSteps.setBaseUrl()">
-                <span>Given I set API base url</span>
-      <div>
-      </div>
-              </div>
-              <div class="step pass-bg" title="ui.steps.api.ApiSteps.resetClient()">
-                <span>And I reset API client</span>
-      <div>
-      </div>
-              </div>
-              <div class="step pass-bg" title="ui.steps.api.ApiSteps.digestAuth(java.lang.String,java.lang.String)">
-                <span>Given I use digest auth "user" and "passwd"</span>
-      <div>
-      </div>
-              </div>
-              <div class="step pass-bg" title="ui.steps.api.ApiSteps.send(java.lang.String,java.lang.String)">
-                <span>When I send "GET" request to "/digest-auth/auth/user/passwd"</span>
-      <div>
-      </div>
-              </div>
-              <div class="step pass-bg" title="ui.steps.api.ApiSteps.status(java.lang.Integer)">
-                <span>Then the response status should be 200</span>
-      <div>
-      </div>
-              </div>
-          </div>
-        </div>
-  </div>
-  <div class="card">
-    <div class="card-header" role="tab">
-      <div class="card-title">
-        <div class="node" id="89"><span class="badge log pass-bg mr-2">Pass</span>Bearer auth negative (missing token)</div>
+        <div class="node" id="82"><span class="badge log pass-bg mr-2">Pass</span>Bearer auth negative (missing token)</div>
       </div>
     </div>
         <div class="collapse">
@@ -685,14 +649,86 @@
   <div class="card">
     <div class="card-header" role="tab">
       <div class="card-title">
-        <div class="node" id="95"><span class="badge log pass-bg mr-2">Pass</span>/status endpoint should generate the given status code</div>
+        <div class="node" id="88"><span class="badge log pass-bg mr-2">Pass</span>Digest auth positive</div>
+      </div>
+    </div>
+        <div class="collapse">
+          <div class="card-body">
+              <div class="step pass-bg" title="ui.steps.api.ApiSteps.setBaseUrl()">
+                <span>Given I set API base url</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="ui.steps.api.ApiSteps.resetClient()">
+                <span>And I reset API client</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="ui.steps.api.ApiSteps.digestAuth(java.lang.String,java.lang.String)">
+                <span>Given I use digest auth "user" and "passwd"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="ui.steps.api.ApiSteps.send(java.lang.String,java.lang.String)">
+                <span>When I send "GET" request to "/digest-auth/auth/user/passwd"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="ui.steps.api.ApiSteps.status(java.lang.Integer)">
+                <span>Then the response status should be 200</span>
+      <div>
+      </div>
+              </div>
+          </div>
+        </div>
+  </div>
+  <div class="card">
+    <div class="card-header" role="tab">
+      <div class="card-title">
+        <div class="node" id="94"><span class="badge log pass-bg mr-2">Pass</span>Digest auth negative</div>
+      </div>
+    </div>
+        <div class="collapse">
+          <div class="card-body">
+              <div class="step pass-bg" title="ui.steps.api.ApiSteps.setBaseUrl()">
+                <span>Given I set API base url</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="ui.steps.api.ApiSteps.resetClient()">
+                <span>And I reset API client</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="ui.steps.api.ApiSteps.digestAuth(java.lang.String,java.lang.String)">
+                <span>Given I use digest auth "user" and "wrong"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="ui.steps.api.ApiSteps.send(java.lang.String,java.lang.String)">
+                <span>When I send "GET" request to "/digest-auth/auth/user/passwd"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="ui.steps.api.ApiSteps.status(java.lang.Integer)">
+                <span>Then the response status should be 401</span>
+      <div>
+      </div>
+              </div>
+          </div>
+        </div>
+  </div>
+  <div class="card">
+    <div class="card-header" role="tab">
+      <div class="card-title">
+        <div class="node" id="102"><span class="badge log pass-bg mr-2">Pass</span>/status endpoint should generate the given status code</div>
       </div>
     </div>
         <div class="scenario_outline collapse">
             <div class="card-body l1">
               <div class="card-header">
                 <div class="card-title outline-child">
-                  <div class="node" id="96"><span class="badge log pass-bg mr-2">Pass</span>/status endpoint should generate the given status code</div>
+                  <div class="node" id="103"><span class="badge log pass-bg mr-2">Pass</span>/status endpoint should generate the given status code</div>
                 </div>
               </div>
               <div class="card-body mt-3 collapse">
@@ -779,7 +815,7 @@
             <div class="card-body l1">
               <div class="card-header">
                 <div class="card-title outline-child">
-                  <div class="node" id="118"><span class="badge log pass-bg mr-2">Pass</span>/status endpoint should generate the given status code</div>
+                  <div class="node" id="119"><span class="badge log pass-bg mr-2">Pass</span>/status endpoint should generate the given status code</div>
                 </div>
               </div>
               <div class="card-body mt-3 collapse">
@@ -808,7 +844,7 @@
             <div class="card-body l1">
               <div class="card-header">
                 <div class="card-title outline-child">
-                  <div class="node" id="123"><span class="badge log pass-bg mr-2">Pass</span>/status endpoint should generate the given status code</div>
+                  <div class="node" id="121"><span class="badge log pass-bg mr-2">Pass</span>/status endpoint should generate the given status code</div>
                 </div>
               </div>
               <div class="card-body mt-3 collapse">
@@ -837,7 +873,7 @@
             <div class="card-body l1">
               <div class="card-header">
                 <div class="card-title outline-child">
-                  <div class="node" id="129"><span class="badge log pass-bg mr-2">Pass</span>/status endpoint should generate the given status code</div>
+                  <div class="node" id="128"><span class="badge log pass-bg mr-2">Pass</span>/status endpoint should generate the given status code</div>
                 </div>
               </div>
               <div class="card-body mt-3 collapse">
@@ -866,7 +902,7 @@
             <div class="card-body l1">
               <div class="card-header">
                 <div class="card-title outline-child">
-                  <div class="node" id="132"><span class="badge log pass-bg mr-2">Pass</span>/status endpoint should generate the given status code</div>
+                  <div class="node" id="133"><span class="badge log pass-bg mr-2">Pass</span>/status endpoint should generate the given status code</div>
                 </div>
               </div>
               <div class="card-body mt-3 collapse">
@@ -895,7 +931,7 @@
             <div class="card-body l1">
               <div class="card-header">
                 <div class="card-title outline-child">
-                  <div class="node" id="138"><span class="badge log pass-bg mr-2">Pass</span>/status endpoint should generate the given status code</div>
+                  <div class="node" id="141"><span class="badge log pass-bg mr-2">Pass</span>/status endpoint should generate the given status code</div>
                 </div>
               </div>
               <div class="card-body mt-3 collapse">
@@ -926,7 +962,7 @@
   <div class="card">
     <div class="card-header" role="tab">
       <div class="card-title">
-        <div class="node" id="102"><span class="badge log pass-bg mr-2">Pass</span>Digest auth negative</div>
+        <div class="node" id="145"><span class="badge log pass-bg mr-2">Pass</span>Inspect JSON body via /anything</div>
       </div>
     </div>
         <div class="collapse">
@@ -941,18 +977,35 @@
       <div>
       </div>
               </div>
-              <div class="step pass-bg" title="ui.steps.api.ApiSteps.digestAuth(java.lang.String,java.lang.String)">
-                <span>Given I use digest auth "user" and "wrong"</span>
+              <div class="step pass-bg" title="ui.steps.api.ApiSteps.setJsonBody(java.lang.String)">
+                <span>Given I set JSON body</span>
+      <div><div class='row'>
+ <div class='col-md-12'>
+  <textarea readonly class='code-block'>{"id":123,"active":true}</textarea>
+ </div>
+</div>
+
+      </div>
       <div>
       </div>
               </div>
               <div class="step pass-bg" title="ui.steps.api.ApiSteps.send(java.lang.String,java.lang.String)">
-                <span>When I send "GET" request to "/digest-auth/auth/user/passwd"</span>
+                <span>When I send "POST" request to "/anything/body"</span>
       <div>
       </div>
               </div>
               <div class="step pass-bg" title="ui.steps.api.ApiSteps.status(java.lang.Integer)">
-                <span>Then the response status should be 401</span>
+                <span>Then the response status should be 200</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="ui.steps.api.ApiSteps.jsonPathEqualsInt(java.lang.String,java.lang.Integer)">
+                <span>And the JSON path "json.id" should be 123</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="ui.steps.api.ApiSteps.jsonPathNotNull(java.lang.String)">
+                <span>And the JSON path "json.active" should not be null</span>
       <div>
       </div>
               </div>
@@ -962,7 +1015,7 @@
   <div class="card">
     <div class="card-header" role="tab">
       <div class="card-title">
-        <div class="node" id="142"><span class="badge log fail-bg mr-2">Fail</span>Inspect query params, headers and client IP via /anything</div>
+        <div class="node" id="149"><span class="badge log fail-bg mr-2">Fail</span>Inspect query params, headers and client IP via /anything</div>
       </div>
     </div>
         <div class="">
@@ -1028,60 +1081,7 @@
   <div class="card">
     <div class="card-header" role="tab">
       <div class="card-title">
-        <div class="node" id="152"><span class="badge log pass-bg mr-2">Pass</span>Inspect JSON body via /anything</div>
-      </div>
-    </div>
-        <div class="collapse">
-          <div class="card-body">
-              <div class="step pass-bg" title="ui.steps.api.ApiSteps.setBaseUrl()">
-                <span>Given I set API base url</span>
-      <div>
-      </div>
-              </div>
-              <div class="step pass-bg" title="ui.steps.api.ApiSteps.resetClient()">
-                <span>And I reset API client</span>
-      <div>
-      </div>
-              </div>
-              <div class="step pass-bg" title="ui.steps.api.ApiSteps.setJsonBody(java.lang.String)">
-                <span>Given I set JSON body</span>
-      <div><div class='row'>
- <div class='col-md-12'>
-  <textarea readonly class='code-block'>{"id":123,"active":true}</textarea>
- </div>
-</div>
-
-      </div>
-      <div>
-      </div>
-              </div>
-              <div class="step pass-bg" title="ui.steps.api.ApiSteps.send(java.lang.String,java.lang.String)">
-                <span>When I send "POST" request to "/anything/body"</span>
-      <div>
-      </div>
-              </div>
-              <div class="step pass-bg" title="ui.steps.api.ApiSteps.status(java.lang.Integer)">
-                <span>Then the response status should be 200</span>
-      <div>
-      </div>
-              </div>
-              <div class="step pass-bg" title="ui.steps.api.ApiSteps.jsonPathEqualsInt(java.lang.String,java.lang.Integer)">
-                <span>And the JSON path "json.id" should be 123</span>
-      <div>
-      </div>
-              </div>
-              <div class="step pass-bg" title="ui.steps.api.ApiSteps.jsonPathNotNull(java.lang.String)">
-                <span>And the JSON path "json.active" should not be null</span>
-      <div>
-      </div>
-              </div>
-          </div>
-        </div>
-  </div>
-  <div class="card">
-    <div class="card-header" role="tab">
-      <div class="card-title">
-        <div class="node" id="159"><span class="badge log pass-bg mr-2">Pass</span>Validate caching headers via /cache/0 (no caching)</div>
+        <div class="node" id="151"><span class="badge log pass-bg mr-2">Pass</span>Validate caching headers via /cache/0 (no caching)</div>
       </div>
     </div>
         <div class="collapse">
@@ -1117,7 +1117,7 @@
   <div class="card">
     <div class="card-header" role="tab">
       <div class="card-title">
-        <div class="node" id="164"><span class="badge log pass-bg mr-2">Pass</span>Validate ETag response</div>
+        <div class="node" id="161"><span class="badge log pass-bg mr-2">Pass</span>Validate ETag response</div>
       </div>
     </div>
         <div class="collapse">
@@ -1153,7 +1153,7 @@
   <div class="card">
     <div class="card-header" role="tab">
       <div class="card-title">
-        <div class="node" id="170"><span class="badge log pass-bg mr-2">Pass</span>Validate custom response headers</div>
+        <div class="node" id="169"><span class="badge log pass-bg mr-2">Pass</span>Validate custom response headers</div>
       </div>
     </div>
         <div class="collapse">
@@ -1194,14 +1194,14 @@
   <div class="card">
     <div class="card-header" role="tab">
       <div class="card-title">
-        <div class="node" id="178"><span class="badge log pass-bg mr-2">Pass</span>Different response formats should return expected content types</div>
+        <div class="node" id="174"><span class="badge log pass-bg mr-2">Pass</span>Different response formats should return expected content types</div>
       </div>
     </div>
         <div class="scenario_outline collapse">
             <div class="card-body l1">
               <div class="card-header">
                 <div class="card-title outline-child">
-                  <div class="node" id="179"><span class="badge log pass-bg mr-2">Pass</span>Different response formats should return expected content types</div>
+                  <div class="node" id="175"><span class="badge log pass-bg mr-2">Pass</span>Different response formats should return expected content types</div>
                 </div>
               </div>
               <div class="card-body mt-3 collapse">
@@ -1269,7 +1269,7 @@
             <div class="card-body l1">
               <div class="card-header">
                 <div class="card-title outline-child">
-                  <div class="node" id="189"><span class="badge log pass-bg mr-2">Pass</span>Different response formats should return expected content types</div>
+                  <div class="node" id="190"><span class="badge log pass-bg mr-2">Pass</span>Different response formats should return expected content types</div>
                 </div>
               </div>
               <div class="card-body mt-3 collapse">
@@ -1527,7 +1527,7 @@
   <div class="card">
     <div class="card-header" role="tab">
       <div class="card-title">
-        <div class="node" id="238"><span class="badge log fail-bg mr-2">Fail</span>Create, read and delete cookies</div>
+        <div class="node" id="235"><span class="badge log fail-bg mr-2">Fail</span>Create, read and delete cookies</div>
       </div>
     </div>
         <div class="">
@@ -1623,14 +1623,14 @@
   <div class="card">
     <div class="card-header" role="tab">
       <div class="card-title">
-        <div class="node" id="239"><span class="badge log pass-bg mr-2">Pass</span>Image endpoints should return correct image content types</div>
+        <div class="node" id="243"><span class="badge log pass-bg mr-2">Pass</span>Image endpoints should return correct image content types</div>
       </div>
     </div>
         <div class="scenario_outline collapse">
             <div class="card-body l1">
               <div class="card-header">
                 <div class="card-title outline-child">
-                  <div class="node" id="240"><span class="badge log pass-bg mr-2">Pass</span>Image endpoints should return correct image content types</div>
+                  <div class="node" id="244"><span class="badge log pass-bg mr-2">Pass</span>Image endpoints should return correct image content types</div>
                 </div>
               </div>
               <div class="card-body mt-3 collapse">
@@ -1669,7 +1669,7 @@
             <div class="card-body l1">
               <div class="card-header">
                 <div class="card-title outline-child">
-                  <div class="node" id="250"><span class="badge log pass-bg mr-2">Pass</span>Image endpoints should return correct image content types</div>
+                  <div class="node" id="255"><span class="badge log pass-bg mr-2">Pass</span>Image endpoints should return correct image content types</div>
                 </div>
               </div>
               <div class="card-body mt-3 collapse">
@@ -1689,7 +1689,7 @@
       </div>
                   </div>
                   <div class="step pass-bg">
-                    <span>When I send "GET" request to "/image/jpeg"</span>
+                    <span>When I send "GET" request to "/image/webp"</span>
       <div>
       </div>
                   </div>
@@ -1728,7 +1728,7 @@
       </div>
                   </div>
                   <div class="step pass-bg">
-                    <span>When I send "GET" request to "/image/webp"</span>
+                    <span>When I send "GET" request to "/image/jpeg"</span>
       <div>
       </div>
                   </div>
@@ -1788,7 +1788,7 @@
   <div class="card">
     <div class="card-header" role="tab">
       <div class="card-title">
-        <div class="node" id="274"><span class="badge log pass-bg mr-2">Pass</span>Redirect endpoint should return a redirect when not following</div>
+        <div class="node" id="280"><span class="badge log pass-bg mr-2">Pass</span>Redirect endpoint should return a redirect when not following</div>
       </div>
     </div>
         <div class="collapse">
@@ -1824,7 +1824,7 @@
   <div class="card">
     <div class="card-header" role="tab">
       <div class="card-title">
-        <div class="node" id="281"><span class="badge log pass-bg mr-2">Pass</span>/status/301 returns 301 when redirects are disabled</div>
+        <div class="node" id="287"><span class="badge log pass-bg mr-2">Pass</span>/status/301 returns 301 when redirects are disabled</div>
       </div>
     </div>
         <div class="collapse">
@@ -1937,7 +1937,7 @@
   <div class="card">
     <div class="card-header" role="tab">
       <div class="card-title">
-        <div class="node" id="307"><span class="badge log pass-bg mr-2">Pass</span>/anything should echo arbitrary path, headers and payload</div>
+        <div class="node" id="310"><span class="badge log pass-bg mr-2">Pass</span>/anything should echo arbitrary path, headers and payload</div>
       </div>
     </div>
         <div class="collapse">
@@ -2010,14 +2010,14 @@
 </div>
           </div>
         </li>
-        <li class="test-item"  status="fail" test-id="315"
+        <li class="test-item"  status="fail" test-id="308"
           author=""
           tag=""
           device="">
           <div class="test-detail">
             <p class="name">httpbin Smoke API suite</p>
             <p class="text-sm">
-              <span>2:30:14 AM</span> / <span>00:00:03:829</span>
+              <span>8:46:50 PM</span> / <span>00:00:04:079</span>
               <span class="badge fail-bg log float-right">Fail</span>
             </p>
           </div>
@@ -2026,10 +2026,10 @@
 <div class="p-v-10">
 <div class="info">
 <h5 class="test-status text-fail">httpbin Smoke API suite</h5>
-<span class='badge badge-success'>02.23.2026 2:30:14 AM</span>
-<span class='badge badge-danger'>02.23.2026 2:30:18 AM</span>
-<span class='badge badge-default'>00:00:03:829</span>
-&middot; <span class='uri-anchor badge badge-default'>#test-id=315</span>
+<span class='badge badge-success'>02.23.2026 8:46:50 PM</span>
+<span class='badge badge-danger'>02.23.2026 8:46:54 PM</span>
+<span class='badge badge-default'>00:00:04:079</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=308</span>
 <span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
 <span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
 <span title='Expand all nodes' class='badge badge-default pointer float-right et'><i class="fa fa-expand"></i></span>
@@ -2041,7 +2041,7 @@
   <div class="card">
     <div class="card-header" role="tab">
       <div class="card-title">
-        <div class="node" id="316"><span class="badge log pass-bg mr-2">Pass</span>Basic GET should return 200 and JSON</div>
+        <div class="node" id="309"><span class="badge log pass-bg mr-2">Pass</span>Basic GET should return 200 and JSON</div>
       </div>
     </div>
         <div class="collapse">
@@ -2082,10 +2082,10 @@
   <div class="card">
     <div class="card-header" role="tab">
       <div class="card-title">
-        <div class="node" id="322"><span class="badge log pass-bg mr-2">Pass</span>GET /anything echoes the request method</div>
+        <div class="node" id="321"><span class="badge log fail-bg mr-2">Fail</span>GET /anything echoes the request method</div>
       </div>
     </div>
-        <div class="collapse">
+        <div class="">
           <div class="card-body">
               <div class="step pass-bg" title="ui.steps.api.ApiSteps.setBaseUrl()">
                 <span>Given I set API base url</span>
@@ -2102,19 +2102,31 @@
       <div>
       </div>
               </div>
-              <div class="step pass-bg" title="ui.steps.api.ApiSteps.status(java.lang.Integer)">
+              <div class="step fail-bg" title="ui.steps.api.ApiSteps.status(java.lang.Integer)">
                 <span>Then the response status should be 200</span>
       <div>
+        <textarea disabled class="code-block">java.lang.AssertionError: Unexpected status code expected [200] but found [400]
+	at org.testng.Assert.fail(Assert.java:111)
+	at org.testng.Assert.failNotEquals(Assert.java:1578)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:150)
+	at org.testng.Assert.assertEquals(Assert.java:132)
+	at org.testng.Assert.assertEquals(Assert.java:1419)
+	at org.testng.Assert.assertEquals(Assert.java:1383)
+	at com.algodatta.api.validators.ResponseValidator.status(ResponseValidator.java:12)
+	at ui.steps.api.ApiSteps.status(ApiSteps.java:215)
+	at ?.the response status should be 200(file:///E:/QA_KC/KC-sdet-automation/tests/src/test/resources/features/api/httpbin_smoke.feature:21)
+</textarea>
+      
       </div>
               </div>
-              <div class="step pass-bg" title="ui.steps.api.ApiSteps.contentTypeContains(java.lang.String)">
+              <div class="step skip-bg" title="ui.steps.api.ApiSteps.contentTypeContains(java.lang.String)">
                 <span>And the response content type should contain "application/json"</span>
-      <div>
+      <div>Step skipped
       </div>
               </div>
-              <div class="step pass-bg" title="ui.steps.api.ApiSteps.jsonPathEqualsString(java.lang.String,java.lang.String)">
+              <div class="step skip-bg" title="ui.steps.api.ApiSteps.jsonPathEqualsString(java.lang.String,java.lang.String)">
                 <span>And the JSON path "method" should be "GET"</span>
-      <div>
+      <div>Step skipped
       </div>
               </div>
           </div>
@@ -2198,7 +2210,7 @@
   <div class="card">
     <div class="card-header" role="tab">
       <div class="card-title">
-        <div class="node" id="338"><span class="badge log fail-bg mr-2">Fail</span>Basic Auth positive</div>
+        <div class="node" id="341"><span class="badge log fail-bg mr-2">Fail</span>Basic Auth positive</div>
       </div>
     </div>
         <div class="">
@@ -2306,7 +2318,7 @@
           <div class="test-detail">
             <p class="name">JSONPlaceholder API smoke coverage</p>
             <p class="text-sm">
-              <span>2:30:17 AM</span> / <span>00:00:04:409</span>
+              <span>8:46:52 PM</span> / <span>00:00:05:097</span>
               <span class="badge pass-bg log float-right">Pass</span>
             </p>
           </div>
@@ -2315,9 +2327,9 @@
 <div class="p-v-10">
 <div class="info">
 <h5 class="test-status text-pass">JSONPlaceholder API smoke coverage</h5>
-<span class='badge badge-success'>02.23.2026 2:30:17 AM</span>
-<span class='badge badge-danger'>02.23.2026 2:30:22 AM</span>
-<span class='badge badge-default'>00:00:04:409</span>
+<span class='badge badge-success'>02.23.2026 8:46:52 PM</span>
+<span class='badge badge-danger'>02.23.2026 8:46:57 PM</span>
+<span class='badge badge-default'>00:00:05:097</span>
 &middot; <span class='uri-anchor badge badge-default'>#test-id=354</span>
 <span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
 <span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
@@ -2376,7 +2388,7 @@
   <div class="card">
     <div class="card-header" role="tab">
       <div class="card-title">
-        <div class="node" id="362"><span class="badge log pass-bg mr-2">Pass</span>List posts for a user</div>
+        <div class="node" id="365"><span class="badge log pass-bg mr-2">Pass</span>List posts for a user</div>
       </div>
     </div>
         <div class="collapse">
@@ -2417,48 +2429,7 @@
   <div class="card">
     <div class="card-header" role="tab">
       <div class="card-title">
-        <div class="node" id="377"><span class="badge log pass-bg mr-2">Pass</span>Get a user</div>
-      </div>
-    </div>
-        <div class="collapse">
-          <div class="card-body">
-              <div class="step pass-bg" title="ui.steps.api.ApiSteps.useBaseUrl(java.lang.String)">
-                <span>Given I use base url "https://jsonplaceholder.typicode.com"</span>
-      <div>
-      </div>
-              </div>
-              <div class="step pass-bg" title="ui.steps.api.ApiSteps.get(java.lang.String)">
-                <span>When I GET "/users/1"</span>
-      <div>
-      </div>
-              </div>
-              <div class="step pass-bg" title="ui.steps.api.ApiSteps.status(java.lang.Integer)">
-                <span>Then the response status should be 200</span>
-      <div>
-      </div>
-              </div>
-              <div class="step pass-bg" title="ui.steps.api.ApiSteps.jsonPathShortInt(java.lang.String,java.lang.Integer)">
-                <span>And json path "id" should be 1</span>
-      <div>
-      </div>
-              </div>
-              <div class="step pass-bg" title="ui.steps.api.ApiSteps.jsonPathShortContains(java.lang.String,java.lang.String)">
-                <span>And json path "email" should contain "@"</span>
-      <div>
-      </div>
-              </div>
-              <div class="step pass-bg" title="ui.steps.api.ApiSteps.schema(java.lang.String)">
-                <span>And the response should match json schema "schemas/jsonplaceholder_user_schema.json"</span>
-      <div>
-      </div>
-              </div>
-          </div>
-        </div>
-  </div>
-  <div class="card">
-    <div class="card-header" role="tab">
-      <div class="card-title">
-        <div class="node" id="379"><span class="badge log pass-bg mr-2">Pass</span>List comments for a post</div>
+        <div class="node" id="377"><span class="badge log pass-bg mr-2">Pass</span>List comments for a post</div>
       </div>
     </div>
         <div class="collapse">
@@ -2499,7 +2470,130 @@
   <div class="card">
     <div class="card-header" role="tab">
       <div class="card-title">
-        <div class="node" id="391"><span class="badge log pass-bg mr-2">Pass</span>Create a post</div>
+        <div class="node" id="380"><span class="badge log pass-bg mr-2">Pass</span>Get a user</div>
+      </div>
+    </div>
+        <div class="collapse">
+          <div class="card-body">
+              <div class="step pass-bg" title="ui.steps.api.ApiSteps.useBaseUrl(java.lang.String)">
+                <span>Given I use base url "https://jsonplaceholder.typicode.com"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="ui.steps.api.ApiSteps.get(java.lang.String)">
+                <span>When I GET "/users/1"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="ui.steps.api.ApiSteps.status(java.lang.Integer)">
+                <span>Then the response status should be 200</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="ui.steps.api.ApiSteps.jsonPathShortInt(java.lang.String,java.lang.Integer)">
+                <span>And json path "id" should be 1</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="ui.steps.api.ApiSteps.jsonPathShortContains(java.lang.String,java.lang.String)">
+                <span>And json path "email" should contain "@"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="ui.steps.api.ApiSteps.schema(java.lang.String)">
+                <span>And the response should match json schema "schemas/jsonplaceholder_user_schema.json"</span>
+      <div>
+      </div>
+              </div>
+          </div>
+        </div>
+  </div>
+  <div class="card">
+    <div class="card-header" role="tab">
+      <div class="card-title">
+        <div class="node" id="391"><span class="badge log pass-bg mr-2">Pass</span>List photos in an album</div>
+      </div>
+    </div>
+        <div class="collapse">
+          <div class="card-body">
+              <div class="step pass-bg" title="ui.steps.api.ApiSteps.useBaseUrl(java.lang.String)">
+                <span>Given I use base url "https://jsonplaceholder.typicode.com"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="ui.steps.api.ApiSteps.get(java.lang.String)">
+                <span>When I GET "/photos?albumId=1"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="ui.steps.api.ApiSteps.status(java.lang.Integer)">
+                <span>Then the response status should be 200</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="ui.steps.api.ApiSteps.arraySizeGreaterThan(java.lang.String,int)">
+                <span>And the response array at "$" size should be greater than 0</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="ui.steps.api.ApiSteps.eachItemJsonPathEqualsInt(java.lang.String,int)">
+                <span>And each item in response array has json path "albumId" equals 1</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="ui.steps.api.ApiSteps.schema(java.lang.String)">
+                <span>And the response should match json schema "schemas/jsonplaceholder_photos_array_schema.json"</span>
+      <div>
+      </div>
+              </div>
+          </div>
+        </div>
+  </div>
+  <div class="card">
+    <div class="card-header" role="tab">
+      <div class="card-title">
+        <div class="node" id="394"><span class="badge log pass-bg mr-2">Pass</span>Get a todo</div>
+      </div>
+    </div>
+        <div class="collapse">
+          <div class="card-body">
+              <div class="step pass-bg" title="ui.steps.api.ApiSteps.useBaseUrl(java.lang.String)">
+                <span>Given I use base url "https://jsonplaceholder.typicode.com"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="ui.steps.api.ApiSteps.get(java.lang.String)">
+                <span>When I GET "/todos/1"</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="ui.steps.api.ApiSteps.status(java.lang.Integer)">
+                <span>Then the response status should be 200</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="ui.steps.api.ApiSteps.jsonPathShortInt(java.lang.String,java.lang.Integer)">
+                <span>And json path "id" should be 1</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="ui.steps.api.ApiSteps.jsonPathShortInt(java.lang.String,java.lang.Integer)">
+                <span>And json path "userId" should be 1</span>
+      <div>
+      </div>
+              </div>
+              <div class="step pass-bg" title="ui.steps.api.ApiSteps.schema(java.lang.String)">
+                <span>And the response should match json schema "schemas/jsonplaceholder_todo_schema.json"</span>
+      <div>
+      </div>
+              </div>
+          </div>
+        </div>
+  </div>
+  <div class="card">
+    <div class="card-header" role="tab">
+      <div class="card-title">
+        <div class="node" id="397"><span class="badge log pass-bg mr-2">Pass</span>Create a post</div>
       </div>
     </div>
         <div class="collapse">
@@ -2551,7 +2645,7 @@
   <div class="card">
     <div class="card-header" role="tab">
       <div class="card-title">
-        <div class="node" id="393"><span class="badge log pass-bg mr-2">Pass</span>Get an album</div>
+        <div class="node" id="400"><span class="badge log pass-bg mr-2">Pass</span>Get an album</div>
       </div>
     </div>
         <div class="collapse">
@@ -2597,89 +2691,7 @@
   <div class="card">
     <div class="card-header" role="tab">
       <div class="card-title">
-        <div class="node" id="395"><span class="badge log pass-bg mr-2">Pass</span>List photos in an album</div>
-      </div>
-    </div>
-        <div class="collapse">
-          <div class="card-body">
-              <div class="step pass-bg" title="ui.steps.api.ApiSteps.useBaseUrl(java.lang.String)">
-                <span>Given I use base url "https://jsonplaceholder.typicode.com"</span>
-      <div>
-      </div>
-              </div>
-              <div class="step pass-bg" title="ui.steps.api.ApiSteps.get(java.lang.String)">
-                <span>When I GET "/photos?albumId=1"</span>
-      <div>
-      </div>
-              </div>
-              <div class="step pass-bg" title="ui.steps.api.ApiSteps.status(java.lang.Integer)">
-                <span>Then the response status should be 200</span>
-      <div>
-      </div>
-              </div>
-              <div class="step pass-bg" title="ui.steps.api.ApiSteps.arraySizeGreaterThan(java.lang.String,int)">
-                <span>And the response array at "$" size should be greater than 0</span>
-      <div>
-      </div>
-              </div>
-              <div class="step pass-bg" title="ui.steps.api.ApiSteps.eachItemJsonPathEqualsInt(java.lang.String,int)">
-                <span>And each item in response array has json path "albumId" equals 1</span>
-      <div>
-      </div>
-              </div>
-              <div class="step pass-bg" title="ui.steps.api.ApiSteps.schema(java.lang.String)">
-                <span>And the response should match json schema "schemas/jsonplaceholder_photos_array_schema.json"</span>
-      <div>
-      </div>
-              </div>
-          </div>
-        </div>
-  </div>
-  <div class="card">
-    <div class="card-header" role="tab">
-      <div class="card-title">
-        <div class="node" id="398"><span class="badge log pass-bg mr-2">Pass</span>Get a todo</div>
-      </div>
-    </div>
-        <div class="collapse">
-          <div class="card-body">
-              <div class="step pass-bg" title="ui.steps.api.ApiSteps.useBaseUrl(java.lang.String)">
-                <span>Given I use base url "https://jsonplaceholder.typicode.com"</span>
-      <div>
-      </div>
-              </div>
-              <div class="step pass-bg" title="ui.steps.api.ApiSteps.get(java.lang.String)">
-                <span>When I GET "/todos/1"</span>
-      <div>
-      </div>
-              </div>
-              <div class="step pass-bg" title="ui.steps.api.ApiSteps.status(java.lang.Integer)">
-                <span>Then the response status should be 200</span>
-      <div>
-      </div>
-              </div>
-              <div class="step pass-bg" title="ui.steps.api.ApiSteps.jsonPathShortInt(java.lang.String,java.lang.Integer)">
-                <span>And json path "id" should be 1</span>
-      <div>
-      </div>
-              </div>
-              <div class="step pass-bg" title="ui.steps.api.ApiSteps.jsonPathShortInt(java.lang.String,java.lang.Integer)">
-                <span>And json path "userId" should be 1</span>
-      <div>
-      </div>
-              </div>
-              <div class="step pass-bg" title="ui.steps.api.ApiSteps.schema(java.lang.String)">
-                <span>And the response should match json schema "schemas/jsonplaceholder_todo_schema.json"</span>
-      <div>
-      </div>
-              </div>
-          </div>
-        </div>
-  </div>
-  <div class="card">
-    <div class="card-header" role="tab">
-      <div class="card-title">
-        <div class="node" id="408"><span class="badge log pass-bg mr-2">Pass</span>Update a post with PUT</div>
+        <div class="node" id="411"><span class="badge log pass-bg mr-2">Pass</span>Update a post with PUT</div>
       </div>
     </div>
         <div class="collapse">
@@ -2772,7 +2784,7 @@
   <div class="card">
     <div class="card-header" role="tab">
       <div class="card-title">
-        <div class="node" id="422"><span class="badge log pass-bg mr-2">Pass</span>Delete a post</div>
+        <div class="node" id="426"><span class="badge log pass-bg mr-2">Pass</span>Delete a post</div>
       </div>
     </div>
         <div class="collapse">
@@ -2798,14 +2810,14 @@
 </div>
           </div>
         </li>
-        <li class="test-item"  status="fail" test-id="431"
+        <li class="test-item"  status="fail" test-id="429"
           author=""
           tag=""
           device="">
           <div class="test-detail">
             <p class="name">ReqRes API validation</p>
             <p class="text-sm">
-              <span>2:30:21 AM</span> / <span>00:00:00:709</span>
+              <span>8:46:57 PM</span> / <span>00:00:00:321</span>
               <span class="badge fail-bg log float-right">Fail</span>
             </p>
           </div>
@@ -2814,10 +2826,10 @@
 <div class="p-v-10">
 <div class="info">
 <h5 class="test-status text-fail">ReqRes API validation</h5>
-<span class='badge badge-success'>02.23.2026 2:30:21 AM</span>
-<span class='badge badge-danger'>02.23.2026 2:30:22 AM</span>
-<span class='badge badge-default'>00:00:00:709</span>
-&middot; <span class='uri-anchor badge badge-default'>#test-id=431</span>
+<span class='badge badge-success'>02.23.2026 8:46:57 PM</span>
+<span class='badge badge-danger'>02.23.2026 8:46:57 PM</span>
+<span class='badge badge-default'>00:00:00:321</span>
+&middot; <span class='uri-anchor badge badge-default'>#test-id=429</span>
 <span title='Skip to the next failed step' class='badge badge-danger pointer float-right ne ml-1'><i class="fa fa-fast-forward"></i></span>
 <span title='Collapse all nodes' class='badge badge-default pointer float-right ct ml-1'><i class="fa fa-compress"></i></span>
 <span title='Expand all nodes' class='badge badge-default pointer float-right et'><i class="fa fa-expand"></i></span>
@@ -2829,7 +2841,7 @@
   <div class="card">
     <div class="card-header" role="tab">
       <div class="card-title">
-        <div class="node" id="432"><span class="badge log fail-bg mr-2">Fail</span>Login then fetch user details</div>
+        <div class="node" id="430"><span class="badge log fail-bg mr-2">Fail</span>Login then fetch user details</div>
       </div>
     </div>
         <div class="">
@@ -2907,82 +2919,6 @@
 <li class="test-item">
 <div class="test-detail">
 <span class="meta">
-<span class='badge log badge-danger'>5</span>
-</span>
-<p class="name">java.lang.AssertionError</p>
-<p class="duration text-sm">5 tests</p>
-</div>
-<div class="test-contents d-none">
-<div class="info">
-<h4>java.lang.AssertionError</h4>
-<span status="fail" class='badge log badge-danger'>5 failed</span>
-</div>
-<table class='table table-sm mt-4'>
-<thead>
-<tr>
-<th class="status-col">Status</th>
-<th class="timestamp-col">Timestamp</th>
-<th>TestName</th>
-</tr>
-</thead>
-<tbody>
-<tr class="tag-test-status" status="fail">
-<td><span class="badge log fail-bg">Fail</span></td>
-<td>02:30:13 AM</td>
-<td>
-<a href="#" class="linked" test-id='1' id='287'>And the JSON path "cookies.kc" should be "1"</a>
-<div class="">
-<span class="badge badge-default">httpbin Regression API suite (positive and negative coverage).Create, read and delete cookies.And the JSON path "cookies.kc" should be "1"</span>
-</div>
-</td>
-</tr>
-<tr class="tag-test-status" status="fail">
-<td><span class="badge log fail-bg">Fail</span></td>
-<td>02:30:18 AM</td>
-<td>
-<a href="#" class="linked" test-id='315' id='358'>Then the response status should be 200</a>
-<div class="">
-<span class="badge badge-default">httpbin Smoke API suite.Basic POST should echo JSON payload.Then the response status should be 200</span>
-</div>
-</td>
-</tr>
-<tr class="tag-test-status" status="fail">
-<td><span class="badge log fail-bg">Fail</span></td>
-<td>02:30:18 AM</td>
-<td>
-<a href="#" class="linked" test-id='315' id='374'>Then the response status should be 401</a>
-<div class="">
-<span class="badge badge-default">httpbin Smoke API suite.Basic Auth negative.Then the response status should be 401</span>
-</div>
-</td>
-</tr>
-<tr class="tag-test-status" status="fail">
-<td><span class="badge log fail-bg">Fail</span></td>
-<td>02:30:18 AM</td>
-<td>
-<a href="#" class="linked" test-id='315' id='375'>Then the response status should be 200</a>
-<div class="">
-<span class="badge badge-default">httpbin Smoke API suite.Basic Auth positive.Then the response status should be 200</span>
-</div>
-</td>
-</tr>
-<tr class="tag-test-status" status="fail">
-<td><span class="badge log fail-bg">Fail</span></td>
-<td>02:30:22 AM</td>
-<td>
-<a href="#" class="linked" test-id='431' id='439'>Then the response status should be 200</a>
-<div class="">
-<span class="badge badge-default">ReqRes API validation.Login then fetch user details.Then the response status should be 200</span>
-</div>
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</li>
-<li class="test-item">
-<div class="test-detail">
-<span class="meta">
 <span class='badge log badge-danger'>1</span>
 </span>
 <p class="name">java.lang.ClassCastException</p>
@@ -3004,11 +2940,97 @@
 <tbody>
 <tr class="tag-test-status" status="fail">
 <td><span class="badge log fail-bg">Fail</span></td>
-<td>02:30:04 AM</td>
+<td>20:46:40 PM</td>
 <td>
-<a href="#" class="linked" test-id='1' id='169'>And the JSON path "url" should contain "inspect"</a>
+<a href="#" class="linked" test-id='1' id='189'>And the JSON path "url" should contain "inspect"</a>
 <div class="">
 <span class="badge badge-default">httpbin Regression API suite (positive and negative coverage).Inspect query params, headers and client IP via /anything.And the JSON path "url" should contain "inspect"</span>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</li>
+<li class="test-item">
+<div class="test-detail">
+<span class="meta">
+<span class='badge log badge-danger'>6</span>
+</span>
+<p class="name">java.lang.AssertionError</p>
+<p class="duration text-sm">6 tests</p>
+</div>
+<div class="test-contents d-none">
+<div class="info">
+<h4>java.lang.AssertionError</h4>
+<span status="fail" class='badge log badge-danger'>6 failed</span>
+</div>
+<table class='table table-sm mt-4'>
+<thead>
+<tr>
+<th class="status-col">Status</th>
+<th class="timestamp-col">Timestamp</th>
+<th>TestName</th>
+</tr>
+</thead>
+<tbody>
+<tr class="tag-test-status" status="fail">
+<td><span class="badge log fail-bg">Fail</span></td>
+<td>20:46:48 PM</td>
+<td>
+<a href="#" class="linked" test-id='1' id='273'>And the JSON path "cookies.kc" should be "1"</a>
+<div class="">
+<span class="badge badge-default">httpbin Regression API suite (positive and negative coverage).Create, read and delete cookies.And the JSON path "cookies.kc" should be "1"</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="fail">
+<td><span class="badge log fail-bg">Fail</span></td>
+<td>20:46:52 PM</td>
+<td>
+<a href="#" class="linked" test-id='308' id='351'>Then the response status should be 200</a>
+<div class="">
+<span class="badge badge-default">httpbin Smoke API suite.GET /anything echoes the request method.Then the response status should be 200</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="fail">
+<td><span class="badge log fail-bg">Fail</span></td>
+<td>20:46:53 PM</td>
+<td>
+<a href="#" class="linked" test-id='308' id='360'>Then the response status should be 200</a>
+<div class="">
+<span class="badge badge-default">httpbin Smoke API suite.Basic POST should echo JSON payload.Then the response status should be 200</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="fail">
+<td><span class="badge log fail-bg">Fail</span></td>
+<td>20:46:54 PM</td>
+<td>
+<a href="#" class="linked" test-id='308' id='374'>Then the response status should be 401</a>
+<div class="">
+<span class="badge badge-default">httpbin Smoke API suite.Basic Auth negative.Then the response status should be 401</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="fail">
+<td><span class="badge log fail-bg">Fail</span></td>
+<td>20:46:54 PM</td>
+<td>
+<a href="#" class="linked" test-id='308' id='375'>Then the response status should be 200</a>
+<div class="">
+<span class="badge badge-default">httpbin Smoke API suite.Basic Auth positive.Then the response status should be 200</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="fail">
+<td><span class="badge log fail-bg">Fail</span></td>
+<td>20:46:57 PM</td>
+<td>
+<a href="#" class="linked" test-id='429' id='433'>Then the response status should be 200</a>
+<div class="">
+<span class="badge badge-default">ReqRes API validation.Login then fetch user details.Then the response status should be 200</span>
 </div>
 </td>
 </tr>
@@ -3035,17 +3057,17 @@
 <li class="test-item">
 <div class="test-detail">
 <span class="meta">
-<span class='badge log pass-bg'>13</span>
-<span class='badge log badge-danger'>4</span>
+<span class='badge log pass-bg'>49</span>
+<span class='badge log badge-danger'>3</span>
 </span>
-<p class="name">@api_smoke</p>
-<p class="duration text-sm">17 tests</p>
+<p class="name">@api_regression</p>
+<p class="duration text-sm">52 tests</p>
 </div>
 <div class="test-contents d-none">
 <div class="info">
-<h4>@api_smoke</h4>
-<span status="pass" class='badge log pass-bg'>13 passed</span>
-<span status="fail" class='badge log badge-danger'>4 failed</span>
+<h4>@api_regression</h4>
+<span status="pass" class='badge log pass-bg'>49 passed</span>
+<span status="fail" class='badge log badge-danger'>3 failed</span>
 </div>
 <table class='table table-sm mt-4'>
 <thead>
@@ -3058,69 +3080,499 @@
 <tbody>
 <tr class="tag-test-status" status="pass">
 <td><span class="badge log pass-bg">Pass</span></td>
-<td>02:30:14 AM</td>
+<td>20:46:16 PM</td>
 <td>
-<a href="#" class="linked" test-id='315' id='316'>Basic GET should return 200 and JSON</a>
+<a href="#" class="linked" test-id='1' id='3'>HTTP verb endpoints return success and JSON</a>
 <div class="">
-<span class="badge badge-default">httpbin Smoke API suite.Basic GET should return 200 and JSON</span>
+<span class="badge badge-default">httpbin Regression API suite (positive and negative coverage).HTTP verb endpoints return success and JSON</span>
 </div>
 </td>
 </tr>
 <tr class="tag-test-status" status="pass">
 <td><span class="badge log pass-bg">Pass</span></td>
-<td>02:30:16 AM</td>
+<td>20:46:16 PM</td>
 <td>
-<a href="#" class="linked" test-id='315' id='322'>GET /anything echoes the request method</a>
+<a href="#" class="linked" test-id='1' id='4'>HTTP verb endpoints return success and JSON</a>
 <div class="">
-<span class="badge badge-default">httpbin Smoke API suite.GET /anything echoes the request method</span>
+<span class="badge badge-default">httpbin Regression API suite (positive and negative coverage).HTTP verb endpoints return success and JSON</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>20:46:16 PM</td>
+<td>
+<a href="#" class="linked" test-id='1' id='5'>HTTP verb endpoints return success and JSON</a>
+<div class="">
+<span class="badge badge-default">httpbin Regression API suite (positive and negative coverage).HTTP verb endpoints return success and JSON</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>20:46:16 PM</td>
+<td>
+<a href="#" class="linked" test-id='1' id='9'>HTTP verb endpoints return success and JSON</a>
+<div class="">
+<span class="badge badge-default">httpbin Regression API suite (positive and negative coverage).HTTP verb endpoints return success and JSON</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>20:46:23 PM</td>
+<td>
+<a href="#" class="linked" test-id='1' id='28'>/anything echoes the request method correctly</a>
+<div class="">
+<span class="badge badge-default">httpbin Regression API suite (positive and negative coverage)./anything echoes the request method correctly</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>20:46:23 PM</td>
+<td>
+<a href="#" class="linked" test-id='1' id='30'>HTTP verb endpoints return success and JSON</a>
+<div class="">
+<span class="badge badge-default">httpbin Regression API suite (positive and negative coverage).HTTP verb endpoints return success and JSON</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>20:46:23 PM</td>
+<td>
+<a href="#" class="linked" test-id='1' id='33'>/anything echoes the request method correctly</a>
+<div class="">
+<span class="badge badge-default">httpbin Regression API suite (positive and negative coverage)./anything echoes the request method correctly</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>20:46:23 PM</td>
+<td>
+<a href="#" class="linked" test-id='1' id='39'>/anything echoes the request method correctly</a>
+<div class="">
+<span class="badge badge-default">httpbin Regression API suite (positive and negative coverage)./anything echoes the request method correctly</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>20:46:26 PM</td>
+<td>
+<a href="#" class="linked" test-id='1' id='55'>/anything echoes the request method correctly</a>
+<div class="">
+<span class="badge badge-default">httpbin Regression API suite (positive and negative coverage)./anything echoes the request method correctly</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>20:46:27 PM</td>
+<td>
+<a href="#" class="linked" test-id='1' id='59'>OPTIONS should return allowed methods</a>
+<div class="">
+<span class="badge badge-default">httpbin Regression API suite (positive and negative coverage).OPTIONS should return allowed methods</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>20:46:27 PM</td>
+<td>
+<a href="#" class="linked" test-id='1' id='63'>HEAD should return headers only</a>
+<div class="">
+<span class="badge badge-default">httpbin Regression API suite (positive and negative coverage).HEAD should return headers only</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>20:46:27 PM</td>
+<td>
+<a href="#" class="linked" test-id='1' id='65'>/anything echoes the request method correctly</a>
+<div class="">
+<span class="badge badge-default">httpbin Regression API suite (positive and negative coverage)./anything echoes the request method correctly</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>20:46:28 PM</td>
+<td>
+<a href="#" class="linked" test-id='1' id='74'>Bearer auth positive</a>
+<div class="">
+<span class="badge badge-default">httpbin Regression API suite (positive and negative coverage).Bearer auth positive</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>20:46:29 PM</td>
+<td>
+<a href="#" class="linked" test-id='1' id='82'>Bearer auth negative (missing token)</a>
+<div class="">
+<span class="badge badge-default">httpbin Regression API suite (positive and negative coverage).Bearer auth negative (missing token)</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>20:46:30 PM</td>
+<td>
+<a href="#" class="linked" test-id='1' id='88'>Digest auth positive</a>
+<div class="">
+<span class="badge badge-default">httpbin Regression API suite (positive and negative coverage).Digest auth positive</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>20:46:30 PM</td>
+<td>
+<a href="#" class="linked" test-id='1' id='94'>Digest auth negative</a>
+<div class="">
+<span class="badge badge-default">httpbin Regression API suite (positive and negative coverage).Digest auth negative</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>20:46:31 PM</td>
+<td>
+<a href="#" class="linked" test-id='1' id='103'>/status endpoint should generate the given status code</a>
+<div class="">
+<span class="badge badge-default">httpbin Regression API suite (positive and negative coverage)./status endpoint should generate the given status code</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>20:46:32 PM</td>
+<td>
+<a href="#" class="linked" test-id='1' id='108'>/status endpoint should generate the given status code</a>
+<div class="">
+<span class="badge badge-default">httpbin Regression API suite (positive and negative coverage)./status endpoint should generate the given status code</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>20:46:32 PM</td>
+<td>
+<a href="#" class="linked" test-id='1' id='113'>/status endpoint should generate the given status code</a>
+<div class="">
+<span class="badge badge-default">httpbin Regression API suite (positive and negative coverage)./status endpoint should generate the given status code</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>20:46:33 PM</td>
+<td>
+<a href="#" class="linked" test-id='1' id='119'>/status endpoint should generate the given status code</a>
+<div class="">
+<span class="badge badge-default">httpbin Regression API suite (positive and negative coverage)./status endpoint should generate the given status code</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>20:46:33 PM</td>
+<td>
+<a href="#" class="linked" test-id='1' id='121'>/status endpoint should generate the given status code</a>
+<div class="">
+<span class="badge badge-default">httpbin Regression API suite (positive and negative coverage)./status endpoint should generate the given status code</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>20:46:34 PM</td>
+<td>
+<a href="#" class="linked" test-id='1' id='128'>/status endpoint should generate the given status code</a>
+<div class="">
+<span class="badge badge-default">httpbin Regression API suite (positive and negative coverage)./status endpoint should generate the given status code</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>20:46:34 PM</td>
+<td>
+<a href="#" class="linked" test-id='1' id='133'>/status endpoint should generate the given status code</a>
+<div class="">
+<span class="badge badge-default">httpbin Regression API suite (positive and negative coverage)./status endpoint should generate the given status code</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>20:46:36 PM</td>
+<td>
+<a href="#" class="linked" test-id='1' id='141'>/status endpoint should generate the given status code</a>
+<div class="">
+<span class="badge badge-default">httpbin Regression API suite (positive and negative coverage)./status endpoint should generate the given status code</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>20:46:36 PM</td>
+<td>
+<a href="#" class="linked" test-id='1' id='145'>Inspect JSON body via /anything</a>
+<div class="">
+<span class="badge badge-default">httpbin Regression API suite (positive and negative coverage).Inspect JSON body via /anything</span>
 </div>
 </td>
 </tr>
 <tr class="tag-test-status" status="fail">
 <td><span class="badge log fail-bg">Fail</span></td>
-<td>02:30:16 AM</td>
+<td>20:46:37 PM</td>
 <td>
-<a href="#" class="linked" test-id='315' id='327'>Basic POST should echo JSON payload</a>
+<a href="#" class="linked" test-id='1' id='149'>Inspect query params, headers and client IP via /anything</a>
+<div class="">
+<span class="badge badge-default">httpbin Regression API suite (positive and negative coverage).Inspect query params, headers and client IP via /anything</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>20:46:37 PM</td>
+<td>
+<a href="#" class="linked" test-id='1' id='151'>Validate caching headers via /cache/0 (no caching)</a>
+<div class="">
+<span class="badge badge-default">httpbin Regression API suite (positive and negative coverage).Validate caching headers via /cache/0 (no caching)</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>20:46:38 PM</td>
+<td>
+<a href="#" class="linked" test-id='1' id='161'>Validate ETag response</a>
+<div class="">
+<span class="badge badge-default">httpbin Regression API suite (positive and negative coverage).Validate ETag response</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>20:46:39 PM</td>
+<td>
+<a href="#" class="linked" test-id='1' id='169'>Validate custom response headers</a>
+<div class="">
+<span class="badge badge-default">httpbin Regression API suite (positive and negative coverage).Validate custom response headers</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>20:46:39 PM</td>
+<td>
+<a href="#" class="linked" test-id='1' id='175'>Different response formats should return expected content types</a>
+<div class="">
+<span class="badge badge-default">httpbin Regression API suite (positive and negative coverage).Different response formats should return expected content types</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>20:46:40 PM</td>
+<td>
+<a href="#" class="linked" test-id='1' id='184'>Different response formats should return expected content types</a>
+<div class="">
+<span class="badge badge-default">httpbin Regression API suite (positive and negative coverage).Different response formats should return expected content types</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>20:46:40 PM</td>
+<td>
+<a href="#" class="linked" test-id='1' id='190'>Different response formats should return expected content types</a>
+<div class="">
+<span class="badge badge-default">httpbin Regression API suite (positive and negative coverage).Different response formats should return expected content types</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>20:46:41 PM</td>
+<td>
+<a href="#" class="linked" test-id='1' id='197'>Different response formats should return expected content types</a>
+<div class="">
+<span class="badge badge-default">httpbin Regression API suite (positive and negative coverage).Different response formats should return expected content types</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>20:46:41 PM</td>
+<td>
+<a href="#" class="linked" test-id='1' id='203'>Different response formats should return expected content types</a>
+<div class="">
+<span class="badge badge-default">httpbin Regression API suite (positive and negative coverage).Different response formats should return expected content types</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>20:46:42 PM</td>
+<td>
+<a href="#" class="linked" test-id='1' id='209'>Gzip response should be JSON</a>
+<div class="">
+<span class="badge badge-default">httpbin Regression API suite (positive and negative coverage).Gzip response should be JSON</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>20:46:42 PM</td>
+<td>
+<a href="#" class="linked" test-id='1' id='215'>UUID endpoint should return a UUID</a>
+<div class="">
+<span class="badge badge-default">httpbin Regression API suite (positive and negative coverage).UUID endpoint should return a UUID</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>20:46:42 PM</td>
+<td>
+<a href="#" class="linked" test-id='1' id='221'>Delay endpoint should respond within a reasonable time</a>
+<div class="">
+<span class="badge badge-default">httpbin Regression API suite (positive and negative coverage).Delay endpoint should respond within a reasonable time</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>20:46:43 PM</td>
+<td>
+<a href="#" class="linked" test-id='1' id='227'>Random bytes should return binary</a>
+<div class="">
+<span class="badge badge-default">httpbin Regression API suite (positive and negative coverage).Random bytes should return binary</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="fail">
+<td><span class="badge log fail-bg">Fail</span></td>
+<td>20:46:44 PM</td>
+<td>
+<a href="#" class="linked" test-id='1' id='235'>Create, read and delete cookies</a>
+<div class="">
+<span class="badge badge-default">httpbin Regression API suite (positive and negative coverage).Create, read and delete cookies</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>20:46:45 PM</td>
+<td>
+<a href="#" class="linked" test-id='1' id='244'>Image endpoints should return correct image content types</a>
+<div class="">
+<span class="badge badge-default">httpbin Regression API suite (positive and negative coverage).Image endpoints should return correct image content types</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>20:46:46 PM</td>
+<td>
+<a href="#" class="linked" test-id='1' id='255'>Image endpoints should return correct image content types</a>
+<div class="">
+<span class="badge badge-default">httpbin Regression API suite (positive and negative coverage).Image endpoints should return correct image content types</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>20:46:46 PM</td>
+<td>
+<a href="#" class="linked" test-id='1' id='257'>Image endpoints should return correct image content types</a>
+<div class="">
+<span class="badge badge-default">httpbin Regression API suite (positive and negative coverage).Image endpoints should return correct image content types</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>20:46:46 PM</td>
+<td>
+<a href="#" class="linked" test-id='1' id='267'>Image endpoints should return correct image content types</a>
+<div class="">
+<span class="badge badge-default">httpbin Regression API suite (positive and negative coverage).Image endpoints should return correct image content types</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>20:46:48 PM</td>
+<td>
+<a href="#" class="linked" test-id='1' id='280'>Redirect endpoint should return a redirect when not following</a>
+<div class="">
+<span class="badge badge-default">httpbin Regression API suite (positive and negative coverage).Redirect endpoint should return a redirect when not following</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>20:46:48 PM</td>
+<td>
+<a href="#" class="linked" test-id='1' id='287'>/status/301 returns 301 when redirects are disabled</a>
+<div class="">
+<span class="badge badge-default">httpbin Regression API suite (positive and negative coverage)./status/301 returns 301 when redirects are disabled</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>20:46:48 PM</td>
+<td>
+<a href="#" class="linked" test-id='1' id='294'>Redirect endpoint should reach final destination when following</a>
+<div class="">
+<span class="badge badge-default">httpbin Regression API suite (positive and negative coverage).Redirect endpoint should reach final destination when following</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>20:46:48 PM</td>
+<td>
+<a href="#" class="linked" test-id='1' id='301'>Redirect to a custom URL</a>
+<div class="">
+<span class="badge badge-default">httpbin Regression API suite (positive and negative coverage).Redirect to a custom URL</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>20:46:50 PM</td>
+<td>
+<a href="#" class="linked" test-id='1' id='310'>/anything should echo arbitrary path, headers and payload</a>
+<div class="">
+<span class="badge badge-default">httpbin Regression API suite (positive and negative coverage)./anything should echo arbitrary path, headers and payload</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="fail">
+<td><span class="badge log fail-bg">Fail</span></td>
+<td>20:46:51 PM</td>
+<td>
+<a href="#" class="linked" test-id='308' id='327'>Basic POST should echo JSON payload</a>
 <div class="">
 <span class="badge badge-default">httpbin Smoke API suite.Basic POST should echo JSON payload</span>
 </div>
 </td>
 </tr>
-<tr class="tag-test-status" status="fail">
-<td><span class="badge log fail-bg">Fail</span></td>
-<td>02:30:16 AM</td>
-<td>
-<a href="#" class="linked" test-id='315' id='338'>Basic Auth positive</a>
-<div class="">
-<span class="badge badge-default">httpbin Smoke API suite.Basic Auth positive</span>
-</div>
-</td>
-</tr>
-<tr class="tag-test-status" status="fail">
-<td><span class="badge log fail-bg">Fail</span></td>
-<td>02:30:16 AM</td>
-<td>
-<a href="#" class="linked" test-id='315' id='346'>Basic Auth negative</a>
-<div class="">
-<span class="badge badge-default">httpbin Smoke API suite.Basic Auth negative</span>
-</div>
-</td>
-</tr>
 <tr class="tag-test-status" status="pass">
 <td><span class="badge log pass-bg">Pass</span></td>
-<td>02:30:17 AM</td>
+<td>20:46:53 PM</td>
 <td>
-<a href="#" class="linked" test-id='354' id='355'>Get a single post</a>
-<div class="">
-<span class="badge badge-default">JSONPlaceholder API smoke coverage.Get a single post</span>
-</div>
-</td>
-</tr>
-<tr class="tag-test-status" status="pass">
-<td><span class="badge log pass-bg">Pass</span></td>
-<td>02:30:18 AM</td>
-<td>
-<a href="#" class="linked" test-id='354' id='362'>List posts for a user</a>
+<a href="#" class="linked" test-id='354' id='365'>List posts for a user</a>
 <div class="">
 <span class="badge badge-default">JSONPlaceholder API smoke coverage.List posts for a user</span>
 </div>
@@ -3128,29 +3580,9 @@
 </tr>
 <tr class="tag-test-status" status="pass">
 <td><span class="badge log pass-bg">Pass</span></td>
-<td>02:30:18 AM</td>
+<td>20:46:55 PM</td>
 <td>
-<a href="#" class="linked" test-id='354' id='377'>Get a user</a>
-<div class="">
-<span class="badge badge-default">JSONPlaceholder API smoke coverage.Get a user</span>
-</div>
-</td>
-</tr>
-<tr class="tag-test-status" status="pass">
-<td><span class="badge log pass-bg">Pass</span></td>
-<td>02:30:18 AM</td>
-<td>
-<a href="#" class="linked" test-id='354' id='379'>List comments for a post</a>
-<div class="">
-<span class="badge badge-default">JSONPlaceholder API smoke coverage.List comments for a post</span>
-</div>
-</td>
-</tr>
-<tr class="tag-test-status" status="pass">
-<td><span class="badge log pass-bg">Pass</span></td>
-<td>02:30:19 AM</td>
-<td>
-<a href="#" class="linked" test-id='354' id='391'>Create a post</a>
+<a href="#" class="linked" test-id='354' id='397'>Create a post</a>
 <div class="">
 <span class="badge badge-default">JSONPlaceholder API smoke coverage.Create a post</span>
 </div>
@@ -3158,71 +3590,11 @@
 </tr>
 <tr class="tag-test-status" status="pass">
 <td><span class="badge log pass-bg">Pass</span></td>
-<td>02:30:19 AM</td>
+<td>20:46:57 PM</td>
 <td>
-<a href="#" class="linked" test-id='354' id='393'>Get an album</a>
-<div class="">
-<span class="badge badge-default">JSONPlaceholder API smoke coverage.Get an album</span>
-</div>
-</td>
-</tr>
-<tr class="tag-test-status" status="pass">
-<td><span class="badge log pass-bg">Pass</span></td>
-<td>02:30:19 AM</td>
-<td>
-<a href="#" class="linked" test-id='354' id='395'>List photos in an album</a>
-<div class="">
-<span class="badge badge-default">JSONPlaceholder API smoke coverage.List photos in an album</span>
-</div>
-</td>
-</tr>
-<tr class="tag-test-status" status="pass">
-<td><span class="badge log pass-bg">Pass</span></td>
-<td>02:30:19 AM</td>
-<td>
-<a href="#" class="linked" test-id='354' id='398'>Get a todo</a>
-<div class="">
-<span class="badge badge-default">JSONPlaceholder API smoke coverage.Get a todo</span>
-</div>
-</td>
-</tr>
-<tr class="tag-test-status" status="pass">
-<td><span class="badge log pass-bg">Pass</span></td>
-<td>02:30:20 AM</td>
-<td>
-<a href="#" class="linked" test-id='354' id='408'>Update a post with PUT</a>
-<div class="">
-<span class="badge badge-default">JSONPlaceholder API smoke coverage.Update a post with PUT</span>
-</div>
-</td>
-</tr>
-<tr class="tag-test-status" status="pass">
-<td><span class="badge log pass-bg">Pass</span></td>
-<td>02:30:20 AM</td>
-<td>
-<a href="#" class="linked" test-id='354' id='415'>Partial update a post with PATCH</a>
-<div class="">
-<span class="badge badge-default">JSONPlaceholder API smoke coverage.Partial update a post with PATCH</span>
-</div>
-</td>
-</tr>
-<tr class="tag-test-status" status="pass">
-<td><span class="badge log pass-bg">Pass</span></td>
-<td>02:30:21 AM</td>
-<td>
-<a href="#" class="linked" test-id='354' id='422'>Delete a post</a>
+<a href="#" class="linked" test-id='354' id='426'>Delete a post</a>
 <div class="">
 <span class="badge badge-default">JSONPlaceholder API smoke coverage.Delete a post</span>
-</div>
-</td>
-</tr>
-<tr class="tag-test-status" status="fail">
-<td><span class="badge log fail-bg">Fail</span></td>
-<td>02:30:21 AM</td>
-<td>
-<a href="#" class="linked" test-id='431' id='432'>Login then fetch user details</a>
-<div class="">
-<span class="badge badge-default">ReqRes API validation.Login then fetch user details</span>
 </div>
 </td>
 </tr>
@@ -3233,17 +3605,17 @@
 <li class="test-item">
 <div class="test-detail">
 <span class="meta">
-<span class='badge log pass-bg'>47</span>
-<span class='badge log badge-danger'>2</span>
+<span class='badge log pass-bg'>12</span>
+<span class='badge log badge-danger'>5</span>
 </span>
-<p class="name">@api_regression</p>
-<p class="duration text-sm">49 tests</p>
+<p class="name">@api_smoke</p>
+<p class="duration text-sm">17 tests</p>
 </div>
 <div class="test-contents d-none">
 <div class="info">
-<h4>@api_regression</h4>
-<span status="pass" class='badge log pass-bg'>47 passed</span>
-<span status="fail" class='badge log badge-danger'>2 failed</span>
+<h4>@api_smoke</h4>
+<span status="pass" class='badge log pass-bg'>12 passed</span>
+<span status="fail" class='badge log badge-danger'>5 failed</span>
 </div>
 <table class='table table-sm mt-4'>
 <thead>
@@ -3256,491 +3628,171 @@
 <tbody>
 <tr class="tag-test-status" status="pass">
 <td><span class="badge log pass-bg">Pass</span></td>
-<td>02:29:42 AM</td>
+<td>20:46:50 PM</td>
 <td>
-<a href="#" class="linked" test-id='1' id='3'>HTTP verb endpoints return success and JSON</a>
+<a href="#" class="linked" test-id='308' id='309'>Basic GET should return 200 and JSON</a>
 <div class="">
-<span class="badge badge-default">httpbin Regression API suite (positive and negative coverage).HTTP verb endpoints return success and JSON</span>
-</div>
-</td>
-</tr>
-<tr class="tag-test-status" status="pass">
-<td><span class="badge log pass-bg">Pass</span></td>
-<td>02:29:42 AM</td>
-<td>
-<a href="#" class="linked" test-id='1' id='4'>HTTP verb endpoints return success and JSON</a>
-<div class="">
-<span class="badge badge-default">httpbin Regression API suite (positive and negative coverage).HTTP verb endpoints return success and JSON</span>
-</div>
-</td>
-</tr>
-<tr class="tag-test-status" status="pass">
-<td><span class="badge log pass-bg">Pass</span></td>
-<td>02:29:42 AM</td>
-<td>
-<a href="#" class="linked" test-id='1' id='6'>HTTP verb endpoints return success and JSON</a>
-<div class="">
-<span class="badge badge-default">httpbin Regression API suite (positive and negative coverage).HTTP verb endpoints return success and JSON</span>
-</div>
-</td>
-</tr>
-<tr class="tag-test-status" status="pass">
-<td><span class="badge log pass-bg">Pass</span></td>
-<td>02:29:42 AM</td>
-<td>
-<a href="#" class="linked" test-id='1' id='9'>HTTP verb endpoints return success and JSON</a>
-<div class="">
-<span class="badge badge-default">httpbin Regression API suite (positive and negative coverage).HTTP verb endpoints return success and JSON</span>
-</div>
-</td>
-</tr>
-<tr class="tag-test-status" status="pass">
-<td><span class="badge log pass-bg">Pass</span></td>
-<td>02:29:49 AM</td>
-<td>
-<a href="#" class="linked" test-id='1' id='28'>/anything echoes the request method correctly</a>
-<div class="">
-<span class="badge badge-default">httpbin Regression API suite (positive and negative coverage)./anything echoes the request method correctly</span>
-</div>
-</td>
-</tr>
-<tr class="tag-test-status" status="pass">
-<td><span class="badge log pass-bg">Pass</span></td>
-<td>02:29:49 AM</td>
-<td>
-<a href="#" class="linked" test-id='1' id='30'>/anything echoes the request method correctly</a>
-<div class="">
-<span class="badge badge-default">httpbin Regression API suite (positive and negative coverage)./anything echoes the request method correctly</span>
-</div>
-</td>
-</tr>
-<tr class="tag-test-status" status="pass">
-<td><span class="badge log pass-bg">Pass</span></td>
-<td>02:29:50 AM</td>
-<td>
-<a href="#" class="linked" test-id='1' id='32'>HTTP verb endpoints return success and JSON</a>
-<div class="">
-<span class="badge badge-default">httpbin Regression API suite (positive and negative coverage).HTTP verb endpoints return success and JSON</span>
-</div>
-</td>
-</tr>
-<tr class="tag-test-status" status="pass">
-<td><span class="badge log pass-bg">Pass</span></td>
-<td>02:29:50 AM</td>
-<td>
-<a href="#" class="linked" test-id='1' id='36'>/anything echoes the request method correctly</a>
-<div class="">
-<span class="badge badge-default">httpbin Regression API suite (positive and negative coverage)./anything echoes the request method correctly</span>
-</div>
-</td>
-</tr>
-<tr class="tag-test-status" status="pass">
-<td><span class="badge log pass-bg">Pass</span></td>
-<td>02:29:51 AM</td>
-<td>
-<a href="#" class="linked" test-id='1' id='49'>/anything echoes the request method correctly</a>
-<div class="">
-<span class="badge badge-default">httpbin Regression API suite (positive and negative coverage)./anything echoes the request method correctly</span>
-</div>
-</td>
-</tr>
-<tr class="tag-test-status" status="pass">
-<td><span class="badge log pass-bg">Pass</span></td>
-<td>02:29:54 AM</td>
-<td>
-<a href="#" class="linked" test-id='1' id='62'>HEAD should return headers only</a>
-<div class="">
-<span class="badge badge-default">httpbin Regression API suite (positive and negative coverage).HEAD should return headers only</span>
-</div>
-</td>
-</tr>
-<tr class="tag-test-status" status="pass">
-<td><span class="badge log pass-bg">Pass</span></td>
-<td>02:29:54 AM</td>
-<td>
-<a href="#" class="linked" test-id='1' id='64'>/anything echoes the request method correctly</a>
-<div class="">
-<span class="badge badge-default">httpbin Regression API suite (positive and negative coverage)./anything echoes the request method correctly</span>
-</div>
-</td>
-</tr>
-<tr class="tag-test-status" status="pass">
-<td><span class="badge log pass-bg">Pass</span></td>
-<td>02:29:54 AM</td>
-<td>
-<a href="#" class="linked" test-id='1' id='66'>OPTIONS should return allowed methods</a>
-<div class="">
-<span class="badge badge-default">httpbin Regression API suite (positive and negative coverage).OPTIONS should return allowed methods</span>
-</div>
-</td>
-</tr>
-<tr class="tag-test-status" status="pass">
-<td><span class="badge log pass-bg">Pass</span></td>
-<td>02:29:54 AM</td>
-<td>
-<a href="#" class="linked" test-id='1' id='74'>Bearer auth positive</a>
-<div class="">
-<span class="badge badge-default">httpbin Regression API suite (positive and negative coverage).Bearer auth positive</span>
-</div>
-</td>
-</tr>
-<tr class="tag-test-status" status="pass">
-<td><span class="badge log pass-bg">Pass</span></td>
-<td>02:29:57 AM</td>
-<td>
-<a href="#" class="linked" test-id='1' id='87'>Digest auth positive</a>
-<div class="">
-<span class="badge badge-default">httpbin Regression API suite (positive and negative coverage).Digest auth positive</span>
-</div>
-</td>
-</tr>
-<tr class="tag-test-status" status="pass">
-<td><span class="badge log pass-bg">Pass</span></td>
-<td>02:29:57 AM</td>
-<td>
-<a href="#" class="linked" test-id='1' id='89'>Bearer auth negative (missing token)</a>
-<div class="">
-<span class="badge badge-default">httpbin Regression API suite (positive and negative coverage).Bearer auth negative (missing token)</span>
-</div>
-</td>
-</tr>
-<tr class="tag-test-status" status="pass">
-<td><span class="badge log pass-bg">Pass</span></td>
-<td>02:29:57 AM</td>
-<td>
-<a href="#" class="linked" test-id='1' id='96'>/status endpoint should generate the given status code</a>
-<div class="">
-<span class="badge badge-default">httpbin Regression API suite (positive and negative coverage)./status endpoint should generate the given status code</span>
-</div>
-</td>
-</tr>
-<tr class="tag-test-status" status="pass">
-<td><span class="badge log pass-bg">Pass</span></td>
-<td>02:29:57 AM</td>
-<td>
-<a href="#" class="linked" test-id='1' id='102'>Digest auth negative</a>
-<div class="">
-<span class="badge badge-default">httpbin Regression API suite (positive and negative coverage).Digest auth negative</span>
-</div>
-</td>
-</tr>
-<tr class="tag-test-status" status="pass">
-<td><span class="badge log pass-bg">Pass</span></td>
-<td>02:29:59 AM</td>
-<td>
-<a href="#" class="linked" test-id='1' id='108'>/status endpoint should generate the given status code</a>
-<div class="">
-<span class="badge badge-default">httpbin Regression API suite (positive and negative coverage)./status endpoint should generate the given status code</span>
-</div>
-</td>
-</tr>
-<tr class="tag-test-status" status="pass">
-<td><span class="badge log pass-bg">Pass</span></td>
-<td>02:29:59 AM</td>
-<td>
-<a href="#" class="linked" test-id='1' id='113'>/status endpoint should generate the given status code</a>
-<div class="">
-<span class="badge badge-default">httpbin Regression API suite (positive and negative coverage)./status endpoint should generate the given status code</span>
-</div>
-</td>
-</tr>
-<tr class="tag-test-status" status="pass">
-<td><span class="badge log pass-bg">Pass</span></td>
-<td>02:29:59 AM</td>
-<td>
-<a href="#" class="linked" test-id='1' id='118'>/status endpoint should generate the given status code</a>
-<div class="">
-<span class="badge badge-default">httpbin Regression API suite (positive and negative coverage)./status endpoint should generate the given status code</span>
-</div>
-</td>
-</tr>
-<tr class="tag-test-status" status="pass">
-<td><span class="badge log pass-bg">Pass</span></td>
-<td>02:29:59 AM</td>
-<td>
-<a href="#" class="linked" test-id='1' id='123'>/status endpoint should generate the given status code</a>
-<div class="">
-<span class="badge badge-default">httpbin Regression API suite (positive and negative coverage)./status endpoint should generate the given status code</span>
-</div>
-</td>
-</tr>
-<tr class="tag-test-status" status="pass">
-<td><span class="badge log pass-bg">Pass</span></td>
-<td>02:30:01 AM</td>
-<td>
-<a href="#" class="linked" test-id='1' id='129'>/status endpoint should generate the given status code</a>
-<div class="">
-<span class="badge badge-default">httpbin Regression API suite (positive and negative coverage)./status endpoint should generate the given status code</span>
-</div>
-</td>
-</tr>
-<tr class="tag-test-status" status="pass">
-<td><span class="badge log pass-bg">Pass</span></td>
-<td>02:30:01 AM</td>
-<td>
-<a href="#" class="linked" test-id='1' id='132'>/status endpoint should generate the given status code</a>
-<div class="">
-<span class="badge badge-default">httpbin Regression API suite (positive and negative coverage)./status endpoint should generate the given status code</span>
-</div>
-</td>
-</tr>
-<tr class="tag-test-status" status="pass">
-<td><span class="badge log pass-bg">Pass</span></td>
-<td>02:30:01 AM</td>
-<td>
-<a href="#" class="linked" test-id='1' id='138'>/status endpoint should generate the given status code</a>
-<div class="">
-<span class="badge badge-default">httpbin Regression API suite (positive and negative coverage)./status endpoint should generate the given status code</span>
+<span class="badge badge-default">httpbin Smoke API suite.Basic GET should return 200 and JSON</span>
 </div>
 </td>
 </tr>
 <tr class="tag-test-status" status="fail">
 <td><span class="badge log fail-bg">Fail</span></td>
-<td>02:30:01 AM</td>
+<td>20:46:50 PM</td>
 <td>
-<a href="#" class="linked" test-id='1' id='142'>Inspect query params, headers and client IP via /anything</a>
-<div class="">
-<span class="badge badge-default">httpbin Regression API suite (positive and negative coverage).Inspect query params, headers and client IP via /anything</span>
-</div>
-</td>
-</tr>
-<tr class="tag-test-status" status="pass">
-<td><span class="badge log pass-bg">Pass</span></td>
-<td>02:30:03 AM</td>
-<td>
-<a href="#" class="linked" test-id='1' id='152'>Inspect JSON body via /anything</a>
-<div class="">
-<span class="badge badge-default">httpbin Regression API suite (positive and negative coverage).Inspect JSON body via /anything</span>
-</div>
-</td>
-</tr>
-<tr class="tag-test-status" status="pass">
-<td><span class="badge log pass-bg">Pass</span></td>
-<td>02:30:04 AM</td>
-<td>
-<a href="#" class="linked" test-id='1' id='159'>Validate caching headers via /cache/0 (no caching)</a>
-<div class="">
-<span class="badge badge-default">httpbin Regression API suite (positive and negative coverage).Validate caching headers via /cache/0 (no caching)</span>
-</div>
-</td>
-</tr>
-<tr class="tag-test-status" status="pass">
-<td><span class="badge log pass-bg">Pass</span></td>
-<td>02:30:04 AM</td>
-<td>
-<a href="#" class="linked" test-id='1' id='164'>Validate ETag response</a>
-<div class="">
-<span class="badge badge-default">httpbin Regression API suite (positive and negative coverage).Validate ETag response</span>
-</div>
-</td>
-</tr>
-<tr class="tag-test-status" status="pass">
-<td><span class="badge log pass-bg">Pass</span></td>
-<td>02:30:04 AM</td>
-<td>
-<a href="#" class="linked" test-id='1' id='170'>Validate custom response headers</a>
-<div class="">
-<span class="badge badge-default">httpbin Regression API suite (positive and negative coverage).Validate custom response headers</span>
-</div>
-</td>
-</tr>
-<tr class="tag-test-status" status="pass">
-<td><span class="badge log pass-bg">Pass</span></td>
-<td>02:30:06 AM</td>
-<td>
-<a href="#" class="linked" test-id='1' id='179'>Different response formats should return expected content types</a>
-<div class="">
-<span class="badge badge-default">httpbin Regression API suite (positive and negative coverage).Different response formats should return expected content types</span>
-</div>
-</td>
-</tr>
-<tr class="tag-test-status" status="pass">
-<td><span class="badge log pass-bg">Pass</span></td>
-<td>02:30:06 AM</td>
-<td>
-<a href="#" class="linked" test-id='1' id='184'>Different response formats should return expected content types</a>
-<div class="">
-<span class="badge badge-default">httpbin Regression API suite (positive and negative coverage).Different response formats should return expected content types</span>
-</div>
-</td>
-</tr>
-<tr class="tag-test-status" status="pass">
-<td><span class="badge log pass-bg">Pass</span></td>
-<td>02:30:06 AM</td>
-<td>
-<a href="#" class="linked" test-id='1' id='189'>Different response formats should return expected content types</a>
-<div class="">
-<span class="badge badge-default">httpbin Regression API suite (positive and negative coverage).Different response formats should return expected content types</span>
-</div>
-</td>
-</tr>
-<tr class="tag-test-status" status="pass">
-<td><span class="badge log pass-bg">Pass</span></td>
-<td>02:30:06 AM</td>
-<td>
-<a href="#" class="linked" test-id='1' id='197'>Different response formats should return expected content types</a>
-<div class="">
-<span class="badge badge-default">httpbin Regression API suite (positive and negative coverage).Different response formats should return expected content types</span>
-</div>
-</td>
-</tr>
-<tr class="tag-test-status" status="pass">
-<td><span class="badge log pass-bg">Pass</span></td>
-<td>02:30:07 AM</td>
-<td>
-<a href="#" class="linked" test-id='1' id='203'>Different response formats should return expected content types</a>
-<div class="">
-<span class="badge badge-default">httpbin Regression API suite (positive and negative coverage).Different response formats should return expected content types</span>
-</div>
-</td>
-</tr>
-<tr class="tag-test-status" status="pass">
-<td><span class="badge log pass-bg">Pass</span></td>
-<td>02:30:07 AM</td>
-<td>
-<a href="#" class="linked" test-id='1' id='209'>Gzip response should be JSON</a>
-<div class="">
-<span class="badge badge-default">httpbin Regression API suite (positive and negative coverage).Gzip response should be JSON</span>
-</div>
-</td>
-</tr>
-<tr class="tag-test-status" status="pass">
-<td><span class="badge log pass-bg">Pass</span></td>
-<td>02:30:08 AM</td>
-<td>
-<a href="#" class="linked" test-id='1' id='215'>UUID endpoint should return a UUID</a>
-<div class="">
-<span class="badge badge-default">httpbin Regression API suite (positive and negative coverage).UUID endpoint should return a UUID</span>
-</div>
-</td>
-</tr>
-<tr class="tag-test-status" status="pass">
-<td><span class="badge log pass-bg">Pass</span></td>
-<td>02:30:08 AM</td>
-<td>
-<a href="#" class="linked" test-id='1' id='221'>Delay endpoint should respond within a reasonable time</a>
-<div class="">
-<span class="badge badge-default">httpbin Regression API suite (positive and negative coverage).Delay endpoint should respond within a reasonable time</span>
-</div>
-</td>
-</tr>
-<tr class="tag-test-status" status="pass">
-<td><span class="badge log pass-bg">Pass</span></td>
-<td>02:30:09 AM</td>
-<td>
-<a href="#" class="linked" test-id='1' id='227'>Random bytes should return binary</a>
-<div class="">
-<span class="badge badge-default">httpbin Regression API suite (positive and negative coverage).Random bytes should return binary</span>
-</div>
-</td>
-</tr>
-<tr class="tag-test-status" status="fail">
-<td><span class="badge log fail-bg">Fail</span></td>
-<td>02:30:09 AM</td>
-<td>
-<a href="#" class="linked" test-id='1' id='238'>Create, read and delete cookies</a>
-<div class="">
-<span class="badge badge-default">httpbin Regression API suite (positive and negative coverage).Create, read and delete cookies</span>
-</div>
-</td>
-</tr>
-<tr class="tag-test-status" status="pass">
-<td><span class="badge log pass-bg">Pass</span></td>
-<td>02:30:09 AM</td>
-<td>
-<a href="#" class="linked" test-id='1' id='240'>Image endpoints should return correct image content types</a>
-<div class="">
-<span class="badge badge-default">httpbin Regression API suite (positive and negative coverage).Image endpoints should return correct image content types</span>
-</div>
-</td>
-</tr>
-<tr class="tag-test-status" status="pass">
-<td><span class="badge log pass-bg">Pass</span></td>
-<td>02:30:11 AM</td>
-<td>
-<a href="#" class="linked" test-id='1' id='250'>Image endpoints should return correct image content types</a>
-<div class="">
-<span class="badge badge-default">httpbin Regression API suite (positive and negative coverage).Image endpoints should return correct image content types</span>
-</div>
-</td>
-</tr>
-<tr class="tag-test-status" status="pass">
-<td><span class="badge log pass-bg">Pass</span></td>
-<td>02:30:11 AM</td>
-<td>
-<a href="#" class="linked" test-id='1' id='257'>Image endpoints should return correct image content types</a>
-<div class="">
-<span class="badge badge-default">httpbin Regression API suite (positive and negative coverage).Image endpoints should return correct image content types</span>
-</div>
-</td>
-</tr>
-<tr class="tag-test-status" status="pass">
-<td><span class="badge log pass-bg">Pass</span></td>
-<td>02:30:11 AM</td>
-<td>
-<a href="#" class="linked" test-id='1' id='267'>Image endpoints should return correct image content types</a>
-<div class="">
-<span class="badge badge-default">httpbin Regression API suite (positive and negative coverage).Image endpoints should return correct image content types</span>
-</div>
-</td>
-</tr>
-<tr class="tag-test-status" status="pass">
-<td><span class="badge log pass-bg">Pass</span></td>
-<td>02:30:12 AM</td>
-<td>
-<a href="#" class="linked" test-id='1' id='274'>Redirect endpoint should return a redirect when not following</a>
-<div class="">
-<span class="badge badge-default">httpbin Regression API suite (positive and negative coverage).Redirect endpoint should return a redirect when not following</span>
-</div>
-</td>
-</tr>
-<tr class="tag-test-status" status="pass">
-<td><span class="badge log pass-bg">Pass</span></td>
-<td>02:30:13 AM</td>
-<td>
-<a href="#" class="linked" test-id='1' id='281'>/status/301 returns 301 when redirects are disabled</a>
-<div class="">
-<span class="badge badge-default">httpbin Regression API suite (positive and negative coverage)./status/301 returns 301 when redirects are disabled</span>
-</div>
-</td>
-</tr>
-<tr class="tag-test-status" status="pass">
-<td><span class="badge log pass-bg">Pass</span></td>
-<td>02:30:13 AM</td>
-<td>
-<a href="#" class="linked" test-id='1' id='294'>Redirect endpoint should reach final destination when following</a>
-<div class="">
-<span class="badge badge-default">httpbin Regression API suite (positive and negative coverage).Redirect endpoint should reach final destination when following</span>
-</div>
-</td>
-</tr>
-<tr class="tag-test-status" status="pass">
-<td><span class="badge log pass-bg">Pass</span></td>
-<td>02:30:14 AM</td>
-<td>
-<a href="#" class="linked" test-id='1' id='301'>Redirect to a custom URL</a>
-<div class="">
-<span class="badge badge-default">httpbin Regression API suite (positive and negative coverage).Redirect to a custom URL</span>
-</div>
-</td>
-</tr>
-<tr class="tag-test-status" status="pass">
-<td><span class="badge log pass-bg">Pass</span></td>
-<td>02:30:14 AM</td>
-<td>
-<a href="#" class="linked" test-id='1' id='307'>/anything should echo arbitrary path, headers and payload</a>
-<div class="">
-<span class="badge badge-default">httpbin Regression API suite (positive and negative coverage)./anything should echo arbitrary path, headers and payload</span>
-</div>
-</td>
-</tr>
-<tr class="tag-test-status" status="pass">
-<td><span class="badge log pass-bg">Pass</span></td>
-<td>02:30:16 AM</td>
-<td>
-<a href="#" class="linked" test-id='315' id='322'>GET /anything echoes the request method</a>
+<a href="#" class="linked" test-id='308' id='321'>GET /anything echoes the request method</a>
 <div class="">
 <span class="badge badge-default">httpbin Smoke API suite.GET /anything echoes the request method</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="fail">
+<td><span class="badge log fail-bg">Fail</span></td>
+<td>20:46:51 PM</td>
+<td>
+<a href="#" class="linked" test-id='308' id='327'>Basic POST should echo JSON payload</a>
+<div class="">
+<span class="badge badge-default">httpbin Smoke API suite.Basic POST should echo JSON payload</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="fail">
+<td><span class="badge log fail-bg">Fail</span></td>
+<td>20:46:52 PM</td>
+<td>
+<a href="#" class="linked" test-id='308' id='341'>Basic Auth positive</a>
+<div class="">
+<span class="badge badge-default">httpbin Smoke API suite.Basic Auth positive</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="fail">
+<td><span class="badge log fail-bg">Fail</span></td>
+<td>20:46:52 PM</td>
+<td>
+<a href="#" class="linked" test-id='308' id='346'>Basic Auth negative</a>
+<div class="">
+<span class="badge badge-default">httpbin Smoke API suite.Basic Auth negative</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>20:46:52 PM</td>
+<td>
+<a href="#" class="linked" test-id='354' id='355'>Get a single post</a>
+<div class="">
+<span class="badge badge-default">JSONPlaceholder API smoke coverage.Get a single post</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>20:46:53 PM</td>
+<td>
+<a href="#" class="linked" test-id='354' id='365'>List posts for a user</a>
+<div class="">
+<span class="badge badge-default">JSONPlaceholder API smoke coverage.List posts for a user</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>20:46:54 PM</td>
+<td>
+<a href="#" class="linked" test-id='354' id='377'>List comments for a post</a>
+<div class="">
+<span class="badge badge-default">JSONPlaceholder API smoke coverage.List comments for a post</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>20:46:54 PM</td>
+<td>
+<a href="#" class="linked" test-id='354' id='380'>Get a user</a>
+<div class="">
+<span class="badge badge-default">JSONPlaceholder API smoke coverage.Get a user</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>20:46:55 PM</td>
+<td>
+<a href="#" class="linked" test-id='354' id='391'>List photos in an album</a>
+<div class="">
+<span class="badge badge-default">JSONPlaceholder API smoke coverage.List photos in an album</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>20:46:55 PM</td>
+<td>
+<a href="#" class="linked" test-id='354' id='394'>Get a todo</a>
+<div class="">
+<span class="badge badge-default">JSONPlaceholder API smoke coverage.Get a todo</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>20:46:55 PM</td>
+<td>
+<a href="#" class="linked" test-id='354' id='397'>Create a post</a>
+<div class="">
+<span class="badge badge-default">JSONPlaceholder API smoke coverage.Create a post</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>20:46:55 PM</td>
+<td>
+<a href="#" class="linked" test-id='354' id='400'>Get an album</a>
+<div class="">
+<span class="badge badge-default">JSONPlaceholder API smoke coverage.Get an album</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>20:46:56 PM</td>
+<td>
+<a href="#" class="linked" test-id='354' id='411'>Update a post with PUT</a>
+<div class="">
+<span class="badge badge-default">JSONPlaceholder API smoke coverage.Update a post with PUT</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>20:46:56 PM</td>
+<td>
+<a href="#" class="linked" test-id='354' id='415'>Partial update a post with PATCH</a>
+<div class="">
+<span class="badge badge-default">JSONPlaceholder API smoke coverage.Partial update a post with PATCH</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="pass">
+<td><span class="badge log pass-bg">Pass</span></td>
+<td>20:46:57 PM</td>
+<td>
+<a href="#" class="linked" test-id='354' id='426'>Delete a post</a>
+<div class="">
+<span class="badge badge-default">JSONPlaceholder API smoke coverage.Delete a post</span>
+</div>
+</td>
+</tr>
+<tr class="tag-test-status" status="fail">
+<td><span class="badge log fail-bg">Fail</span></td>
+<td>20:46:57 PM</td>
+<td>
+<a href="#" class="linked" test-id='429' id='430'>Login then fetch user details</a>
+<div class="">
+<span class="badge badge-default">ReqRes API validation.Login then fetch user details</span>
 </div>
 </td>
 </tr>
@@ -3761,13 +3813,13 @@
 <div class="col-md-3">
 <div class="card"><div class="card-body">
 <p class="m-b-0">Started</p>
-<h3>Feb 23, 2026 02:29:37 AM</h3>
+<h3>Feb 23, 2026 08:46:12 PM</h3>
 </div></div>
 </div>
 <div class="col-md-3">
 <div class="card"><div class="card-body">
 <p class="m-b-0">Ended</p>
-<h3>Feb 23, 2026 02:30:24 AM</h3>
+<h3>Feb 23, 2026 08:46:59 PM</h3>
 </div></div>
 </div>
 <div class="col-md-3">
@@ -3818,9 +3870,9 @@
 </div>
 </div>
 <div class="card-footer">
-<div><small data-tooltip='90%'><b>59</b> scenarios passed</small></div>
+<div><small data-tooltip='89%'><b>58</b> scenarios passed</small></div>
 <div>
-<small data-tooltip='9%'><b>6</b> scenarios failed,
+<small data-tooltip='10%'><b>7</b> scenarios failed,
 <b>0</b> skipped, <b data-tooltip='%'>0</b> others
 </small>
 </div>
@@ -3838,10 +3890,10 @@
 </div>
 </div>
 <div class="card-footer">
-<div><small data-tooltip='94%'><b>350</b> steps passed</small></div>
+<div><small data-tooltip='93%'><b>347</b> steps passed</small></div>
 <div>
-<small data-tooltip='1%'><b>6</b> steps failed,
-<b>14</b> skipped, <b data-tooltip='%'>0</b> others
+<small data-tooltip='1%'><b>7</b> steps failed,
+<b>16</b> skipped, <b data-tooltip='%'>0</b> others
 </small>
 </div>
 </div>
@@ -3857,7 +3909,7 @@
 </div></div>
 <script>
 var timeline = {
-"httpbin Regression API suite (positive and negative coverage)":34.051,"httpbin Smoke API suite":3.829,"JSONPlaceholder API smoke coverage":4.409,"ReqRes API validation":0.709
+"httpbin Regression API suite (positive and negative coverage)":35.872,"httpbin Smoke API suite":4.079,"JSONPlaceholder API smoke coverage":5.097,"ReqRes API validation":0.321
 };
 </script>
 <div class="row">
@@ -3867,20 +3919,20 @@ var timeline = {
 <div class="card-body pb-0 pt-0"><table class="table table-sm table-bordered">
 <thead><tr class="bg-gray"><th>Name</th><th>Passed</th><th>Failed</th><th>Skipped</th><th>Others</th><th>Passed %</th></tr></thead><tbody>
 <tr>
-<td>@api_smoke</td>
-<td>13</td>
-<td>4</td>
+<td>@api_regression</td>
+<td>49</td>
+<td>3</td>
 <td>0</td>
 <td>0</td>
-<td>76.471%</td>
+<td>94.231%</td>
 </tr>
 <tr>
-<td>@api_regression</td>
-<td>47</td>
-<td>2</td>
+<td>@api_smoke</td>
+<td>12</td>
+<td>5</td>
 <td>0</td>
 <td>0</td>
-<td>95.918%</td>
+<td>70.588%</td>
 </tr>
 </tbody>
 </table></div>
@@ -3914,16 +3966,16 @@ failParent: 3,
 warningParent: 0,
 skipParent: 0,
 childCount: 5,
-passChild: 59,
-failChild: 6,
+passChild: 58,
+failChild: 7,
 warningChild: 0,
 skipChild: 0,
 infoChild: 0,
 grandChildCount: 5,
-passGrandChild: 350,
-failGrandChild: 6,
+passGrandChild: 347,
+failGrandChild: 7,
 warningGrandChild: 0,
-skipGrandChild: 14,
+skipGrandChild: 16,
 infoGrandChild: 0,
 eventsCount: 5,
 };

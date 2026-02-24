@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="TestSuite" time="51.995" tests="65" errors="0" skipped="0" failures="6">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="TestSuite" time="52.543" tests="65" errors="0" skipped="0" failures="7">
   <properties>
     <property name="java.specification.version" value="17"/>
     <property name="mockPort" value=""/>
@@ -18,7 +18,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="US"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk-17.0.18\bin"/>
-    <property name="sun.java.command" value="C:\Users\malth\AppData\Local\Temp\surefire4929166821440196603\surefirebooter-20260223022931249_3.jar C:\Users\malth\AppData\Local\Temp\surefire4929166821440196603 2026-02-23T02-29-30_429-jvmRun1 surefire-20260223022931249_1tmp surefire_0-20260223022931249_2tmp"/>
+    <property name="sun.java.command" value="C:\Users\malth\AppData\Local\Temp\surefire3079876087615567126\surefirebooter-20260223204607241_3.jar C:\Users\malth\AppData\Local\Temp\surefire3079876087615567126 2026-02-23T20-46-06_348-jvmRun1 surefire-20260223204607241_1tmp surefire_0-20260223204607241_2tmp"/>
     <property name="mockRoot" value=""/>
     <property name="jdk.debug" value="release"/>
     <property name="surefire.test.class.path" value="E:\QA_KC\KC-sdet-automation\tests\target\test-classes;E:\QA_KC\KC-sdet-automation\tests\target\classes;C:\Users\malth\.m2\repository\com\algodatta\framework-core\1.0.0\framework-core-1.0.0.jar;C:\Users\malth\.m2\repository\org\seleniumhq\selenium\selenium-java\4.22.0\selenium-java-4.22.0.jar;C:\Users\malth\.m2\repository\org\seleniumhq\selenium\selenium-api\4.22.0\selenium-api-4.22.0.jar;C:\Users\malth\.m2\repository\org\seleniumhq\selenium\selenium-chrome-driver\4.22.0\selenium-chrome-driver-4.22.0.jar;C:\Users\malth\.m2\repository\com\google\auto\service\auto-service-annotations\1.1.1\auto-service-annotations-1.1.1.jar;C:\Users\malth\.m2\repository\org\seleniumhq\selenium\selenium-chromium-driver\4.22.0\selenium-chromium-driver-4.22.0.jar;C:\Users\malth\.m2\repository\org\seleniumhq\selenium\selenium-json\4.22.0\selenium-json-4.22.0.jar;C:\Users\malth\.m2\repository\org\seleniumhq\selenium\selenium-manager\4.22.0\selenium-manager-4.22.0.jar;C:\Users\malth\.m2\repository\org\seleniumhq\selenium\selenium-devtools-v124\4.22.0\selenium-devtools-v124-4.22.0.jar;C:\Users\malth\.m2\repository\org\seleniumhq\selenium\selenium-devtools-v125\4.22.0\selenium-devtools-v125-4.22.0.jar;C:\Users\malth\.m2\repository\org\seleniumhq\selenium\selenium-devtools-v126\4.22.0\selenium-devtools-v126-4.22.0.jar;C:\Users\malth\.m2\repository\org\seleniumhq\selenium\selenium-devtools-v85\4.22.0\selenium-devtools-v85-4.22.0.jar;C:\Users\malth\.m2\repository\org\seleniumhq\selenium\selenium-edge-driver\4.22.0\selenium-edge-driver-4.22.0.jar;C:\Users\malth\.m2\repository\org\seleniumhq\selenium\selenium-firefox-driver\4.22.0\selenium-firefox-driver-4.22.0.jar;C:\Users\malth\.m2\repository\org\seleniumhq\selenium\selenium-http\4.22.0\selenium-http-4.22.0.jar;C:\Users\malth\.m2\repository\dev\failsafe\failsafe\3.3.2\failsafe-3.3.2.jar;C:\Users\malth\.m2\repository\org\seleniumhq\selenium\selenium-ie-driver\4.22.0\selenium-ie-driver-4.22.0.jar;C:\Users\malth\.m2\repository\org\seleniumhq\selenium\selenium-remote-driver\4.22.0\selenium-remote-driver-4.22.0.jar;C:\Users\malth\.m2\repository\io\opentelemetry\semconv\opentelemetry-semconv\1.25.0-alpha\opentelemetry-semconv-1.25.0-alpha.jar;C:\Users\malth\.m2\repository\io\opentelemetry\opentelemetry-api\1.39.0\opentelemetry-api-1.39.0.jar;C:\Users\malth\.m2\repository\io\opentelemetry\opentelemetry-context\1.39.0\opentelemetry-context-1.39.0.jar;C:\Users\malth\.m2\repository\io\opentelemetry\opentelemetry-exporter-logging\1.39.0\opentelemetry-exporter-logging-1.39.0.jar;C:\Users\malth\.m2\repository\io\opentelemetry\opentelemetry-sdk-common\1.39.0\opentelemetry-sdk-common-1.39.0.jar;C:\Users\malth\.m2\repository\io\opentelemetry\opentelemetry-sdk-extension-autoconfigure-spi\1.39.0\opentelemetry-sdk-extension-autoconfigure-spi-1.39.0.jar;C:\Users\malth\.m2\repository\io\opentelemetry\opentelemetry-sdk-extension-autoconfigure\1.39.0\opentelemetry-sdk-extension-autoconfigure-1.39.0.jar;C:\Users\malth\.m2\repository\io\opentelemetry\opentelemetry-api-incubator\1.39.0-alpha\opentelemetry-api-incubator-1.39.0-alpha.jar;C:\Users\malth\.m2\repository\io\opentelemetry\opentelemetry-sdk-trace\1.39.0\opentelemetry-sdk-trace-1.39.0.jar;C:\Users\malth\.m2\repository\io\opentelemetry\opentelemetry-sdk\1.39.0\opentelemetry-sdk-1.39.0.jar;C:\Users\malth\.m2\repository\io\opentelemetry\opentelemetry-sdk-metrics\1.39.0\opentelemetry-sdk-metrics-1.39.0.jar;C:\Users\malth\.m2\repository\io\opentelemetry\opentelemetry-sdk-logs\1.39.0\opentelemetry-sdk-logs-1.39.0.jar;C:\Users\malth\.m2\repository\net\bytebuddy\byte-buddy\1.14.17\byte-buddy-1.14.17.jar;C:\Users\malth\.m2\repository\org\seleniumhq\selenium\selenium-os\4.22.0\selenium-os-4.22.0.jar;C:\Users\malth\.m2\repository\org\apache\commons\commons-exec\1.4.0\commons-exec-1.4.0.jar;C:\Users\malth\.m2\repository\org\seleniumhq\selenium\selenium-safari-driver\4.22.0\selenium-safari-driver-4.22.0.jar;C:\Users\malth\.m2\repository\org\seleniumhq\selenium\selenium-support\4.22.0\selenium-support-4.22.0.jar;C:\Users\malth\.m2\repository\io\github\bonigarcia\webdrivermanager\5.8.0\webdrivermanager-5.8.0.jar;C:\Users\malth\.m2\repository\com\github\docker-java\docker-java\3.3.6\docker-java-3.3.6.jar;C:\Users\malth\.m2\repository\com\github\docker-java\docker-java-core\3.3.6\docker-java-core-3.3.6.jar;C:\Users\malth\.m2\repository\com\github\docker-java\docker-java-api\3.3.6\docker-java-api-3.3.6.jar;C:\Users\malth\.m2\repository\org\bouncycastle\bcpkix-jdk18on\1.76\bcpkix-jdk18on-1.76.jar;C:\Users\malth\.m2\repository\org\bouncycastle\bcprov-jdk18on\1.76\bcprov-jdk18on-1.76.jar;C:\Users\malth\.m2\repository\org\bouncycastle\bcutil-jdk18on\1.76\bcutil-jdk18on-1.76.jar;C:\Users\malth\.m2\repository\org\slf4j\jcl-over-slf4j\1.7.30\jcl-over-slf4j-1.7.30.jar;C:\Users\malth\.m2\repository\com\github\docker-java\docker-java-transport-httpclient5\3.3.6\docker-java-transport-httpclient5-3.3.6.jar;C:\Users\malth\.m2\repository\com\github\docker-java\docker-java-transport\3.3.6\docker-java-transport-3.3.6.jar;C:\Users\malth\.m2\repository\net\java\dev\jna\jna\5.13.0\jna-5.13.0.jar;C:\Users\malth\.m2\repository\org\brotli\dec\0.1.2\dec-0.1.2.jar;C:\Users\malth\.m2\repository\org\apache\commons\commons-compress\1.26.1\commons-compress-1.26.1.jar;C:\Users\malth\.m2\repository\commons-codec\commons-codec\1.16.1\commons-codec-1.16.1.jar;C:\Users\malth\.m2\repository\org\apache\httpcomponents\client5\httpclient5\5.2.1\httpclient5-5.2.1.jar;C:\Users\malth\.m2\repository\org\apache\httpcomponents\core5\httpcore5\5.2\httpcore5-5.2.jar;C:\Users\malth\.m2\repository\org\apache\httpcomponents\core5\httpcore5-h2\5.2\httpcore5-h2-5.2.jar;C:\Users\malth\.m2\repository\org\slf4j\slf4j-api\2.0.13\slf4j-api-2.0.13.jar;C:\Users\malth\.m2\repository\ch\qos\logback\logback-classic\1.5.6\logback-classic-1.5.6.jar;C:\Users\malth\.m2\repository\ch\qos\logback\logback-core\1.5.6\logback-core-1.5.6.jar;C:\Users\malth\.m2\repository\commons-io\commons-io\2.16.1\commons-io-2.16.1.jar;C:\Users\malth\.m2\repository\com\github\tomakehurst\wiremock-jre8\2.35.1\wiremock-jre8-2.35.1.jar;C:\Users\malth\.m2\repository\org\eclipse\jetty\jetty-server\9.4.49.v20220914\jetty-server-9.4.49.v20220914.jar;C:\Users\malth\.m2\repository\javax\servlet\javax.servlet-api\3.1.0\javax.servlet-api-3.1.0.jar;C:\Users\malth\.m2\repository\org\eclipse\jetty\jetty-http\9.4.49.v20220914\jetty-http-9.4.49.v20220914.jar;C:\Users\malth\.m2\repository\org\eclipse\jetty\jetty-io\9.4.49.v20220914\jetty-io-9.4.49.v20220914.jar;C:\Users\malth\.m2\repository\org\eclipse\jetty\jetty-servlet\9.4.49.v20220914\jetty-servlet-9.4.49.v20220914.jar;C:\Users\malth\.m2\repository\org\eclipse\jetty\jetty-security\9.4.49.v20220914\jetty-security-9.4.49.v20220914.jar;C:\Users\malth\.m2\repository\org\eclipse\jetty\jetty-util-ajax\9.4.49.v20220914\jetty-util-ajax-9.4.49.v20220914.jar;C:\Users\malth\.m2\repository\org\eclipse\jetty\jetty-servlets\9.4.49.v20220914\jetty-servlets-9.4.49.v20220914.jar;C:\Users\malth\.m2\repository\org\eclipse\jetty\jetty-continuation\9.4.49.v20220914\jetty-continuation-9.4.49.v20220914.jar;C:\Users\malth\.m2\repository\org\eclipse\jetty\jetty-util\9.4.49.v20220914\jetty-util-9.4.49.v20220914.jar;C:\Users\malth\.m2\repository\org\eclipse\jetty\jetty-webapp\9.4.49.v20220914\jetty-webapp-9.4.49.v20220914.jar;C:\Users\malth\.m2\repository\org\eclipse\jetty\jetty-xml\9.4.49.v20220914\jetty-xml-9.4.49.v20220914.jar;C:\Users\malth\.m2\repository\org\eclipse\jetty\jetty-proxy\9.4.49.v20220914\jetty-proxy-9.4.49.v20220914.jar;C:\Users\malth\.m2\repository\org\eclipse\jetty\jetty-client\9.4.49.v20220914\jetty-client-9.4.49.v20220914.jar;C:\Users\malth\.m2\repository\org\eclipse\jetty\http2\http2-server\9.4.49.v20220914\http2-server-9.4.49.v20220914.jar;C:\Users\malth\.m2\repository\org\eclipse\jetty\http2\http2-common\9.4.49.v20220914\http2-common-9.4.49.v20220914.jar;C:\Users\malth\.m2\repository\org\eclipse\jetty\http2\http2-hpack\9.4.49.v20220914\http2-hpack-9.4.49.v20220914.jar;C:\Users\malth\.m2\repository\org\eclipse\jetty\jetty-alpn-server\9.4.49.v20220914\jetty-alpn-server-9.4.49.v20220914.jar;C:\Users\malth\.m2\repository\org\eclipse\jetty\jetty-alpn-java-server\9.4.49.v20220914\jetty-alpn-java-server-9.4.49.v20220914.jar;C:\Users\malth\.m2\repository\org\eclipse\jetty\jetty-alpn-openjdk8-server\9.4.49.v20220914\jetty-alpn-openjdk8-server-9.4.49.v20220914.jar;C:\Users\malth\.m2\repository\org\eclipse\jetty\jetty-alpn-java-client\9.4.49.v20220914\jetty-alpn-java-client-9.4.49.v20220914.jar;C:\Users\malth\.m2\repository\org\eclipse\jetty\jetty-alpn-client\9.4.49.v20220914\jetty-alpn-client-9.4.49.v20220914.jar;C:\Users\malth\.m2\repository\org\eclipse\jetty\jetty-alpn-openjdk8-client\9.4.49.v20220914\jetty-alpn-openjdk8-client-9.4.49.v20220914.jar;C:\Users\malth\.m2\repository\com\google\guava\guava\31.1-jre\guava-31.1-jre.jar;C:\Users\malth\.m2\repository\com\google\guava\failureaccess\1.0.1\failureaccess-1.0.1.jar;C:\Users\malth\.m2\repository\com\google\guava\listenablefuture\9999.0-empty-to-avoid-conflict-with-guava\listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar;C:\Users\malth\.m2\repository\com\google\errorprone\error_prone_annotations\2.11.0\error_prone_annotations-2.11.0.jar;C:\Users\malth\.m2\repository\com\google\j2objc\j2objc-annotations\1.3\j2objc-annotations-1.3.jar;C:\Users\malth\.m2\repository\org\xmlunit\xmlunit-core\2.9.0\xmlunit-core-2.9.0.jar;C:\Users\malth\.m2\repository\jakarta\xml\bind\jakarta.xml.bind-api\2.3.3\jakarta.xml.bind-api-2.3.3.jar;C:\Users\malth\.m2\repository\jakarta\activation\jakarta.activation-api\1.2.2\jakarta.activation-api-1.2.2.jar;C:\Users\malth\.m2\repository\org\xmlunit\xmlunit-legacy\2.9.0\xmlunit-legacy-2.9.0.jar;C:\Users\malth\.m2\repository\org\xmlunit\xmlunit-placeholders\2.9.0\xmlunit-placeholders-2.9.0.jar;C:\Users\malth\.m2\repository\net\javacrumbs\json-unit\json-unit-core\2.36.0\json-unit-core-2.36.0.jar;C:\Users\malth\.m2\repository\org\hamcrest\hamcrest-core\2.2\hamcrest-core-2.2.jar;C:\Users\malth\.m2\repository\com\jayway\jsonpath\json-path\2.7.0\json-path-2.7.0.jar;C:\Users\malth\.m2\repository\net\minidev\json-smart\2.4.7\json-smart-2.4.7.jar;C:\Users\malth\.m2\repository\net\minidev\accessors-smart\2.4.7\accessors-smart-2.4.7.jar;C:\Users\malth\.m2\repository\org\ow2\asm\asm\9.4\asm-9.4.jar;C:\Users\malth\.m2\repository\net\sf\jopt-simple\jopt-simple\5.0.4\jopt-simple-5.0.4.jar;C:\Users\malth\.m2\repository\com\github\jknack\handlebars\4.3.1\handlebars-4.3.1.jar;C:\Users\malth\.m2\repository\com\github\jknack\handlebars-helpers\4.3.1\handlebars-helpers-4.3.1.jar;C:\Users\malth\.m2\repository\commons-fileupload\commons-fileupload\1.4\commons-fileupload-1.4.jar;C:\Users\malth\.m2\repository\org\postgresql\postgresql\42.7.3\postgresql-42.7.3.jar;C:\Users\malth\.m2\repository\org\checkerframework\checker-qual\3.42.0\checker-qual-3.42.0.jar;C:\Users\malth\.m2\repository\com\zaxxer\HikariCP\5.1.0\HikariCP-5.1.0.jar;C:\Users\malth\.m2\repository\com\algodatta\framework-ui\1.0.0\framework-ui-1.0.0.jar;C:\Users\malth\.m2\repository\com\algodatta\framework-api\1.0.0\framework-api-1.0.0.jar;C:\Users\malth\.m2\repository\io\rest-assured\rest-assured\5.5.0\rest-assured-5.5.0.jar;C:\Users\malth\.m2\repository\org\apache\groovy\groovy\4.0.22\groovy-4.0.22.jar;C:\Users\malth\.m2\repository\org\apache\groovy\groovy-xml\4.0.22\groovy-xml-4.0.22.jar;C:\Users\malth\.m2\repository\org\apache\httpcomponents\httpclient\4.5.13\httpclient-4.5.13.jar;C:\Users\malth\.m2\repository\org\apache\httpcomponents\httpcore\4.4.13\httpcore-4.4.13.jar;C:\Users\malth\.m2\repository\commons-logging\commons-logging\1.2\commons-logging-1.2.jar;C:\Users\malth\.m2\repository\org\apache\httpcomponents\httpmime\4.5.13\httpmime-4.5.13.jar;C:\Users\malth\.m2\repository\org\hamcrest\hamcrest\2.2\hamcrest-2.2.jar;C:\Users\malth\.m2\repository\org\ccil\cowan\tagsoup\tagsoup\1.2.1\tagsoup-1.2.1.jar;C:\Users\malth\.m2\repository\io\rest-assured\json-path\5.5.0\json-path-5.5.0.jar;C:\Users\malth\.m2\repository\org\apache\groovy\groovy-json\4.0.22\groovy-json-4.0.22.jar;C:\Users\malth\.m2\repository\io\rest-assured\rest-assured-common\5.5.0\rest-assured-common-5.5.0.jar;C:\Users\malth\.m2\repository\io\rest-assured\xml-path\5.5.0\xml-path-5.5.0.jar;C:\Users\malth\.m2\repository\io\rest-assured\json-schema-validator\5.5.0\json-schema-validator-5.5.0.jar;C:\Users\malth\.m2\repository\com\github\java-json-tools\json-schema-validator\2.2.14\json-schema-validator-2.2.14.jar;C:\Users\malth\.m2\repository\com\github\java-json-tools\jackson-coreutils-equivalence\1.0\jackson-coreutils-equivalence-1.0.jar;C:\Users\malth\.m2\repository\com\github\java-json-tools\jackson-coreutils\2.0\jackson-coreutils-2.0.jar;C:\Users\malth\.m2\repository\com\github\java-json-tools\msg-simple\1.2\msg-simple-1.2.jar;C:\Users\malth\.m2\repository\com\github\java-json-tools\btf\1.3\btf-1.3.jar;C:\Users\malth\.m2\repository\com\github\java-json-tools\json-schema-core\1.2.14\json-schema-core-1.2.14.jar;C:\Users\malth\.m2\repository\com\github\java-json-tools\uri-template\0.10\uri-template-0.10.jar;C:\Users\malth\.m2\repository\org\mozilla\rhino\1.7.7.2\rhino-1.7.7.2.jar;C:\Users\malth\.m2\repository\com\sun\mail\mailapi\1.6.2\mailapi-1.6.2.jar;C:\Users\malth\.m2\repository\joda-time\joda-time\2.10.5\joda-time-2.10.5.jar;C:\Users\malth\.m2\repository\com\googlecode\libphonenumber\libphonenumber\8.11.1\libphonenumber-8.11.1.jar;C:\Users\malth\.m2\repository\org\testng\testng\7.10.2\testng-7.10.2.jar;C:\Users\malth\.m2\repository\com\beust\jcommander\1.82\jcommander-1.82.jar;C:\Users\malth\.m2\repository\org\webjars\jquery\3.7.1\jquery-3.7.1.jar;C:\Users\malth\.m2\repository\io\cucumber\cucumber-java\7.18.0\cucumber-java-7.18.0.jar;C:\Users\malth\.m2\repository\io\cucumber\cucumber-core\7.18.0\cucumber-core-7.18.0.jar;C:\Users\malth\.m2\repository\io\cucumber\cucumber-gherkin-messages\7.18.0\cucumber-gherkin-messages-7.18.0.jar;C:\Users\malth\.m2\repository\io\cucumber\gherkin\28.0.0\gherkin-28.0.0.jar;C:\Users\malth\.m2\repository\io\cucumber\messages\24.1.0\messages-24.1.0.jar;C:\Users\malth\.m2\repository\io\cucumber\testng-xml-formatter\0.1.0\testng-xml-formatter-0.1.0.jar;C:\Users\malth\.m2\repository\io\cucumber\query\12.2.0\query-12.2.0.jar;C:\Users\malth\.m2\repository\io\cucumber\tag-expressions\6.1.0\tag-expressions-6.1.0.jar;C:\Users\malth\.m2\repository\io\cucumber\cucumber-expressions\17.1.0\cucumber-expressions-17.1.0.jar;C:\Users\malth\.m2\repository\io\cucumber\datatable\7.18.0\datatable-7.18.0.jar;C:\Users\malth\.m2\repository\io\cucumber\docstring\7.18.0\docstring-7.18.0.jar;C:\Users\malth\.m2\repository\io\cucumber\html-formatter\21.3.1\html-formatter-21.3.1.jar;C:\Users\malth\.m2\repository\io\cucumber\junit-xml-formatter\0.4.0\junit-xml-formatter-0.4.0.jar;C:\Users\malth\.m2\repository\io\cucumber\ci-environment\10.0.1\ci-environment-10.0.1.jar;C:\Users\malth\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\malth\.m2\repository\io\cucumber\cucumber-testng\7.18.0\cucumber-testng-7.18.0.jar;C:\Users\malth\.m2\repository\io\cucumber\cucumber-picocontainer\7.18.0\cucumber-picocontainer-7.18.0.jar;C:\Users\malth\.m2\repository\org\picocontainer\picocontainer\2.15\picocontainer-2.15.jar;C:\Users\malth\.m2\repository\io\cucumber\cucumber-plugin\7.18.0\cucumber-plugin-7.18.0.jar;C:\Users\malth\.m2\repository\io\qameta\allure\allure-testng\2.27.0\allure-testng-2.27.0.jar;C:\Users\malth\.m2\repository\io\qameta\allure\allure-java-commons\2.27.0\allure-java-commons-2.27.0.jar;C:\Users\malth\.m2\repository\io\qameta\allure\allure-model\2.27.0\allure-model-2.27.0.jar;C:\Users\malth\.m2\repository\io\qameta\allure\allure-test-filter\2.27.0\allure-test-filter-2.27.0.jar;C:\Users\malth\.m2\repository\io\qameta\allure\allure-cucumber7-jvm\2.27.0\allure-cucumber7-jvm-2.27.0.jar;C:\Users\malth\.m2\repository\tech\grasshopper\extentreports-cucumber7-adapter\1.14.0\extentreports-cucumber7-adapter-1.14.0.jar;C:\Users\malth\.m2\repository\tech\grasshopper\extent-pdf-report\2.12.0\extent-pdf-report-2.12.0.jar;C:\Users\malth\.m2\repository\tech\grasshopper\cucumber-pdf-report\2.14.0\cucumber-pdf-report-2.14.0.jar;C:\Users\malth\.m2\repository\org\apache\pdfbox\pdfbox\2.0.26\pdfbox-2.0.26.jar;C:\Users\malth\.m2\repository\org\apache\pdfbox\fontbox\2.0.26\fontbox-2.0.26.jar;C:\Users\malth\.m2\repository\org\knowm\xchart\xchart\3.8.0\xchart-3.8.0.jar;C:\Users\malth\.m2\repository\de\erichseifert\vectorgraphics2d\VectorGraphics2D\0.13\VectorGraphics2D-0.13.jar;C:\Users\malth\.m2\repository\de\rototor\pdfbox\graphics2d\0.30\graphics2d-0.30.jar;C:\Users\malth\.m2\repository\com\madgag\animated-gif-lib\1.4\animated-gif-lib-1.4.jar;C:\Users\malth\.m2\repository\org\yaml\snakeyaml\2.0\snakeyaml-2.0.jar;C:\Users\malth\.m2\repository\tech\grasshopper\table-layout\1.5.1\table-layout-1.5.1.jar;C:\Users\malth\.m2\repository\tech\grasshopper\rest-assured-cucumber-pdf-report\1.5.0\rest-assured-cucumber-pdf-report-1.5.0.jar;C:\Users\malth\.m2\repository\org\jsoup\jsoup\1.15.3\jsoup-1.15.3.jar;C:\Users\malth\.m2\repository\com\aventstack\klov-reporter\5.1.0\klov-reporter-5.1.0.jar;C:\Users\malth\.m2\repository\org\mongodb\mongodb-driver\3.6.4\mongodb-driver-3.6.4.jar;C:\Users\malth\.m2\repository\org\mongodb\mongodb-driver-core\3.6.4\mongodb-driver-core-3.6.4.jar;C:\Users\malth\.m2\repository\org\mongodb\bson\3.6.4\bson-3.6.4.jar;C:\Users\malth\.m2\repository\tech\grasshopper\htmlextentreporter\1.1.0\htmlextentreporter-1.1.0.jar;C:\Users\malth\.m2\repository\tech\grasshopper\extent-excel-report\1.4.0\extent-excel-report-1.4.0.jar;C:\Users\malth\.m2\repository\org\apache\poi\poi\5.2.3\poi-5.2.3.jar;C:\Users\malth\.m2\repository\org\apache\commons\commons-collections4\4.4\commons-collections4-4.4.jar;C:\Users\malth\.m2\repository\org\apache\commons\commons-math3\3.6.1\commons-math3-3.6.1.jar;C:\Users\malth\.m2\repository\com\zaxxer\SparseBitSet\1.2\SparseBitSet-1.2.jar;C:\Users\malth\.m2\repository\org\apache\poi\poi-ooxml\5.2.3\poi-ooxml-5.2.3.jar;C:\Users\malth\.m2\repository\org\apache\poi\poi-ooxml-lite\5.2.3\poi-ooxml-lite-5.2.3.jar;C:\Users\malth\.m2\repository\org\apache\xmlbeans\xmlbeans\5.1.1\xmlbeans-5.1.1.jar;C:\Users\malth\.m2\repository\com\github\virtuald\curvesapi\1.07\curvesapi-1.07.jar;C:\Users\malth\.m2\repository\com\aventstack\extentreports\5.1.2\extentreports-5.1.2.jar;C:\Users\malth\.m2\repository\io\reactivex\rxjava3\rxjava\3.1.6\rxjava-3.1.6.jar;C:\Users\malth\.m2\repository\org\reactivestreams\reactive-streams\1.0.4\reactive-streams-1.0.4.jar;C:\Users\malth\.m2\repository\org\freemarker\freemarker\2.3.32\freemarker-2.3.32.jar;C:\Users\malth\.m2\repository\org\projectlombok\lombok\1.18.26\lombok-1.18.26.jar;C:\Users\malth\.m2\repository\com\google\code\gson\gson\2.10.1\gson-2.10.1.jar;C:\Users\malth\.m2\repository\com\fasterxml\jackson\core\jackson-databind\2.17.2\jackson-databind-2.17.2.jar;C:\Users\malth\.m2\repository\com\fasterxml\jackson\core\jackson-core\2.17.2\jackson-core-2.17.2.jar;C:\Users\malth\.m2\repository\com\fasterxml\jackson\core\jackson-annotations\2.17.2\jackson-annotations-2.17.2.jar;C:\Users\malth\.m2\repository\com\epam\reportportal\agent-java-cucumber7\5.4.5\agent-java-cucumber7-5.4.5.jar;C:\Users\malth\.m2\repository\com\epam\reportportal\client-java\5.4.9\client-java-5.4.9.jar;C:\Users\malth\.m2\repository\io\reactivex\rxjava2\rxjava\2.2.21\rxjava-2.2.21.jar;C:\Users\malth\.m2\repository\jakarta\annotation\jakarta.annotation-api\3.0.0\jakarta.annotation-api-3.0.0.jar;C:\Users\malth\.m2\repository\com\squareup\retrofit2\retrofit\2.11.0\retrofit-2.11.0.jar;C:\Users\malth\.m2\repository\com\squareup\okhttp3\okhttp\4.12.0\okhttp-4.12.0.jar;C:\Users\malth\.m2\repository\com\squareup\okio\okio\3.6.0\okio-3.6.0.jar;C:\Users\malth\.m2\repository\com\squareup\okio\okio-jvm\3.6.0\okio-jvm-3.6.0.jar;C:\Users\malth\.m2\repository\org\jetbrains\kotlin\kotlin-stdlib-common\1.9.10\kotlin-stdlib-common-1.9.10.jar;C:\Users\malth\.m2\repository\org\jetbrains\kotlin\kotlin-stdlib-jdk8\1.8.21\kotlin-stdlib-jdk8-1.8.21.jar;C:\Users\malth\.m2\repository\org\jetbrains\kotlin\kotlin-stdlib\1.8.21\kotlin-stdlib-1.8.21.jar;C:\Users\malth\.m2\repository\org\jetbrains\annotations\13.0\annotations-13.0.jar;C:\Users\malth\.m2\repository\org\jetbrains\kotlin\kotlin-stdlib-jdk7\1.8.21\kotlin-stdlib-jdk7-1.8.21.jar;C:\Users\malth\.m2\repository\com\squareup\retrofit2\converter-scalars\2.11.0\converter-scalars-2.11.0.jar;C:\Users\malth\.m2\repository\com\squareup\retrofit2\converter-jackson\2.11.0\converter-jackson-2.11.0.jar;C:\Users\malth\.m2\repository\com\squareup\retrofit2\adapter-rxjava2\2.11.0\adapter-rxjava2-2.11.0.jar;C:\Users\malth\.m2\repository\com\squareup\okhttp3\logging-interceptor\4.12.0\logging-interceptor-4.12.0.jar;C:\Users\malth\.m2\repository\org\aspectj\aspectjrt\1.9.19\aspectjrt-1.9.19.jar;C:\Users\malth\.m2\repository\org\aspectj\aspectjweaver\1.9.19\aspectjweaver-1.9.19.jar;C:\Users\malth\.m2\repository\io\cucumber\cucumber-gherkin\7.21.1\cucumber-gherkin-7.21.1.jar;C:\Users\malth\.m2\repository\org\apache\commons\commons-lang3\3.19.0\commons-lang3-3.19.0.jar;C:\Users\malth\.m2\repository\com\epam\reportportal\agent-java-testng\5.2.0\agent-java-testng-5.2.0.jar;C:\Users\malth\.m2\repository\com\google\code\findbugs\jsr305\3.0.2\jsr305-3.0.2.jar;C:\Users\malth\.m2\repository\com\epam\reportportal\commons-model\5.0.0\commons-model-5.0.0.jar;C:\Users\malth\.m2\repository\io\swagger\swagger-annotations\1.5.24\swagger-annotations-1.5.24.jar;C:\Users\malth\.m2\repository\javax\validation\validation-api\2.0.1.Final\validation-api-2.0.1.Final.jar;C:\Users\malth\.m2\repository\org\apache\logging\log4j\log4j-api\2.23.1\log4j-api-2.23.1.jar;C:\Users\malth\.m2\repository\org\apache\logging\log4j\log4j-core\2.23.1\log4j-core-2.23.1.jar;C:\Users\malth\.m2\repository\org\apache\logging\log4j\log4j-slf4j2-impl\2.23.1\log4j-slf4j2-impl-2.23.1.jar;"/>
@@ -36,7 +36,7 @@
     <property name="line.separator" value="&#10;"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
-    <property name="surefire.real.class.path" value="C:\Users\malth\AppData\Local\Temp\surefire4929166821440196603\surefirebooter-20260223022931249_3.jar"/>
+    <property name="surefire.real.class.path" value="C:\Users\malth\AppData\Local\Temp\surefire3079876087615567126\surefirebooter-20260223204607241_3.jar"/>
     <property name="user.script" value=""/>
     <property name="rp.enable" value=""/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
@@ -75,19 +75,19 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="61.0"/>
   </properties>
-  <testcase name="runScenario[&quot;HTTP verb endpoints return success and JSON&quot;, &quot;httpbin Regression API suite (positive and negative coverage)&quot;](1)" classname="com.algodatta.runners.ApiRunner" time="9.159">
+  <testcase name="runScenario[&quot;HTTP verb endpoints return success and JSON&quot;, &quot;httpbin Regression API suite (positive and negative coverage)&quot;](1)" classname="com.algodatta.runners.ApiRunner" time="7.48">
     <system-out><![CDATA[
-@api_regression
-Scenario Outline: HTTP verb endpoints return success and JSON     # src/test/resources/features/api/httpbin_regression.feature:19
-
-@api_regression
-Scenario Outline: HTTP verb endpoints return success and JSON     # src/test/resources/features/api/httpbin_regression.feature:18
-
 @api_regression
 Scenario Outline: HTTP verb endpoints return success and JSON     # src/test/resources/features/api/httpbin_regression.feature:20
 
 @api_regression
+Scenario Outline: HTTP verb endpoints return success and JSON     # src/test/resources/features/api/httpbin_regression.feature:19
+
+@api_regression
 Scenario Outline: HTTP verb endpoints return success and JSON     # src/test/resources/features/api/httpbin_regression.feature:21
+
+@api_regression
+Scenario Outline: HTTP verb endpoints return success and JSON     # src/test/resources/features/api/httpbin_regression.feature:18
   Given I set API base url                                        # ui.steps.api.ApiSteps.setBaseUrl()
   Given I set API base url                                        # ui.steps.api.ApiSteps.setBaseUrl()
   Given I set API base url                                        # ui.steps.api.ApiSteps.setBaseUrl()
@@ -96,14 +96,14 @@ Scenario Outline: HTTP verb endpoints return success and JSON     # src/test/res
   And I reset API client                                          # ui.steps.api.ApiSteps.resetClient()
   And I reset API client                                          # ui.steps.api.ApiSteps.resetClient()
   And I reset API client                                          # ui.steps.api.ApiSteps.resetClient()
-  When I send "GET" request to "/get"                             # ui.steps.api.ApiSteps.send(java.lang.String,java.lang.String)
-  When I send "PATCH" request to "/patch"                         # ui.steps.api.ApiSteps.send(java.lang.String,java.lang.String)
   When I send "POST" request to "/post"                           # ui.steps.api.ApiSteps.send(java.lang.String,java.lang.String)
-  Then the response status should be 200                          # ui.steps.api.ApiSteps.status(java.lang.Integer)
+  When I send "GET" request to "/get"                             # ui.steps.api.ApiSteps.send(java.lang.String,java.lang.String)
   Then the response status should be 200                          # ui.steps.api.ApiSteps.status(java.lang.Integer)
   Then the response status should be 200                          # ui.steps.api.ApiSteps.status(java.lang.Integer)
   And the response content type should contain "application/json" # ui.steps.api.ApiSteps.contentTypeContains(java.lang.String)
   And the response content type should contain "application/json" # ui.steps.api.ApiSteps.contentTypeContains(java.lang.String)
+  When I send "PATCH" request to "/patch"                         # ui.steps.api.ApiSteps.send(java.lang.String,java.lang.String)
+  Then the response status should be 200                          # ui.steps.api.ApiSteps.status(java.lang.Integer)
   And the response content type should contain "application/json" # ui.steps.api.ApiSteps.contentTypeContains(java.lang.String)
 ]]></system-out>
     <system-err><![CDATA[SLF4J(W): Class path contains multiple SLF4J providers.
@@ -113,26 +113,29 @@ SLF4J(W): See https://www.slf4j.org/codes.html#multiple_bindings for an explanat
 SLF4J(I): Actual provider is of type [ch.qos.logback.classic.spi.LogbackServiceProvider@11438d26]
 ]]></system-err>
   </testcase>
-  <testcase name="runScenario[&quot;HTTP verb endpoints return success and JSON&quot;, &quot;httpbin Regression API suite (positive and negative coverage)&quot;](2)" classname="com.algodatta.runners.ApiRunner" time="0.031">
+  <testcase name="runScenario[&quot;HTTP verb endpoints return success and JSON&quot;, &quot;httpbin Regression API suite (positive and negative coverage)&quot;](2)" classname="com.algodatta.runners.ApiRunner" time="0.078">
     <system-out><![CDATA[  When I send "PUT" request to "/put"                             # ui.steps.api.ApiSteps.send(java.lang.String,java.lang.String)
-  Then the response status should be 200                          # ui.steps.api.ApiSteps.status(java.lang.Integer)
 ]]></system-out>
   </testcase>
-  <testcase name="runScenario[&quot;HTTP verb endpoints return success and JSON&quot;, &quot;httpbin Regression API suite (positive and negative coverage)&quot;](4)" classname="com.algodatta.runners.ApiRunner" time="0.039">
-    <system-out><![CDATA[  And the response content type should contain "application/json" # ui.steps.api.ApiSteps.contentTypeContains(java.lang.String)
+  <testcase name="runScenario[&quot;HTTP verb endpoints return success and JSON&quot;, &quot;httpbin Regression API suite (positive and negative coverage)&quot;](3)" classname="com.algodatta.runners.ApiRunner" time="0.06">
+    <system-out><![CDATA[  Then the response status should be 200                          # ui.steps.api.ApiSteps.status(java.lang.Integer)
+  And the response content type should contain "application/json" # ui.steps.api.ApiSteps.contentTypeContains(java.lang.String)
 ]]></system-out>
   </testcase>
-  <testcase name="runScenario[&quot;HTTP verb endpoints return success and JSON&quot;, &quot;httpbin Regression API suite (positive and negative coverage)&quot;](4)" classname="com.algodatta.runners.ApiRunner" time="0.04"/>
-  <testcase name="runScenario[&quot;HTTP verb endpoints return success and JSON&quot;, &quot;httpbin Regression API suite (positive and negative coverage)&quot;](5)" classname="com.algodatta.runners.ApiRunner" time="1.894">
+  <testcase name="runScenario[&quot;HTTP verb endpoints return success and JSON&quot;, &quot;httpbin Regression API suite (positive and negative coverage)&quot;](4)" classname="com.algodatta.runners.ApiRunner" time="0.581"/>
+  <testcase name="runScenario[&quot;HTTP verb endpoints return success and JSON&quot;, &quot;httpbin Regression API suite (positive and negative coverage)&quot;](5)" classname="com.algodatta.runners.ApiRunner" time="2.798">
     <system-out><![CDATA[
 @api_regression
 Scenario Outline: /anything echoes the request method correctly   # src/test/resources/features/api/httpbin_regression.feature:31
 
 @api_regression
-Scenario Outline: /anything echoes the request method correctly   # src/test/resources/features/api/httpbin_regression.feature:33
+Scenario Outline: HTTP verb endpoints return success and JSON     # src/test/resources/features/api/httpbin_regression.feature:22
+  Given I set API base url                                        # ui.steps.api.ApiSteps.setBaseUrl()
 
 @api_regression
-Scenario Outline: HTTP verb endpoints return success and JSON     # src/test/resources/features/api/httpbin_regression.feature:22
+Scenario Outline: /anything echoes the request method correctly   # src/test/resources/features/api/httpbin_regression.feature:33
+  Given I set API base url                                        # ui.steps.api.ApiSteps.setBaseUrl()
+  And I reset API client                                          # ui.steps.api.ApiSteps.resetClient()
   Given I set API base url                                        # ui.steps.api.ApiSteps.setBaseUrl()
   And I reset API client                                          # ui.steps.api.ApiSteps.resetClient()
 
@@ -140,124 +143,125 @@ Scenario Outline: HTTP verb endpoints return success and JSON     # src/test/res
 Scenario Outline: /anything echoes the request method correctly   # src/test/resources/features/api/httpbin_regression.feature:32
   Given I set API base url                                        # ui.steps.api.ApiSteps.setBaseUrl()
   And I reset API client                                          # ui.steps.api.ApiSteps.resetClient()
-  Given I set API base url                                        # ui.steps.api.ApiSteps.setBaseUrl()
   And I reset API client                                          # ui.steps.api.ApiSteps.resetClient()
-  Given I set API base url                                        # ui.steps.api.ApiSteps.setBaseUrl()
-  And I reset API client                                          # ui.steps.api.ApiSteps.resetClient()
+  When I send "PUT" request to "/anything"                        # ui.steps.api.ApiSteps.send(java.lang.String,java.lang.String)
+  Then the response status should be 200                          # ui.steps.api.ApiSteps.status(java.lang.Integer)
+  And the response content type should contain "application/json" # ui.steps.api.ApiSteps.contentTypeContains(java.lang.String)
+  When I send "POST" request to "/anything"                       # ui.steps.api.ApiSteps.send(java.lang.String,java.lang.String)
+  Then the response status should be 200                          # ui.steps.api.ApiSteps.status(java.lang.Integer)
+  And the response content type should contain "application/json" # ui.steps.api.ApiSteps.contentTypeContains(java.lang.String)
   When I send "DELETE" request to "/delete"                       # ui.steps.api.ApiSteps.send(java.lang.String,java.lang.String)
   Then the response status should be 200                          # ui.steps.api.ApiSteps.status(java.lang.Integer)
   And the response content type should contain "application/json" # ui.steps.api.ApiSteps.contentTypeContains(java.lang.String)
-  When I send "GET" request to "/anything"                        # ui.steps.api.ApiSteps.send(java.lang.String,java.lang.String)
 ]]></system-out>
   </testcase>
-  <testcase name="runScenario[&quot;/anything echoes the request method correctly&quot;, &quot;httpbin Regression API suite (positive and negative coverage)&quot;](6)" classname="com.algodatta.runners.ApiRunner" time="2.717">
-    <system-out><![CDATA[  Then the response status should be 200                          # ui.steps.api.ApiSteps.status(java.lang.Integer)
+  <testcase name="runScenario[&quot;/anything echoes the request method correctly&quot;, &quot;httpbin Regression API suite (positive and negative coverage)&quot;](6)" classname="com.algodatta.runners.ApiRunner" time="1.121">
+    <system-out><![CDATA[  When I send "GET" request to "/anything"                        # ui.steps.api.ApiSteps.send(java.lang.String,java.lang.String)
+  Then the response status should be 200                          # ui.steps.api.ApiSteps.status(java.lang.Integer)
   And the response content type should contain "application/json" # ui.steps.api.ApiSteps.contentTypeContains(java.lang.String)
 
 @api_regression
 Scenario Outline: /anything echoes the request method correctly   # src/test/resources/features/api/httpbin_regression.feature:34
   Given I set API base url                                        # ui.steps.api.ApiSteps.setBaseUrl()
   And I reset API client                                          # ui.steps.api.ApiSteps.resetClient()
-  When I send "POST" request to "/anything"                       # ui.steps.api.ApiSteps.send(java.lang.String,java.lang.String)
-  Then the response status should be 200                          # ui.steps.api.ApiSteps.status(java.lang.Integer)
-  And the response content type should contain "application/json" # ui.steps.api.ApiSteps.contentTypeContains(java.lang.String)
-  When I send "PUT" request to "/anything"                        # ui.steps.api.ApiSteps.send(java.lang.String,java.lang.String)
-  Then the response status should be 200                          # ui.steps.api.ApiSteps.status(java.lang.Integer)
-  And the response content type should contain "application/json" # ui.steps.api.ApiSteps.contentTypeContains(java.lang.String)
-  When I send "PATCH" request to "/anything"                      # ui.steps.api.ApiSteps.send(java.lang.String,java.lang.String)
-  Then the response status should be 200                          # ui.steps.api.ApiSteps.status(java.lang.Integer)
-  And the response content type should contain "application/json" # ui.steps.api.ApiSteps.contentTypeContains(java.lang.String)
-  And the JSON path "method" should be "PATCH"                    # ui.steps.api.ApiSteps.jsonPathEqualsString(java.lang.String,java.lang.String)
   And the JSON path "method" should be "GET"                      # ui.steps.api.ApiSteps.jsonPathEqualsString(java.lang.String,java.lang.String)
-]]></system-out>
-  </testcase>
-  <testcase name="runScenario[&quot;/anything echoes the request method correctly&quot;, &quot;httpbin Regression API suite (positive and negative coverage)&quot;](7)" classname="com.algodatta.runners.ApiRunner" time="0.03"/>
-  <testcase name="runScenario[&quot;/anything echoes the request method correctly&quot;, &quot;httpbin Regression API suite (positive and negative coverage)&quot;](8)" classname="com.algodatta.runners.ApiRunner" time="0.324">
-    <system-out><![CDATA[  And the JSON path "method" should be "POST"                     # ui.steps.api.ApiSteps.jsonPathEqualsString(java.lang.String,java.lang.String)
+  And the JSON path "method" should be "POST"                     # ui.steps.api.ApiSteps.jsonPathEqualsString(java.lang.String,java.lang.String)
   And the JSON path "method" should be "PUT"                      # ui.steps.api.ApiSteps.jsonPathEqualsString(java.lang.String,java.lang.String)
 ]]></system-out>
   </testcase>
-  <testcase name="runScenario[&quot;/anything echoes the request method correctly&quot;, &quot;httpbin Regression API suite (positive and negative coverage)&quot;](9)" classname="com.algodatta.runners.ApiRunner" time="0.0"/>
-  <testcase name="runScenario[&quot;HEAD should return headers only&quot;, &quot;httpbin Regression API suite (positive and negative coverage)&quot;](10)" classname="com.algodatta.runners.ApiRunner" time="2.096">
+  <testcase name="runScenario[&quot;/anything echoes the request method correctly&quot;, &quot;httpbin Regression API suite (positive and negative coverage)&quot;](7)" classname="com.algodatta.runners.ApiRunner" time="0.05"/>
+  <testcase name="runScenario[&quot;/anything echoes the request method correctly&quot;, &quot;httpbin Regression API suite (positive and negative coverage)&quot;](8)" classname="com.algodatta.runners.ApiRunner" time="0.107"/>
+  <testcase name="runScenario[&quot;/anything echoes the request method correctly&quot;, &quot;httpbin Regression API suite (positive and negative coverage)&quot;](9)" classname="com.algodatta.runners.ApiRunner" time="0.691">
     <system-out><![CDATA[
+@api_regression
+Scenario: OPTIONS should return allowed methods # src/test/resources/features/api/httpbin_regression.feature:41
+  Given I set API base url                      # ui.steps.api.ApiSteps.setBaseUrl()
+  And I reset API client                        # ui.steps.api.ApiSteps.resetClient()
+
 @api_regression
 Scenario: HEAD should return headers only # src/test/resources/features/api/httpbin_regression.feature:37
 
 @api_regression
 Scenario Outline: /anything echoes the request method correctly   # src/test/resources/features/api/httpbin_regression.feature:35
-
-@api_regression
-Scenario: OPTIONS should return allowed methods # src/test/resources/features/api/httpbin_regression.feature:41
-  Given I set API base url                      # ui.steps.api.ApiSteps.setBaseUrl()
   Given I set API base url                # ui.steps.api.ApiSteps.setBaseUrl()
   And I reset API client                  # ui.steps.api.ApiSteps.resetClient()
   Given I set API base url                                        # ui.steps.api.ApiSteps.setBaseUrl()
   And I reset API client                                          # ui.steps.api.ApiSteps.resetClient()
-  And I reset API client                        # ui.steps.api.ApiSteps.resetClient()
-
+  When I send "PATCH" request to "/anything"                      # ui.steps.api.ApiSteps.send(java.lang.String,java.lang.String)
+  Then the response status should be 200                          # ui.steps.api.ApiSteps.status(java.lang.Integer)
+  And the response content type should contain "application/json" # ui.steps.api.ApiSteps.contentTypeContains(java.lang.String)
+  And the JSON path "method" should be "PATCH"                    # ui.steps.api.ApiSteps.jsonPathEqualsString(java.lang.String,java.lang.String)
+]]></system-out>
+  </testcase>
+  <testcase name="runScenario[&quot;/anything echoes the request method correctly&quot;, &quot;httpbin Regression API suite (positive and negative coverage)&quot;](10)" classname="com.algodatta.runners.ApiRunner" time="1.384">
+    <system-out><![CDATA[
 @api_regression
 Scenario: Bearer auth positive                                    # src/test/resources/features/api/httpbin_regression.feature:46
   Given I set API base url                                        # ui.steps.api.ApiSteps.setBaseUrl()
   And I reset API client                                          # ui.steps.api.ApiSteps.resetClient()
   Given I use bearer token "test-token"                           # ui.steps.api.ApiSteps.bearer(java.lang.String)
-  When I send "GET" request to "/bearer"                          # ui.steps.api.ApiSteps.send(java.lang.String,java.lang.String)
-  Then the response status should be 200                          # ui.steps.api.ApiSteps.status(java.lang.Integer)
-  And the response content type should contain "application/json" # ui.steps.api.ApiSteps.contentTypeContains(java.lang.String)
   When I send "DELETE" request to "/anything"                     # ui.steps.api.ApiSteps.send(java.lang.String,java.lang.String)
   Then the response status should be 200                          # ui.steps.api.ApiSteps.status(java.lang.Integer)
   And the response content type should contain "application/json" # ui.steps.api.ApiSteps.contentTypeContains(java.lang.String)
+  And the JSON path "method" should be "DELETE"                   # ui.steps.api.ApiSteps.jsonPathEqualsString(java.lang.String,java.lang.String)
+]]></system-out>
+  </testcase>
+  <testcase name="runScenario[&quot;HEAD should return headers only&quot;, &quot;httpbin Regression API suite (positive and negative coverage)&quot;](11)" classname="com.algodatta.runners.ApiRunner" time="0.221">
+    <system-out><![CDATA[
+@api_regression
+Scenario: Bearer auth negative (missing token) # src/test/resources/features/api/httpbin_regression.feature:53
+  Given I set API base url                     # ui.steps.api.ApiSteps.setBaseUrl()
+  And I reset API client                       # ui.steps.api.ApiSteps.resetClient()
+  Given I reset API client                     # ui.steps.api.ApiSteps.resetClient()
   When I send "HEAD" request to "/get"    # ui.steps.api.ApiSteps.send(java.lang.String,java.lang.String)
   Then the response status should be 200  # ui.steps.api.ApiSteps.status(java.lang.Integer)
-  And the JSON path "method" should be "DELETE"                   # ui.steps.api.ApiSteps.jsonPathEqualsString(java.lang.String,java.lang.String)
-  And the JSON path "authenticated" should not be null            # ui.steps.api.ApiSteps.jsonPathNotNull(java.lang.String)
 ]]></system-out>
   </testcase>
-  <testcase name="runScenario[&quot;/anything echoes the request method correctly&quot;, &quot;httpbin Regression API suite (positive and negative coverage)&quot;](11)" classname="com.algodatta.runners.ApiRunner" time="0.0"/>
-  <testcase name="runScenario[&quot;Bearer auth positive&quot;, &quot;httpbin Regression API suite (positive and negative coverage)&quot;](12)" classname="com.algodatta.runners.ApiRunner" time="0.15">
-    <system-out><![CDATA[  When I send "OPTIONS" request to "/get"       # ui.steps.api.ApiSteps.send(java.lang.String,java.lang.String)
-  Then the response status should be 200        # ui.steps.api.ApiSteps.status(java.lang.Integer)
-]]></system-out>
-  </testcase>
-  <testcase name="runScenario[&quot;OPTIONS should return allowed methods&quot;, &quot;httpbin Regression API suite (positive and negative coverage)&quot;](13)" classname="com.algodatta.runners.ApiRunner" time="0.0"/>
-  <testcase name="runScenario[&quot;Bearer auth negative (missing token)&quot;, &quot;httpbin Regression API suite (positive and negative coverage)&quot;](14)" classname="com.algodatta.runners.ApiRunner" time="1.874">
+  <testcase name="runScenario[&quot;OPTIONS should return allowed methods&quot;, &quot;httpbin Regression API suite (positive and negative coverage)&quot;](12)" classname="com.algodatta.runners.ApiRunner" time="0.694">
     <system-out><![CDATA[
 @api_regression
 Scenario: Digest auth positive                                 # src/test/resources/features/api/httpbin_regression.feature:58
-
-@api_regression
-Scenario: Bearer auth negative (missing token) # src/test/resources/features/api/httpbin_regression.feature:53
   Given I set API base url                                     # ui.steps.api.ApiSteps.setBaseUrl()
-  Given I set API base url                     # ui.steps.api.ApiSteps.setBaseUrl()
-  And I reset API client                       # ui.steps.api.ApiSteps.resetClient()
   And I reset API client                                       # ui.steps.api.ApiSteps.resetClient()
-
-@api_regression
-Scenario Outline: /status endpoint should generate the given status code # src/test/resources/features/api/httpbin_regression.feature:77
-  Given I reset API client                     # ui.steps.api.ApiSteps.resetClient()
   Given I use digest auth "user" and "passwd"                  # ui.steps.api.ApiSteps.digestAuth(java.lang.String,java.lang.String)
-  Given I set API base url                                               # ui.steps.api.ApiSteps.setBaseUrl()
-  And I reset API client                                                 # ui.steps.api.ApiSteps.resetClient()
-
+  When I send "OPTIONS" request to "/get"       # ui.steps.api.ApiSteps.send(java.lang.String,java.lang.String)
+  Then the response status should be 200        # ui.steps.api.ApiSteps.status(java.lang.Integer)
+]]></system-out>
+  </testcase>
+  <testcase name="runScenario[&quot;Bearer auth positive&quot;, &quot;httpbin Regression API suite (positive and negative coverage)&quot;](13)" classname="com.algodatta.runners.ApiRunner" time="0.634">
+    <system-out><![CDATA[
 @api_regression
 Scenario: Digest auth negative                                 # src/test/resources/features/api/httpbin_regression.feature:63
   Given I set API base url                                     # ui.steps.api.ApiSteps.setBaseUrl()
   And I reset API client                                       # ui.steps.api.ApiSteps.resetClient()
   Given I use digest auth "user" and "wrong"                   # ui.steps.api.ApiSteps.digestAuth(java.lang.String,java.lang.String)
+  When I send "GET" request to "/bearer"                          # ui.steps.api.ApiSteps.send(java.lang.String,java.lang.String)
+  Then the response status should be 200                          # ui.steps.api.ApiSteps.status(java.lang.Integer)
+  And the response content type should contain "application/json" # ui.steps.api.ApiSteps.contentTypeContains(java.lang.String)
+  And the JSON path "authenticated" should not be null            # ui.steps.api.ApiSteps.jsonPathNotNull(java.lang.String)
+]]></system-out>
+  </testcase>
+  <testcase name="runScenario[&quot;Bearer auth negative (missing token)&quot;, &quot;httpbin Regression API suite (positive and negative coverage)&quot;](14)" classname="com.algodatta.runners.ApiRunner" time="0.771">
+    <system-out><![CDATA[
+@api_regression
+Scenario Outline: /status endpoint should generate the given status code # src/test/resources/features/api/httpbin_regression.feature:77
+  Given I set API base url                                               # ui.steps.api.ApiSteps.setBaseUrl()
+  And I reset API client                                                 # ui.steps.api.ApiSteps.resetClient()
   When I send "GET" request to "/bearer"       # ui.steps.api.ApiSteps.send(java.lang.String,java.lang.String)
   Then the response status should be 401       # ui.steps.api.ApiSteps.status(java.lang.Integer)
 ]]></system-out>
   </testcase>
-  <testcase name="runScenario[&quot;/status endpoint should generate the given status code&quot;, &quot;httpbin Regression API suite (positive and negative coverage)&quot;](15)" classname="com.algodatta.runners.ApiRunner" time="0.281">
+  <testcase name="runScenario[&quot;Digest auth positive&quot;, &quot;httpbin Regression API suite (positive and negative coverage)&quot;](15)" classname="com.algodatta.runners.ApiRunner" time="0.339">
     <system-out><![CDATA[
 @api_regression
 Scenario Outline: /status endpoint should generate the given status code # src/test/resources/features/api/httpbin_regression.feature:78
   Given I set API base url                                               # ui.steps.api.ApiSteps.setBaseUrl()
   And I reset API client                                                 # ui.steps.api.ApiSteps.resetClient()
-  When I send "GET" request to "/status/200"                             # ui.steps.api.ApiSteps.send(java.lang.String,java.lang.String)
-  Then the response status should be 200                                 # ui.steps.api.ApiSteps.status(java.lang.Integer)
+  When I send "GET" request to "/digest-auth/auth/user/passwd" # ui.steps.api.ApiSteps.send(java.lang.String,java.lang.String)
+  Then the response status should be 200                       # ui.steps.api.ApiSteps.status(java.lang.Integer)
 ]]></system-out>
   </testcase>
-  <testcase name="runScenario[&quot;Digest auth negative&quot;, &quot;httpbin Regression API suite (positive and negative coverage)&quot;](16)" classname="com.algodatta.runners.ApiRunner" time="0.106">
+  <testcase name="runScenario[&quot;Digest auth negative&quot;, &quot;httpbin Regression API suite (positive and negative coverage)&quot;](16)" classname="com.algodatta.runners.ApiRunner" time="1.247">
     <system-out><![CDATA[
 @api_regression
 Scenario Outline: /status endpoint should generate the given status code # src/test/resources/features/api/httpbin_regression.feature:79
@@ -265,104 +269,136 @@ Scenario Outline: /status endpoint should generate the given status code # src/t
   And I reset API client                                                 # ui.steps.api.ApiSteps.resetClient()
   When I send "GET" request to "/digest-auth/auth/user/passwd" # ui.steps.api.ApiSteps.send(java.lang.String,java.lang.String)
   Then the response status should be 401                       # ui.steps.api.ApiSteps.status(java.lang.Integer)
+  When I send "GET" request to "/status/200"                             # ui.steps.api.ApiSteps.send(java.lang.String,java.lang.String)
 ]]></system-out>
   </testcase>
-  <testcase name="runScenario[&quot;Digest auth positive&quot;, &quot;httpbin Regression API suite (positive and negative coverage)&quot;](17)" classname="com.algodatta.runners.ApiRunner" time="0.116">
+  <testcase name="runScenario[&quot;/status endpoint should generate the given status code&quot;, &quot;httpbin Regression API suite (positive and negative coverage)&quot;](17)" classname="com.algodatta.runners.ApiRunner" time="0.08">
+    <system-out><![CDATA[  Then the response status should be 200                                 # ui.steps.api.ApiSteps.status(java.lang.Integer)
+]]></system-out>
+  </testcase>
+  <testcase name="runScenario[&quot;/status endpoint should generate the given status code&quot;, &quot;httpbin Regression API suite (positive and negative coverage)&quot;](18)" classname="com.algodatta.runners.ApiRunner" time="0.211">
     <system-out><![CDATA[
 @api_regression
 Scenario Outline: /status endpoint should generate the given status code # src/test/resources/features/api/httpbin_regression.feature:80
-  Given I set API base url                                               # ui.steps.api.ApiSteps.setBaseUrl()
-  And I reset API client                                                 # ui.steps.api.ApiSteps.resetClient()
-  When I send "GET" request to "/digest-auth/auth/user/passwd" # ui.steps.api.ApiSteps.send(java.lang.String,java.lang.String)
-  Then the response status should be 200                       # ui.steps.api.ApiSteps.status(java.lang.Integer)
-]]></system-out>
-  </testcase>
-  <testcase name="runScenario[&quot;/status endpoint should generate the given status code&quot;, &quot;httpbin Regression API suite (positive and negative coverage)&quot;](18)" classname="com.algodatta.runners.ApiRunner" time="1.721">
-    <system-out><![CDATA[
+
 @api_regression
 Scenario Outline: /status endpoint should generate the given status code # src/test/resources/features/api/httpbin_regression.feature:81
   Given I set API base url                                               # ui.steps.api.ApiSteps.setBaseUrl()
-  And I reset API client                                                 # ui.steps.api.ApiSteps.resetClient()
   When I send "GET" request to "/status/201"                             # ui.steps.api.ApiSteps.send(java.lang.String,java.lang.String)
   Then the response status should be 201                                 # ui.steps.api.ApiSteps.status(java.lang.Integer)
-  When I send "GET" request to "/status/400"                             # ui.steps.api.ApiSteps.send(java.lang.String,java.lang.String)
+  Given I set API base url                                               # ui.steps.api.ApiSteps.setBaseUrl()
 ]]></system-out>
   </testcase>
-  <testcase name="runScenario[&quot;/status endpoint should generate the given status code&quot;, &quot;httpbin Regression API suite (positive and negative coverage)&quot;](19)" classname="com.algodatta.runners.ApiRunner" time="0.111">
-    <system-out><![CDATA[  Then the response status should be 400                                 # ui.steps.api.ApiSteps.status(java.lang.Integer)
-]]></system-out>
-  </testcase>
-  <testcase name="runScenario[&quot;/status endpoint should generate the given status code&quot;, &quot;httpbin Regression API suite (positive and negative coverage)&quot;](20)" classname="com.algodatta.runners.ApiRunner" time="0.346">
-    <system-out><![CDATA[
+  <testcase name="runScenario[&quot;/status endpoint should generate the given status code&quot;, &quot;httpbin Regression API suite (positive and negative coverage)&quot;](19)" classname="com.algodatta.runners.ApiRunner" time="0.124">
+    <system-out><![CDATA[  And I reset API client                                                 # ui.steps.api.ApiSteps.resetClient()
+  And I reset API client                                                 # ui.steps.api.ApiSteps.resetClient()
+
 @api_regression
 Scenario Outline: /status endpoint should generate the given status code # src/test/resources/features/api/httpbin_regression.feature:82
-  When I send "GET" request to "/status/401"                             # ui.steps.api.ApiSteps.send(java.lang.String,java.lang.String)
-  Then the response status should be 401                                 # ui.steps.api.ApiSteps.status(java.lang.Integer)
+  Given I set API base url                                               # ui.steps.api.ApiSteps.setBaseUrl()
+  And I reset API client                                                 # ui.steps.api.ApiSteps.resetClient()
+  When I send "GET" request to "/status/204"                             # ui.steps.api.ApiSteps.send(java.lang.String,java.lang.String)
+  Then the response status should be 204                                 # ui.steps.api.ApiSteps.status(java.lang.Integer)
 ]]></system-out>
   </testcase>
-  <testcase name="runScenario[&quot;/status endpoint should generate the given status code&quot;, &quot;httpbin Regression API suite (positive and negative coverage)&quot;](21)" classname="com.algodatta.runners.ApiRunner" time="0.0">
+  <testcase name="runScenario[&quot;/status endpoint should generate the given status code&quot;, &quot;httpbin Regression API suite (positive and negative coverage)&quot;](20)" classname="com.algodatta.runners.ApiRunner" time="2.008">
     <system-out><![CDATA[
 @api_regression
 Scenario Outline: /status endpoint should generate the given status code # src/test/resources/features/api/httpbin_regression.feature:83
   Given I set API base url                                               # ui.steps.api.ApiSteps.setBaseUrl()
-  Given I set API base url                                               # ui.steps.api.ApiSteps.setBaseUrl()
-  When I send "GET" request to "/status/204"                             # ui.steps.api.ApiSteps.send(java.lang.String,java.lang.String)
   And I reset API client                                                 # ui.steps.api.ApiSteps.resetClient()
-
+  When I send "GET" request to "/status/401"                             # ui.steps.api.ApiSteps.send(java.lang.String,java.lang.String)
+  Then the response status should be 401                                 # ui.steps.api.ApiSteps.status(java.lang.Integer)
+  When I send "GET" request to "/status/400"                             # ui.steps.api.ApiSteps.send(java.lang.String,java.lang.String)
+  When I send "GET" request to "/status/403"                             # ui.steps.api.ApiSteps.send(java.lang.String,java.lang.String)
+  When I send "GET" request to "/status/404"                             # ui.steps.api.ApiSteps.send(java.lang.String,java.lang.String)
+  Then the response status should be 400                                 # ui.steps.api.ApiSteps.status(java.lang.Integer)
+]]></system-out>
+  </testcase>
+  <testcase name="runScenario[&quot;/status endpoint should generate the given status code&quot;, &quot;httpbin Regression API suite (positive and negative coverage)&quot;](21)" classname="com.algodatta.runners.ApiRunner" time="0.0">
+    <system-out><![CDATA[  Then the response status should be 403                                 # ui.steps.api.ApiSteps.status(java.lang.Integer)
+]]></system-out>
+  </testcase>
+  <testcase name="runScenario[&quot;/status endpoint should generate the given status code&quot;, &quot;httpbin Regression API suite (positive and negative coverage)&quot;](22)" classname="com.algodatta.runners.ApiRunner" time="0.021">
+    <system-out><![CDATA[  Then the response status should be 404                                 # ui.steps.api.ApiSteps.status(java.lang.Integer)
+]]></system-out>
+  </testcase>
+  <testcase name="runScenario[&quot;/status endpoint should generate the given status code&quot;, &quot;httpbin Regression API suite (positive and negative coverage)&quot;](23)" classname="com.algodatta.runners.ApiRunner" time="0.126"/>
+  <testcase name="runScenario[&quot;/status endpoint should generate the given status code&quot;, &quot;httpbin Regression API suite (positive and negative coverage)&quot;](24)" classname="com.algodatta.runners.ApiRunner" time="1.946">
+    <system-out><![CDATA[
 @api_regression
 Scenario Outline: /status endpoint should generate the given status code # src/test/resources/features/api/httpbin_regression.feature:84
   Given I set API base url                                               # ui.steps.api.ApiSteps.setBaseUrl()
   And I reset API client                                                 # ui.steps.api.ApiSteps.resetClient()
-  Then the response status should be 204                                 # ui.steps.api.ApiSteps.status(java.lang.Integer)
-]]></system-out>
-  </testcase>
-  <testcase name="runScenario[&quot;/status endpoint should generate the given status code&quot;, &quot;httpbin Regression API suite (positive and negative coverage)&quot;](22)" classname="com.algodatta.runners.ApiRunner" time="1.55">
-    <system-out><![CDATA[
-@api_regression
-Scenario: Inspect query params, headers and client IP via /anything # src/test/resources/features/api/httpbin_regression.feature:87
-  Given I set API base url                                          # ui.steps.api.ApiSteps.setBaseUrl()
-  And I reset API client                                                 # ui.steps.api.ApiSteps.resetClient()
-  And I reset API client                                            # ui.steps.api.ApiSteps.resetClient()
-  Given I set query param "q" to "abc"                              # ui.steps.api.ApiSteps.setQueryParam(java.lang.String,java.lang.String)
-  And I set header "X-Test" to "kc"                                 # ui.steps.api.ApiSteps.setHeader(java.lang.String,java.lang.String)
-  When I send "GET" request to "/status/403"                             # ui.steps.api.ApiSteps.send(java.lang.String,java.lang.String)
-  When I send "GET" request to "/anything/inspect"                  # ui.steps.api.ApiSteps.send(java.lang.String,java.lang.String)
-  Then the response status should be 403                                 # ui.steps.api.ApiSteps.status(java.lang.Integer)
-  Then the response status should be 200                            # ui.steps.api.ApiSteps.status(java.lang.Integer)
-]]></system-out>
-  </testcase>
-  <testcase name="runScenario[&quot;/status endpoint should generate the given status code&quot;, &quot;httpbin Regression API suite (positive and negative coverage)&quot;](23)" classname="com.algodatta.runners.ApiRunner" time="0.894">
-    <system-out><![CDATA[
+
 @api_regression
 Scenario: Inspect JSON body via /anything            # src/test/resources/features/api/httpbin_regression.feature:97
   Given I set API base url                           # ui.steps.api.ApiSteps.setBaseUrl()
   And I reset API client                             # ui.steps.api.ApiSteps.resetClient()
+
+@api_regression
+Scenario: Inspect query params, headers and client IP via /anything # src/test/resources/features/api/httpbin_regression.feature:87
+  Given I set JSON body                              # ui.steps.api.ApiSteps.setJsonBody(java.lang.String)
+
+@api_regression
+Scenario: Validate caching headers via /cache/0 (no caching)         # src/test/resources/features/api/httpbin_regression.feature:108
+  Given I set API base url                                          # ui.steps.api.ApiSteps.setBaseUrl()
+  And I reset API client                                            # ui.steps.api.ApiSteps.resetClient()
+  Given I set API base url                                           # ui.steps.api.ApiSteps.setBaseUrl()
+  And I reset API client                                             # ui.steps.api.ApiSteps.resetClient()
+  Given I set query param "q" to "abc"                              # ui.steps.api.ApiSteps.setQueryParam(java.lang.String,java.lang.String)
+  And I set header "X-Test" to "kc"                                 # ui.steps.api.ApiSteps.setHeader(java.lang.String,java.lang.String)
   When I send "GET" request to "/status/500"                             # ui.steps.api.ApiSteps.send(java.lang.String,java.lang.String)
   Then the response status should be 500                                 # ui.steps.api.ApiSteps.status(java.lang.Integer)
 ]]></system-out>
   </testcase>
-  <testcase name="runScenario[&quot;/status endpoint should generate the given status code&quot;, &quot;httpbin Regression API suite (positive and negative coverage)&quot;](24)" classname="com.algodatta.runners.ApiRunner" time="0.005">
-    <system-out><![CDATA[  And the JSON path "args.q" should be "abc"                        # ui.steps.api.ApiSteps.jsonPathEqualsString(java.lang.String,java.lang.String)
-  When I send "GET" request to "/status/404"                             # ui.steps.api.ApiSteps.send(java.lang.String,java.lang.String)
-  Then the response status should be 404                                 # ui.steps.api.ApiSteps.status(java.lang.Integer)
+  <testcase name="runScenario[&quot;Validate caching headers via /cache/0 (no caching)&quot;, &quot;httpbin Regression API suite (positive and negative coverage)&quot;](25)" classname="com.algodatta.runners.ApiRunner" time="0.89">
+    <system-out><![CDATA[
+@api_regression
+Scenario: Validate ETag response                         # src/test/resources/features/api/httpbin_regression.feature:113
+  Given I set API base url                               # ui.steps.api.ApiSteps.setBaseUrl()
+  And I reset API client                                 # ui.steps.api.ApiSteps.resetClient()
+  When I send "GET" request to "/cache/0"                            # ui.steps.api.ApiSteps.send(java.lang.String,java.lang.String)
+  Then the response status should be 200                             # ui.steps.api.ApiSteps.status(java.lang.Integer)
+  And the response header "Cache-Control" should contain "max-age=0" # ui.steps.api.ApiSteps.headerContains(java.lang.String,java.lang.String)
+  When I send "POST" request to "/anything/body"     # ui.steps.api.ApiSteps.send(java.lang.String,java.lang.String)
+  Then the response status should be 200             # ui.steps.api.ApiSteps.status(java.lang.Integer)
 ]]></system-out>
   </testcase>
-  <testcase name="runScenario[&quot;Inspect query params, headers and client IP via /anything&quot;, &quot;httpbin Regression API suite (positive and negative coverage)&quot;](25)" classname="com.algodatta.runners.ApiRunner" time="0.407">
+  <testcase name="runScenario[&quot;Inspect JSON body via /anything&quot;, &quot;httpbin Regression API suite (positive and negative coverage)&quot;](26)" classname="com.algodatta.runners.ApiRunner" time="0.078">
+    <system-out><![CDATA[
+@api_regression
+Scenario: Validate custom response headers                                         # src/test/resources/features/api/httpbin_regression.feature:118
+  Given I set API base url                                                         # ui.steps.api.ApiSteps.setBaseUrl()
+  And I reset API client                                                           # ui.steps.api.ApiSteps.resetClient()
+  And the JSON path "json.id" should be 123          # ui.steps.api.ApiSteps.jsonPathEqualsInt(java.lang.String,java.lang.Integer)
+  And the JSON path "json.active" should not be null # ui.steps.api.ApiSteps.jsonPathNotNull(java.lang.String)
+]]></system-out>
+  </testcase>
+  <testcase name="runScenario[&quot;Validate ETag response&quot;, &quot;httpbin Regression API suite (positive and negative coverage)&quot;](27)" classname="com.algodatta.runners.ApiRunner" time="0.835">
+    <system-out><![CDATA[
+@api_regression
+Scenario Outline: Different response formats should return expected content types # src/test/resources/features/api/httpbin_regression.feature:131
+  Given I set API base url                                                        # ui.steps.api.ApiSteps.setBaseUrl()
+  And I reset API client                                                          # ui.steps.api.ApiSteps.resetClient()
+  When I send "GET" request to "/anything/inspect"                  # ui.steps.api.ApiSteps.send(java.lang.String,java.lang.String)
+  Then the response status should be 200                            # ui.steps.api.ApiSteps.status(java.lang.Integer)
+  And the JSON path "args.q" should be "abc"                        # ui.steps.api.ApiSteps.jsonPathEqualsString(java.lang.String,java.lang.String)
+  When I send "GET" request to "/etag/abc123"            # ui.steps.api.ApiSteps.send(java.lang.String,java.lang.String)
+  Then the response status should be 200                 # ui.steps.api.ApiSteps.status(java.lang.Integer)
+  And the response header "ETag" should contain "abc123" # ui.steps.api.ApiSteps.headerContains(java.lang.String,java.lang.String)
+]]></system-out>
+  </testcase>
+  <testcase name="runScenario[&quot;Inspect query params, headers and client IP via /anything&quot;, &quot;httpbin Regression API suite (positive and negative coverage)&quot;](28)" classname="com.algodatta.runners.ApiRunner" time="0.512">
     <failure message="class java.lang.String cannot be cast to class [C (java.lang.String and [C are in module java.base of loader &apos;bootstrap&apos;)" type="java.lang.ClassCastException"><![CDATA[java.lang.ClassCastException: class java.lang.String cannot be cast to class [C (java.lang.String and [C are in module java.base of loader 'bootstrap')
 	at ui.steps.api.ApiSteps.jsonPathContainsString(ApiSteps.java:251)
 	at ✽.the JSON path "url" should contain "inspect"(file:///E:/QA_KC/KC-sdet-automation/tests/src/test/resources/features/api/httpbin_regression.feature:95)
 ]]></failure>
     <system-out><![CDATA[
 @api_regression
-Scenario: Validate caching headers via /cache/0 (no caching)         # src/test/resources/features/api/httpbin_regression.feature:108
-  Given I set JSON body                              # ui.steps.api.ApiSteps.setJsonBody(java.lang.String)
-  Given I set API base url                                           # ui.steps.api.ApiSteps.setBaseUrl()
-  And I reset API client                                             # ui.steps.api.ApiSteps.resetClient()
-
-@api_regression
-Scenario: Validate ETag response                         # src/test/resources/features/api/httpbin_regression.feature:113
-  Given I set API base url                               # ui.steps.api.ApiSteps.setBaseUrl()
-  And I reset API client                                 # ui.steps.api.ApiSteps.resetClient()
+Scenario Outline: Different response formats should return expected content types # src/test/resources/features/api/httpbin_regression.feature:132
+  Given I set API base url                                                        # ui.steps.api.ApiSteps.setBaseUrl()
+  And I reset API client                                                          # ui.steps.api.ApiSteps.resetClient()
   And the JSON path "headers.X-Test" should be "kc"                 # ui.steps.api.ApiSteps.jsonPathEqualsString(java.lang.String,java.lang.String)
   And the JSON path "method" should be "GET"                        # ui.steps.api.ApiSteps.jsonPathEqualsString(java.lang.String,java.lang.String)
   And the JSON path "url" should contain "inspect"                  # ui.steps.api.ApiSteps.jsonPathContainsString(java.lang.String,java.lang.String)
@@ -372,45 +408,11 @@ Scenario: Validate ETag response                         # src/test/resources/fe
 
 ]]></system-out>
   </testcase>
-  <testcase name="runScenario[&quot;Validate caching headers via /cache/0 (no caching)&quot;, &quot;httpbin Regression API suite (positive and negative coverage)&quot;](26)" classname="com.algodatta.runners.ApiRunner" time="1.403">
-    <system-out><![CDATA[
-@api_regression
-Scenario: Validate custom response headers                                         # src/test/resources/features/api/httpbin_regression.feature:118
-  Given I set API base url                                                         # ui.steps.api.ApiSteps.setBaseUrl()
-  And I reset API client                                                           # ui.steps.api.ApiSteps.resetClient()
-  When I send "POST" request to "/anything/body"     # ui.steps.api.ApiSteps.send(java.lang.String,java.lang.String)
-  Then the response status should be 200             # ui.steps.api.ApiSteps.status(java.lang.Integer)
-  When I send "GET" request to "/cache/0"                            # ui.steps.api.ApiSteps.send(java.lang.String,java.lang.String)
-  Then the response status should be 200                             # ui.steps.api.ApiSteps.status(java.lang.Integer)
-  And the response header "Cache-Control" should contain "max-age=0" # ui.steps.api.ApiSteps.headerContains(java.lang.String,java.lang.String)
-]]></system-out>
-  </testcase>
-  <testcase name="runScenario[&quot;Inspect JSON body via /anything&quot;, &quot;httpbin Regression API suite (positive and negative coverage)&quot;](27)" classname="com.algodatta.runners.ApiRunner" time="0.225">
-    <system-out><![CDATA[
-@api_regression
-Scenario Outline: Different response formats should return expected content types # src/test/resources/features/api/httpbin_regression.feature:131
-  And the JSON path "json.id" should be 123          # ui.steps.api.ApiSteps.jsonPathEqualsInt(java.lang.String,java.lang.Integer)
-  Given I set API base url                                                        # ui.steps.api.ApiSteps.setBaseUrl()
-  And I reset API client                                                          # ui.steps.api.ApiSteps.resetClient()
-  And the JSON path "json.active" should not be null # ui.steps.api.ApiSteps.jsonPathNotNull(java.lang.String)
-]]></system-out>
-  </testcase>
-  <testcase name="runScenario[&quot;Validate ETag response&quot;, &quot;httpbin Regression API suite (positive and negative coverage)&quot;](28)" classname="com.algodatta.runners.ApiRunner" time="0.285">
-    <system-out><![CDATA[
-@api_regression
-Scenario Outline: Different response formats should return expected content types # src/test/resources/features/api/httpbin_regression.feature:132
-  Given I set API base url                                                        # ui.steps.api.ApiSteps.setBaseUrl()
-  When I send "GET" request to "/etag/abc123"            # ui.steps.api.ApiSteps.send(java.lang.String,java.lang.String)
-  Then the response status should be 200                 # ui.steps.api.ApiSteps.status(java.lang.Integer)
-  And the response header "ETag" should contain "abc123" # ui.steps.api.ApiSteps.headerContains(java.lang.String,java.lang.String)
-]]></system-out>
-  </testcase>
-  <testcase name="runScenario[&quot;Validate custom response headers&quot;, &quot;httpbin Regression API suite (positive and negative coverage)&quot;](29)" classname="com.algodatta.runners.ApiRunner" time="0.149">
+  <testcase name="runScenario[&quot;Validate custom response headers&quot;, &quot;httpbin Regression API suite (positive and negative coverage)&quot;](29)" classname="com.algodatta.runners.ApiRunner" time="0.258">
     <system-out><![CDATA[
 @api_regression
 Scenario Outline: Different response formats should return expected content types # src/test/resources/features/api/httpbin_regression.feature:133
   Given I set API base url                                                        # ui.steps.api.ApiSteps.setBaseUrl()
-  And I reset API client                                                          # ui.steps.api.ApiSteps.resetClient()
   And I reset API client                                                          # ui.steps.api.ApiSteps.resetClient()
   When I send "GET" request to "/response-headers?X-Env=qa&Cache-Control=no-store" # ui.steps.api.ApiSteps.send(java.lang.String,java.lang.String)
   Then the response status should be 200                                           # ui.steps.api.ApiSteps.status(java.lang.Integer)
@@ -418,7 +420,7 @@ Scenario Outline: Different response formats should return expected content type
   And the response header "Cache-Control" should contain "no-store"                # ui.steps.api.ApiSteps.headerContains(java.lang.String,java.lang.String)
 ]]></system-out>
   </testcase>
-  <testcase name="runScenario[&quot;Different response formats should return expected content types&quot;, &quot;httpbin Regression API suite (positive and negative coverage)&quot;](30)" classname="com.algodatta.runners.ApiRunner" time="0.921">
+  <testcase name="runScenario[&quot;Different response formats should return expected content types&quot;, &quot;httpbin Regression API suite (positive and negative coverage)&quot;](30)" classname="com.algodatta.runners.ApiRunner" time="0.798">
     <system-out><![CDATA[
 @api_regression
 Scenario Outline: Different response formats should return expected content types # src/test/resources/features/api/httpbin_regression.feature:134
@@ -429,32 +431,21 @@ Scenario Outline: Different response formats should return expected content type
   And the response content type should contain "application/json"                 # ui.steps.api.ApiSteps.contentTypeContains(java.lang.String)
 ]]></system-out>
   </testcase>
-  <testcase name="runScenario[&quot;Different response formats should return expected content types&quot;, &quot;httpbin Regression API suite (positive and negative coverage)&quot;](31)" classname="com.algodatta.runners.ApiRunner" time="0.216">
+  <testcase name="runScenario[&quot;Different response formats should return expected content types&quot;, &quot;httpbin Regression API suite (positive and negative coverage)&quot;](31)" classname="com.algodatta.runners.ApiRunner" time="0.029">
     <system-out><![CDATA[
 @api_regression
 Scenario Outline: Different response formats should return expected content types # src/test/resources/features/api/httpbin_regression.feature:135
-  Given I set API base url                                                        # ui.steps.api.ApiSteps.setBaseUrl()
-  And I reset API client                                                          # ui.steps.api.ApiSteps.resetClient()
   When I send "GET" request to "/xml"                                             # ui.steps.api.ApiSteps.send(java.lang.String,java.lang.String)
   Then the response status should be 200                                          # ui.steps.api.ApiSteps.status(java.lang.Integer)
+  Given I set API base url                                                        # ui.steps.api.ApiSteps.setBaseUrl()
   And the response content type should contain "application/xml"                  # ui.steps.api.ApiSteps.contentTypeContains(java.lang.String)
 ]]></system-out>
   </testcase>
-  <testcase name="runScenario[&quot;Different response formats should return expected content types&quot;, &quot;httpbin Regression API suite (positive and negative coverage)&quot;](32)" classname="com.algodatta.runners.ApiRunner" time="0.14">
-    <system-out><![CDATA[
+  <testcase name="runScenario[&quot;Different response formats should return expected content types&quot;, &quot;httpbin Regression API suite (positive and negative coverage)&quot;](32)" classname="com.algodatta.runners.ApiRunner" time="0.658">
+    <system-out><![CDATA[  And I reset API client                                                          # ui.steps.api.ApiSteps.resetClient()
+
 @api_regression
 Scenario: Gzip response should be JSON                            # src/test/resources/features/api/httpbin_regression.feature:137
-  Given I set API base url                                        # ui.steps.api.ApiSteps.setBaseUrl()
-  And I reset API client                                          # ui.steps.api.ApiSteps.resetClient()
-  When I send "GET" request to "/robots.txt"                                      # ui.steps.api.ApiSteps.send(java.lang.String,java.lang.String)
-  Then the response status should be 200                                          # ui.steps.api.ApiSteps.status(java.lang.Integer)
-  And the response content type should contain "text/plain"                       # ui.steps.api.ApiSteps.contentTypeContains(java.lang.String)
-]]></system-out>
-  </testcase>
-  <testcase name="runScenario[&quot;Different response formats should return expected content types&quot;, &quot;httpbin Regression API suite (positive and negative coverage)&quot;](33)" classname="com.algodatta.runners.ApiRunner" time="0.726">
-    <system-out><![CDATA[
-@api_regression
-Scenario: UUID endpoint should return a UUID                      # src/test/resources/features/api/httpbin_regression.feature:144
   Given I set API base url                                        # ui.steps.api.ApiSteps.setBaseUrl()
   And I reset API client                                          # ui.steps.api.ApiSteps.resetClient()
   When I send "GET" request to "/html"                                            # ui.steps.api.ApiSteps.send(java.lang.String,java.lang.String)
@@ -462,7 +453,18 @@ Scenario: UUID endpoint should return a UUID                      # src/test/res
   And the response content type should contain "text/html"                        # ui.steps.api.ApiSteps.contentTypeContains(java.lang.String)
 ]]></system-out>
   </testcase>
-  <testcase name="runScenario[&quot;Different response formats should return expected content types&quot;, &quot;httpbin Regression API suite (positive and negative coverage)&quot;](34)" classname="com.algodatta.runners.ApiRunner" time="0.657">
+  <testcase name="runScenario[&quot;Different response formats should return expected content types&quot;, &quot;httpbin Regression API suite (positive and negative coverage)&quot;](33)" classname="com.algodatta.runners.ApiRunner" time="0.2">
+    <system-out><![CDATA[
+@api_regression
+Scenario: UUID endpoint should return a UUID                      # src/test/resources/features/api/httpbin_regression.feature:144
+  Given I set API base url                                        # ui.steps.api.ApiSteps.setBaseUrl()
+  And I reset API client                                          # ui.steps.api.ApiSteps.resetClient()
+  When I send "GET" request to "/robots.txt"                                      # ui.steps.api.ApiSteps.send(java.lang.String,java.lang.String)
+  Then the response status should be 200                                          # ui.steps.api.ApiSteps.status(java.lang.Integer)
+  And the response content type should contain "text/plain"                       # ui.steps.api.ApiSteps.contentTypeContains(java.lang.String)
+]]></system-out>
+  </testcase>
+  <testcase name="runScenario[&quot;Different response formats should return expected content types&quot;, &quot;httpbin Regression API suite (positive and negative coverage)&quot;](34)" classname="com.algodatta.runners.ApiRunner" time="0.9">
     <system-out><![CDATA[
 @api_regression
 Scenario: Delay endpoint should respond within a reasonable time # src/test/resources/features/api/httpbin_regression.feature:150
@@ -473,47 +475,62 @@ Scenario: Delay endpoint should respond within a reasonable time # src/test/reso
   And the response content type should contain "text/html"                        # ui.steps.api.ApiSteps.contentTypeContains(java.lang.String)
 ]]></system-out>
   </testcase>
-  <testcase name="runScenario[&quot;Gzip response should be JSON&quot;, &quot;httpbin Regression API suite (positive and negative coverage)&quot;](35)" classname="com.algodatta.runners.ApiRunner" time="0.293">
+  <testcase name="runScenario[&quot;Gzip response should be JSON&quot;, &quot;httpbin Regression API suite (positive and negative coverage)&quot;](35)" classname="com.algodatta.runners.ApiRunner" time="0.793">
     <system-out><![CDATA[
 @api_regression
 Scenario: Random bytes should return binary                 # src/test/resources/features/api/httpbin_regression.feature:155
   Given I set API base url                                  # ui.steps.api.ApiSteps.setBaseUrl()
   And I reset API client                                    # ui.steps.api.ApiSteps.resetClient()
   Given I set header "Accept" to "application/octet-stream" # ui.steps.api.ApiSteps.setHeader(java.lang.String,java.lang.String)
-  When I send "GET" request to "/uuid"                            # ui.steps.api.ApiSteps.send(java.lang.String,java.lang.String)
-  Then the response status should be 200                          # ui.steps.api.ApiSteps.status(java.lang.Integer)
-  And the response content type should contain "application/json" # ui.steps.api.ApiSteps.contentTypeContains(java.lang.String)
   When I send "GET" request to "/gzip"                            # ui.steps.api.ApiSteps.send(java.lang.String,java.lang.String)
   Then the response status should be 200                          # ui.steps.api.ApiSteps.status(java.lang.Integer)
   And the response content type should contain "application/json" # ui.steps.api.ApiSteps.contentTypeContains(java.lang.String)
   And the JSON path "gzipped" should not be null                  # ui.steps.api.ApiSteps.jsonPathNotNull(java.lang.String)
 ]]></system-out>
   </testcase>
-  <testcase name="runScenario[&quot;UUID endpoint should return a UUID&quot;, &quot;httpbin Regression API suite (positive and negative coverage)&quot;](36)" classname="com.algodatta.runners.ApiRunner" time="0.001">
+  <testcase name="runScenario[&quot;UUID endpoint should return a UUID&quot;, &quot;httpbin Regression API suite (positive and negative coverage)&quot;](36)" classname="com.algodatta.runners.ApiRunner" time="0.423">
     <system-out><![CDATA[
 @api_regression
 Scenario: Create, read and delete cookies           # src/test/resources/features/api/httpbin_regression.feature:161
+  Given I set API base url                          # ui.steps.api.ApiSteps.setBaseUrl()
+  And I reset API client                            # ui.steps.api.ApiSteps.resetClient()
+  Given I do not follow redirects                   # ui.steps.api.ApiSteps.noFollowRedirects()
+  When I send "GET" request to "/uuid"                            # ui.steps.api.ApiSteps.send(java.lang.String,java.lang.String)
+  Then the response status should be 200                          # ui.steps.api.ApiSteps.status(java.lang.Integer)
+  And the response content type should contain "application/json" # ui.steps.api.ApiSteps.contentTypeContains(java.lang.String)
   And the JSON path "uuid" should not be null                     # ui.steps.api.ApiSteps.jsonPathNotNull(java.lang.String)
 ]]></system-out>
   </testcase>
-  <testcase name="runScenario[&quot;Random bytes should return binary&quot;, &quot;httpbin Regression API suite (positive and negative coverage)&quot;](37)" classname="com.algodatta.runners.ApiRunner" time="1.216">
+  <testcase name="runScenario[&quot;Delay endpoint should respond within a reasonable time&quot;, &quot;httpbin Regression API suite (positive and negative coverage)&quot;](37)" classname="com.algodatta.runners.ApiRunner" time="1.495">
     <system-out><![CDATA[
 @api_regression
 Scenario Outline: Image endpoints should return correct image content types # src/test/resources/features/api/httpbin_regression.feature:185
   Given I set API base url                                                  # ui.steps.api.ApiSteps.setBaseUrl()
   And I reset API client                                                    # ui.steps.api.ApiSteps.resetClient()
-  Given I set API base url                          # ui.steps.api.ApiSteps.setBaseUrl()
   Given I set header "Accept" to "*/*"                                      # ui.steps.api.ApiSteps.setHeader(java.lang.String,java.lang.String)
-  And I reset API client                            # ui.steps.api.ApiSteps.resetClient()
-  Given I do not follow redirects                   # ui.steps.api.ApiSteps.noFollowRedirects()
+  When I send "GET" request to "/cookies/set?kc=1"  # ui.steps.api.ApiSteps.send(java.lang.String,java.lang.String)
+  Then the response status should be 302            # ui.steps.api.ApiSteps.status(java.lang.Integer)
+  Given I follow redirects                          # ui.steps.api.ApiSteps.followRedirects()
+  When I send "GET" request to "/delay/1"                        # ui.steps.api.ApiSteps.send(java.lang.String,java.lang.String)
+  Then the response status should be 200                         # ui.steps.api.ApiSteps.status(java.lang.Integer)
+  And the response time should be less than 5000 ms              # ui.steps.api.ApiSteps.responseTimeLessThan(java.lang.Integer)
   When I send "GET" request to "/bytes/32"                  # ui.steps.api.ApiSteps.send(java.lang.String,java.lang.String)
-  Then the response status should be 200                    # ui.steps.api.ApiSteps.status(java.lang.Integer)
 ]]></system-out>
   </testcase>
-  <testcase name="runScenario[&quot;Image endpoints should return correct image content types&quot;, &quot;httpbin Regression API suite (positive and negative coverage)&quot;](38)" classname="com.algodatta.runners.ApiRunner" time="0.296">
+  <testcase name="runScenario[&quot;Random bytes should return binary&quot;, &quot;httpbin Regression API suite (positive and negative coverage)&quot;](38)" classname="com.algodatta.runners.ApiRunner" time="0.053">
+    <system-out><![CDATA[  Then the response status should be 200                    # ui.steps.api.ApiSteps.status(java.lang.Integer)
+]]></system-out>
+  </testcase>
+  <testcase name="runScenario[&quot;Image endpoints should return correct image content types&quot;, &quot;httpbin Regression API suite (positive and negative coverage)&quot;](39)" classname="com.algodatta.runners.ApiRunner" time="0.26">
     <system-out><![CDATA[
 @api_regression
+Scenario Outline: Image endpoints should return correct image content types # src/test/resources/features/api/httpbin_regression.feature:187
+
+@api_regression
 Scenario Outline: Image endpoints should return correct image content types # src/test/resources/features/api/httpbin_regression.feature:186
+  Given I set API base url                                                  # ui.steps.api.ApiSteps.setBaseUrl()
+  And I reset API client                                                    # ui.steps.api.ApiSteps.resetClient()
+  Given I set header "Accept" to "*/*"                                      # ui.steps.api.ApiSteps.setHeader(java.lang.String,java.lang.String)
   Given I set API base url                                                  # ui.steps.api.ApiSteps.setBaseUrl()
   And I reset API client                                                    # ui.steps.api.ApiSteps.resetClient()
   Given I set header "Accept" to "*/*"                                      # ui.steps.api.ApiSteps.setHeader(java.lang.String,java.lang.String)
@@ -522,46 +539,7 @@ Scenario Outline: Image endpoints should return correct image content types # sr
   And the response content type should contain "image"                      # ui.steps.api.ApiSteps.contentTypeContains(java.lang.String)
 ]]></system-out>
   </testcase>
-  <testcase name="runScenario[&quot;Delay endpoint should respond within a reasonable time&quot;, &quot;httpbin Regression API suite (positive and negative coverage)&quot;](39)" classname="com.algodatta.runners.ApiRunner" time="0.134">
-    <system-out><![CDATA[
-@api_regression
-Scenario Outline: Image endpoints should return correct image content types # src/test/resources/features/api/httpbin_regression.feature:187
-  Given I set API base url                                                  # ui.steps.api.ApiSteps.setBaseUrl()
-  And I reset API client                                                    # ui.steps.api.ApiSteps.resetClient()
-  Given I set header "Accept" to "*/*"                                      # ui.steps.api.ApiSteps.setHeader(java.lang.String,java.lang.String)
-  When I send "GET" request to "/cookies/set?kc=1"  # ui.steps.api.ApiSteps.send(java.lang.String,java.lang.String)
-  When I send "GET" request to "/delay/1"                        # ui.steps.api.ApiSteps.send(java.lang.String,java.lang.String)
-  Then the response status should be 302            # ui.steps.api.ApiSteps.status(java.lang.Integer)
-  Then the response status should be 200                         # ui.steps.api.ApiSteps.status(java.lang.Integer)
-  Given I follow redirects                          # ui.steps.api.ApiSteps.followRedirects()
-  And the response time should be less than 5000 ms              # ui.steps.api.ApiSteps.responseTimeLessThan(java.lang.Integer)
-]]></system-out>
-  </testcase>
-  <testcase name="runScenario[&quot;Image endpoints should return correct image content types&quot;, &quot;httpbin Regression API suite (positive and negative coverage)&quot;](40)" classname="com.algodatta.runners.ApiRunner" time="1.309">
-    <system-out><![CDATA[
-@api_regression
-Scenario Outline: Image endpoints should return correct image content types # src/test/resources/features/api/httpbin_regression.feature:188
-  Given I set API base url                                                  # ui.steps.api.ApiSteps.setBaseUrl()
-  And I reset API client                                                    # ui.steps.api.ApiSteps.resetClient()
-  Given I set header "Accept" to "*/*"                                      # ui.steps.api.ApiSteps.setHeader(java.lang.String,java.lang.String)
-  When I send "GET" request to "/image/jpeg"                                # ui.steps.api.ApiSteps.send(java.lang.String,java.lang.String)
-  Then the response status should be 200                                    # ui.steps.api.ApiSteps.status(java.lang.Integer)
-  And the response content type should contain "image"                      # ui.steps.api.ApiSteps.contentTypeContains(java.lang.String)
-]]></system-out>
-  </testcase>
-  <testcase name="runScenario[&quot;Image endpoints should return correct image content types&quot;, &quot;httpbin Regression API suite (positive and negative coverage)&quot;](41)" classname="com.algodatta.runners.ApiRunner" time="0.36">
-    <system-out><![CDATA[
-@api_regression
-Scenario: Redirect endpoint should return a redirect when not following # src/test/resources/features/api/httpbin_regression.feature:191
-  Given I set API base url                                              # ui.steps.api.ApiSteps.setBaseUrl()
-  And I reset API client                                                # ui.steps.api.ApiSteps.resetClient()
-  Given I do not follow redirects                                       # ui.steps.api.ApiSteps.noFollowRedirects()
-  When I send "GET" request to "/image/svg"                                 # ui.steps.api.ApiSteps.send(java.lang.String,java.lang.String)
-  Then the response status should be 200                                    # ui.steps.api.ApiSteps.status(java.lang.Integer)
-  And the response content type should contain "image"                      # ui.steps.api.ApiSteps.contentTypeContains(java.lang.String)
-]]></system-out>
-  </testcase>
-  <testcase name="runScenario[&quot;Create, read and delete cookies&quot;, &quot;httpbin Regression API suite (positive and negative coverage)&quot;](42)" classname="com.algodatta.runners.ApiRunner" time="0.298">
+  <testcase name="runScenario[&quot;Create, read and delete cookies&quot;, &quot;httpbin Regression API suite (positive and negative coverage)&quot;](40)" classname="com.algodatta.runners.ApiRunner" time="1.128">
     <failure message="Unexpected JSONPath value for: cookies.kc expected [1] but found [null]" type="java.lang.AssertionError"><![CDATA[java.lang.AssertionError: Unexpected JSONPath value for: cookies.kc expected [1] but found [null]
 	at org.testng.Assert.fail(Assert.java:111)
 	at org.testng.Assert.failNotEquals(Assert.java:1578)
@@ -573,10 +551,10 @@ Scenario: Redirect endpoint should return a redirect when not following # src/te
 ]]></failure>
     <system-out><![CDATA[
 @api_regression
-Scenario: /status/301 returns 301 when redirects are disabled # src/test/resources/features/api/httpbin_regression.feature:197
-  Given I set API base url                                    # ui.steps.api.ApiSteps.setBaseUrl()
-  And I reset API client                                      # ui.steps.api.ApiSteps.resetClient()
-  Given I do not follow redirects                             # ui.steps.api.ApiSteps.noFollowRedirects()
+Scenario Outline: Image endpoints should return correct image content types # src/test/resources/features/api/httpbin_regression.feature:188
+  Given I set API base url                                                  # ui.steps.api.ApiSteps.setBaseUrl()
+  And I reset API client                                                    # ui.steps.api.ApiSteps.resetClient()
+  Given I set header "Accept" to "*/*"                                      # ui.steps.api.ApiSteps.setHeader(java.lang.String,java.lang.String)
   When I send "GET" request to "/cookies"           # ui.steps.api.ApiSteps.send(java.lang.String,java.lang.String)
   Then the response status should be 200            # ui.steps.api.ApiSteps.status(java.lang.Integer)
   And the JSON path "cookies.kc" should be "1"      # ui.steps.api.ApiSteps.jsonPathEqualsString(java.lang.String,java.lang.String)
@@ -597,7 +575,31 @@ Scenario: /status/301 returns 301 when redirects are disabled # src/test/resourc
   Then the response status should be 200            # ui.steps.api.ApiSteps.status(java.lang.Integer)
 ]]></system-out>
   </testcase>
-  <testcase name="runScenario[&quot;Image endpoints should return correct image content types&quot;, &quot;httpbin Regression API suite (positive and negative coverage)&quot;](43)" classname="com.algodatta.runners.ApiRunner" time="0.924">
+  <testcase name="runScenario[&quot;Image endpoints should return correct image content types&quot;, &quot;httpbin Regression API suite (positive and negative coverage)&quot;](41)" classname="com.algodatta.runners.ApiRunner" time="0.411">
+    <system-out><![CDATA[
+@api_regression
+Scenario: Redirect endpoint should return a redirect when not following # src/test/resources/features/api/httpbin_regression.feature:191
+  Given I set API base url                                              # ui.steps.api.ApiSteps.setBaseUrl()
+  And I reset API client                                                # ui.steps.api.ApiSteps.resetClient()
+  Given I do not follow redirects                                       # ui.steps.api.ApiSteps.noFollowRedirects()
+  When I send "GET" request to "/image/jpeg"                                # ui.steps.api.ApiSteps.send(java.lang.String,java.lang.String)
+  Then the response status should be 200                                    # ui.steps.api.ApiSteps.status(java.lang.Integer)
+  And the response content type should contain "image"                      # ui.steps.api.ApiSteps.contentTypeContains(java.lang.String)
+]]></system-out>
+  </testcase>
+  <testcase name="runScenario[&quot;Image endpoints should return correct image content types&quot;, &quot;httpbin Regression API suite (positive and negative coverage)&quot;](42)" classname="com.algodatta.runners.ApiRunner" time="0.144">
+    <system-out><![CDATA[
+@api_regression
+Scenario: /status/301 returns 301 when redirects are disabled # src/test/resources/features/api/httpbin_regression.feature:197
+  Given I set API base url                                    # ui.steps.api.ApiSteps.setBaseUrl()
+  And I reset API client                                      # ui.steps.api.ApiSteps.resetClient()
+  Given I do not follow redirects                             # ui.steps.api.ApiSteps.noFollowRedirects()
+  When I send "GET" request to "/image/svg"                                 # ui.steps.api.ApiSteps.send(java.lang.String,java.lang.String)
+  Then the response status should be 200                                    # ui.steps.api.ApiSteps.status(java.lang.Integer)
+  And the response content type should contain "image"                      # ui.steps.api.ApiSteps.contentTypeContains(java.lang.String)
+]]></system-out>
+  </testcase>
+  <testcase name="runScenario[&quot;Image endpoints should return correct image content types&quot;, &quot;httpbin Regression API suite (positive and negative coverage)&quot;](43)" classname="com.algodatta.runners.ApiRunner" time="0.108">
     <system-out><![CDATA[
 @api_regression
 Scenario: Redirect endpoint should reach final destination when following # src/test/resources/features/api/httpbin_regression.feature:202
@@ -609,7 +611,7 @@ Scenario: Redirect endpoint should reach final destination when following # src/
   And the response content type should contain "image"                      # ui.steps.api.ApiSteps.contentTypeContains(java.lang.String)
 ]]></system-out>
   </testcase>
-  <testcase name="runScenario[&quot;Redirect endpoint should return a redirect when not following&quot;, &quot;httpbin Regression API suite (positive and negative coverage)&quot;](44)" classname="com.algodatta.runners.ApiRunner" time="0.241">
+  <testcase name="runScenario[&quot;Redirect endpoint should return a redirect when not following&quot;, &quot;httpbin Regression API suite (positive and negative coverage)&quot;](44)" classname="com.algodatta.runners.ApiRunner" time="1.38">
     <system-out><![CDATA[
 @api_regression
 Scenario: Redirect to a custom URL                                                        # src/test/resources/features/api/httpbin_regression.feature:208
@@ -618,25 +620,35 @@ Scenario: Redirect to a custom URL                                              
   Given I do not follow redirects                                                         # ui.steps.api.ApiSteps.noFollowRedirects()
   When I send "GET" request to "/redirect/2"                            # ui.steps.api.ApiSteps.send(java.lang.String,java.lang.String)
   Then the response status should be 302                                # ui.steps.api.ApiSteps.status(java.lang.Integer)
+  When I send "GET" request to "/status/301"                  # ui.steps.api.ApiSteps.send(java.lang.String,java.lang.String)
 ]]></system-out>
   </testcase>
-  <testcase name="runScenario[&quot;/status/301 returns 301 when redirects are disabled&quot;, &quot;httpbin Regression API suite (positive and negative coverage)&quot;](45)" classname="com.algodatta.runners.ApiRunner" time="0.225">
+  <testcase name="runScenario[&quot;/status/301 returns 301 when redirects are disabled&quot;, &quot;httpbin Regression API suite (positive and negative coverage)&quot;](45)" classname="com.algodatta.runners.ApiRunner" time="0.105">
+    <system-out><![CDATA[  Then the response status should be 301                      # ui.steps.api.ApiSteps.status(java.lang.Integer)
+]]></system-out>
+  </testcase>
+  <testcase name="runScenario[&quot;Redirect to a custom URL&quot;, &quot;httpbin Regression API suite (positive and negative coverage)&quot;](46)" classname="com.algodatta.runners.ApiRunner" time="0.194">
     <system-out><![CDATA[
+@api_smoke
+Scenario: Basic GET should return 200 and JSON                    # src/test/resources/features/api/httpbin_smoke.feature:13
+
 @api_regression
 Scenario: /anything should echo arbitrary path, headers and payload # src/test/resources/features/api/httpbin_regression.feature:214
   Given I set API base url                                          # ui.steps.api.ApiSteps.setBaseUrl()
   And I reset API client                                            # ui.steps.api.ApiSteps.resetClient()
   Given I set header "X-Custom" to "hello"                          # ui.steps.api.ApiSteps.setHeader(java.lang.String,java.lang.String)
+  Given I set API base url                                        # ui.steps.api.ApiSteps.setBaseUrl()
+  And I reset API client                                          # ui.steps.api.ApiSteps.resetClient()
   And I set query param "n" to "99"                                 # ui.steps.api.ApiSteps.setQueryParam(java.lang.String,java.lang.String)
   And I set JSON body                                               # ui.steps.api.ApiSteps.setJsonBody(java.lang.String)
-  When I send "GET" request to "/status/301"                  # ui.steps.api.ApiSteps.send(java.lang.String,java.lang.String)
-  Then the response status should be 301                      # ui.steps.api.ApiSteps.status(java.lang.Integer)
+  When I send "GET" request to "/redirect-to?url=https://httpbin.org/get&status_code=307" # ui.steps.api.ApiSteps.send(java.lang.String,java.lang.String)
+  Then the response status should be 307                                                  # ui.steps.api.ApiSteps.status(java.lang.Integer)
 ]]></system-out>
   </testcase>
-  <testcase name="runScenario[&quot;Redirect endpoint should reach final destination when following&quot;, &quot;httpbin Regression API suite (positive and negative coverage)&quot;](46)" classname="com.algodatta.runners.ApiRunner" time="1.179">
+  <testcase name="runScenario[&quot;Redirect endpoint should reach final destination when following&quot;, &quot;httpbin Regression API suite (positive and negative coverage)&quot;](47)" classname="com.algodatta.runners.ApiRunner" time="1.254">
     <system-out><![CDATA[
 @api_smoke
-Scenario: Basic GET should return 200 and JSON                    # src/test/resources/features/api/httpbin_smoke.feature:13
+Scenario: GET /anything echoes the request method                 # src/test/resources/features/api/httpbin_smoke.feature:19
   Given I set API base url                                        # ui.steps.api.ApiSteps.setBaseUrl()
   And I reset API client                                          # ui.steps.api.ApiSteps.resetClient()
   When I send "GET" request to "/redirect/2"                              # ui.steps.api.ApiSteps.send(java.lang.String,java.lang.String)
@@ -644,17 +656,7 @@ Scenario: Basic GET should return 200 and JSON                    # src/test/res
   And the response content type should contain "application/json"         # ui.steps.api.ApiSteps.contentTypeContains(java.lang.String)
 ]]></system-out>
   </testcase>
-  <testcase name="runScenario[&quot;Redirect to a custom URL&quot;, &quot;httpbin Regression API suite (positive and negative coverage)&quot;](47)" classname="com.algodatta.runners.ApiRunner" time="0.16">
-    <system-out><![CDATA[
-@api_smoke
-Scenario: GET /anything echoes the request method                 # src/test/resources/features/api/httpbin_smoke.feature:19
-  Given I set API base url                                        # ui.steps.api.ApiSteps.setBaseUrl()
-  And I reset API client                                          # ui.steps.api.ApiSteps.resetClient()
-  When I send "GET" request to "/redirect-to?url=https://httpbin.org/get&status_code=307" # ui.steps.api.ApiSteps.send(java.lang.String,java.lang.String)
-  Then the response status should be 307                                                  # ui.steps.api.ApiSteps.status(java.lang.Integer)
-]]></system-out>
-  </testcase>
-  <testcase name="runScenario[&quot;/anything should echo arbitrary path, headers and payload&quot;, &quot;httpbin Regression API suite (positive and negative coverage)&quot;](48)" classname="com.algodatta.runners.ApiRunner" time="0.243">
+  <testcase name="runScenario[&quot;/anything should echo arbitrary path, headers and payload&quot;, &quot;httpbin Regression API suite (positive and negative coverage)&quot;](48)" classname="com.algodatta.runners.ApiRunner" time="0.657">
     <system-out><![CDATA[
 @api_smoke
 Scenario: Basic POST should echo JSON payload                     # src/test/resources/features/api/httpbin_smoke.feature:25
@@ -668,23 +670,34 @@ Scenario: Basic POST should echo JSON payload                     # src/test/res
   And the JSON path "headers.X-Custom" should be "hello"            # ui.steps.api.ApiSteps.jsonPathEqualsString(java.lang.String,java.lang.String)
   And the JSON path "args.n" should be "99"                         # ui.steps.api.ApiSteps.jsonPathEqualsString(java.lang.String,java.lang.String)
   And the JSON path "json.msg" should be "ping"                     # ui.steps.api.ApiSteps.jsonPathEqualsString(java.lang.String,java.lang.String)
+  When I send "GET" request to "/get?hello=world"                 # ui.steps.api.ApiSteps.send(java.lang.String,java.lang.String)
 ]]></system-out>
   </testcase>
-  <testcase name="runScenario[&quot;Basic GET should return 200 and JSON&quot;, &quot;httpbin Smoke API suite&quot;](49)" classname="com.algodatta.runners.ApiRunner" time="0.245">
-    <system-out><![CDATA[
+  <testcase name="runScenario[&quot;Basic GET should return 200 and JSON&quot;, &quot;httpbin Smoke API suite&quot;](49)" classname="com.algodatta.runners.ApiRunner" time="0.032">
+    <system-out><![CDATA[  Then the response status should be 200                          # ui.steps.api.ApiSteps.status(java.lang.Integer)
+  And the response content type should contain "application/json" # ui.steps.api.ApiSteps.contentTypeContains(java.lang.String)
+
 @api_smoke
 Scenario: Basic Auth positive                            # src/test/resources/features/api/httpbin_smoke.feature:37
   Given I set API base url                               # ui.steps.api.ApiSteps.setBaseUrl()
   And I reset API client                                 # ui.steps.api.ApiSteps.resetClient()
-  Given I use basic auth "user" and "passwd"             # ui.steps.api.ApiSteps.basicAuth(java.lang.String,java.lang.String)
-  When I send "GET" request to "/get?hello=world"                 # ui.steps.api.ApiSteps.send(java.lang.String,java.lang.String)
-  Then the response status should be 200                          # ui.steps.api.ApiSteps.status(java.lang.Integer)
-  And the response content type should contain "application/json" # ui.steps.api.ApiSteps.contentTypeContains(java.lang.String)
   And the JSON path "args.hello" should be "world"                # ui.steps.api.ApiSteps.jsonPathEqualsString(java.lang.String,java.lang.String)
 ]]></system-out>
   </testcase>
-  <testcase name="runScenario[&quot;GET /anything echoes the request method&quot;, &quot;httpbin Smoke API suite&quot;](50)" classname="com.algodatta.runners.ApiRunner" time="0.952">
-    <system-out><![CDATA[
+  <testcase name="runScenario[&quot;GET /anything echoes the request method&quot;, &quot;httpbin Smoke API suite&quot;](50)" classname="com.algodatta.runners.ApiRunner" time="0.206">
+    <failure message="Unexpected status code expected [200] but found [400]" type="java.lang.AssertionError"><![CDATA[java.lang.AssertionError: Unexpected status code expected [200] but found [400]
+	at org.testng.Assert.fail(Assert.java:111)
+	at org.testng.Assert.failNotEquals(Assert.java:1578)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:150)
+	at org.testng.Assert.assertEquals(Assert.java:132)
+	at org.testng.Assert.assertEquals(Assert.java:1419)
+	at org.testng.Assert.assertEquals(Assert.java:1383)
+	at com.algodatta.api.validators.ResponseValidator.status(ResponseValidator.java:12)
+	at ui.steps.api.ApiSteps.status(ApiSteps.java:215)
+	at ✽.the response status should be 200(file:///E:/QA_KC/KC-sdet-automation/tests/src/test/resources/features/api/httpbin_smoke.feature:21)
+]]></failure>
+    <system-out><![CDATA[  Given I use basic auth "user" and "passwd"             # ui.steps.api.ApiSteps.basicAuth(java.lang.String,java.lang.String)
+
 @api_smoke
 Scenario: Basic Auth negative                            # src/test/resources/features/api/httpbin_smoke.feature:43
   Given I set API base url                               # ui.steps.api.ApiSteps.setBaseUrl()
@@ -692,11 +705,22 @@ Scenario: Basic Auth negative                            # src/test/resources/fe
   Given I use basic auth "user" and "wrong"              # ui.steps.api.ApiSteps.basicAuth(java.lang.String,java.lang.String)
   When I send "GET" request to "/anything"                        # ui.steps.api.ApiSteps.send(java.lang.String,java.lang.String)
   Then the response status should be 200                          # ui.steps.api.ApiSteps.status(java.lang.Integer)
+      java.lang.AssertionError: Unexpected status code expected [200] but found [400]
+	at org.testng.Assert.fail(Assert.java:111)
+	at org.testng.Assert.failNotEquals(Assert.java:1578)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:150)
+	at org.testng.Assert.assertEquals(Assert.java:132)
+	at org.testng.Assert.assertEquals(Assert.java:1419)
+	at org.testng.Assert.assertEquals(Assert.java:1383)
+	at com.algodatta.api.validators.ResponseValidator.status(ResponseValidator.java:12)
+	at ui.steps.api.ApiSteps.status(ApiSteps.java:215)
+	at âœ½.the response status should be 200(file:///E:/QA_KC/KC-sdet-automation/tests/src/test/resources/features/api/httpbin_smoke.feature:21)
+
   And the response content type should contain "application/json" # ui.steps.api.ApiSteps.contentTypeContains(java.lang.String)
   And the JSON path "method" should be "GET"                      # ui.steps.api.ApiSteps.jsonPathEqualsString(java.lang.String,java.lang.String)
 ]]></system-out>
   </testcase>
-  <testcase name="runScenario[&quot;Basic POST should echo JSON payload&quot;, &quot;httpbin Smoke API suite&quot;](51)" classname="com.algodatta.runners.ApiRunner" time="0.463">
+  <testcase name="runScenario[&quot;Basic POST should echo JSON payload&quot;, &quot;httpbin Smoke API suite&quot;](51)" classname="com.algodatta.runners.ApiRunner" time="1.113">
     <failure message="Unexpected status code expected [200] but found [400]" type="java.lang.AssertionError"><![CDATA[java.lang.AssertionError: Unexpected status code expected [200] but found [400]
 	at org.testng.Assert.fail(Assert.java:111)
 	at org.testng.Assert.failNotEquals(Assert.java:1578)
@@ -712,6 +736,8 @@ Scenario: Basic Auth negative                            # src/test/resources/fe
 @api_smoke
 Scenario: Get a single post                                                            # src/test/resources/features/api/jsonplaceholder_smoke.feature:10
   Given I use base url "https://jsonplaceholder.typicode.com"                          # ui.steps.api.ApiSteps.useBaseUrl(java.lang.String)
+  When I GET "/posts/1"                                                                # ui.steps.api.ApiSteps.get(java.lang.String)
+  Then the response status should be 200                                               # ui.steps.api.ApiSteps.status(java.lang.Integer)
   When I send "POST" request to "/post"                           # ui.steps.api.ApiSteps.send(java.lang.String,java.lang.String)
   Then the response status should be 200                          # ui.steps.api.ApiSteps.status(java.lang.Integer)
       java.lang.AssertionError: Unexpected status code expected [200] but found [400]
@@ -728,9 +754,10 @@ Scenario: Get a single post                                                     
   And the response content type should contain "application/json" # ui.steps.api.ApiSteps.contentTypeContains(java.lang.String)
   And the JSON path "json.name" should be "kc"                    # ui.steps.api.ApiSteps.jsonPathEqualsString(java.lang.String,java.lang.String)
   And the JSON path "json.type" should be "smoke"                 # ui.steps.api.ApiSteps.jsonPathEqualsString(java.lang.String,java.lang.String)
+  And json path "id" should be 1                                                       # ui.steps.api.ApiSteps.jsonPathShortInt(java.lang.String,java.lang.Integer)
 ]]></system-out>
   </testcase>
-  <testcase name="runScenario[&quot;Basic Auth negative&quot;, &quot;httpbin Smoke API suite&quot;](52)" classname="com.algodatta.runners.ApiRunner" time="0.577">
+  <testcase name="runScenario[&quot;Basic Auth negative&quot;, &quot;httpbin Smoke API suite&quot;](52)" classname="com.algodatta.runners.ApiRunner" time="0.389">
     <failure message="Unexpected status code expected [401] but found [400]" type="java.lang.AssertionError"><![CDATA[java.lang.AssertionError: Unexpected status code expected [401] but found [400]
 	at org.testng.Assert.fail(Assert.java:111)
 	at org.testng.Assert.failNotEquals(Assert.java:1578)
@@ -746,16 +773,12 @@ Scenario: Get a single post                                                     
 @api_smoke
 Scenario: List posts for a user                                                               # src/test/resources/features/api/jsonplaceholder_smoke.feature:18
   Given I use base url "https://jsonplaceholder.typicode.com"                                 # ui.steps.api.ApiSteps.useBaseUrl(java.lang.String)
-  When I GET "/posts/1"                                                                # ui.steps.api.ApiSteps.get(java.lang.String)
-  Then the response status should be 200                                               # ui.steps.api.ApiSteps.status(java.lang.Integer)
-  And json path "id" should be 1                                                       # ui.steps.api.ApiSteps.jsonPathShortInt(java.lang.String,java.lang.Integer)
+  And json path "userId" should be 1                                                   # ui.steps.api.ApiSteps.jsonPathShortInt(java.lang.String,java.lang.Integer)
+  And json path "title" should not be null                                             # ui.steps.api.ApiSteps.jsonPathShortNotNull(java.lang.String)
   When I GET "/posts?userId=1"                                                                # ui.steps.api.ApiSteps.get(java.lang.String)
   Then the response status should be 200                                                      # ui.steps.api.ApiSteps.status(java.lang.Integer)
   And the response array at "$" size should be greater than 0                                 # ui.steps.api.ApiSteps.arraySizeGreaterThan(java.lang.String,int)
-  And json path "userId" should be 1                                                   # ui.steps.api.ApiSteps.jsonPathShortInt(java.lang.String,java.lang.Integer)
-  And json path "title" should not be null                                             # ui.steps.api.ApiSteps.jsonPathShortNotNull(java.lang.String)
   And each item in response array has json path "userId" equals 1                             # ui.steps.api.ApiSteps.eachItemJsonPathEqualsInt(java.lang.String,int)
-  When I send "GET" request to "/basic-auth/user/passwd" # ui.steps.api.ApiSteps.send(java.lang.String,java.lang.String)
   When I send "GET" request to "/basic-auth/user/passwd" # ui.steps.api.ApiSteps.send(java.lang.String,java.lang.String)
   Then the response status should be 401                 # ui.steps.api.ApiSteps.status(java.lang.Integer)
       java.lang.AssertionError: Unexpected status code expected [401] but found [400]
@@ -769,7 +792,22 @@ Scenario: List posts for a user                                                 
 	at ui.steps.api.ApiSteps.status(ApiSteps.java:215)
 	at âœ½.the response status should be 401(file:///E:/QA_KC/KC-sdet-automation/tests/src/test/resources/features/api/httpbin_smoke.feature:46)
 
-  Then the response status should be 200                 # ui.steps.api.ApiSteps.status(java.lang.Integer)
+  When I send "GET" request to "/basic-auth/user/passwd" # ui.steps.api.ApiSteps.send(java.lang.String,java.lang.String)
+]]></system-out>
+  </testcase>
+  <testcase name="runScenario[&quot;Basic Auth positive&quot;, &quot;httpbin Smoke API suite&quot;](53)" classname="com.algodatta.runners.ApiRunner" time="0.129">
+    <failure message="Unexpected status code expected [200] but found [400]" type="java.lang.AssertionError"><![CDATA[java.lang.AssertionError: Unexpected status code expected [200] but found [400]
+	at org.testng.Assert.fail(Assert.java:111)
+	at org.testng.Assert.failNotEquals(Assert.java:1578)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:150)
+	at org.testng.Assert.assertEquals(Assert.java:132)
+	at org.testng.Assert.assertEquals(Assert.java:1419)
+	at org.testng.Assert.assertEquals(Assert.java:1383)
+	at com.algodatta.api.validators.ResponseValidator.status(ResponseValidator.java:12)
+	at ui.steps.api.ApiSteps.status(ApiSteps.java:215)
+	at ✽.the response status should be 200(file:///E:/QA_KC/KC-sdet-automation/tests/src/test/resources/features/api/httpbin_smoke.feature:40)
+]]></failure>
+    <system-out><![CDATA[  Then the response status should be 200                 # ui.steps.api.ApiSteps.status(java.lang.Integer)
       java.lang.AssertionError: Unexpected status code expected [200] but found [400]
 	at org.testng.Assert.fail(Assert.java:111)
 	at org.testng.Assert.failNotEquals(Assert.java:1578)
@@ -784,87 +822,76 @@ Scenario: List posts for a user                                                 
   And the JSON path "authenticated" should not be null   # ui.steps.api.ApiSteps.jsonPathNotNull(java.lang.String)
 ]]></system-out>
   </testcase>
-  <testcase name="runScenario[&quot;Basic Auth positive&quot;, &quot;httpbin Smoke API suite&quot;](53)" classname="com.algodatta.runners.ApiRunner" time="0.0">
-    <failure message="Unexpected status code expected [200] but found [400]" type="java.lang.AssertionError"><![CDATA[java.lang.AssertionError: Unexpected status code expected [200] but found [400]
-	at org.testng.Assert.fail(Assert.java:111)
-	at org.testng.Assert.failNotEquals(Assert.java:1578)
-	at org.testng.Assert.assertEqualsImpl(Assert.java:150)
-	at org.testng.Assert.assertEquals(Assert.java:132)
-	at org.testng.Assert.assertEquals(Assert.java:1419)
-	at org.testng.Assert.assertEquals(Assert.java:1383)
-	at com.algodatta.api.validators.ResponseValidator.status(ResponseValidator.java:12)
-	at ui.steps.api.ApiSteps.status(ApiSteps.java:215)
-	at ✽.the response status should be 200(file:///E:/QA_KC/KC-sdet-automation/tests/src/test/resources/features/api/httpbin_smoke.feature:40)
-]]></failure>
-  </testcase>
-  <testcase name="runScenario[&quot;Get a single post&quot;, &quot;JSONPlaceholder API smoke coverage&quot;](54)" classname="com.algodatta.runners.ApiRunner" time="0.827">
+  <testcase name="runScenario[&quot;List comments for a post&quot;, &quot;JSONPlaceholder API smoke coverage&quot;](54)" classname="com.algodatta.runners.ApiRunner" time="1.068">
     <system-out><![CDATA[
 @api_smoke
-Scenario: Get a user                                                                   # src/test/resources/features/api/jsonplaceholder_smoke.feature:25
+Scenario: List comments for a post                                                               # src/test/resources/features/api/jsonplaceholder_smoke.feature:32
+  Given I use base url "https://jsonplaceholder.typicode.com"                                    # ui.steps.api.ApiSteps.useBaseUrl(java.lang.String)
 
 @api_smoke
-Scenario: List comments for a post                                                               # src/test/resources/features/api/jsonplaceholder_smoke.feature:32
+Scenario: Get a user                                                                   # src/test/resources/features/api/jsonplaceholder_smoke.feature:25
   Given I use base url "https://jsonplaceholder.typicode.com"                          # ui.steps.api.ApiSteps.useBaseUrl(java.lang.String)
-  Given I use base url "https://jsonplaceholder.typicode.com"                                    # ui.steps.api.ApiSteps.useBaseUrl(java.lang.String)
-  When I GET "/users/1"                                                                # ui.steps.api.ApiSteps.get(java.lang.String)
-  Then the response status should be 200                                               # ui.steps.api.ApiSteps.status(java.lang.Integer)
-  And json path "id" should be 1                                                       # ui.steps.api.ApiSteps.jsonPathShortInt(java.lang.String,java.lang.Integer)
-  And json path "email" should contain "@"                                             # ui.steps.api.ApiSteps.jsonPathShortContains(java.lang.String,java.lang.String)
   When I GET "/comments?postId=1"                                                                # ui.steps.api.ApiSteps.get(java.lang.String)
   Then the response status should be 200                                                         # ui.steps.api.ApiSteps.status(java.lang.Integer)
   And the response array at "$" size should be greater than 0                                    # ui.steps.api.ApiSteps.arraySizeGreaterThan(java.lang.String,int)
   And each item in response array has json path "postId" equals 1                                # ui.steps.api.ApiSteps.eachItemJsonPathEqualsInt(java.lang.String,int)
-  And the response should match json schema "schemas/jsonplaceholder_post_schema.json" # ui.steps.api.ApiSteps.schema(java.lang.String)
+  When I GET "/users/1"                                                                # ui.steps.api.ApiSteps.get(java.lang.String)
+  Then the response status should be 200                                               # ui.steps.api.ApiSteps.status(java.lang.Integer)
+  And json path "id" should be 1                                                       # ui.steps.api.ApiSteps.jsonPathShortInt(java.lang.String,java.lang.Integer)
+  And json path "email" should contain "@"                                             # ui.steps.api.ApiSteps.jsonPathShortContains(java.lang.String,java.lang.String)
+  And the response should match json schema "schemas/jsonplaceholder_comments_array_schema.json" # ui.steps.api.ApiSteps.schema(java.lang.String)
+]]></system-out>
+  </testcase>
+  <testcase name="runScenario[&quot;Get a single post&quot;, &quot;JSONPlaceholder API smoke coverage&quot;](55)" classname="com.algodatta.runners.ApiRunner" time="0.029">
+    <system-out><![CDATA[  And the response should match json schema "schemas/jsonplaceholder_post_schema.json" # ui.steps.api.ApiSteps.schema(java.lang.String)
   And the response should match json schema "schemas/jsonplaceholder_user_schema.json" # ui.steps.api.ApiSteps.schema(java.lang.String)
 ]]></system-out>
   </testcase>
-  <testcase name="runScenario[&quot;Get a user&quot;, &quot;JSONPlaceholder API smoke coverage&quot;](55)" classname="com.algodatta.runners.ApiRunner" time="0.016">
-    <system-out><![CDATA[  And the response should match json schema "schemas/jsonplaceholder_comments_array_schema.json" # ui.steps.api.ApiSteps.schema(java.lang.String)
-]]></system-out>
-  </testcase>
-  <testcase name="runScenario[&quot;List comments for a post&quot;, &quot;JSONPlaceholder API smoke coverage&quot;](56)" classname="com.algodatta.runners.ApiRunner" time="0.0"/>
-  <testcase name="runScenario[&quot;List posts for a user&quot;, &quot;JSONPlaceholder API smoke coverage&quot;](57)" classname="com.algodatta.runners.ApiRunner" time="0.068">
+  <testcase name="runScenario[&quot;Get a user&quot;, &quot;JSONPlaceholder API smoke coverage&quot;](56)" classname="com.algodatta.runners.ApiRunner" time="0.137">
     <system-out><![CDATA[  And the response should match json schema "schemas/jsonplaceholder_posts_array_schema.json" # ui.steps.api.ApiSteps.schema(java.lang.String)
 ]]></system-out>
   </testcase>
-  <testcase name="runScenario[&quot;Get an album&quot;, &quot;JSONPlaceholder API smoke coverage&quot;](58)" classname="com.algodatta.runners.ApiRunner" time="0.446">
+  <testcase name="runScenario[&quot;List posts for a user&quot;, &quot;JSONPlaceholder API smoke coverage&quot;](57)" classname="com.algodatta.runners.ApiRunner" time="0.003">
     <system-out><![CDATA[
+@api_smoke
+Scenario: List photos in an album                                                              # src/test/resources/features/api/jsonplaceholder_smoke.feature:54
+]]></system-out>
+  </testcase>
+  <testcase name="runScenario[&quot;Get a todo&quot;, &quot;JSONPlaceholder API smoke coverage&quot;](58)" classname="com.algodatta.runners.ApiRunner" time="0.462">
+    <system-out><![CDATA[  Given I use base url "https://jsonplaceholder.typicode.com"                                  # ui.steps.api.ApiSteps.useBaseUrl(java.lang.String)
+
+@api_smoke
+Scenario: Get a todo                                                                   # src/test/resources/features/api/jsonplaceholder_smoke.feature:39
+  Given I use base url "https://jsonplaceholder.typicode.com"                          # ui.steps.api.ApiSteps.useBaseUrl(java.lang.String)
+
 @api_smoke
 Scenario: Create a post                                                                                # src/test/resources/features/api/jsonplaceholder_smoke.feature:61
   Given I use base url "https://jsonplaceholder.typicode.com"                                          # ui.steps.api.ApiSteps.useBaseUrl(java.lang.String)
 
 @api_smoke
 Scenario: Get an album                                                                  # src/test/resources/features/api/jsonplaceholder_smoke.feature:46
-
-@api_smoke
-Scenario: List photos in an album                                                              # src/test/resources/features/api/jsonplaceholder_smoke.feature:54
-  Given I use base url "https://jsonplaceholder.typicode.com"                                  # ui.steps.api.ApiSteps.useBaseUrl(java.lang.String)
-
-@api_smoke
-Scenario: Get a todo                                                                   # src/test/resources/features/api/jsonplaceholder_smoke.feature:39
-  Given I use base url "https://jsonplaceholder.typicode.com"                          # ui.steps.api.ApiSteps.useBaseUrl(java.lang.String)
   Given I use base url "https://jsonplaceholder.typicode.com"                           # ui.steps.api.ApiSteps.useBaseUrl(java.lang.String)
+  When I GET "/todos/1"                                                                # ui.steps.api.ApiSteps.get(java.lang.String)
+  Then the response status should be 200                                               # ui.steps.api.ApiSteps.status(java.lang.Integer)
+  And json path "id" should be 1                                                       # ui.steps.api.ApiSteps.jsonPathShortInt(java.lang.String,java.lang.Integer)
   When I GET "/albums/1"                                                                # ui.steps.api.ApiSteps.get(java.lang.String)
   Then the response status should be 200                                                # ui.steps.api.ApiSteps.status(java.lang.Integer)
+  And json path "userId" should be 1                                                   # ui.steps.api.ApiSteps.jsonPathShortInt(java.lang.String,java.lang.Integer)
   And json path "id" should be 1                                                        # ui.steps.api.ApiSteps.jsonPathShortInt(java.lang.String,java.lang.Integer)
+  And the response should match json schema "schemas/jsonplaceholder_todo_schema.json" # ui.steps.api.ApiSteps.schema(java.lang.String)
   And json path "userId" should be 1                                                    # ui.steps.api.ApiSteps.jsonPathShortInt(java.lang.String,java.lang.Integer)
-  And json path "title" should not be null                                              # ui.steps.api.ApiSteps.jsonPathShortNotNull(java.lang.String)
-  And the response should match json schema "schemas/jsonplaceholder_album_schema.json" # ui.steps.api.ApiSteps.schema(java.lang.String)
 ]]></system-out>
   </testcase>
-  <testcase name="runScenario[&quot;Get a todo&quot;, &quot;JSONPlaceholder API smoke coverage&quot;](59)" classname="com.algodatta.runners.ApiRunner" time="0.128">
+  <testcase name="runScenario[&quot;Get an album&quot;, &quot;JSONPlaceholder API smoke coverage&quot;](59)" classname="com.algodatta.runners.ApiRunner" time="0.094">
     <system-out><![CDATA[
 @api_smoke
 Scenario: Update a post with PUT                                                       # src/test/resources/features/api/jsonplaceholder_smoke.feature:75
   Given I use base url "https://jsonplaceholder.typicode.com"                          # ui.steps.api.ApiSteps.useBaseUrl(java.lang.String)
-  When I GET "/todos/1"                                                                # ui.steps.api.ApiSteps.get(java.lang.String)
-  Then the response status should be 200                                               # ui.steps.api.ApiSteps.status(java.lang.Integer)
-  And json path "id" should be 1                                                       # ui.steps.api.ApiSteps.jsonPathShortInt(java.lang.String,java.lang.Integer)
-  And json path "userId" should be 1                                                   # ui.steps.api.ApiSteps.jsonPathShortInt(java.lang.String,java.lang.Integer)
-  And the response should match json schema "schemas/jsonplaceholder_todo_schema.json" # ui.steps.api.ApiSteps.schema(java.lang.String)
+  And json path "title" should not be null                                              # ui.steps.api.ApiSteps.jsonPathShortNotNull(java.lang.String)
+  And the response should match json schema "schemas/jsonplaceholder_album_schema.json" # ui.steps.api.ApiSteps.schema(java.lang.String)
 ]]></system-out>
   </testcase>
-  <testcase name="runScenario[&quot;List photos in an album&quot;, &quot;JSONPlaceholder API smoke coverage&quot;](60)" classname="com.algodatta.runners.ApiRunner" time="0.528">
+  <testcase name="runScenario[&quot;Create a post&quot;, &quot;JSONPlaceholder API smoke coverage&quot;](60)" classname="com.algodatta.runners.ApiRunner" time="0.512">
     <system-out><![CDATA[
 @api_smoke
 Scenario: Partial update a post with PATCH                    # src/test/resources/features/api/jsonplaceholder_smoke.feature:90
@@ -872,32 +899,23 @@ Scenario: Partial update a post with PATCH                    # src/test/resourc
   When I GET "/photos?albumId=1"                                                               # ui.steps.api.ApiSteps.get(java.lang.String)
   Then the response status should be 200                                                       # ui.steps.api.ApiSteps.status(java.lang.Integer)
   And the response array at "$" size should be greater than 0                                  # ui.steps.api.ApiSteps.arraySizeGreaterThan(java.lang.String,int)
-  And each item in response array has json path "albumId" equals 1                             # ui.steps.api.ApiSteps.eachItemJsonPathEqualsInt(java.lang.String,int)
-  And the response should match json schema "schemas/jsonplaceholder_photos_array_schema.json" # ui.steps.api.ApiSteps.schema(java.lang.String)
-]]></system-out>
-  </testcase>
-  <testcase name="runScenario[&quot;Partial update a post with PATCH&quot;, &quot;JSONPlaceholder API smoke coverage&quot;](61)" classname="com.algodatta.runners.ApiRunner" time="0.841">
-    <system-out><![CDATA[
-@api_smoke
-Scenario: Delete a post                                       # src/test/resources/features/api/jsonplaceholder_smoke.feature:100
-  Given I use base url "https://jsonplaceholder.typicode.com" # ui.steps.api.ApiSteps.useBaseUrl(java.lang.String)
   When I POST "/posts" with json body:                                                                 # ui.steps.api.ApiSteps.postWithBody(java.lang.String,java.lang.String)
   Then the response status should be 201                                                               # ui.steps.api.ApiSteps.status(java.lang.Integer)
-  When I PATCH "/posts/1" with json body:                     # ui.steps.api.ApiSteps.patchWithBody(java.lang.String,java.lang.String)
-  Then the response status should be 200                      # ui.steps.api.ApiSteps.status(java.lang.Integer)
+  And each item in response array has json path "albumId" equals 1                             # ui.steps.api.ApiSteps.eachItemJsonPathEqualsInt(java.lang.String,int)
   And json path "id" should not be null                                                                # ui.steps.api.ApiSteps.jsonPathShortNotNull(java.lang.String)
-  And json path "title" should be "patched title"             # ui.steps.api.ApiSteps.jsonPathShortString(java.lang.String,java.lang.String)
   And json path "userId" should be 1                                                                   # ui.steps.api.ApiSteps.jsonPathShortInt(java.lang.String,java.lang.Integer)
-]]></system-out>
-  </testcase>
-  <testcase name="runScenario[&quot;Create a post&quot;, &quot;JSONPlaceholder API smoke coverage&quot;](62)" classname="com.algodatta.runners.ApiRunner" time="0.007">
-    <system-out><![CDATA[
-@api_smoke
-Scenario: Login then fetch user details                                       # src/test/resources/features/api/reqres.feature:8
   And the response should match json schema "schemas/jsonplaceholder_post_create_response_schema.json" # ui.steps.api.ApiSteps.schema(java.lang.String)
 ]]></system-out>
   </testcase>
-  <testcase name="runScenario[&quot;Login then fetch user details&quot;, &quot;ReqRes API validation&quot;](63)" classname="com.algodatta.runners.ApiRunner" time="0.017">
+  <testcase name="runScenario[&quot;List photos in an album&quot;, &quot;JSONPlaceholder API smoke coverage&quot;](61)" classname="com.algodatta.runners.ApiRunner" time="0.178">
+    <system-out><![CDATA[
+@api_smoke
+Scenario: Delete a post                                       # src/test/resources/features/api/jsonplaceholder_smoke.feature:100
+  And the response should match json schema "schemas/jsonplaceholder_photos_array_schema.json" # ui.steps.api.ApiSteps.schema(java.lang.String)
+  Given I use base url "https://jsonplaceholder.typicode.com" # ui.steps.api.ApiSteps.useBaseUrl(java.lang.String)
+]]></system-out>
+  </testcase>
+  <testcase name="runScenario[&quot;Login then fetch user details&quot;, &quot;ReqRes API validation&quot;](62)" classname="com.algodatta.runners.ApiRunner" time="0.291">
     <failure message="Unexpected status code expected [200] but found [403]" type="java.lang.AssertionError"><![CDATA[java.lang.AssertionError: Unexpected status code expected [200] but found [403]
 	at org.testng.Assert.fail(Assert.java:111)
 	at org.testng.Assert.failNotEquals(Assert.java:1578)
@@ -909,12 +927,10 @@ Scenario: Login then fetch user details                                       # 
 	at ui.steps.api.ApiSteps.status(ApiSteps.java:215)
 	at ✽.the response status should be 200(file:///E:/QA_KC/KC-sdet-automation/tests/src/test/resources/features/api/reqres.feature:11)
 ]]></failure>
-    <system-out><![CDATA[  Given I use base url "https://reqres.in"                                    # ui.steps.api.ApiSteps.useBaseUrl(java.lang.String)
-  When I PUT "/posts/1" with json body:                                                # ui.steps.api.ApiSteps.putWithBody(java.lang.String,java.lang.String)
-  Then the response status should be 200                                               # ui.steps.api.ApiSteps.status(java.lang.Integer)
-  And json path "id" should be 1                                                       # ui.steps.api.ApiSteps.jsonPathShortInt(java.lang.String,java.lang.Integer)
-  And json path "title" should be "updated title"                                      # ui.steps.api.ApiSteps.jsonPathShortString(java.lang.String,java.lang.String)
-  And the response should match json schema "schemas/jsonplaceholder_post_schema.json" # ui.steps.api.ApiSteps.schema(java.lang.String)
+    <system-out><![CDATA[
+@api_smoke
+Scenario: Login then fetch user details                                       # src/test/resources/features/api/reqres.feature:8
+  Given I use base url "https://reqres.in"                                    # ui.steps.api.ApiSteps.useBaseUrl(java.lang.String)
   When I login with email "eve.holt@reqres.in" and password "cityslicka"      # ui.steps.api.ApiSteps.loginWithEmail(java.lang.String,java.lang.String)
   Then the response status should be 200                                      # ui.steps.api.ApiSteps.status(java.lang.Integer)
       java.lang.AssertionError: Unexpected status code expected [200] but found [403]
@@ -934,10 +950,21 @@ Scenario: Login then fetch user details                                       # 
   And the response should match json schema "schemas/reqres_user_schema.json" # ui.steps.api.ApiSteps.schema(java.lang.String)
 ]]></system-out>
   </testcase>
-  <testcase name="runScenario[&quot;Update a post with PUT&quot;, &quot;JSONPlaceholder API smoke coverage&quot;](64)" classname="com.algodatta.runners.ApiRunner" time="0.019"/>
-  <testcase name="runScenario[&quot;Delete a post&quot;, &quot;JSONPlaceholder API smoke coverage&quot;](65)" classname="com.algodatta.runners.ApiRunner" time="0.487">
-    <system-out><![CDATA[  When I DELETE "/posts/1"                                    # ui.steps.api.ApiSteps.delete(java.lang.String)
-  Then the response status should be 200                      # ui.steps.api.ApiSteps.status(java.lang.Integer)
+  <testcase name="runScenario[&quot;Update a post with PUT&quot;, &quot;JSONPlaceholder API smoke coverage&quot;](63)" classname="com.algodatta.runners.ApiRunner" time="0.349">
+    <system-out><![CDATA[  When I PUT "/posts/1" with json body:                                                # ui.steps.api.ApiSteps.putWithBody(java.lang.String,java.lang.String)
+  Then the response status should be 200                                               # ui.steps.api.ApiSteps.status(java.lang.Integer)
+  And json path "id" should be 1                                                       # ui.steps.api.ApiSteps.jsonPathShortInt(java.lang.String,java.lang.Integer)
+  And json path "title" should be "updated title"                                      # ui.steps.api.ApiSteps.jsonPathShortString(java.lang.String,java.lang.String)
+  And the response should match json schema "schemas/jsonplaceholder_post_schema.json" # ui.steps.api.ApiSteps.schema(java.lang.String)
 ]]></system-out>
   </testcase>
+  <testcase name="runScenario[&quot;Delete a post&quot;, &quot;JSONPlaceholder API smoke coverage&quot;](64)" classname="com.algodatta.runners.ApiRunner" time="0.559">
+    <system-out><![CDATA[  When I PATCH "/posts/1" with json body:                     # ui.steps.api.ApiSteps.patchWithBody(java.lang.String,java.lang.String)
+  Then the response status should be 200                      # ui.steps.api.ApiSteps.status(java.lang.Integer)
+  When I DELETE "/posts/1"                                    # ui.steps.api.ApiSteps.delete(java.lang.String)
+  Then the response status should be 200                      # ui.steps.api.ApiSteps.status(java.lang.Integer)
+  And json path "title" should be "patched title"             # ui.steps.api.ApiSteps.jsonPathShortString(java.lang.String,java.lang.String)
+]]></system-out>
+  </testcase>
+  <testcase name="runScenario[&quot;Partial update a post with PATCH&quot;, &quot;JSONPlaceholder API smoke coverage&quot;](65)" classname="com.algodatta.runners.ApiRunner" time="0.593"/>
 </testsuite>

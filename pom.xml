@@ -123,9 +123,10 @@
 
   <build>
     <!--
-      Use source/target rather than the release option to avoid:
-        "exporting a package from system module jdk.httpserver is not allowed with - -release"
-      when JAVA_TOOL_OPTIONS contains add-exports for jdk.httpserver (e.g. on some Jenkins setups).
+      Note: Keep this comment free of double-dash sequences.
+      We intentionally use source/target (not the compiler "release" option) because some CI
+      environments inject extra Java module flags via JAVA_TOOL_OPTIONS, which can conflict with
+      that option.
     -->
     <plugins>
       <plugin>
