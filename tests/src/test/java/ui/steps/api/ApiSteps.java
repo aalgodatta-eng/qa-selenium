@@ -1,14 +1,18 @@
 package ui.steps.api;
 
+import com.algodatta.api.filter.ApiLoggingFilter;
 import com.algodatta.api.specs.SpecFactory;
 import com.algodatta.api.validators.SchemaValidator;
 import com.algodatta.api.validators.ResponseValidator;
+import com.algodatta.context.ScenarioContext;
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import io.qameta.allure.restassured.AllureRestAssured;
 import io.restassured.RestAssured;
 import io.restassured.builder.RequestSpecBuilder;
+import io.restassured.filter.cookie.CookieFilter;
 import io.restassured.filter.session.SessionFilter;
 import io.restassured.http.ContentType;
 import io.restassured.path.json.JsonPath;
@@ -24,8 +28,17 @@ public class ApiSteps {
 
   private Response last;
   private RequestSpecification req;
-  private final SessionFilter session = new SessionFilter();
+  private RequestSpecification currentSpec;
+  private final SessionFilter session       = new SessionFilter();
+  private final CookieFilter  cookies       = new CookieFilter();
+  private final ApiLoggingFilter apiLog     = new ApiLoggingFilter();
+  private final AllureRestAssured allureFilter = new AllureRestAssured();
+  private final ScenarioContext ctx;
   private boolean followRedirects = true;
+
+  public ApiSteps(ScenarioContext ctx) {
+    this.ctx = ctx;
+  }
 
   // ── Base URL ──────────────────────────────────────────────────────────────
 
@@ -35,7 +48,7 @@ public class ApiSteps {
    */
   @Given("I set API base url")
   public void setBaseUrl() {
-    RestAssured.requestSpecification = SpecFactory.baseSpec();
+    this.currentSpec = SpecFactory.baseSpec();
     resetClient();
   }
 
@@ -46,7 +59,7 @@ public class ApiSteps {
    */
   @Given("I use base url {string}")
   public void useBaseUrl(String url) {
-    RestAssured.requestSpecification = new RequestSpecBuilder()
+    this.currentSpec = new RequestSpecBuilder()
         .setBaseUri(url)
         .setContentType(ContentType.JSON)
         .addHeader("Accept", "application/json")
@@ -59,9 +72,15 @@ public class ApiSteps {
 
   @Given("I reset API client")
   public void resetClient() {
+    RequestSpecification spec = this.currentSpec != null
+        ? this.currentSpec
+        : RestAssured.requestSpecification;
     this.req = RestAssured.given()
-        .spec(RestAssured.requestSpecification)
-        .filter(session);
+        .spec(spec)
+        .filter(allureFilter)   // attaches request+response to the current Allure step
+        .filter(apiLog)         // captures text for Extent via ctx.log()
+        .filter(session)
+        .filter(cookies);
     this.followRedirects = true;
   }
 
@@ -142,6 +161,7 @@ public class ApiSteps {
       case "OPTIONS" -> last = r.options(path);
       default        -> throw new IllegalArgumentException("Unsupported HTTP method: " + method);
     }
+    logLastExchange();
   }
 
   /** Shorthand: GET without needing full "I send ... request to ..." syntax. */
@@ -171,6 +191,7 @@ public class ApiSteps {
         .body(body)
         .redirects().follow(this.followRedirects)
         .post(path);
+    logLastExchange();
   }
 
   /** PUT with an inline docstring JSON body. */
@@ -181,6 +202,7 @@ public class ApiSteps {
         .body(body)
         .redirects().follow(this.followRedirects)
         .put(path);
+    logLastExchange();
   }
 
   /** PATCH with an inline docstring JSON body. */
@@ -191,6 +213,7 @@ public class ApiSteps {
         .body(body)
         .redirects().follow(this.followRedirects)
         .patch(path);
+    logLastExchange();
   }
 
   /**
@@ -206,6 +229,7 @@ public class ApiSteps {
         .body("{\"email\":\"" + email + "\",\"password\":\"" + password + "\"}")
         .redirects().follow(this.followRedirects)
         .post("/api/login");
+    logLastExchange();
   }
 
   // ── Assertions — full "the response ..." phrasing ─────────────────────────
@@ -248,7 +272,8 @@ public class ApiSteps {
   @Then("the JSON path {string} should contain {string}")
   public void jsonPathContainsString(String path, String expectedSubstring) {
     ResponseValidator.jsonPathNotNull(last, path);
-    String actualStr = String.valueOf(JsonPath.from(last.asString()).get(path));
+    Object val = JsonPath.from(last.asString()).get(path);
+    String actualStr = val == null ? "null" : val.toString();
     Assert.assertTrue(actualStr.contains(expectedSubstring),
         "Expected JSONPath '" + path + "' to contain '" + expectedSubstring + "' but was: " + actualStr);
   }
@@ -329,6 +354,20 @@ public class ApiSteps {
     for (int i = 0; i < values.size(); i++) {
       Assert.assertEquals((int) values.get(i), expected,
           "Item [" + i + "] field '" + field + "' expected " + expected + " but was " + values.get(i));
+    }
+  }
+
+  // ── Reporting helpers ─────────────────────────────────────────────────────
+
+  /**
+   * Pushes the last HTTP exchange text (captured by {@link ApiLoggingFilter})
+   * to the Cucumber scenario log so that the Extent CucumberAdapter surfaces it
+   * inside the current step node.  No-op when the context has no active scenario.
+   */
+  private void logLastExchange() {
+    String entry = apiLog.getLastEntry();
+    if (entry != null && !entry.isBlank()) {
+      ctx.log(entry);
     }
   }
 }

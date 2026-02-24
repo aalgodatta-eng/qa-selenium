@@ -13,7 +13,8 @@ public class MockServerHooks {
   public void startMock() {
     if (server != null && server.isRunning()) return;
 
-    int port = Integer.parseInt(System.getProperty("mockPort", "8089").trim());
+    String mockPortStr = System.getProperty("mockPort", "").trim();
+    int port = mockPortStr.isEmpty() ? 8089 : Integer.parseInt(mockPortStr);
     server = new WireMockServer(
         WireMockConfiguration.wireMockConfig()
             .port(port)

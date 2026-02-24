@@ -1,0 +1,22 @@
+[
+  {
+    "name": "Product Defects",
+    "matchedStatuses": ["failed"],
+    "messageRegex": ".*AssertionError.*|.*expected.*but.*found.*|.*Unexpected.*"
+  },
+  {
+    "name": "API Assertion Failures",
+    "matchedStatuses": ["failed"],
+    "messageRegex": ".*status code.*|.*JSONPath.*|.*Content-Type.*|.*Response time.*"
+  },
+  {
+    "name": "UI Failures",
+    "matchedStatuses": ["failed"],
+    "messageRegex": ".*NoSuchElementException.*|.*StaleElementReferenceException.*|.*ElementClickInterceptedException.*"
+  },
+  {
+    "name": "Test Infrastructure Problems",
+    "matchedStatuses": ["broken"],
+    "messageRegex": ".*IOException.*|.*ConnectionException.*|.*SocketException.*|.*TimeoutException.*|.*WebDriverException.*"
+  }
+]
