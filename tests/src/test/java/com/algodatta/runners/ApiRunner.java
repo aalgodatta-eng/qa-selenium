@@ -3,7 +3,7 @@ package com.algodatta.runners;
 import io.cucumber.testng.CucumberOptions;
 
 @CucumberOptions(
-  features = "src/test/resources/features/api",
+  features = "classpath:features/api",
   glue     = {"ui.steps.api", "com.algodatta.hooks"},
   plugin   = {
     "pretty",
@@ -12,8 +12,9 @@ import io.cucumber.testng.CucumberOptions;
     // Extent: live HTML report
     "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:",
     // Raw JSON + HTML output
-    "json:target/cucumber/api-cucumber.json",
-    "html:target/cucumber/api-cucumber.html",
+    // Paths are relative to Surefire workingDirectory = ${project.build.directory}
+    "json:cucumber/api-cucumber.json",
+    "html:cucumber/api-cucumber.html",
     // ReportPortal (disabled by default via -Drp.enable=false)
     "com.epam.reportportal.cucumber.ScenarioReporter"
   },

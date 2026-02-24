@@ -1,0 +1,20 @@
+Commands to run ui tests
+
+bashmvn test -Psmoke
+Run just the Regression suite:
+bashmvn test -Pregression
+Run a specific test class only:
+bashmvn test -Dtest=SmokeTests
+mvn test -Dtest=RegressionTests
+mvn test -Dtest=RegressionTests2
+mvn test -Dtest=RegressionTests3
+Run by TestNG group (e.g. only ajax, click, alerts tests):
+bashmvn test -Pregression -Dgroups=ajax
+mvn test -Pregression -Dgroups=click,alerts,shadowDom
+mvn test -Pregression -Dgroups=positive    # only positive scenarios
+mvn test -Pregression -Dgroups=negative    # only negative scenarios
+Run a specific test method:
+bashmvn test -Dtest=RegressionTests#ajaxData_contentLoadsAfterButtonClick
+Run with headless Chrome (useful in CI/no display):
+bashmvn test -Psmoke -Dheadless=true
+mvn test -Pregression -Dheadless=true

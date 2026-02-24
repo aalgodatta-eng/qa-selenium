@@ -82,6 +82,25 @@
   </dependencies>
 
   <build>
+    <!-- Timestamped output directory: set via -Dtests.build.dir=target_YYYYMMDD_HHmmss
+         Defaults to plain "target" for normal mvn verify invocations. -->
+    <directory>${tests.build.dir}</directory>
+
+    <!-- Enable Maven property filtering for extent.properties so
+         ${project.build.directory} is substituted at process-test-resources time. -->
+    <testResources>
+      <testResource>
+        <directory>src/test/resources</directory>
+        <filtering>true</filtering>
+        <includes><include>extent.properties</include></includes>
+      </testResource>
+      <testResource>
+        <directory>src/test/resources</directory>
+        <filtering>false</filtering>
+        <excludes><exclude>extent.properties</exclude></excludes>
+      </testResource>
+    </testResources>
+
     <plugins>
       <plugin>
         <artifactId>maven-surefire-plugin</artifactId>
@@ -116,6 +135,8 @@
             <enableVnc>${enableVnc}</enableVnc>
             <!-- Allure output dir — overridden at runtime by docker/entrypoint.sh -->
             <allure.results.directory>${allure.results.directory}</allure.results.directory>
+            <!-- Expose build dir to Hooks.java for screenshot path resolution -->
+            <project.build.directory>${project.build.directory}</project.build.directory>
           </systemPropertyVariables>
           <properties>
             <property>
@@ -124,6 +145,9 @@
               <value>${threads}</value>
             </property>
           </properties>
+          <!-- Run tests from the build directory so relative paths in
+               @CucumberOptions plugin strings resolve inside target_TIMESTAMP/ -->
+          <workingDirectory>${project.build.directory}</workingDirectory>
         </configuration>
       </plugin>
 

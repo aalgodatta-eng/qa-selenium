@@ -1,0 +1,35 @@
+A) Rebase your branch on top of the remote feature branch (recommended)
+
+This keeps history clean and avoids losing the remote commit:
+
+# 1) Make sure you have latest remote refs
+git fetch origin
+
+# 2) Rebase your local commits on top of the remote branch commit
+git rebase origin/feature/apiTestsUpdated
+
+# If conflicts:
+#   fix files
+#   git add .
+#   git rebase --continue
+
+# 3) Push (rebase rewrites history, so use --force-with-lease safely)
+git push --force-with-lease origin feature/apiTestsUpdated
+
+✅ --force-with-lease is safer than --force because it refuses to overwrite if someone else pushed meanwhile.
+
+B) Merge remote feature branch into yours (if you don’t care about linear history)
+
+This avoids force pushing, but adds a merge commit:
+
+git pull origin feature/apiTestsUpdated
+git push origin feature/apiTestsUpdated
+Important: Ignore .claude/ (right now)
+
+That folder is untracked and shouldn’t go to repo. Add it to .gitignore.
+
+echo .claude/ >> .gitignore
+git add .gitignore
+git commit -m "chore: ignore .claude workspace files"
+
+(If you already have .gitignore, this just appends.)

@@ -1,8 +1,0 @@
-{
-  "id": 1,
-  "sku": "TSCO-APPLE-001",
-  "name": "Apple",
-  "price": 12.5,
-  "currency": "GBP",
-  "inStock": true
-}

@@ -3,32 +3,32 @@
 #
 # Profiles:
 #   grid  → just Selenium Hub + browser nodes
-#   tests → grid + all 4 test runner jobs
+#   tests → grid + test runner jobs
+#   ci    → Jenkins (optionally with grid/tests)
 #
 # Usage:
+#   # Start Jenkins only:
+#   docker compose -f kc-stack.yml --profile ci up -d jenkins
+#
 #   # Start grid only (for local dev / IDE runs):
 #   docker compose -f kc-stack.yml --profile grid up -d
 #
-#   # Run all tests + generate reports:
-#   docker compose -f kc-stack.yml --profile tests up --exit-code-from ui-smoke-chrome
+#   # Run tests (grid + runners):
+#   docker compose -f kc-stack.yml --profile tests up --build --exit-code-from ui-smoke-chrome
 #
 #   # Tear everything down:
 #   docker compose -f kc-stack.yml --profile grid down
 #   docker compose -f kc-stack.yml --profile tests down
 #
-# FIX: environment blocks use MAP syntax (key: value) instead of LIST syntax
-# (- KEY=VALUE) so that YAML <<: merge keys work correctly with Docker Compose v2.
-# The old "- *anchor" list-spreading syntax was removed in Compose v2 and
-# throws: "unexpected type []interface {}"
+# Notes:
+# - Uses MAP syntax (key: value) so YAML merge keys (<<:) work in Compose v2.
+# - Fixes Jenkins GitHub checkout DNS issue by setting dns: on the Jenkins service.
 # ─────────────────────────────────────────────────────────────────────────────
-
-# ── Extension fields (YAML anchors) ─────────────────────────────────────────
 
 x-selenium-node: &selenium-node
   profiles: [grid, tests]
   depends_on: [selenium-hub]
   shm_size: 2gb
-  # MAP syntax → supports <<: merge in child services
   environment: &node-env
     SE_EVENT_BUS_HOST: selenium-hub
     SE_EVENT_BUS_PUBLISH_PORT: "4442"
@@ -44,22 +44,48 @@ x-test-runner: &test-runner
   build:
     context: .
     dockerfile: Dockerfile.runner
+  # Prefer a pinned, pre-built runner image for CI reproducibility.
+  # If you push your runner to DockerHub, set this to your tag:
+  # image: administratorkc/kc-test-runner:1.0.0
   image: kc-test-runner:latest
-  # MAP syntax → supports <<: merge in child services
   environment: &runner-env
     ENV: qa
     RUNMODE: grid
     HEADLESS: "true"
     GRIDURL: http://selenium-hub:4444/wd/hub
-    TAGS: "@ui and @smoke"
+    # Default UI smoke tag in repo (alias for @ui and @smoke)
+    TAGS: "@ui_smoke"
     THREADS: "2"
     RETRY: "2"
   volumes:
     - ./reports:/work/artifacts
 
-# ── Services ─────────────────────────────────────────────────────────────────
-
 services:
+
+  # ── Jenkins (CI) ─────────────────────────────────────────────────────────
+  # Fixes "Could not resolve host: github.com" via explicit DNS.
+  # Also mounts docker.sock so pipelines can run docker/compose commands.
+  jenkins:
+    profiles: [ci]
+    image: jenkins/jenkins:lts-jdk17
+    container_name: jenkins
+    user: root
+    ports:
+      - "9090:8080"
+      - "50000:50000"
+    dns:
+      - 8.8.8.8
+      - 1.1.1.1
+    environment:
+      # If behind proxy, uncomment and set:
+      # http_proxy: http://proxy-host:proxy-port
+      # https_proxy: http://proxy-host:proxy-port
+      # no_proxy: localhost,127.0.0.1,.local
+      JAVA_OPTS: "-Djenkins.install.runSetupWizard=false"
+    volumes:
+      - jenkins_home:/var/jenkins_home
+      - /var/run/docker.sock:/var/run/docker.sock
+    restart: unless-stopped
 
   # ── Selenium Grid ────────────────────────────────────────────────────────
 
@@ -72,6 +98,11 @@ services:
       - "4443:4443"   # event bus subscribe
     environment:
       SE_ENABLE_TRACING: "false"
+    healthcheck:
+      test: ["CMD", "bash", "-lc", "curl -fsS http://localhost:4444/wd/hub/status >/dev/null 2>&1"]
+      interval: 10s
+      timeout: 5s
+      retries: 18
 
   chrome:
     <<: *selenium-node
@@ -91,14 +122,15 @@ services:
     ports:
       - "7903:7900"
 
-  # ── Test Runner Jobs ──────────────────────────────────────────────────────
-  # Each service inherits the x-test-runner block via <<: *test-runner,
-  # then adds/overrides env vars using <<: *runner-env + its own keys.
-  # MAP merge (<<:) is fully supported in Docker Compose v2.
+  # ── Test Runner Jobs ─────────────────────────────────────────────────────
 
   ui-smoke-chrome:
     <<: *test-runner
-    depends_on: [selenium-hub, chrome]
+    depends_on:
+      selenium-hub:
+        condition: service_healthy
+      chrome:
+        condition: service_started
     environment:
       <<: *runner-env
       SUITE: ui
@@ -107,7 +139,11 @@ services:
 
   ui-smoke-firefox:
     <<: *test-runner
-    depends_on: [selenium-hub, firefox]
+    depends_on:
+      selenium-hub:
+        condition: service_healthy
+      firefox:
+        condition: service_started
     environment:
       <<: *runner-env
       SUITE: ui
@@ -116,7 +152,11 @@ services:
 
   ui-smoke-edge:
     <<: *test-runner
-    depends_on: [selenium-hub, edge]
+    depends_on:
+      selenium-hub:
+        condition: service_healthy
+      edge:
+        condition: service_started
     environment:
       <<: *runner-env
       SUITE: ui
@@ -129,8 +169,11 @@ services:
       SUITE: api
       ENV: qa
       RUNMODE: local
-      TAGS: "@api_smoke"
-      API_BASE_URL: https://jsonplaceholder.typicode.com
+      TAGS: "@api_smoke or @api_regression"
+      API_BASE_URL: https://httpbin.org
       THREADS: "2"
       RETRY: "3"
       REPORT_SUFFIX: api
+
+volumes:
+  jenkins_home:

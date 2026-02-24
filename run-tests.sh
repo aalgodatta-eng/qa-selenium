@@ -1,52 +1,52 @@
 #!/usr/bin/env bash
-# run-tests.sh — Run all tests and archive results into a timestamped target folder.
+# run-tests.sh — Run all tests and write results to a timestamped target folder.
 #
 # Usage: ./run-tests.sh [extra mvn args]
 #   e.g. ./run-tests.sh -Dthreads=2 -Pstage -Drp.enable=true
 #
-# After each run the tests/target directory is renamed to tests/target_YYYYMMDD_HHmmss
-# so results from every execution are preserved side by side.
+# Each execution writes directly to tests/target_YYYYMMDD_HHmmss/ so previous
+# runs are never overwritten and all reports from every run are preserved.
+#
+# Normal "mvn clean verify" (without this script) still works and writes to
+# the default tests/target/ folder.
 
 TIMESTAMP=$(date +%Y%m%d_%H%M%S)
-ARCHIVE="tests/target_${TIMESTAMP}"
+BUILD_DIR="target_${TIMESTAMP}"
+RESULTS="tests/${BUILD_DIR}"
 
 echo "========================================================"
 echo "  KC SDET Automation — Test Run  $(date)"
 echo "========================================================"
-echo "  Archive destination: ${ARCHIVE}"
+echo "  Output directory : ${RESULTS}"
 echo "========================================================"
 echo ""
 
-# 1. Run the full suite
-mvn clean verify "$@"
+# 1. Run full suite — pass timestamped directory as tests.build.dir
+mvn clean verify -Dtests.build.dir="${BUILD_DIR}" "$@"
 BUILD_EXIT=$?
 
-# 2. Generate Allure HTML report (needs allure-results produced by step 1)
-if [ -d "tests/target/allure-results" ]; then
+# 2. Generate Allure HTML report into the same timestamped directory
+if [ -d "${RESULTS}/allure-results" ]; then
   echo ""
   echo "Generating Allure HTML report..."
-  mvn allure:report -pl tests -q 2>&1 | tail -3 || true
+  mvn allure:report -pl tests -Dtests.build.dir="${BUILD_DIR}" -q 2>&1 | tail -3 || true
 fi
 
-# 3. Archive tests/target → tests/target_TIMESTAMP (regardless of pass/fail)
-if [ -d "tests/target" ]; then
-  mv "tests/target" "${ARCHIVE}"
-  echo ""
-  echo "========================================================"
-  if [ ${BUILD_EXIT} -eq 0 ]; then
-    echo "  BUILD SUCCESS"
-  else
-    echo "  BUILD FAILED  (Maven exit code: ${BUILD_EXIT})"
-  fi
-  echo ""
-  echo "  Results archived → ${ARCHIVE}"
-  echo ""
-  echo "  Open a report:"
-  echo "    Extent    → ${ARCHIVE}/extent-report/ExtentSpark.html"
-  echo "    Allure    → ${ARCHIVE}/site/allure-maven-plugin/index.html"
-  echo "    Cucumber  → ${ARCHIVE}/cucumber-html-reports/"
-  echo "    Surefire  → ${ARCHIVE}/surefire-reports/index.html"
-  echo "========================================================"
+echo ""
+echo "========================================================"
+if [ ${BUILD_EXIT} -eq 0 ]; then
+  echo "  BUILD SUCCESS"
+else
+  echo "  BUILD FAILED  (Maven exit code: ${BUILD_EXIT})"
 fi
+echo ""
+echo "  Results → ${RESULTS}"
+echo ""
+echo "  Reports:"
+echo "    Extent    → ${RESULTS}/extent-report/ExtentSpark.html"
+echo "    Allure    → ${RESULTS}/site/allure-maven-plugin/index.html"
+echo "    Cucumber  → ${RESULTS}/cucumber-html-reports/"
+echo "    Surefire  → ${RESULTS}/surefire-reports/index.html"
+echo "========================================================"
 
 exit ${BUILD_EXIT}

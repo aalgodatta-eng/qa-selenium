@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+
+<suite name="UITestingPlayground - Regression Suite"
+       verbose="2"
+       parallel="false"
+       thread-count="1">
+
+    <parameter name="browser" value="chrome"/>
+    <parameter name="headless" value="false"/>
+
+    <listeners>
+        <listener class-name="com.uitesting.listeners.TestNGListener"/>
+    </listeners>
+
+    <!-- Full Regression including Smoke -->
+    <test name="Smoke Tests">
+        <groups>
+            <run>
+                <include name="smoke"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="com.uitesting.smoke.SmokeTests"/>
+        </classes>
+    </test>
+
+    <test name="Regression Tests - Core Scenarios">
+        <groups>
+            <run>
+                <include name="regression"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="com.uitesting.regression.RegressionTests"/>
+        </classes>
+    </test>
+
+    <test name="Regression Tests - Input and Table Scenarios">
+        <groups>
+            <run>
+                <include name="regression"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="com.uitesting.regression.RegressionTests2"/>
+        </classes>
+    </test>
+
+    <test name="Regression Tests - Advanced Scenarios">
+        <groups>
+            <run>
+                <include name="regression"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="com.uitesting.regression.RegressionTests3"/>
+        </classes>
+    </test>
+</suite>
