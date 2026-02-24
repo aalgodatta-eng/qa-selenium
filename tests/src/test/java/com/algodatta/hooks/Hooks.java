@@ -47,8 +47,11 @@ public class Hooks {
         // Attach to Cucumber scenario → picked up by Extent CucumberAdapter + Allure
         scenario.attach(bytes, "image/png", "Failure Screenshot");
 
-        // Save to disk for the Extent screenshot thumbnail
-        Path screenshotDir = Path.of("target", "extent", "screenshots");
+        // Save to disk for the Extent screenshot thumbnail.
+        // project.build.directory is injected by Surefire's systemPropertyVariables
+        // so it resolves to the actual build dir (e.g. target_20260224_175652).
+        String buildDir = System.getProperty("project.build.directory", "target");
+        Path screenshotDir = Path.of(buildDir, "extent", "screenshots");
         Files.createDirectories(screenshotDir);
         Files.write(screenshotDir.resolve(safeName(scenario.getName()) + ".png"), bytes);
 

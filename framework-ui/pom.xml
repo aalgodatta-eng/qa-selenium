@@ -21,6 +21,11 @@
         <slf4j.version>2.0.9</slf4j.version>
         <log4j.version>2.22.1</log4j.version>
         <commons.io.version>2.15.1</commons.io.version>
+        <!-- Skip by default; overridden to false in -Psmoke / -Pregression -->
+        <skipTests>true</skipTests>
+        <browser>chrome</browser>
+        <baseUrl>http://uitestingplayground.com</baseUrl>
+        <headless>false</headless>
     </properties>
 
     <dependencies>
@@ -96,9 +101,10 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>3.2.5</version>
                 <configuration>
-                    <suiteXmlFiles>
-                        <suiteXmlFile>${suiteFile}</suiteXmlFile>
-                    </suiteXmlFiles>
+                    <!-- Tests are skipped unless -Psmoke or -Pregression is active.
+                         suiteXmlFiles is intentionally absent here; it is added by
+                         each profile so that a null suiteFile never reaches Surefire. -->
+                    <skipTests>${skipTests}</skipTests>
                     <systemPropertyVariables>
                         <browser>${browser}</browser>
                         <baseUrl>${baseUrl}</baseUrl>
@@ -110,17 +116,51 @@
     </build>
 
     <profiles>
+        <!--
+          Tests are skipped by default when running from the root (mvn clean verify).
+          Use -Psmoke or -Pregression to run the UITestingPlayground suites:
+            mvn test -Psmoke     -pl framework-ui
+            mvn test -Pregression -pl framework-ui
+        -->
         <profile>
             <id>smoke</id>
             <properties>
-                <suiteFile>testng-suites/smoke-suite.xml</suiteFile>
+                <skipTests>false</skipTests>
             </properties>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-surefire-plugin</artifactId>
+                        <version>3.2.5</version>
+                        <configuration>
+                            <suiteXmlFiles>
+                                <suiteXmlFile>testng-suites/smoke-suite.xml</suiteXmlFile>
+                            </suiteXmlFiles>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
         </profile>
         <profile>
             <id>regression</id>
             <properties>
-                <suiteFile>testng-suites/regression-suite.xml</suiteFile>
+                <skipTests>false</skipTests>
             </properties>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-surefire-plugin</artifactId>
+                        <version>3.2.5</version>
+                        <configuration>
+                            <suiteXmlFiles>
+                                <suiteXmlFile>testng-suites/regression-suite.xml</suiteXmlFile>
+                            </suiteXmlFiles>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
         </profile>
     </profiles>
 </project>

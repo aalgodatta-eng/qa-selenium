@@ -70,6 +70,8 @@
     <gridUrl>http://localhost:4444/wd/hub</gridUrl>
     <mockPort>8089</mockPort>
     <rp.enable>false</rp.enable>
+    <!-- Timestamped output: override with -Dtests.build.dir=target_YYYYMMDD_HHmmss -->
+    <tests.build.dir>target</tests.build.dir>
     <allure.results.directory>${project.build.directory}/allure-results</allure.results.directory>
   </properties>
 
