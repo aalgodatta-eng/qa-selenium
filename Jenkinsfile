@@ -107,6 +107,10 @@ networks:
     external: true
 
 services:
+  jenkins:
+    dns:
+      - 8.8.8.8
+      - 1.1.1.1
   selenium-hub:
     image: selenium/hub:4.22.0
     environment:
