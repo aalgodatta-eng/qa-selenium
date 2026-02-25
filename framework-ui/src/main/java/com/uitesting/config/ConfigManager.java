@@ -1,25 +1,62 @@
 package com.uitesting.config;
 
-import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.Properties;
 
 /**
- * ConfigManager - Reads configuration from config.properties or system properties
+ * ConfigManager - Reads configuration from classpath resources and system properties.
+ *
+ * <p>Priority chain (highest → lowest):
+ * <ol>
+ *   <li>JVM system properties (-Dkey=value passed via Maven Surefire)</li>
+ *   <li>env/{env}.properties — loaded from the test classpath at runtime;
+ *       active env determined by the system property {@code env} (default: "qa")</li>
+ *   <li>config.properties — base defaults, packaged inside framework-ui.jar</li>
+ *   <li>Hard-coded defaults in each getter method</li>
+ * </ol>
+ *
+ * <p>Supported environments: local, dev, qa, uat, stage, prod
+ * (activated via Maven profiles -Plocal / -Pdev / -Pqa / -Puat / -Pstage / -Pprod,
+ *  which set -Denv=&lt;name&gt; through Surefire systemPropertyVariables)
  */
 public class ConfigManager {
 
     private static ConfigManager instance;
-    private Properties properties;
-
-    private static final String CONFIG_FILE = "src/test/resources/config.properties";
+    private final Properties properties;
 
     private ConfigManager() {
         properties = new Properties();
-        try (FileInputStream fis = new FileInputStream(CONFIG_FILE)) {
-            properties.load(fis);
+
+        // 1. Load base config from JAR classpath (config.properties in src/main/resources)
+        try (InputStream is = getClass().getClassLoader()
+                .getResourceAsStream("config.properties")) {
+            if (is != null) {
+                properties.load(is);
+            } else {
+                System.out.println("[ConfigManager] config.properties not found on classpath — using hard-coded defaults");
+            }
         } catch (IOException e) {
-            System.out.println("config.properties not found, using defaults / system properties");
+            System.out.println("[ConfigManager] Error loading config.properties: " + e.getMessage());
+        }
+
+        // 2. Overlay env-specific properties.
+        //    env/{env}.properties lives in tests/src/test/resources/env/ which is on the
+        //    Surefire classpath at runtime, so the classloader finds it even though this
+        //    class is compiled into framework-ui.jar.
+        String env = System.getProperty("env", "qa");
+        try (InputStream envIs = getClass().getClassLoader()
+                .getResourceAsStream("env/" + env + ".properties")) {
+            if (envIs != null) {
+                Properties envProps = new Properties();
+                envProps.load(envIs);
+                properties.putAll(envProps);   // env-specific values override base config
+                System.out.println("[ConfigManager] Loaded env/" + env + ".properties");
+            } else {
+                System.out.println("[ConfigManager] env/" + env + ".properties not found — using config.properties defaults");
+            }
+        } catch (IOException e) {
+            System.out.println("[ConfigManager] Error loading env/" + env + ".properties: " + e.getMessage());
         }
     }
 
@@ -34,8 +71,12 @@ public class ConfigManager {
         return instance;
     }
 
+    /**
+     * Returns the value for {@code key}, preferring a JVM system property over the
+     * loaded file properties.
+     */
     public String get(String key) {
-        // System properties override file properties
+        // System properties (e.g. -DbaseUrl=...) always win
         String sysProp = System.getProperty(key);
         if (sysProp != null && !sysProp.isEmpty()) {
             return sysProp;

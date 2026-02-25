@@ -75,3 +75,4 @@ Find elements inside nested frames
 26.maintain target folder should be updated as target_<timestamp> for each execution and it should not override previous one
 27.make all reports available under **\KC-sdet-automation\tests\target_<timestamp>
 28.finalyy Debug and all the errors in the created tests
+29.add the ability to run testsuite as per the configurable environments like UAT/Local/PROD/DEV

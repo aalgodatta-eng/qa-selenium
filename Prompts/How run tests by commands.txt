@@ -1,0 +1,143 @@
+🧪 KC SDET Automation — How to Run Tests
+🚀 Run All Tests
+# Run everything (API + UI) — defaults to env=qa
+mvn clean verify -pl tests
+
+# Using run-tests.sh (creates timestamped output folder)
+./run-tests.sh
+
+🌍 Run by Environment
+# Local machine
+./run-tests.sh --env local
+mvn clean verify -pl tests -Plocal
+
+# Development
+./run-tests.sh --env dev
+mvn clean verify -pl tests -Pdev
+
+# QA (default)
+./run-tests.sh --env qa
+mvn clean verify -pl tests -Pqa
+
+# UAT
+./run-tests.sh --env uat
+mvn clean verify -pl tests -Puat
+
+# Staging
+./run-tests.sh --env stage
+mvn clean verify -pl tests -Pstage
+
+# Production
+./run-tests.sh --env prod
+mvn clean verify -pl tests -Pprod
+
+🔵 Run by Suite
+# API tests only
+mvn clean verify -pl tests -Dcucumber.filter.tags="@api"
+
+# UI tests only
+mvn clean verify -pl tests -Dcucumber.filter.tags="@ui"
+
+# UITestingPlayground tests only
+mvn clean verify -pl tests -Dcucumber.filter.tags="@uitpg"
+
+🟢 Run Smoke / Regression
+# API smoke
+mvn clean verify -pl tests -Dcucumber.filter.tags="@api_smoke"
+
+# API regression
+mvn clean verify -pl tests -Dcucumber.filter.tags="@api_regression"
+
+# UITestingPlayground smoke (20 scenarios)
+mvn clean verify -pl tests -Dcucumber.filter.tags="@uitpg_smoke"
+
+# UITestingPlayground regression (67 scenarios)
+mvn clean verify -pl tests -Dcucumber.filter.tags="@uitpg_regression"
+
+🟡 Run Individual Feature File
+# Single UI feature
+mvn clean verify -pl tests \
+  -Dcucumber.features="classpath:features/ui/uitestingplayground/dynamic_id.feature"
+
+# API — JSONPlaceholder
+mvn clean verify -pl tests \
+  -Dcucumber.features="classpath:features/api/jsonplaceholder_smoke.feature"
+
+# API — HTTPBin
+mvn clean verify -pl tests \
+  -Dcucumber.features="classpath:features/api/httpbin_smoke.feature"
+
+🟠 Run Individual Scenario
+# Scenario by tag + feature file
+mvn clean verify -pl tests \
+  -Dcucumber.filter.tags="@uitpg_smoke" \
+  -Dcucumber.features="classpath:features/ui/uitestingplayground/dynamic_id.feature"
+
+# Scenario by line number
+mvn clean verify -pl tests \
+  -Dcucumber.features="classpath:features/ui/uitestingplayground/dynamic_id.feature:8"
+
+🔴 Run by Tag Combinations
+# Positive regression tests only
+mvn clean verify -pl tests -Dcucumber.filter.tags="@uitpg_regression and @positive"
+
+# Negative regression tests only
+mvn clean verify -pl tests -Dcucumber.filter.tags="@uitpg_regression and @negative"
+
+# Smoke for both API and UI
+mvn clean verify -pl tests -Dcucumber.filter.tags="@api_smoke or @uitpg_smoke"
+
+# Exclude a tag
+mvn clean verify -pl tests -Dcucumber.filter.tags="@uitpg and not @negative"
+
+⚙️ Run with Extra Options
+# Headless (no browser window)
+mvn clean verify -pl tests -Dheadless=true
+
+# Parallel threads
+mvn clean verify -pl tests -Dthreads=4
+
+# Timestamped output folder with tags
+./run-tests.sh -Dcucumber.filter.tags="@uitpg_smoke"
+
+# ReportPortal enabled
+mvn clean verify -pl tests -Drp.enable=true
+
+# UITestingPlayground TestNG smoke (framework-ui module directly)
+mvn test -Psmoke -pl framework-ui
+
+# UITestingPlayground TestNG regression
+mvn test -Pregression -pl framework-ui
+
+🔗 Combine Environment + Options
+# UAT smoke, headless, 4 threads
+./run-tests.sh --env uat -Dcucumber.filter.tags="@uitpg_smoke" -Dheadless=true -Dthreads=4
+
+# Prod regression, ReportPortal enabled
+./run-tests.sh --env prod -Dcucumber.filter.tags="@uitpg_regression" -Drp.enable=true
+
+# Stage — single feature file
+./run-tests.sh --env stage \
+  -Dcucumber.features="classpath:features/ui/uitestingplayground/dynamic_id.feature"
+
+# Local — negative tests only
+mvn clean verify -pl tests -Plocal -Dcucumber.filter.tags="@uitpg and @negative"
+
+📋 Quick Reference Table
+Goal	Command
+All tests	mvn clean verify -pl tests
+All API	-Dcucumber.filter.tags="@api"
+All UI	-Dcucumber.filter.tags="@ui"
+API smoke	-Dcucumber.filter.tags="@api_smoke"
+API regression	-Dcucumber.filter.tags="@api_regression"
+UITPG smoke	-Dcucumber.filter.tags="@uitpg_smoke"
+UITPG regression	-Dcucumber.filter.tags="@uitpg_regression"
+Positive only	... and @positive
+Negative only	... and @negative
+Timestamped run	./run-tests.sh
+Local env	./run-tests.sh --env local
+Dev env	./run-tests.sh --env dev
+QA env	./run-tests.sh --env qa
+UAT env	./run-tests.sh --env uat
+Stage env	./run-tests.sh --env stage
+Prod env	./run-tests.sh --env prod
