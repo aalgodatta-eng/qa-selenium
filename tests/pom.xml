@@ -12,6 +12,8 @@
     <!-- ── Framework modules ──────────────────────────────────────────── -->
     <dependency><groupId>com.algodatta</groupId><artifactId>framework-core</artifactId><version>1.0.0</version></dependency>
     <dependency><groupId>com.algodatta</groupId><artifactId>framework-ui</artifactId><version>1.0.0</version></dependency>
+    <!-- UITestingPlayground page objects (com.uitesting.pages.*) -->
+    <dependency><groupId>com.uitesting</groupId><artifactId>uitestingplayground-automation</artifactId><version>1.0.0</version></dependency>
     <dependency><groupId>com.algodatta</groupId><artifactId>framework-api</artifactId><version>1.0.0</version></dependency>
 
     <!-- ── TestNG ─────────────────────────────────────────────────────── -->
