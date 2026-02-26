@@ -158,7 +158,7 @@ pipeline {
             up -d selenium-hub chrome firefox
 
           # ── Start edge only when requested ────────────────────────────
-          if [[ "${RUN_EDGE}" == "true" ]]; then
+          if [[ "${RUN_EDGE:-false}" == "true" ]]; then
             echo "[grid] starting edge node"
             docker compose \
               --project-name "kc-${BUILD_NUMBER}" \
