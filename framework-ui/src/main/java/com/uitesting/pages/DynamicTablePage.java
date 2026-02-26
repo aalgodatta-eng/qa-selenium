@@ -1,6 +1,6 @@
 package com.uitesting.pages;
 
-import com.uitesting.utils.WaitUtils;
+// ...existing code...
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -18,7 +18,7 @@ public class DynamicTablePage extends BasePage {
 
     // Table structure changes dynamically
     private final By tableRows = By.cssSelector("div[role='row']");
-    private final By tableHeaders = By.cssSelector("div[role='columnheader']");
+    // ...existing code...
 
     public DynamicTablePage(WebDriver driver) {
         super(driver);

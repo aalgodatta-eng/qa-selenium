@@ -6,8 +6,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
+// ...existing code...
 
 /**
  * RegressionTests3 - Visibility, SampleApp, MouseOver, NonBreakingSpace,

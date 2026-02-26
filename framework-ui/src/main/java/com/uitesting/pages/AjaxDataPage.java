@@ -14,7 +14,7 @@ public class AjaxDataPage extends BasePage {
     private final By ajaxButton = By.cssSelector("button.btn-primary");
 
     // Result label appears after AJAX call completes (may take several seconds)
-    private final By ajaxResultLabel = By.id("ajaxButton");
+    // ...existing code...
     private final By resultContent = By.cssSelector(".bg-success");
     private final By loadingIndicator = By.cssSelector(".spinner-border");
 

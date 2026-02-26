@@ -14,7 +14,7 @@ import org.openqa.selenium.interactions.Actions;
 public class ClickPage extends BasePage {
 
     private final By clickButton = By.id("badButton");
-    private final By successMessage = By.cssSelector(".btn-success");
+    // ...existing code...
 
     public ClickPage(WebDriver driver) {
         super(driver);

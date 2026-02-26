@@ -10,10 +10,7 @@ import org.openqa.selenium.WebElement;
  */
 public class FramesPage extends BasePage {
 
-    // Outer frame
-    private final By outerFrame = By.id("frame");
-    // Inner frame inside the outer
-    private final By innerFrame = By.id("frame");
+    // ...existing code...
     private final By frameButton = By.id("button");
 
     public FramesPage(WebDriver driver) {
