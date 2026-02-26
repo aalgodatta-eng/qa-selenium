@@ -167,11 +167,6 @@ pipeline {
             return {
               sh """#!/usr/bin/env bash
                 set -euo pipefail
-                echo "[run] ${label}  tags='${tags}'  browser=${browser}"
-                mkdir -p "\$PWD/reports/allure-results-${reportSuffix}" "\$PWD/reports/extent-report-${reportSuffix}"
-              """
-
-              def cmd = """#!/usr/bin/env bash
                 set -euo pipefail
                 docker run --rm \\
                   --dns 8.8.8.8 --dns 1.1.1.1 \\
@@ -223,45 +218,11 @@ pipeline {
                     -Denv=${ENV} \\
                     -Dthreads=${THREADS} \\
                     -Dcucumber.filter.tags="${tags}" \\
-                    -DrunMode=${usesGrid ? 'grid' : 'local'} \\
-                    -DgridUrl=${GRID_URL} \\
-                    -Dbrowser=${browser} \\
-                    -Dheadless=true \\
-                    -Drp.enable=true \\
-                    "-Dallure.results.directory=/work/reports/allure-results-${reportSuffix}" \\
-                    "-Dextent.reporter.spark.out=/work/reports/extent-report-${reportSuffix}/ExtentSpark.html" \\
-                    "-Dcucumber.report.output=/work/reports/cucumber-report-${reportSuffix}"
-              """
+                sh """#!/usr/bin/env bash
+                  set -euo pipefail
 
-              int code = sh(returnStatus: true, script: cmd)
-              writeFile file: "reports/status-${reportSuffix}.txt", text: "${code}\n"
-
-              if (code != 0) {
-                currentBuild.result = 'FAILURE'
-                echo "❌ ${label} failed (exit code ${code})"
-              } else {
-                echo "✅ ${label} passed"
-              }
-            }
-          }
-
-          // ── Build the parallel map dynamically from parameters ──────
-          // BUG (prior fix): parallel() now uses the dynamic map so Edge and API
-          // actually run when their parameters are enabled.
-          def runs = [:]
-          if (params.RUN_CHROME)  runs['UI-Chrome']  = runMaven('UI-Chrome',  params.UI_TAGS, 'chrome',  'ui-chrome',  true)
-          if (params.RUN_FIREFOX) runs['UI-Firefox'] = runMaven('UI-Firefox', params.UI_TAGS, 'firefox', 'ui-firefox', true)
-          if (params.RUN_EDGE)    runs['UI-Edge']    = runMaven('UI-Edge',    params.UI_TAGS, 'edge',    'ui-edge',    true)
-          if (params.RUN_API)     runs['API']        = runMaven('API',        params.API_TAGS,'api',     'api',        false)
-
-          if (runs.isEmpty()) {
-            echo '[warning] No test suites selected — nothing to run'
-          } else {
-            parallel runs
-          }
-        }
-      }
-    }
+                  # ── Write the grid compose file ───────────────────────────────
+                  cat > "${GRID_FILE}" <<YML
 
     // ─────────────────────────────────────────────────────────────────────
     // Generate Allure HTML reports using the official Docker image.
@@ -313,6 +274,45 @@ pipeline {
           echo "[allure] ${GENERATED} generated, ${SKIPPED} skipped"
         '''
       }
+
+                  # Check if compose file was written
+                  if [[ ! -s "${GRID_FILE}" ]]; then
+                    echo "[grid] ERROR: Compose file is empty!"
+                    cat "${GRID_FILE}"
+                    exit 1
+                  fi
+
+                  # ── Start hub + chrome + firefox ──────────────────────────────
+                  echo "[grid] starting hub + chrome + firefox on network ${GRID_NET}"
+                  docker compose \
+                    --project-name "kc-${BUILD_NUMBER}" \
+                    -f "${GRID_FILE}" \
+                    up -d selenium-hub chrome firefox
+
+                  # ── Start edge only when requested ────────────────────────────
+                  if [[ "${RUN_EDGE:-false}" == "true" ]]; then
+                    echo "[grid] starting edge node"
+                    docker compose \
+                      --project-name "kc-${BUILD_NUMBER}" \
+                      -f "${GRID_FILE}" \
+                      up -d edge
+                  fi
+
+                  # ── Wait for hub to accept connections ───────────────────────
+                  HUB=$(docker compose --project-name "kc-${BUILD_NUMBER}" -f "${GRID_FILE}" ps -q selenium-hub)
+                  if [[ -z "$HUB" ]]; then
+                    echo "[grid] ERROR: Hub container not found!"
+                    docker compose --project-name "kc-${BUILD_NUMBER}" -f "${GRID_FILE}" ps
+                    exit 1
+                  fi
+                  echo "[grid] hub container: ${HUB}"
+                  echo "[grid] waiting for /wd/hub/status (timeout 120s)..."
+
+                  timeout 120 bash -c "
+                    until docker exec ${HUB} curl -sSf http://localhost:4444/wd/hub/status >/dev/null 2>&1; do
+                      sleep 2
+                    done
+                  " || {
     }
 
   } // end stages
