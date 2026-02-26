@@ -122,62 +122,12 @@ pipeline {
               - SE_EVENT_BUS_PUBLISH_PORT=4442
               - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
               - SE_NODE_MAX_SESSIONS=2
-              - SE_NODE_OVERRIDE_MAX_SESSIONS=true
-              - JAVA_OPTS=-Xms128m -Xmx384m
 
-          firefox:
-            image: selenium/node-firefox:4.22.0
-            shm_size: 1gb
-            depends_on: [selenium-hub]
-            environment:
-              - SE_EVENT_BUS_HOST=selenium-hub
-              - SE_EVENT_BUS_PUBLISH_PORT=4442
-              - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
-              - SE_NODE_MAX_SESSIONS=2
-              - SE_NODE_OVERRIDE_MAX_SESSIONS=true
-              - JAVA_OPTS=-Xms128m -Xmx384m
+              sh '''#!/usr/bin/env bash
+                set -euo pipefail
 
-          edge:
-            image: selenium/node-edge:4.22.0
-            shm_size: 1gb
-            depends_on: [selenium-hub]
-            environment:
-              - SE_EVENT_BUS_HOST=selenium-hub
-              - SE_EVENT_BUS_PUBLISH_PORT=4442
-              - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
-              - SE_NODE_MAX_SESSIONS=2
-              - SE_NODE_OVERRIDE_MAX_SESSIONS=true
-              - JAVA_OPTS=-Xms128m -Xmx384m
-        YML
-
-          # ── Start hub + chrome + firefox ──────────────────────────────
-          echo "[grid] starting hub + chrome + firefox on network ${GRID_NET}"
-          docker compose \
-            --project-name "kc-${BUILD_NUMBER}" \
-            -f "${GRID_FILE}" \
-            up -d selenium-hub chrome firefox
-
-          # ── Start edge only when requested ────────────────────────────
-          if [[ "${RUN_EDGE:-false}" == "true" ]]; then
-            echo "[grid] starting edge node"
-            docker compose \
-              --project-name "kc-${BUILD_NUMBER}" \
-              -f "${GRID_FILE}" \
-              up -d edge
-          fi
-
-          # ── Wait for hub to accept connections ───────────────────────
-          # BUG 5 FIX: Use "docker exec" on the hub container (selenium/hub has curl
-          # built-in). Avoids pulling curlimages/curl which is slow and rate-limited.
-          HUB=$(docker compose --project-name "kc-${BUILD_NUMBER}" -f "${GRID_FILE}" ps -q selenium-hub)
-          echo "[grid] hub container: ${HUB}"
-          echo "[grid] waiting for /wd/hub/status (timeout 120s)..."
-
-          timeout 120 bash -c "
-            until docker exec ${HUB} curl -sSf http://localhost:4444/wd/hub/status >/dev/null 2>&1; do
-              sleep 2
-            done
-          " || {
+                # ── Write the grid compose file ───────────────────────────────
+                cat > "${GRID_FILE}" <<YML
             echo "[grid] hub not responding — dumping logs"
             docker compose --project-name "kc-${BUILD_NUMBER}" -f "${GRID_FILE}" logs --tail=100
             exit 1
@@ -229,6 +179,45 @@ pipeline {
                   -v "\$PWD:/work" -w /work \\
                   -v "${MVN_CACHE}:/root/.m2" \\
                   -e MAVEN_OPTS="-Xms256m -Xmx768m -XX:MaxMetaspaceSize=256m" \\
+
+                # Check if compose file was written
+                if [[ ! -s "${GRID_FILE}" ]]; then
+                  echo "[grid] ERROR: Compose file is empty!"
+                  cat "${GRID_FILE}"
+                  exit 1
+                fi
+
+                # ── Start hub + chrome + firefox ──────────────────────────────
+                echo "[grid] starting hub + chrome + firefox on network ${GRID_NET}"
+                docker compose \
+                  --project-name "kc-${BUILD_NUMBER}" \
+                  -f "${GRID_FILE}" \
+                  up -d selenium-hub chrome firefox
+
+                # ── Start edge only when requested ────────────────────────────
+                if [[ "${RUN_EDGE:-false}" == "true" ]]; then
+                  echo "[grid] starting edge node"
+                  docker compose \
+                    --project-name "kc-${BUILD_NUMBER}" \
+                    -f "${GRID_FILE}" \
+                    up -d edge
+                fi
+
+                # ── Wait for hub to accept connections ───────────────────────
+                HUB=$(docker compose --project-name "kc-${BUILD_NUMBER}" -f "${GRID_FILE}" ps -q selenium-hub)
+                if [[ -z "$HUB" ]]; then
+                  echo "[grid] ERROR: Hub container not found!"
+                  docker compose --project-name "kc-${BUILD_NUMBER}" -f "${GRID_FILE}" ps
+                  exit 1
+                fi
+                echo "[grid] hub container: ${HUB}"
+                echo "[grid] waiting for /wd/hub/status (timeout 120s)..."
+
+                timeout 120 bash -c "
+                  until docker exec ${HUB} curl -sSf http://localhost:4444/wd/hub/status >/dev/null 2>&1; do
+                    sleep 2
+                  done
+                " || {
                   ${MVN_IMG} \\
                   mvn -f pom.xml -pl tests -am clean test \\
                     -Denv=${ENV} \\
