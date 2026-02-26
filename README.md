@@ -230,3 +230,38 @@ This repo ships with a Linux-friendly `Jenkinsfile` that runs Selenium Grid and 
 Build artifacts are stored under `reports/` and Jenkins publishes:
 - Extent Spark (per-suite)
 - Allure HTML (per-suite, generated automatically via `scripts/generate_allure_reports.sh`)
+
+# Jenkins Pipeline Setup & Execution
+
+## 1. Create a Jenkins Pipeline Job
+- Go to Jenkins dashboard → New Item → Pipeline
+- Enter a job name (e.g., KC-SDET-Automation)
+- Select 'Pipeline' and click OK
+
+## 2. Configure Pipeline from SCM
+- In the job config, set:
+  - Definition: Pipeline script from SCM
+  - SCM: Git
+  - Repository URL: (your repo URL)
+  - Branch: main (or your feature branch)
+  - Script Path: Jenkinsfile
+
+## 3. Required Agent Setup
+- Jenkins agent must have Docker and Docker Compose v2 installed
+- If running Jenkins in Docker, mount the host Docker socket
+
+## 4. Pipeline Parameters
+- ENV: qa, dev, or stage
+- THREADS: Number of parallel threads (e.g., 2)
+- UI_TAGS / API_TAGS: Cucumber tags to select tests
+- RUN_CHROME, RUN_FIREFOX, RUN_EDGE, RUN_API: Enable/disable suites
+- START_GRID: Start Selenium Grid (default: true)
+- CLEANUP: Remove grid/network after run (default: true)
+
+## 5. Run the Pipeline
+- Click 'Build with Parameters' in Jenkins
+- Select desired parameters and start the build
+
+## 6. View Results
+- Allure, Extent, Cucumber, and ReportPortal reports are published in the Jenkins sidebar after the run completes.
+- Artifacts are stored in the 'reports/' directory in the workspace.
