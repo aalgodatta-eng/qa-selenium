@@ -165,7 +165,7 @@ timeout 120 bash -c "
           // Runs Maven inside Docker and returns an exit code.
           // We DO NOT use "|| true" (it hides failures). Instead we capture the exit code,
           // mark the build as FAILURE, and still continue so report generation/publishing runs.
-                  --dns 8.8.8.8 --dns 1.1.1.1 \\
+                    # Removed DNS options to fix Groovy parsing error
               sh '''#!/usr/bin/env bash
                 set -euo pipefail
                 docker run --rm \
