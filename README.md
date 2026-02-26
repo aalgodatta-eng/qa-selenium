@@ -22,10 +22,44 @@ mvn clean test -pl tests -DrunMode=grid -DgridUrl=http://localhost:4444/wd/hub -
 docker compose down
 ```
 
-## Reports
-- Extent Spark: `tests/target/extent/SparkReport/Spark.html`
-- Cucumber html/json: `tests/target/cucumber/`
-- ReportPortal: configure `tests/src/test/resources/reportportal.properties`.
+
+# Reports
+Extent Spark: `tests/target/extent/SparkReport/Spark.html`
+Cucumber html/json: `tests/target/cucumber/`
+ReportPortal: configure `tests/src/test/resources/reportportal.properties`.
+
+## ReportPortal Usage
+1. Configure your ReportPortal server, API token, and project in `tests/src/test/resources/reportportal.properties`.
+2. Enable ReportPortal for your test run:
+	- Add `-Drp.enable=true` to your Maven command.
+	- Optionally set launch name and attributes:
+	  - `-Drp.launch='KC-<env>-<suite>-<build>-<gitsha>'`
+	  - `-Drp.attributes='env:<env>;suite:<suite>;build:<build>'`
+3. After execution, view results at your ReportPortal dashboard:
+	- `https://your.reportportal.server/ui/#kc-sdet-automation/launches/all`
+
+## Run Single Test / Selected Tests
+### Run a single scenario by tag:
+```bash
+mvn clean test -pl tests -Dcucumber.filter.tags="@your_test_tag"
+```
+
+### Run multiple selected scenarios by tags:
+```bash
+mvn clean test -pl tests -Dcucumber.filter.tags="@tag1 and @tag2"
+```
+
+### Run in different environments:
+```bash
+mvn clean test -pl tests -Denv=qa -Dcucumber.filter.tags="@ui"
+mvn clean test -pl tests -Denv=dev -Dcucumber.filter.tags="@api"
+mvn clean test -pl tests -Denv=stage -Dcucumber.filter.tags="@ui and @smoke"
+```
+
+### Run with custom browser and grid:
+```bash
+mvn clean test -pl tests -Dbrowser=firefox -DrunMode=grid -DgridUrl=http://localhost:4444/wd/hub -Dcucumber.filter.tags="@ui"
+```
 
 ## Docker
 ```bash
