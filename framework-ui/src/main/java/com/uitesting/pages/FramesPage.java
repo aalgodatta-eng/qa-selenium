@@ -30,7 +30,7 @@ public class FramesPage extends BasePage {
     public void switchToOuterFrame() {
         logger.info("Switching to outer frame");
         WaitUtils.waitForPresence(driver, By.tagName("iframe"));
-        WebElement frame = driver.findElements(By.tagName("iframe")).get(0);
+        WebElement frame = driver.findElements(By.tagName("iframe")).getFirst();
         driver.switchTo().frame(frame);
     }
 
@@ -91,11 +91,11 @@ public class FramesPage extends BasePage {
             WaitUtils.waitForPresence(driver, By.tagName("iframe"));
             java.util.List<WebElement> iframes = driver.findElements(By.tagName("iframe"));
             if (!iframes.isEmpty()) {
-                driver.switchTo().frame(iframes.get(0));
+                driver.switchTo().frame(iframes.getFirst());
                 // Try to find nested iframe
                 java.util.List<WebElement> innerIframes = driver.findElements(By.tagName("iframe"));
                 if (!innerIframes.isEmpty()) {
-                    driver.switchTo().frame(innerIframes.get(0));
+                    driver.switchTo().frame(innerIframes.getFirst());
                 }
                 // Get text from button or any text element
                 try {

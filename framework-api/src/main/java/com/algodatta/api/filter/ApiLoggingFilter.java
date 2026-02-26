@@ -44,7 +44,7 @@ public class ApiLoggingFilter implements Filter {
 
     Object rawBody = req.getBody();
     if (rawBody != null) {
-      String bodyStr = rawBody instanceof String ? (String) rawBody : "[binary]";
+      String bodyStr = rawBody instanceof String s ? s : "[binary]";
       if (!bodyStr.isBlank()) {
         sb.append("  Body: ").append(truncate(bodyStr)).append("\n");
       }

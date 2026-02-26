@@ -9,6 +9,7 @@ import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
+import java.net.URI;
 import java.net.URL;
 
 public final class DriverFactory {
@@ -63,7 +64,7 @@ public final class DriverFactory {
     if (!videoName.isBlank()) selenoid.put("videoName", videoName);
     caps.setCapability("selenoid:options", selenoid);
 
-    return new RemoteWebDriver(new URL(gridUrl), caps);
+    return new RemoteWebDriver(URI.create(gridUrl).toURL(), caps);
   } catch (Exception e) {
     throw new RuntimeException("Failed to create RemoteWebDriver", e);
   }
