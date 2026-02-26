@@ -10,6 +10,8 @@ allure-report/
 logs/
 node_modules/
 **/test-output/
+**/test-output/logs/
+**/test-output/screenshots/
 
 # Reports — generated at runtime
 reports/allure-report-*/
