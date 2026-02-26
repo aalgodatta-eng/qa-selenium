@@ -1,6 +1,6 @@
 package com.uitesting.pages;
 
-import com.uitesting.utils.JSUtils;
+// ...existing code...
 import com.uitesting.utils.WaitUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;

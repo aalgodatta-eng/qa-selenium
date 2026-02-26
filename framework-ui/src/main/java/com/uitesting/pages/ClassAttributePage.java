@@ -3,7 +3,7 @@ package com.uitesting.pages;
 import com.uitesting.utils.WaitUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+// ...existing code...
 
 /**
  * ClassAttributePage - Tests that class-based XPath is well-formed.
@@ -20,8 +20,7 @@ public class ClassAttributePage extends BasePage {
     // ❌ INCORRECT approach (demonstrates the pitfall) - exact class match fails with multiple classes
     // By.xpath("//button[@class='btn btn-primary']") - would fail if extra classes present
 
-    private final By warningButton = By.xpath("//button[contains(@class,'btn-warning')]");
-    private final By badButton = By.xpath("//button[contains(@class,'btn-primary') and contains(@class,'bad')]");
+    // ...existing code...
 
     public ClassAttributePage(WebDriver driver) {
         super(driver);

@@ -4,7 +4,7 @@ import com.uitesting.utils.WaitUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
+// ...existing code...
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
@@ -17,8 +17,7 @@ public class AnimatedButtonPage extends BasePage {
 
     // The button has a CSS animation class initially
     private final By animatedButton = By.id("animationButton");
-    private final By movingButton = By.cssSelector("#animationButton.animationButton");
-    private final By stationaryButton = By.cssSelector("#animationButton:not(.animationButton)");
+    // ...existing code...
 
     public AnimatedButtonPage(WebDriver driver) {
         super(driver);

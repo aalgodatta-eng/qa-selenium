@@ -12,7 +12,7 @@ import org.openqa.selenium.interactions.Actions;
  */
 public class MouseOverPage extends BasePage {
 
-    private final By linkLocator = By.xpath("//a[contains(@onmouseover,'Link')]");
+    // ...existing code...
     private final By clickLinkBtn = By.xpath("//a[text()='Click me']");
     private final By clickCountLabel = By.id("clickCount");
 

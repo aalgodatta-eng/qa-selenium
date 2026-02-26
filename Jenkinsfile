@@ -165,13 +165,16 @@ timeout 120 bash -c "
           // Runs Maven inside Docker and returns an exit code.
           // We DO NOT use "|| true" (it hides failures). Instead we capture the exit code,
           // mark the build as FAILURE, and still continue so report generation/publishing runs.
-          def runMaven = { String label, String tags, String browser, String reportSuffix, boolean usesGrid ->
-            return {
-              sh """#!/usr/bin/env bash
-                set -euo pipefail
+                  --dns 8.8.8.8 --dns 1.1.1.1 \\
+              sh '''#!/usr/bin/env bash
                 set -euo pipefail
                 docker run --rm \\
                   --dns 8.8.8.8 --dns 1.1.1.1 \\
+                  --network "${GRID_NET}" \\
+                  # ...existing code...
+              '''
+
+            # The grid compose file is now written in the Start Selenium Grid stage using an external template.
                   --network "${GRID_NET}" \\
 
             sh """#!/usr/bin/env bash
@@ -329,15 +332,15 @@ timeout 120 bash -c "
     stage('Generate Allure Reports') {
       steps {
         sh '''#!/usr/bin/env bash
-          set -euo pipefail
+          set +e
+          echo "[allure] pulling image (cached after first run)..."
+          docker pull "${ALLURE_IMAGE}" --quiet || true
+
           GENERATED=0; SKIPPED=0
 
           for suffix in ui-chrome ui-firefox ui-edge api; do
             IN_DIR="${WORKSPACE}/reports/allure-results-${suffix}"
             OUT_DIR="${WORKSPACE}/reports/allure-report-${suffix}"
-
-            # Ensure result and report directories exist
-            mkdir -p "${IN_DIR}" "${OUT_DIR}"
 
             COUNT=$(find "${IN_DIR}" -type f 2>/dev/null | wc -l)
             if [[ "${COUNT}" -eq 0 ]]; then

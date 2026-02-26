@@ -15,7 +15,7 @@ public class SampleAppPage extends BasePage {
     private final By passwordField = By.name("Password");
     private final By loginButton = By.cssSelector("#login");
     private final By loggedUserLabel = By.id("logInStatus");
-    private final By logoutButton = By.cssSelector("[id*='login']");
+    // ...existing code...
 
     public SampleAppPage(WebDriver driver) {
         super(driver);

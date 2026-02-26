@@ -12,7 +12,7 @@ import org.openqa.selenium.WebElement;
 public class VerifyTextPage extends BasePage {
 
     private final By textContainer = By.cssSelector(".bg-primary");
-    private final By myText = By.xpath("//span[contains(@class,'badge-success')]");
+    // ...existing code...
 
     public VerifyTextPage(WebDriver driver) {
         super(driver);
