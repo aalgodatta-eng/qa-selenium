@@ -47,7 +47,7 @@ public class DynamicTablePage extends BasePage {
         List<WebElement> rows = driver.findElements(tableRows);
 
         // Find header row to determine column index of "CPU"
-        WebElement headerRow = rows.get(0);
+        WebElement headerRow = rows.getFirst();
         List<WebElement> headers = headerRow.findElements(By.cssSelector("div[role='columnheader']"));
         int cpuColumnIndex = -1;
 

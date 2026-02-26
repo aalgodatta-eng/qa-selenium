@@ -9,7 +9,7 @@ import org.slf4j.LoggerFactory;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
-import java.nio.file.Paths;
+import java.nio.file.Path;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
@@ -25,12 +25,12 @@ public class ScreenshotUtils {
 
     public static String captureScreenshot(WebDriver driver, String testName) {
         try {
-            Files.createDirectories(Paths.get(SCREENSHOTS_DIR));
+            Files.createDirectories(Path.of(SCREENSHOTS_DIR));
             String timestamp = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyyMMdd_HHmmss"));
             String fileName = SCREENSHOTS_DIR + testName + "_" + timestamp + ".png";
 
             File screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-            Files.copy(screenshot.toPath(), Paths.get(fileName));
+            Files.copy(screenshot.toPath(), Path.of(fileName));
 
             logger.info("Screenshot saved: {}", fileName);
             return new File(fileName).getAbsolutePath();

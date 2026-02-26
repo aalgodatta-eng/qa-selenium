@@ -13,7 +13,6 @@ import java.io.OutputStream;
 import java.net.InetSocketAddress;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.nio.file.Paths;
 
 /**
  * Starts a lightweight static server for the bundled sample-apps so UI scenarios
@@ -34,7 +33,7 @@ public class StaticSiteHooks {
       if (server != null) return;
 
       // During Maven test phase, user.dir points to "<repo>/tests". sample-apps is at "<repo>/sample-apps"
-      Path repoRoot = Paths.get(System.getProperty("user.dir")).normalize().getParent();
+      Path repoRoot = Path.of(System.getProperty("user.dir")).normalize().getParent();
       if (repoRoot == null) return;
       Path sampleAppsDir = repoRoot.resolve("sample-apps").normalize();
       if (!Files.exists(sampleAppsDir)) return;
