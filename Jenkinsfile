@@ -168,9 +168,8 @@ timeout 120 bash -c "
                   --dns 8.8.8.8 --dns 1.1.1.1 \\
               sh '''#!/usr/bin/env bash
                 set -euo pipefail
-                docker run --rm \\
-                  --dns 8.8.8.8 --dns 1.1.1.1 \\
-                  --network "${GRID_NET}" \\
+                docker run --rm \
+                  --network "${GRID_NET}" \
                   # ...existing code...
               '''
 
@@ -352,7 +351,6 @@ timeout 120 bash -c "
 
             # Generate Allure HTML using the Maven plugin inside the Maven container.
             docker run --rm \
-              --dns 8.8.8.8 --dns 1.1.1.1 \
               -v "${WORKSPACE}:/work" -w /work \
               -v "${MVN_CACHE}:/root/.m2" \
               ${MVN_IMG} \
