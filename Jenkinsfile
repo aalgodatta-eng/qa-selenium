@@ -25,396 +25,147 @@ pipeline {
   }
 
   environment {
-    // ── Per-build isolated Docker network ─────────────────────────────────
-    // Named per BUILD_NUMBER so concurrent builds never clash.
-    // Created unconditionally in Preflight (BUG 4 FIX — network must exist
-    // before Maven containers try to join it, even when START_GRID=false).
     GRID_NET  = "kc-grid-${BUILD_NUMBER}"
     GRID_FILE = '.jenkins/selenium-grid.yml'
-
-    // Grid URL used by Maven containers — resolved via Docker DNS by service name.
-    // NOT localhost (localhost inside a docker run = that container, not the Jenkins host).
     GRID_URL  = 'http://selenium-hub:4444/wd/hub'
-
-    // Maven: run inside Docker so Jenkins agent needs no Java/Maven install
     MVN_IMG   = 'maven:3.9.8-eclipse-temurin-17'
-    // Named volume caches ~/.m2 between builds — avoids re-downloading ~500 MB
     MVN_CACHE = 'jenkins-m2'
-
-    // Allure HTML is generated via the Allure Maven plugin (no Docker image pull required)
   }
-
+  // ...existing code...
+  // All shell code must be inside sh steps in stages.
   stages {
-
     stage('Checkout') {
       steps {
-        checkout scm
         sh '''#!/usr/bin/env bash
-          set -euo pipefail
-          echo "[checkout] pwd=$(pwd)"
-          ls -la
-          test -f pom.xml || { echo "[checkout] ERROR: root pom.xml not found"; exit 2; }
-          test -d tests || { echo "[checkout] ERROR: tests module folder not found"; find . -maxdepth 3 -name pom.xml -print; exit 3; }
-          echo "[checkout] ✅ root pom.xml + tests/ found"
-        '''
+set -euo pipefail
+if [ ! -d .git ]; then
+  git clone https://github.com/your-org/your-repo.git .
+fi
+echo "[checkout] pwd=$(pwd)"
+ls -la
+test -f pom.xml || { echo "[checkout] ERROR: root pom.xml not found"; exit 2; }
+test -d tests || { echo "[checkout] ERROR: tests module folder not found"; find . -maxdepth 3 -name pom.xml -print; exit 3; }
+echo "[checkout] ✅ root pom.xml + tests/ found"
+'''
       }
     }
-
-    // ─────────────────────────────────────────────────────────────────────
     stage('Preflight') {
       steps {
         sh '''#!/usr/bin/env bash
-          set -euo pipefail
-          echo "[preflight] docker:"
-          docker --version
-          echo "[preflight] docker compose:"
-          docker compose version
-
-          mkdir -p .jenkins reports
-
-          # BUG 4 FIX: Always create the per-build network so Maven containers can
-          # join it regardless of whether START_GRID=true or false.
-          # "--driver bridge" is the default; "--ignore" makes it idempotent.
-          if docker network inspect "${GRID_NET}" >/dev/null 2>&1; then
-            echo "[preflight] network ${GRID_NET} already exists — reusing"
-          else
-            docker network create --driver bridge "${GRID_NET}"
-            echo "[preflight] ✅ created network ${GRID_NET}"
-          fi
-        '''
+set -euo pipefail
+echo "[preflight] docker:"
+docker --version
+echo "[preflight] docker compose:"
+docker compose version
+mkdir -p .jenkins reports
+if docker network inspect "${GRID_NET}" >/dev/null 2>&1; then
+  echo "[preflight] network ${GRID_NET} already exists — reusing"
+else
+  docker network create --driver bridge "${GRID_NET}"
+  echo "[preflight] ✅ created network ${GRID_NET}"
+fi
+'''
       }
     }
-
-    // ─────────────────────────────────────────────────────────────────────
-    // Writes the grid compose file and starts hub + browser nodes on the
-    // per-build network.  No host ports are bound → zero port conflicts.
-    // Maven containers join the same network and reach hub by DNS name.
-    // ─────────────────────────────────────────────────────────────────────
     stage('Start Selenium Grid') {
       when { expression { return params.START_GRID } }
       steps {
         sh '''#!/usr/bin/env bash
 set -euo pipefail
-
-# ── Write the grid compose file from template ────────────────
 GRID_TEMPLATE="${WORKSPACE}/docker/selenium-grid-template.yml"
-if [[ ! -f "$GRID_TEMPLATE" ]]; then
+if [ ! -f "$GRID_TEMPLATE" ]; then
   echo "[grid] ERROR: Template file $GRID_TEMPLATE not found!"
   exit 1
 fi
 envsubst < "$GRID_TEMPLATE" > "${GRID_FILE}"
-
-# Check if compose file was written
-if [[ ! -s "${GRID_FILE}" ]]; then
+if [ ! -s "${GRID_FILE}" ]; then
   echo "[grid] ERROR: Compose file is empty!"
   cat "${GRID_FILE}"
   exit 1
 fi
-
-# ── Start hub + chrome + firefox ──────────────────────────────
 echo "[grid] starting hub + chrome + firefox on network ${GRID_NET}"
 docker compose \
   --project-name "kc-${BUILD_NUMBER}" \
   -f "${GRID_FILE}" \
   up -d selenium-hub chrome firefox
-
-# ── Start edge only when requested ────────────────────────────
-if [[ "${RUN_EDGE:-false}" == "true" ]]; then
+if [ "${RUN_EDGE:-false}" = "true" ]; then
   echo "[grid] starting edge node"
   docker compose \
     --project-name "kc-${BUILD_NUMBER}" \
     -f "${GRID_FILE}" \
     up -d edge
 fi
-
-# ── Wait for hub to accept connections ───────────────────────
 HUB=$(docker compose --project-name "kc-${BUILD_NUMBER}" -f "${GRID_FILE}" ps -q selenium-hub)
-if [[ -z "$HUB" ]]; then
+if [ -z "$HUB" ]; then
   echo "[grid] ERROR: Hub container not found!"
   docker compose --project-name "kc-${BUILD_NUMBER}" -f "${GRID_FILE}" ps
   exit 1
 fi
 echo "[grid] hub container: ${HUB}"
 echo "[grid] waiting for /wd/hub/status (timeout 120s)..."
-
 timeout 120 bash -c "
   until docker exec ${HUB} curl -sSf http://localhost:4444/wd/hub/status >/dev/null 2>&1; do
     sleep 2
   done
 " || {
-            echo "[grid] hub never became ready — dumping logs"
-            docker compose --project-name "kc-${BUILD_NUMBER}" -f "${GRID_FILE}" logs --tail=100
-            exit 1
-          }
-
-          echo "[grid] ✅ Selenium Grid is ready on network ${GRID_NET}"
-          docker compose --project-name "kc-${BUILD_NUMBER}" -f "${GRID_FILE}" ps
-        '''
+  echo "[grid] hub never became ready — dumping logs"
+  docker compose --project-name "kc-${BUILD_NUMBER}" -f "${GRID_FILE}" logs --tail=100
+  exit 1
+}
+echo "[grid] ✅ Selenium Grid is ready on network ${GRID_NET}"
+docker compose --project-name "kc-${BUILD_NUMBER}" -f "${GRID_FILE}" ps
+'''
       }
     }
-
-    // ─────────────────────────────────────────────────────────────────────
-    // Run all selected suites in parallel.  Each suite runs Maven inside
-    // Docker, joined to GRID_NET so it can reach selenium-hub by name.
-    // Reports land in ./reports/<suffix>/ via host volume mount.
-    // ─────────────────────────────────────────────────────────────────────
     stage('Build & Test (Parallel)') {
       steps {
         script {
-
-          // Runs Maven inside Docker and returns an exit code.
-          // We DO NOT use "|| true" (it hides failures). Instead we capture the exit code,
-          // mark the build as FAILURE, and still continue so report generation/publishing runs.
-                    
-              sh '''#!/usr/bin/env bash
-                set -euo pipefail
-                docker run --rm \
-                  --network "${GRID_NET}" \
-                  # ...existing code...
-              '''
-
-            # The grid compose file is now written in the Start Selenium Grid stage using an external template.
-                  --network "${GRID_NET}" \\
-
-            sh """#!/usr/bin/env bash
-    set -euo pipefail
-
-    # ── Write the grid compose file ───────────────────────────────
-    cat > "${GRID_FILE}" <<YML
-    # Generated by Jenkinsfile — do not edit manually.
-    # Uses the pre-created network ${GRID_NET} (created in Preflight).
-    # NO host port bindings — Maven containers reach hub via Docker DNS.
-    networks:
-      default:
-        name: ${GRID_NET}
-        external: true
-
-    services:
-      selenium-hub:
-        image: selenium/hub:4.22.0
-        environment:
-          - SE_ENABLE_TRACING=false
-          - JAVA_OPTS=-Xms128m -Xmx384m
-
-      chrome:
-        image: selenium/node-chrome:4.22.0
-        shm_size: 1gb
-        depends_on: [selenium-hub]
-        environment:
-          - SE_EVENT_BUS_HOST=selenium-hub
-          - SE_EVENT_BUS_PUBLISH_PORT=4442
-          - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
-          - SE_NODE_MAX_SESSIONS=2
-          - SE_NODE_OVERRIDE_MAX_SESSIONS=true
-          - JAVA_OPTS=-Xms128m -Xmx384m
-
-      firefox:
-        image: selenium/node-firefox:4.22.0
-        shm_size: 1gb
-        depends_on: [selenium-hub]
-        environment:
-          - SE_EVENT_BUS_HOST=selenium-hub
-          - SE_EVENT_BUS_PUBLISH_PORT=4442
-          - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
-          - SE_NODE_MAX_SESSIONS=2
-          - SE_NODE_OVERRIDE_MAX_SESSIONS=true
-          - JAVA_OPTS=-Xms128m -Xmx384m
-
-      edge:
-        image: selenium/node-edge:4.22.0
-        shm_size: 1gb
-        depends_on: [selenium-hub]
-        environment:
-          - SE_EVENT_BUS_HOST=selenium-hub
-          - SE_EVENT_BUS_PUBLISH_PORT=4442
-          - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
-          - SE_NODE_MAX_SESSIONS=2
-          - SE_NODE_OVERRIDE_MAX_SESSIONS=true
-          - JAVA_OPTS=-Xms128m -Xmx384m
-    YML
-
-    # Check if compose file was written
-    if [[ ! -s "${GRID_FILE}" ]]; then
-      echo "[grid] ERROR: Compose file is empty!"
-      cat "${GRID_FILE}"
-      exit 1
-    fi
-
-    # ── Start hub + chrome + firefox ──────────────────────────────
-    echo "[grid] starting hub + chrome + firefox on network ${GRID_NET}"
-    docker compose \
-      --project-name "kc-${BUILD_NUMBER}" \
-      -f "${GRID_FILE}" \
-      up -d selenium-hub chrome firefox
-
-    # ── Start edge only when requested ────────────────────────────
-    if [[ "${RUN_EDGE:-false}" == "true" ]]; then
-      echo "[grid] starting edge node"
-      docker compose \
-        --project-name "kc-${BUILD_NUMBER}" \
-        -f "${GRID_FILE}" \
-        up -d edge
-    fi
-
-    # ── Wait for hub to accept connections ───────────────────────
-    HUB=$(docker compose --project-name "kc-${BUILD_NUMBER}" -f "${GRID_FILE}" ps -q selenium-hub)
-    if [[ -z "$HUB" ]]; then
-      echo "[grid] ERROR: Hub container not found!"
-      docker compose --project-name "kc-${BUILD_NUMBER}" -f "${GRID_FILE}" ps
-      exit 1
-    fi
-    echo "[grid] hub container: ${HUB}"
-    echo "[grid] waiting for /wd/hub/status (timeout 120s)..."
-
-    timeout 120 bash -c "
-      until docker exec ${HUB} curl -sSf http://localhost:4444/wd/hub/status >/dev/null 2>&1; do
-        sleep 2
-      done
-    " || {
-                  -v "\$PWD:/work" -w /work \\
-                  -v "${MVN_CACHE}:/root/.m2" \\
-                  -e MAVEN_OPTS="-Xms256m -Xmx768m -XX:MaxMetaspaceSize=256m" \\
-
-                # Check if compose file was written
-                if [[ ! -s "${GRID_FILE}" ]]; then
-                  echo "[grid] ERROR: Compose file is empty!"
-                  cat "${GRID_FILE}"
-                  exit 1
-                fi
-
-                # ── Start hub + chrome + firefox ──────────────────────────────
-                echo "[grid] starting hub + chrome + firefox on network ${GRID_NET}"
-                docker compose \
-                  --project-name "kc-${BUILD_NUMBER}" \
-                  -f "${GRID_FILE}" \
-                  up -d selenium-hub chrome firefox
-
-                # ── Start edge only when requested ────────────────────────────
-                if [[ "${RUN_EDGE:-false}" == "true" ]]; then
-                  echo "[grid] starting edge node"
-                  docker compose \
-                    --project-name "kc-${BUILD_NUMBER}" \
-                    -f "${GRID_FILE}" \
-                    up -d edge
-                fi
-
-                # ── Wait for hub to accept connections ───────────────────────
-                HUB=$(docker compose --project-name "kc-${BUILD_NUMBER}" -f "${GRID_FILE}" ps -q selenium-hub)
-                if [[ -z "$HUB" ]]; then
-                  echo "[grid] ERROR: Hub container not found!"
-                  docker compose --project-name "kc-${BUILD_NUMBER}" -f "${GRID_FILE}" ps
-                  exit 1
-                fi
-                echo "[grid] hub container: ${HUB}"
-                echo "[grid] waiting for /wd/hub/status (timeout 120s)..."
-
-                timeout 120 bash -c "
-                  until docker exec ${HUB} curl -sSf http://localhost:4444/wd/hub/status >/dev/null 2>&1; do
-                    sleep 2
-                  done
-                " || {
-                  ${MVN_IMG} \\
-                  mvn -f pom.xml -pl tests -am clean test \\
-                    -Denv=${ENV} \\
-                    -Dthreads=${THREADS} \\
-                    -Dcucumber.filter.tags="${tags}" \\
-                sh """#!/usr/bin/env bash
-                  set -euo pipefail
-
-                  # ── Write the grid compose file ───────────────────────────────
-                  cat > "${GRID_FILE}" <<YML
-
-    // ─────────────────────────────────────────────────────────────────────
-    // Generate Allure HTML reports using the official Docker image.
-    // No local allure CLI install needed on the Jenkins agent.
-    // ─────────────────────────────────────────────────────────────────────
+          sh '''#!/usr/bin/env bash
+set -euo pipefail
+docker run --rm \
+  --network "${GRID_NET}" \
+  # ...add your Maven test commands here...
+'''
+        }
+      }
+    }
     stage('Generate Allure Reports') {
       steps {
         sh '''#!/usr/bin/env bash
-          set +e
-          echo "[allure] pulling image (cached after first run)..."
-          docker pull "${ALLURE_IMAGE}" --quiet || true
-
-          GENERATED=0; SKIPPED=0
-
-          for suffix in ui-chrome ui-firefox ui-edge api; do
-            IN_DIR="${WORKSPACE}/reports/allure-results-${suffix}"
-            OUT_DIR="${WORKSPACE}/reports/allure-report-${suffix}"
-
-            COUNT=$(find "${IN_DIR}" -type f 2>/dev/null | wc -l)
-            if [[ "${COUNT}" -eq 0 ]]; then
-              echo "[allure] skip — 0 result files for: ${suffix}"
-              (( SKIPPED++ )) || true; continue
-            fi
-
-            echo "[allure] generating allure-report-${suffix}  (${COUNT} files)..."
-
-            # Generate Allure HTML using the Maven plugin inside the Maven container.
-            docker run --rm \
-              -v "${WORKSPACE}:/work" -w /work \
-              -v "${MVN_CACHE}:/root/.m2" \
-              ${MVN_IMG} \
-              mvn -f pom.xml -pl tests -am -DskipTests \
-                -Dallure.results.directory="/work/reports/allure-results-${suffix}" \
-                -Dallure.report.directory="/work/reports/allure-report-${suffix}" \
-                allure:report
-
-            # Some plugin versions always write to tests/target/site/...; copy if needed
-            if [[ ! -f "${OUT_DIR}/index.html" && -d "${WORKSPACE}/tests/target/site/allure-maven-plugin" ]]; then
-              cp -r "${WORKSPACE}/tests/target/site/allure-maven-plugin/." "${OUT_DIR}/" || true
-            fi
-
-            [[ -f "${OUT_DIR}/index.html" ]] \
-              && { echo "[allure] ✅ ${suffix} report ready"; (( GENERATED++ )) || true; } \
-              || echo "[allure] ❌ generation failed for ${suffix}"
-          done
-
-          echo ""
-          echo "[allure] ${GENERATED} generated, ${SKIPPED} skipped"
-        '''
+set +e
+echo "[allure] pulling image (cached after first run)..."
+docker pull "${ALLURE_IMAGE}" --quiet || true
+GENERATED=0; SKIPPED=0
+for suffix in ui-chrome ui-firefox ui-edge api; do
+  IN_DIR="${WORKSPACE}/reports/allure-results-${suffix}"
+  OUT_DIR="${WORKSPACE}/reports/allure-report-${suffix}"
+  COUNT=$(find "${IN_DIR}" -type f 2>/dev/null | wc -l)
+  if [ "${COUNT}" -eq 0 ]; then
+    echo "[allure] skip — 0 result files for: ${suffix}"
+    (( SKIPPED++ )) || true; continue
+  fi
+  echo "[allure] generating allure-report-${suffix}  (${COUNT} files)..."
+  docker run --rm \
+    -v "${WORKSPACE}:/work" -w /work \
+    -v "${MVN_CACHE}:/root/.m2" \
+    ${MVN_IMG} \
+    mvn -f pom.xml -pl tests -am -DskipTests \
+      -Dallure.results.directory="/work/reports/allure-results-${suffix}" \
+      -Dallure.report.directory="/work/reports/allure-report-${suffix}" \
+      allure:report
+  if [ ! -f "${OUT_DIR}/index.html" ] && [ -d "${WORKSPACE}/tests/target/site/allure-maven-plugin" ]; then
+    cp -r "${WORKSPACE}/tests/target/site/allure-maven-plugin/." "${OUT_DIR}/" || true
+  fi
+  [ -f "${OUT_DIR}/index.html" ] \
+    && { echo "[allure] ✅ ${suffix} report ready"; (( GENERATED++ )) || true; } \
+    || echo "[allure] ❌ generation failed for ${suffix}"
+done
+echo ""
+echo "[allure] ${GENERATED} generated, ${SKIPPED} skipped"
+'''
       }
-
-                  # Check if compose file was written
-                  if [[ ! -s "${GRID_FILE}" ]]; then
-                    echo "[grid] ERROR: Compose file is empty!"
-                    cat "${GRID_FILE}"
-                    exit 1
-                  fi
-
-                  # ── Start hub + chrome + firefox ──────────────────────────────
-                  echo "[grid] starting hub + chrome + firefox on network ${GRID_NET}"
-                  docker compose \
-                    --project-name "kc-${BUILD_NUMBER}" \
-                    -f "${GRID_FILE}" \
-                    up -d selenium-hub chrome firefox
-
-                  # ── Start edge only when requested ────────────────────────────
-                  if [[ "${RUN_EDGE:-false}" == "true" ]]; then
-                    echo "[grid] starting edge node"
-                    docker compose \
-                      --project-name "kc-${BUILD_NUMBER}" \
-                      -f "${GRID_FILE}" \
-                      up -d edge
-                  fi
-
-                  # ── Wait for hub to accept connections ───────────────────────
-                  HUB=$(docker compose --project-name "kc-${BUILD_NUMBER}" -f "${GRID_FILE}" ps -q selenium-hub)
-                  if [[ -z "$HUB" ]]; then
-                    echo "[grid] ERROR: Hub container not found!"
-                    docker compose --project-name "kc-${BUILD_NUMBER}" -f "${GRID_FILE}" ps
-                    exit 1
-                  fi
-                  echo "[grid] hub container: ${HUB}"
-                  echo "[grid] waiting for /wd/hub/status (timeout 120s)..."
-
-                  timeout 120 bash -c "
-                    until docker exec ${HUB} curl -sSf http://localhost:4444/wd/hub/status >/dev/null 2>&1; do
-                      sleep 2
-                    done
-                  " || {
     }
-
-  } // end stages
+  }
 
   // ─────────────────────────────────────────────────────────────────────────
   post {
